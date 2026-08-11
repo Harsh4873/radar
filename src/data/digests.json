@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-08-10",
     "vertical": "campus",
-    "scanned": 2043,
-    "candidates": 342,
+    "scanned": 2046,
+    "candidates": 346,
     "recommended": [
       "campus-9abac9efcdc3",
       "campus-01eb94d58854",
@@ -20,14 +20,22 @@
       "bioinformatics / genomics · data science · workshop / training",
       "computer science · paid study · graduate opportunities"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-d608cb4ea27f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-10T13:00:00.000Z",
+        "after": "2026-08-11T05:00:00.000Z"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-08-10",
     "vertical": "research",
-    "scanned": 1071,
-    "candidates": 137,
+    "scanned": 1095,
+    "candidates": 139,
     "recommended": [
       "research-5452ce5ce349",
       "research-f738f15ccdda",
