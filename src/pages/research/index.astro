@@ -22,6 +22,8 @@ const core = byBand(items, 'core');
 const adjacent = byBand(items, 'adjacent');
 const methods = byBand(items, 'methods');
 const top = forYou(items);
+// One source of truth for the For You cut, shared by the lede and the tab.
+const forYouIds = new Set(top.map((item) => item.id));
 const fresh = recentlyAdded(items, now, 7);
 
 const preprintChanges = research.diff.changes.filter(
@@ -81,7 +83,7 @@ const preprintChanges = research.diff.changes.filter(
   </p>
 
   <ul class="feed" data-feed data-default-tab="for-you">
-    {items.map((item) => <ItemCard item={item} now={now} />)}
+    {items.map((item) => <ItemCard item={item} now={now} inForYou={forYouIds.has(item.id)} />)}
   </ul>
 
   <p class="empty" data-empty-state hidden>

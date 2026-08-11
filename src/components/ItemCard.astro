@@ -20,9 +20,14 @@ interface Props {
   now: string;
   /** Show the full reason list rather than the top few. */
   detailed?: boolean;
+  /**
+   * Whether this item is in the page's For You cut. Decided by the page,
+   * which knows the ranked order and the limit; see `tabsFor`.
+   */
+  inForYou?: boolean;
 }
 
-const { item, now, detailed = false } = Astro.props;
+const { item, now, detailed = false, inForYou } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
 
 const research = item.research;
@@ -58,7 +63,7 @@ const distinctSources = [...new Set(item.sources.map((source) => source.source))
   data-item-id={item.id}
   data-relevance={item.relevance}
   data-signals={signalsOf(item)}
-  data-tabs={tabsFor(item).join(',')}
+  data-tabs={tabsFor(item, inForYou).join(',')}
   data-first-seen={item.firstSeen}
 >
   <div class="card-head">

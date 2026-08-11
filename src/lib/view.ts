@@ -105,10 +105,22 @@ export const FOR_YOU_MIN = 55;
  * `for-you` - and the client filters on these, so this is the single place
  * that decides tab membership for both verticals.
  */
-export function tabsFor(item: RadarItem): string[] {
+export function tabsFor(item: RadarItem, inForYou?: boolean): string[] {
   const tabs: string[] = [];
 
-  if (item.relevance >= FOR_YOU_MIN) tabs.push('for-you');
+  /*
+   * For You membership is DECIDED BY THE PAGE, not recomputed here.
+   *
+   * `forYou()` applies a score threshold AND a hard limit, because the brief
+   * is explicit that this tab should hold 5-15 things rather than everything
+   * above a line. Re-deriving membership from the threshold alone made the two
+   * disagree in a way a reader could see: the page said "15 are probably worth
+   * reading" while the tab it pointed at listed 37.
+   *
+   * The fallback keeps this usable for callers that have no ranked set to
+   * hand, such as a single-item detail page.
+   */
+  if (inForYou ?? item.relevance >= FOR_YOU_MIN) tabs.push('for-you');
 
   const research = item.research;
   if (research !== undefined) {

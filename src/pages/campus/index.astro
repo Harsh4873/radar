@@ -16,6 +16,8 @@ const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
 
 const items = campus.items;
 const top = forYou(items);
+// One source of truth for the For You cut, shared by the lede and the tab.
+const forYouIds = new Set(top.map((item) => item.id));
 const fresh = recentlyAdded(items, now, 7);
 
 const paid = items.filter((item) => (item.campus?.compensationUsd ?? 0) > 0);
@@ -100,7 +102,7 @@ const changes = campus.diff.changes.filter(
   </p>
 
   <ul class="feed" data-feed data-default-tab="for-you">
-    {items.map((item) => <ItemCard item={item} now={now} />)}
+    {items.map((item) => <ItemCard item={item} now={now} inForYou={forYouIds.has(item.id)} />)}
   </ul>
 
   <p class="empty" data-empty-state hidden>
