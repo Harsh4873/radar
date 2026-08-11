@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/X2P5fmfivI4Ad6PZP7L8fyEh8Zw</id>
+  <title>arXiv Query: search_query=abs:"codon model"&amp;id_list=&amp;start=0&amp;max_results=15</title>
+  <updated>2026-08-11T02:41:07Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:%22codon+model%22&amp;start=0&amp;max_results=15&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>15</opensearch:itemsPerPage>
+  <opensearch:totalResults>4</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2606.27607v1</id>
+    <title>BEAGLE 4.1: A high-performance library for computation on phylogenetic trees across diverse parallel architectures</title>
+    <updated>2026-06-25T23:47:49Z</updated>
+    <link href="https://arxiv.org/abs/2606.27607v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.27607v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Efficient evaluation of sequence data likelihoods and their high-dimensional gradients on phylogenetic trees improves inference under both maximum-likelihood and Bayesian frameworks. Here, we present BEAGLE 4.1, a high-performance library for statistical phylogenetics that incorporates new algorithms to evaluate these gradients on phylogenetic trees. We also provide new hardware implementations for both likelihoods and gradients supporting ARM NEON intrinsics and optimized matrix multiplication units -- called tensor cores -- on NVIDIA graphics processing units (GPUs). We benchmark the performance scaling of the library across a number of patterns and taxa on multi-core CPUs and GPUs, and compare the speedup afforded by NVIDIA and AMD GPUs as well as performance scaling with an increasing number of GPUs. We show that multi-core CPU implementations provide up to a fourfold speedup over single-threaded CPU implementations and up to an tenfold speedup for nucleotide and codon models, respectively, with performance generally improving as the number of taxa and site patterns increases. GPUs outperform multi-threaded CPU implementations for a realistic number of patterns, even for nucleotide models with a small state-space size of 4, while for codon models they provide substantially higher performance gains even for a single pattern or four taxa. Tensor cores on GPUs provide up to 2-fold speedup relative to standard CUDA cores for codon models. Using NEON instructions on ARM CPUs affords up to a $\sim 1.3$-fold speedup over non-SIMD implementation with the speedup going down to 1.1-fold at 8 CPU threads. We provide these new algorithms to evaluate the gradient and efficient hardware implementations for both likelihood and gradient calculations through BEAGLE 4.1, such that they can be readily integrated into phylogenetic software packages.</summary>
+    <category term="q-bio.PE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-25T23:47:49Z</published>
+    <arxiv:primary_category term="q-bio.PE"/>
+    <author>
+      <name>Karthik Gangavarapu</name>
+    </author>
+    <author>
+      <name>Xiang Ji</name>
+    </author>
+    <author>
+      <name>Yucai Shao</name>
+    </author>
+    <author>
+      <name>Philippe Lemey</name>
+    </author>
+    <author>
+      <name>Andrew Rambaut</name>
+    </author>
+    <author>
+      <name>Guy Baele</name>
+    </author>
+    <author>
+      <name>Marc A. Suchard</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2303.04390v1</id>
+    <title>Many-core algorithms for high-dimensional gradients on phylogenetic trees</title>
+    <updated>2023-03-08T05:37:40Z</updated>
+    <link href="https://arxiv.org/abs/2303.04390v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2303.04390v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The rapid growth in genomic pathogen data spurs the need for efficient inference techniques, such as Hamiltonian Monte Carlo (HMC) in a Bayesian framework, to estimate parameters of these phylogenetic models where the dimensions of the parameters increase with the number of sequences $N$. HMC requires repeated calculation of the gradient of the data log-likelihood with respect to (wrt) all branch-length-specific (BLS) parameters that traditionally takes $\mathcal{O}(N^2)$ operations using the standard pruning algorithm. A recent study proposes an approach to calculate this gradient in $\mathcal{O}(N)$, enabling researchers to take advantage of gradient-based samplers such as HMC. The CPU implementation of this approach makes the calculation of the gradient computationally tractable for nucleotide-based models but falls short in performance for larger state-space size models, such as codon models. Here, we describe novel massively parallel algorithms to calculate the gradient of the log-likelihood wrt all BLS parameters that take advantage of graphics processing units (GPUs) and result in many fold higher speedups over previous CPU implementations. We benchmark these GPU algorithms on three computing systems using three evolutionary inference examples: carnivores, dengue and yeast, and observe a greater than 128-fold speedup over the CPU implementation for codon-based models and greater than 8-fold speedup for nucleotide-based models. As a practical demonstration, we also estimate the timing of the first introduction of West Nile virus into the continental Unites States under a codon model with a relaxed molecular clock from 104 full viral genomes, an inference task previously intractable. We provide an implementation of our GPU algorithms in BEAGLE v4.0.0, an open source library for statistical phylogenetics that enables parallel calculations on multi-core CPUs and GPUs.</summary>
+    <category term="stat.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="q-bio.PE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-03-08T05:37:40Z</published>
+    <arxiv:primary_category term="stat.CO"/>
+    <author>
+      <name>Karthik Gangavarapu</name>
+    </author>
+    <author>
+      <name>Xiang Ji</name>
+    </author>
+    <author>
+      <name>Guy Baele</name>
+    </author>
+    <author>
+      <name>Mathieu Fourment</name>
+    </author>
+    <author>
+      <name>Philippe Lemey</name>
+    </author>
+    <author>
+      <name>Frederick A. Matsen</name>
+    </author>
+    <author>
+      <name>Marc A. Suchard</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1804.11249v3</id>
+    <title>The impracticalities of multiplicatively-closed codon models: a retreat to linear alternatives</title>
+    <updated>2020-08-06T00:54:05Z</updated>
+    <link href="https://arxiv.org/abs/1804.11249v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1804.11249v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A matrix Lie algebra is a linear space of matrices closed under the operation $ [A, B] = AB-BA $. The "Lie closure" of a set of matrices is the smallest matrix Lie algebra which contains the set. In the context of Markov chain theory, if a set of rate matrices form a Lie algebra, their corresponding Markov matrices are closed under matrix multiplication; this has been found to be a useful property in phylogenetics. Inspired by previous research involving Lie closures of DNA models, it was hypothesised that finding the Lie closure of a codon model could help to solve the problem of mis-estimation of the non-synonymous/synonymous rate ratio, $ ω$. We propose two different methods of finding a linear space from a model: the first is the \emph{linear closure} which is the smallest linear space which contains the model, and the second is the \emph{linear version} which changes multiplicative constraints in the model to additive ones. For each of these linear spaces we then find the Lie closures of them. Under both methods, it was found that closed codon models would require thousands of parameters, and that any partial solution to this problem that was of a reasonable size violated stochasticity. Investigation of toy models indicated that finding the Lie closure of matrix linear spaces which deviated only slightly from a simple model resulted in a Lie closure that was close to having the maximum number of parameters possible. Given that Lie closures are not practical, we propose further consideration of the two variants of linearly closed models.</summary>
+    <category term="q-bio.PE" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.RA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.ST" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2018-04-26T00:43:18Z</published>
+    <arxiv:primary_category term="q-bio.PE"/>
+    <arxiv:journal_ref>Journal of Mathematical Biology, 1-25 (2020)</arxiv:journal_ref>
+    <author>
+      <name>Julia A. Shore</name>
+    </author>
+    <author>
+      <name>Jeremy G. Sumner</name>
+    </author>
+    <author>
+      <name>Barbara R. Holland</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1709.05079v1</id>
+    <title>Exploring the consequences of lack of closure in codon models</title>
+    <updated>2017-09-15T07:21:02Z</updated>
+    <link href="https://arxiv.org/abs/1709.05079v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1709.05079v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Models of codon evolution are commonly used to identify positive selection. Positive selection is typically a heterogeneous process, i.e., it acts on some branches of the evolutionary tree and not others. Previous work on DNA models showed that when evolution occurs under a heterogeneous process it is important to consider the property of model closure, because non-closed models can give biased estimates of evolutionary processes. The existing codon models that account for the genetic code are not closed; to establish this it is enough to show that they are not linear (meaning that the sum of two codon rate matrices in the model is not a matrix in the model). This raises the concern that a single codon model fit to a heterogeneous process might mis-estimate both the effect of selection and branch lengths.
+  Codon models are typically constructed by choosing an underlying DNA model (e.g., HKY) that acts identically and independently at each codon position, and then applying the genetic code via the parameter $ω$ to modify the rate of transitions between codons that code for different amino acids. Here we use simulation to investigate the accuracy of estimation of both the selection parameter $ω$ and branch lengths in cases where the underlying DNA process is heterogeneous but $ω$ is constant. We find that both $ω$ and branch lengths can be mis-estimated in these scenarios. Errors in $ω$ were usually less than 2% but could be as high as 17%. We also assessed if choosing different underlying DNA models had any affect on accuracy, in particular we assessed if using closed DNA models gave any advantage. However, a DNA model being closed does not imply that the codon model constructed from it is closed, and in general we found that using closed DNA models did not decrease errors in the estimation of $ω$.</summary>
+    <category term="q-bio.PE" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="q-bio.QM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-09-15T07:21:02Z</published>
+    <arxiv:comment>15 pages; 3 figures; 5 tables</arxiv:comment>
+    <arxiv:primary_category term="q-bio.PE"/>
+    <author>
+      <name>Michael D. Woodhams</name>
+    </author>
+    <author>
+      <name>Jeremy G. Sumner</name>
+    </author>
+    <author>
+      <name>David A. Liberles</name>
+    </author>
+    <author>
+      <name>Michael A. Charleston</name>
+    </author>
+    <author>
+      <name>Barbara R. Holland</name>
+    </author>
+  </entry>
+</feed>

@@ -1,0 +1,236 @@
+---
+/**
+ * /radar/research/paper/:id - one paper, in full.
+ *
+ * The card answers "should I read this?"; this page answers "why did Radar
+ * think so, and where do I go next?". It shows the complete score breakdown,
+ * the identifiers, the lifecycle, and every source that confirmed it.
+ */
+import type { GetStaticPaths } from 'astro';
+import Base from '@/layouts/Base.astro';
+import { fetchedAt, now, research } from '@/lib/data.ts';
+import { BAND_LABELS, formatDate, relative, url } from '@/lib/view.ts';
+
+export const getStaticPaths = (() =>
+  research.items.map((item) => ({ params: { id: item.id }, props: { item } }))) satisfies GetStaticPaths;
+
+const { item } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
+const facet = item.research;
+
+const positive = item.reasons.filter((reason) => reason.points > 0);
+const negative = item.reasons.filter((reason) => reason.points < 0);
+
+/**
+ * "Open in Recall" - the handoff.
+ *
+ * ResearchRadar FINDS; Recall is where a paper is actually read. Everything
+ * Recall needs travels in the query string so it never has to re-resolve the
+ * paper. No PDF is passed - only the open-access URL when the upstream
+ * explicitly declared one.
+ */
+const recallParams = new URLSearchParams();
+recallParams.set('title', item.title);
+if (facet?.doi != null) recallParams.set('doi', facet.doi);
+if (facet?.pmid != null) recallParams.set('pmid', facet.pmid);
+if (facet?.openAccessUrl != null) recallParams.set('url', facet.openAccessUrl);
+recallParams.set('source', 'radar');
+const recallHref = `https://harsh.bet/research/?${recallParams.toString()}`;
+---
+
+<Base
+  title={item.title}
+  description={item.summary || 'A paper surfaced by ResearchRadar.'}
+  engine="research"
+  fetchedAt={fetchedAt}
+  current="research"
+>
+  <p class="card-meta"><a href={url(base, 'research/')}>← ResearchRadar</a></p>
+
+  <article class="panel">
+    <h1 style="margin-top:0; font-size:1.375rem; letter-spacing:-0.02em;">{item.title}</h1>
+
+    <p class="card-meta">
+      {facet?.journal ?? 'Unpublished'}
+      {facet?.publishedDate != null && <> · {formatDate(facet.publishedDate)} · {relative(facet.publishedDate, now)}</>}
+      {facet !== undefined && <> · {BAND_LABELS[facet.band]}</>}
+    </p>
+
+    {
+      facet !== undefined && facet.authors.length > 0 && (
+        <p class="card-meta">
+          {facet.authors.slice(0, 12).map((author) => author.name).join(', ')}
+          {facet.authors.length > 12 && <> and {facet.authors.length - 12} more</>}
+        </p>
+      )
+    }
+
+    <div class="actions">
+      <a class="action action-primary" href={item.url} rel="noopener external">Open source</a>
+      {
+        facet?.openAccessUrl != null && (
+          <a class="action" href={facet.openAccessUrl} rel="noopener external">
+            Full text
+          </a>
+        )
+      }
+      {/* The FIND -> UNDERSTAND handoff. Radar does not rebuild paper reading. */}
+      <a class="action" href={recallHref} rel="noopener">Open in Recall</a>
+    </div>
+  </article>
+
+  <section class="section">
+    <h2>Why Radar picked this — {item.relevance}/100</h2>
+    <p class="note">
+      Ranking is additive over named signals. Every point below came from a rule in the research
+      profile, not from a model's opinion.
+    </p>
+    <div class="panel">
+      <ul class="reasons">
+        {
+          positive.map((reason) => (
+            <li class="reason">
+              <b>+{reason.points}</b>
+              {reason.label}
+            </li>
+          ))
+        }
+        {
+          negative.map((reason) => (
+            <li class="reason is-negative">
+              <b>{reason.points}</b>
+              {reason.label}
+            </li>
+          ))
+        }
+      </ul>
+      {
+        item.relevance === 100 && positive.reduce((sum, r) => sum + r.points, 0) > 100 && (
+          <p class="note" style="margin-top:0.75rem;">
+            This paper fired more signal than the scale holds, so the score is capped at 100 and the
+            points above sum higher.
+          </p>
+        )
+      }
+    </div>
+  </section>
+
+  {
+    facet !== undefined && facet.abstract.length > 0 && (
+      <section class="section">
+        <h2>Abstract</h2>
+        <div class="panel prose">
+          <p>{facet.abstract}</p>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="section">
+    <h2>Identifiers and lifecycle</h2>
+    <div class="panel table-scroll">
+      <table class="table">
+        <tbody>
+          {facet?.doi != null && (
+            <tr>
+              <th scope="row">DOI</th>
+              <td>
+                <a href={`https://doi.org/${facet.doi}`} rel="noopener external">{facet.doi}</a>
+              </td>
+            </tr>
+          )}
+          {facet?.pmid != null && (
+            <tr>
+              <th scope="row">PMID</th>
+              <td>
+                <a href={`https://pubmed.ncbi.nlm.nih.gov/${facet.pmid}/`} rel="noopener external">{facet.pmid}</a>
+              </td>
+            </tr>
+          )}
+          {facet?.arxivId != null && (
+            <tr>
+              <th scope="row">arXiv</th>
+              <td>
+                <a href={`https://arxiv.org/abs/${facet.arxivId}`} rel="noopener external">{facet.arxivId}</a>
+              </td>
+            </tr>
+          )}
+          {facet?.openAlexId != null && (
+            <tr>
+              <th scope="row">OpenAlex</th>
+              <td>{facet.openAlexId}</td>
+            </tr>
+          )}
+          <tr>
+            <th scope="row">Type</th>
+            <td>{facet?.kind ?? 'unknown'}</td>
+          </tr>
+          {facet?.lifecycle.preprintVersion != null && (
+            <tr>
+              <th scope="row">Preprint version</th>
+              <td>v{facet.lifecycle.preprintVersion}</td>
+            </tr>
+          )}
+          {facet?.lifecycle.publishedDoi != null && (
+            <tr>
+              <th scope="row">Published as</th>
+              <td>
+                {facet.lifecycle.publishedIn ?? 'a journal article'} ·{' '}
+                <a href={`https://doi.org/${facet.lifecycle.publishedDoi}`} rel="noopener external">
+                  {facet.lifecycle.publishedDoi}
+                </a>
+              </td>
+            </tr>
+          )}
+          {facet?.citedByCount != null && (
+            <tr>
+              <th scope="row">Cited by</th>
+              <td>{facet.citedByCount}</td>
+            </tr>
+          )}
+          <tr>
+            <th scope="row">Open access</th>
+            <td>{facet?.isOpenAccess === true ? 'Yes, declared by the source' : 'Not declared'}</td>
+          </tr>
+          <tr>
+            <th scope="row">First seen</th>
+            <td>{formatDate(item.firstSeen)} · {relative(item.firstSeen, now)}</td>
+          </tr>
+          <tr>
+            <th scope="row">Source confidence</th>
+            <td>{Math.round(item.sourceConfidence * 100)}%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Sources</h2>
+    <div class="panel">
+      <ul>
+        {
+          item.sources.map((source) => (
+            <li>
+              <a href={source.url} rel="noopener external">{source.source}</a>
+              {source.channel != null && <> — matched by query: {source.channel}</>}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  {
+    facet !== undefined && facet.topics.length > 0 && (
+      <section class="section">
+        <h2>Topics</h2>
+        <ul class="badges">
+          {facet.topics.map((topic) => (
+            <li class="badge">{topic}</li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+</Base>

@@ -1,0 +1,34 @@
+{
+  "name": "radar",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Two-engine discovery system: ResearchRadar watches the literature, CampusRadar watches Texas A&M. Shared ingestion, deduplication, ranking, and change detection.",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "npm run ingest && astro build",
+    "preview": "astro preview",
+    "ingest": "node --experimental-strip-types scripts/ingest.ts",
+    "ingest:research": "node --experimental-strip-types scripts/ingest.ts --only=research",
+    "ingest:campus": "node --experimental-strip-types scripts/ingest.ts --only=campus",
+    "ingest:offline": "node --experimental-strip-types scripts/ingest.ts --offline",
+    "capture:fixtures": "node --experimental-strip-types scripts/capture-fixtures.ts",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "typecheck": "astro check && tsc --noEmit"
+  },
+  "dependencies": {
+    "astro": "7.2.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@tailwindcss/vite": "4.3.3",
+    "@types/node": "22.19.1",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3",
+    "vitest": "4.1.10"
+  }
+}

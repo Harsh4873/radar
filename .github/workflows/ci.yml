@@ -1,0 +1,119 @@
+# The gate. Nothing merges that does not typecheck, pass its tests, and build.
+#
+# STEP ORDER IS LOAD-BEARING: `ingest` runs BEFORE `typecheck`.
+#
+# `src/data/` is git-ignored, so a fresh clone has no radar.json. `src/lib/data.ts`
+# imports it directly (`import snapshotJson from '@/data/radar.json'`), and with
+# `resolveJsonModule` that is a hard module resolution: `tsc` and `astro check`
+# both fail with "Cannot find module '@/data/radar.json'" if the file is not
+# there yet. Running the ingest first turns that confusing type error back into
+# what it actually is - missing build input.
+#
+# CI runs the ingest OFFLINE. A pull request must not depend on eight external
+# APIs being up, and it must not put load on NCBI or a university calendar on
+# every push. `--offline` rebuilds from the committed snapshot instead; the
+# guard step below fails the run if that leaves nothing to build.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  # Per-branch. Superseded pushes are worth cancelling; nothing here writes.
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Restore the committed snapshot
+        # refresh.yml force-adds src/data/radar.json past .gitignore precisely
+        # so CI and the deploy have something to build against without hitting
+        # the network. On the very first run it does not exist yet.
+        run: |
+          mkdir -p src/data
+          git show HEAD:src/data/radar.json > src/data/radar.json 2>/dev/null || echo "no committed snapshot yet"
+          git show HEAD:src/data/digests.json > src/data/digests.json 2>/dev/null || echo '[]' > src/data/digests.json
+
+      - name: Build data (offline)
+        run: npm run ingest:offline || true
+
+      - name: Require build data
+        run: |
+          if [ ! -f src/data/radar.json ]; then
+            echo "::error::No src/data/radar.json. Run 'npm run ingest' locally and commit the snapshot, or wait for refresh.yml."
+            exit 1
+          fi
+          node -e '
+            const snap = JSON.parse(require("fs").readFileSync("src/data/radar.json", "utf8"));
+            const r = snap.research?.items?.length ?? 0;
+            const c = snap.campus?.items?.length ?? 0;
+            if (r + c === 0) { console.error("::error::snapshot has zero items; nothing to build against."); process.exit(1); }
+            console.log(`radar.json: ${r} papers, ${c} campus items`);
+          '
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Test
+        run: npm run test:run
+
+      - name: Build
+        # `astro build`, not `npm run build`: the data is already in place, and
+        # `npm run build` would re-run a live ingest.
+        run: npx astro build
+
+      - name: No contact addresses in the published output
+        # THE PROMISE THAT MATTERS MOST HERE.
+        #
+        # calendar.tamu.edu publishes `registration_owner_email` - a real staff
+        # address - on well over half its events, and the study registry
+        # publishes a coordinator address on nearly every listing. This site
+        # deploys publicly, so a regression that lets one through republishes
+        # staff addresses as scrapeable plaintext. Three defences exist: the
+        # connectors never read those fields, `stripEmails` scrubs free text,
+        # and this asserts on the artifact that actually ships.
+        run: |
+          set -uo pipefail
+          hits=$(grep -rEoh --exclude-dir=.prerender \
+            '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}' dist || true)
+          if [ -n "$hits" ]; then
+            echo "::error::Email addresses are present in plaintext in dist/. See src/core/text.ts stripEmails and the connector headers."
+            printf '%s\n' "$hits" | sort -u | sed 's/^/  leaked: /'
+            exit 1
+          fi
+          echo "dist/ is clean: no plaintext email addresses."
+
+      - name: Validate the artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in dist/index.html dist/research/index.html dist/campus/index.html dist/campus/sources/index.html; do
+            [ -s "$f" ] || { echo "::error::missing or empty build output: $f"; exit 1; }
+          done
+          # Every asset and link must carry the /radar/ base. Serving these
+          # anywhere else 404s, so a wrong prefix is a broken deploy.
+          grep -Fq '"/radar/_astro/' dist/index.html
+          grep -Fq 'href="/radar/research/"' dist/index.html
+          # The domain lives on the user site; a CNAME here would hijack it.
+          test ! -e CNAME
+          test ! -e dist/CNAME

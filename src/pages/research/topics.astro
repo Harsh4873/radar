@@ -1,0 +1,127 @@
+---
+/**
+ * /radar/research/topics - the profile, made legible.
+ *
+ * The ranking is only defensible if you can read the rules. This page prints
+ * the entire research profile, weight by weight, alongside how many papers in
+ * the current build each term actually matched - so a term that never fires
+ * is visible as dead weight rather than quietly doing nothing.
+ */
+import Base from '@/layouts/Base.astro';
+import { fetchedAt, research } from '@/lib/data.ts';
+import { PROFILE, type ProfileBand } from '@/research/profile.ts';
+
+const bands: { id: ProfileBand; title: string; blurb: string }[] = [
+  {
+    id: 'core',
+    title: 'Core',
+    blurb:
+      'The actual subject. Firing here is what makes a paper "highly relevant" — and the core band additionally requires an organism match, so a fish mitogenome paper that uses the same methods lands in Methods instead.',
+  },
+  {
+    id: 'methods',
+    title: 'Methods',
+    blurb:
+      'How the work is done. A methods paper can be worth reading even when the organism is wrong — a better codon model matters regardless of what it was demonstrated on.',
+  },
+  {
+    id: 'adjacent',
+    title: 'Adjacent',
+    blurb:
+      'The neighbourhood. Never enough on its own; these earn their place by stacking with a core or methods hit, and carry a higher relevance floor.',
+  },
+];
+
+/** How many published papers credited each term. Computed from the reasons. */
+const hits = new Map<string, number>();
+for (const item of research.items) {
+  for (const reason of item.reasons) {
+    hits.set(reason.label, (hits.get(reason.label) ?? 0) + 1);
+  }
+}
+---
+
+<Base
+  title="Research profile"
+  description="Every term ResearchRadar looks for, its weight, and how often it fired."
+  engine="research"
+  fetchedAt={fetchedAt}
+  current="research"
+>
+  <section class="standfirst">
+    <h1>Research profile</h1>
+    <p class="lede">
+      These rules decide what Radar looks for and how it scores what it finds. Matching is
+      phrase-based, not keyword-based — <code>dN/dS</code>, <code>M. tuberculosis</code>, and
+      <code>Mycobacterium tuberculosis</code> all resolve to the same concept, while "selection" on
+      its own does not fire the positive-selection term.
+    </p>
+    <p class="lede">
+      A term fires at most once per paper no matter how often it appears. Counting occurrences would
+      rank a long paper that says "tuberculosis" forty times above a precise one that says it twice.
+    </p>
+  </section>
+
+  {
+    bands.map((band) => (
+      <section class="section">
+        <h2>{band.title}</h2>
+        <p class="note">{band.blurb}</p>
+        <div class="panel table-scroll">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Term</th>
+                <th scope="col">Weight</th>
+                <th scope="col">Signal</th>
+                <th scope="col">Fired</th>
+                <th scope="col">Phrases matched</th>
+              </tr>
+            </thead>
+            <tbody>
+              {PROFILE.filter((term) => term.band === band.id).map((term) => (
+                <tr>
+                  <th scope="row">{term.label}</th>
+                  <td>+{term.weight}</td>
+                  <td>{term.signal}</td>
+                  <td>{hits.get(term.label) ?? 0}</td>
+                  <td style="font-size:0.8125rem; color:var(--muted);">
+                    {term.patterns.slice(0, 6).join(' · ')}
+                    {term.patterns.length > 6 && <> · +{term.patterns.length - 6} more</>}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    ))
+  }
+
+  <section class="section">
+    <h2>Combination bonuses</h2>
+    <div class="panel prose">
+      <p>
+        Some intersections mean more than the sum of their parts, so they score separately:
+      </p>
+      <ul>
+        <li><strong>+12</strong> — selection methods applied to Mtb (an organism hit and a methods hit together)</li>
+        <li><strong>+10</strong> — TB and a host metabolic angle together</li>
+        <li><strong>+16 max</strong> — cites papers you have saved, via the OpenAlex citation graph</li>
+        <li><strong>+14</strong> — an author on your watchlist</li>
+      </ul>
+      <h3>Penalties</h3>
+      <ul>
+        <li><strong>−6</strong> — title only, no abstract available, so the score rests on less evidence</li>
+        <li><strong>−8</strong> — a preprint that has since been published; the journal version supersedes it</li>
+        <li><strong>−6</strong> — work more than two years old, as a tiebreak against fresh results</li>
+      </ul>
+      <h3>What never earns a place on its own</h3>
+      <p>
+        Recency and open access are <em>modifiers</em>. A paper that matches no profile term is not
+        published at all, however new it is — otherwise every recent open-access paper in biology
+        would qualify, which is several hundred a day.
+      </p>
+    </div>
+  </section>
+</Base>

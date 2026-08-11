@@ -1,0 +1,224 @@
+# Keep the published snapshot current.
+#
+# The site is static: every figure on it was gathered at build time. Without
+# this workflow the feed silently ages, which is the one failure mode that
+# matters here - an event that happened last week still reading as upcoming.
+#
+# What a run does:
+#   1. ingest both verticals from live upstreams   (npm run ingest)
+#   2. refuse to publish a result that looks wrong (empty, or a collapse in
+#      item count that suggests a partial upstream response)
+#   3. prove the site still builds from it         (astro build)
+#   4. commit src/data/{radar,digests}.json        (only on a real change)
+#   5. dispatch deploy-pages.yml so Pages republishes
+#
+# FOUR THINGS THAT ARE EASY TO GET WRONG HERE:
+#
+#   * `src/data/` is git-ignored, so the commit below needs `git add -f`. It is
+#     ignored because it is generated - but it is ALSO the diff baseline for
+#     change detection and the input CI and the deploy build against. Without a
+#     committed copy, every run would think every item was brand new and the
+#     "what changed?" feed would be permanently empty.
+#
+#   * `radar.json` changes on EVERY run regardless of upstream, because
+#     `fetchedAt` is a timestamp. `git diff --quiet` would therefore always
+#     report a change and this job would commit twice a day forever. The
+#     material-change check below compares the items only.
+#
+#   * A partial upstream failure is NOT a workflow failure. Connectors never
+#     throw; a dead source produces a warning and a smaller feed. But a
+#     half-empty snapshot must not overwrite a good one, hence the collapse
+#     guard.
+#
+#   * The ingest is the only thing in this repo that touches the network, and
+#     it hits public university and government APIs. Twice a day is deliberate
+#     - the feeds do not move faster than that, and being a quiet guest is
+#     worth more than being a fresh one.
+
+name: Refresh Radar data
+
+on:
+  schedule:
+    # ~06:20 and ~18:20 America/Chicago. Deliberately off the hour: scheduled
+    # jobs at :00 queue behind everyone else's and can drift 15+ minutes.
+    # Cron is UTC and does not follow daylight saving.
+    - cron: '20 11 * * *'
+    - cron: '20 23 * * *'
+  workflow_dispatch:
+    inputs:
+      force_deploy:
+        description: 'Redeploy even if the data did not change'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  # For the final step: dispatching deploy-pages.yml via the API.
+  actions: write
+
+concurrency:
+  # Two runs committing to the same branch would race on push. Never cancel a
+  # run in flight - it may be between `git commit` and `git push`.
+  group: refresh-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      # Keep the previous snapshot before the ingest overwrites it. It is both
+      # the diff baseline and what the sanity check below compares against.
+      - name: Restore and save the committed snapshot
+        run: |
+          mkdir -p src/data
+          git show HEAD:src/data/radar.json > src/data/radar.json 2>/dev/null || true
+          git show HEAD:src/data/digests.json > src/data/digests.json 2>/dev/null || true
+          cp src/data/radar.json /tmp/prev-radar.json 2>/dev/null || true
+
+      - name: Ingest
+        env:
+          # Optional. Raises NCBI's E-utilities limit from 3/s to 10/s.
+          NCBI_API_KEY: ${{ secrets.NCBI_API_KEY }}
+          # Optional. Crossref and OpenAlex operate a faster "polite pool" for
+          # requests that identify themselves. Never written into the output -
+          # the email guard in the deploy would fail the build if it were.
+          RADAR_CONTACT_EMAIL: ${{ secrets.RADAR_CONTACT_EMAIL }}
+        run: npm run ingest 2>&1 | tee /tmp/ingest.log || true
+
+      - name: Decide whether this result is publishable
+        id: gate
+        run: |
+          set -euo pipefail
+
+          if [ ! -f src/data/radar.json ]; then
+            echo "::error::ingest produced no snapshot - nothing to publish."
+            exit 1
+          fi
+
+          VERDICT=$(node -e '
+            const fs = require("fs");
+            const read = (p) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; } };
+            const prev = read("/tmp/prev-radar.json");
+            const next = read("src/data/radar.json");
+            const count = (s) => (s?.research?.items?.length ?? 0) + (s?.campus?.items?.length ?? 0);
+
+            if (count(next) === 0) { process.stdout.write("empty"); process.exit(0); }
+            if (prev === null) { process.stdout.write("changed"); process.exit(0); }
+
+            // A partial upstream response that still parses would otherwise
+            // publish a gutted feed. Halving is far outside normal churn -
+            // campus items turn over as events pass, but not that fast.
+            if (count(next) < count(prev) * 0.5) { process.stdout.write("suspect"); process.exit(0); }
+
+            // Compare items only. `fetchedAt` moves every run and is not a
+            // change anyone can see. This DOES catch events passing and
+            // scores shifting, which are real changes worth deploying.
+            const strip = (s) => JSON.stringify([s.research.items, s.campus.items]);
+            process.stdout.write(strip(prev) === strip(next) ? "unchanged" : "changed");
+          ')
+
+          case "$VERDICT" in
+            empty)
+              echo "::error::Snapshot contains zero items. Refusing to publish."
+              exit 1 ;;
+            suspect)
+              echo "::warning::Item count collapsed by more than half. Refusing to publish; re-run manually if upstream really shrank."
+              echo "verdict=skip" >> "$GITHUB_OUTPUT" ;;
+            unchanged)
+              echo "Nothing material changed upstream."
+              echo "verdict=unchanged" >> "$GITHUB_OUTPUT" ;;
+            *)
+              echo "verdict=changed" >> "$GITHUB_OUTPUT" ;;
+          esac
+
+      # Prove the data is buildable BEFORE committing it.
+      - name: Verify the site still builds
+        if: steps.gate.outputs.verdict == 'changed'
+        run: npx astro build
+
+      - name: No contact addresses in the published output
+        # This is the copy that matters most. CI only ever sees data a human
+        # already looked at; this job publishes whatever a university calendar
+        # served at 11:20 UTC, unattended, straight to production. A
+        # coordinator pasting an address into a new free-text field would ship
+        # here first.
+        if: steps.gate.outputs.verdict == 'changed'
+        run: |
+          set -uo pipefail
+          hits=$(grep -rEoh --exclude-dir=.prerender \
+            '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}' dist || true)
+          if [ -n "$hits" ]; then
+            echo "::error::Refusing to deploy: email addresses are in plaintext in dist/."
+            printf '%s\n' "$hits" | sort -u | sed 's/^/  leaked: /'
+            exit 1
+          fi
+          echo "dist/ is clean: no plaintext email addresses."
+
+      - name: Commit the new snapshot
+        if: steps.gate.outputs.verdict == 'changed'
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # -f because src/data/ is git-ignored; see the header comment.
+          git add -f src/data/radar.json src/data/digests.json
+
+          SUMMARY=$(node -e '
+            const snap = JSON.parse(require("fs").readFileSync("src/data/radar.json", "utf8"));
+            const r = snap.research, c = snap.campus;
+            const n = (d) => d.added.length + d.removed.length + d.changes.length;
+            process.stdout.write(
+              `${r.items.length} papers, ${c.items.length} campus items; ` +
+              `${n(r.diff)} research + ${n(c.diff)} campus change(s)`
+            );
+          ')
+
+          git commit -m "data: refresh snapshot (${SUMMARY})" \
+                     -m "Automated by .github/workflows/refresh.yml."
+
+          # Push once, then rebase and retry if a human landed a commit in the
+          # meantime. The concurrency group prevents this job racing itself.
+          git push || { git pull --rebase --autostash && git push; }
+
+      - name: Trigger a Pages deploy
+        # The snapshot commit above was pushed with GITHUB_TOKEN, and a
+        # GITHUB_TOKEN push deliberately does not fire `on: push` workflows -
+        # the same guard that stops this job looping with ci.yml. Pages
+        # therefore only picks up the new data if the deploy workflow is
+        # dispatched explicitly, which an API call with GITHUB_TOKEN is allowed
+        # to do (hence `actions: write` above).
+        if: steps.gate.outputs.verdict == 'changed' || inputs.force_deploy
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy-pages.yml --ref main
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### Radar refresh"
+            echo
+            echo "| | |"
+            echo "|---|---|"
+            echo "| verdict | \`${{ steps.gate.outputs.verdict || 'failed' }}\` |"
+            echo
+            echo '<details><summary>ingest output</summary>'
+            echo
+            echo '```'
+            tail -n 80 /tmp/ingest.log 2>/dev/null || echo "(no log)"
+            echo '```'
+            echo
+            echo '</details>'
+          } >> "$GITHUB_STEP_SUMMARY"

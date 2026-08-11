@@ -1,0 +1,189 @@
+---
+/**
+ * /radar/campus/event/:id - one event, in full.
+ *
+ * Shows the score breakdown, every source that confirmed it, and — where it
+ * matters — the exact source phrase behind a food or payment claim, so a
+ * questionable badge can always be traced back to what was actually written.
+ */
+import type { GetStaticPaths } from 'astro';
+import Base from '@/layouts/Base.astro';
+import { campus, fetchedAt, now } from '@/lib/data.ts';
+import { FOOD_LABELS } from '@/campus/freebies.ts';
+import { CATEGORY_LABELS } from '@/campus/classify.ts';
+import { formatDateTime, formatRange, relative, url } from '@/lib/view.ts';
+
+export const getStaticPaths = (() =>
+  campus.items.map((item) => ({ params: { id: item.id }, props: { item } }))) satisfies GetStaticPaths;
+
+const { item } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
+const facet = item.campus;
+
+const positive = item.reasons.filter((reason) => reason.points > 0);
+const negative = item.reasons.filter((reason) => reason.points < 0);
+
+/**
+ * A calendar link built from the data Radar already has.
+ *
+ * Google Calendar's template URL is used rather than generating an .ics file,
+ * because a static host cannot set the Content-Type an .ics download needs to
+ * open natively on most platforms.
+ */
+const calendarParams = new URLSearchParams();
+calendarParams.set('action', 'TEMPLATE');
+calendarParams.set('text', item.title);
+if (facet?.startsAt != null) {
+  const start = new Date(facet.startsAt);
+  const end = facet.endsAt != null ? new Date(facet.endsAt) : new Date(start.getTime() + 3_600_000);
+  const stamp = (date: Date): string => date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+  calendarParams.set('dates', `${stamp(start)}/${stamp(end)}`);
+}
+if (facet?.location != null) calendarParams.set('location', facet.location);
+calendarParams.set('details', `${item.summary}\n\nvia Radar: ${item.url}`);
+const calendarHref = `https://calendar.google.com/calendar/render?${calendarParams.toString()}`;
+---
+
+<Base
+  title={item.title}
+  description={item.summary || 'An event surfaced by CampusRadar.'}
+  engine="campus"
+  fetchedAt={fetchedAt}
+  current="campus"
+>
+  <p class="card-meta"><a href={url(base, 'campus/')}>← CampusRadar</a></p>
+
+  <article class="panel">
+    <h1 style="margin-top:0; font-size:1.375rem; letter-spacing:-0.02em;">
+      {item.title}
+      {facet?.isCancelled === true && <span class="badge badge-cancelled" style="margin-left:0.5rem;">Cancelled</span>}
+    </h1>
+
+    <p class="card-meta">
+      {
+        facet?.seriesCount != null && facet.seriesCount > 1
+          ? `${formatRange(facet.startsAt, facet.endsAt)} · ${facet.seriesCount} sessions`
+          : facet?.startsAt == null
+            ? 'Open listing — no fixed date'
+            : `${formatDateTime(facet.startsAt)} · ${relative(facet.startsAt, now)}`
+      }
+    </p>
+
+    {facet?.location != null && <p class="card-meta">{facet.location}</p>}
+    {facet?.organizer != null && <p class="card-meta">{facet.organizer}</p>}
+
+    <ul class="badges">
+      {facet !== undefined && <li class="badge">{CATEGORY_LABELS[facet.category]}</li>}
+      {facet?.isOnline === true && <li class="badge">Online</li>}
+      {facet?.hasRegistration === true && <li class="badge">Registration</li>}
+      {facet?.cost != null && <li class="badge">{facet.cost}</li>}
+      {facet?.compensationUsd != null && facet.compensationUsd > 0 && (
+        <li class="badge pay">${facet.compensationUsd}</li>
+      )}
+      {facet?.compensation != null && facet.compensationUsd === null && (
+        <li class="badge chance">{facet.compensation}</li>
+      )}
+      {facet !== undefined && facet.food.confidence !== 'none' && (
+        <li class:list={['food', `food-${facet.food.confidence}`]}>{FOOD_LABELS[facet.food.confidence]}</li>
+      )}
+    </ul>
+
+    <div class="actions">
+      <a class="action action-primary" href={item.url} rel="noopener external">Open source</a>
+      {facet?.onlineUrl != null && (
+        <a class="action" href={facet.onlineUrl} rel="noopener external">Join online</a>
+      )}
+      {facet?.startsAt != null && (
+        <a class="action" href={calendarHref} rel="noopener external">Add to calendar</a>
+      )}
+    </div>
+  </article>
+
+  {item.summary.length > 0 && (
+    <section class="section">
+      <h2>Details</h2>
+      <div class="panel prose">
+        <p>{item.summary}</p>
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <h2>Why Radar surfaced this — {item.relevance}/100</h2>
+    <div class="panel">
+      <ul class="reasons">
+        {positive.map((reason) => (
+          <li class="reason">
+            <b>+{reason.points}</b>
+            {reason.label}
+          </li>
+        ))}
+        {negative.map((reason) => (
+          <li class="reason is-negative">
+            <b>{reason.points}</b>
+            {reason.label}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  {
+    /*
+     * The receipt. If a card claims free food or a payment, this is the exact
+     * text that claim came from - so a wrong badge can be traced rather than
+     * merely doubted.
+     */
+    facet !== undefined && (facet.food.evidence !== null || facet.compensation !== null) && (
+      <section class="section">
+        <h2>Evidence</h2>
+        <div class="panel prose">
+          {facet.food.evidence !== null && (
+            <>
+              <h3 style="margin-top:0;">Food: {FOOD_LABELS[facet.food.confidence]}</h3>
+              <p style="font-family:ui-monospace,monospace; font-size:0.8125rem;">
+                “…{facet.food.evidence}…”
+              </p>
+              <p class="note">
+                {facet.food.confidence === 'confirmed'
+                  ? 'The source states the food is free.'
+                  : facet.food.confidence === 'provided'
+                    ? 'The source states food is provided but does not say it is free.'
+                    : 'A food word appears; the source does not say whether it is provided or free.'}
+              </p>
+            </>
+          )}
+          {facet.compensation !== null && (
+            <>
+              <h3>Compensation, as published</h3>
+              <p style="font-family:ui-monospace,monospace; font-size:0.8125rem;">“{facet.compensation}”</p>
+              <p class="note">
+                {facet.compensationUsd === null
+                  ? 'Radar will not turn this into a number — it is either a lottery or too vague to price.'
+                  : `Parsed as $${facet.compensationUsd}. Ranges show the guaranteed low end.`}
+              </p>
+            </>
+          )}
+        </div>
+      </section>
+    )
+  }
+
+  <section class="section">
+    <h2>Sources</h2>
+    <div class="panel">
+      <p class="note" style="margin-top:0;">
+        Confidence {Math.round(item.sourceConfidence * 100)}% ·{' '}
+        {[...new Set(item.sources.map((s) => s.source))].length} distinct source(s)
+      </p>
+      <ul>
+        {item.sources.map((source) => (
+          <li>
+            <a href={source.url} rel="noopener external">{source.source}</a>
+            {source.channel != null && <> — {source.channel}</>}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Base>

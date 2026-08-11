@@ -1,0 +1,59 @@
+---
+/**
+ * /radar/campus/companies - employer and recruiting events.
+ *
+ * The tab worth opening on purpose. An event lands here when a curated
+ * employer name appears in it, or when the language is recruiting-shaped
+ * (info session, tech talk, career fair). See src/campus/classify.ts.
+ */
+import Base from '@/layouts/Base.astro';
+import CategoryFeed from '@/components/CategoryFeed.astro';
+import { campus, fetchedAt, now } from '@/lib/data.ts';
+import { byCategory } from '@/lib/view.ts';
+
+const items = byCategory(campus.items, 'companies');
+const named = items.filter((item) => (item.campus?.companies.length ?? 0) > 0);
+const employers = [...new Set(items.flatMap((item) => item.campus?.companies ?? []))].sort();
+---
+
+<Base
+  title="Companies — CampusRadar"
+  description="Employer info sessions, tech talks, career fairs and recruiting events at Texas A&M."
+  engine="campus"
+  fetchedAt={fetchedAt}
+  current="campus"
+>
+  <CategoryFeed
+    heading="Companies"
+    lede="Employer-facing events: info sessions, tech talks, career fairs, and recruiting nights."
+    items={items}
+    now={now}
+    tally={[
+      { label: 'recruiting events', value: items.length, tone: 'core' },
+      { label: 'name a specific employer', value: named.length, tone: 'methods' },
+    ]}
+    emptyMessage="No employer events in the current window. Recruiting clusters around the start of each semester."
+  />
+
+  {
+    employers.length > 0 && (
+      <section class="section">
+        <h2>Employers seen this build</h2>
+        <ul class="badges">
+          {employers.map((employer) => (
+            <li class="badge">{employer}</li>
+          ))}
+        </ul>
+        <p class="note" style="margin-top:0.5rem;">
+          Matched against a curated employer list rather than by guessing at names — "Zachry" is a
+          building here as well as an engineering firm, and a wrong tag routes an event to the wrong
+          tab.
+        </p>
+      </section>
+    )
+  }
+</Base>
+
+<script>
+  import '@/client/feed.ts';
+</script>

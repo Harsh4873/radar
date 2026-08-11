@@ -1,0 +1,2732 @@
+{
+ "version": "6.9",
+ "hitCount": 2416,
+ "nextCursorMark": "AoJwgOCVo50DKDU0MzUzMjIz",
+ "nextPageUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=\"Mycobacterium tuberculosis\" AND \"positive selection\"&cursorMark=AoJwgOCVo50DKDU0MzUzMjIz&resultType=core&sort=P_PDATE_D desc&format=json",
+ "request": {
+  "queryString": "\"Mycobacterium tuberculosis\" AND \"positive selection\"",
+  "resultType": "core",
+  "cursorMark": "*",
+  "pageSize": 25,
+  "sort": "P_PDATE_D desc",
+  "synonym": false
+ },
+ "resultList": {
+  "result": [
+   {
+    "id": "41734270",
+    "source": "MED",
+    "pmid": "41734270",
+    "pmcid": "PMC12978187",
+    "fullTextIdList": {
+     "fullTextId": [
+      "PMC12978187"
+     ]
+    },
+    "doi": "10.1080/22221751.2026.2637292",
+    "title": "An Rv1471-expressing chimpanzee adenovirus vaccine confers protection against tuberculosis by inducing alveolar macrophage trained immunity and polyfunctional T-cell responses.",
+    "authorString": "Wang H, Zhang Y, Li J, Wu J, Huang S, Xie S, Huang X, Wang J, Fan XY, Hu Z.",
+    "authorList": {
+     "author": [
+      {
+       "fullName": "Wang H",
+       "firstName": "Huiling",
+       "lastName": "Wang",
+       "initials": "H",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Shanghai Public Health Clinical Center & Shanghai Institute of Infectious Diseases and Biosecurity, Fudan University, Shanghai, People's Republic of China."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Zhang Y",
+       "firstName": "Ying",
+       "lastName": "Zhang",
+       "initials": "Y",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Shanghai Public Health Clinical Center & Shanghai Institute of Infectious Diseases and Biosecurity, Fudan University, Shanghai, People's Republic of China."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Li J",
+       "firstName": "Jianhui",
+       "lastName": "Li",
+       "initials": "J",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Shanghai Public Health Clinical Center & Shanghai Institute of Infectious Diseases and Biosecurity, Fudan University, Shanghai, People's Republic of China."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Wu J",
+       "firstName": "Juan",
+       "lastName": "Wu",
+       "initials": "J",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Shanghai Public Health Clinical Center & Shanghai Institute of Infectious Diseases and Biosecurity, Fudan University, Shanghai, People's Republic of China."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Huang S",
+       "firstName": "Shaoqiong",
+       "lastName": "Huang",
+       "initials": "S",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Shanghai Public Health Clinical Center & Shanghai Institute of Infectious Diseases and Biosecurity, Fudan University, Shanghai, People's Republic of China."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Xie S",
+       "firstName": "Shiqi",
+       "lastName": "Xie",
+       "initials": "S",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Shanghai Public Health Clinical Center & Shanghai Institute of Infectious Diseases and Biosecurity, Fudan University, Shanghai, People's Republic of China."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Huang X",
+       "firstName": "Xuejiao",
+       "lastName": "Huang",
+       "initials": "X",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Shanghai Public Health Clinical Center & Shanghai Institute of Infectious Diseases and Biosecurity, Fudan University, Shanghai, People's Republic of China."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Wang J",
+       "firstName": "Jing",
+       "lastName": "Wang",
+       "initials": "J",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Shanghai Public Health Clinical Center & Shanghai Institute of Infectious Diseases and Biosecurity, Fudan University, Shanghai, People's Republic of China."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Fan XY",
+       "firstName": "Xiao-Yong",
+       "lastName": "Fan",
+       "initials": "XY",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Shanghai Public Health Clinical Center & Shanghai Institute of Infectious Diseases and Biosecurity, Fudan University, Shanghai, People's Republic of China."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Hu Z",
+       "firstName": "Zhidong",
+       "lastName": "Hu",
+       "initials": "Z",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0001-8490-4389"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Shanghai Public Health Clinical Center & Shanghai Institute of Infectious Diseases and Biosecurity, Fudan University, Shanghai, People's Republic of China."
+         }
+        ]
+       }
+      }
+     ]
+    },
+    "authorIdList": {
+     "authorId": [
+      {
+       "type": "ORCID",
+       "value": "0000-0001-8490-4389"
+      },
+      {
+       "type": "ORCID",
+       "value": "0009-0003-4507-7212"
+      }
+     ]
+    },
+    "dataLinksTagsList": {
+     "dataLinkstag": [
+      "altmetrics"
+     ]
+    },
+    "journalInfo": {
+     "issue": "1",
+     "volume": "15",
+     "journalIssueId": 4076050,
+     "dateOfPublication": "2026 Dec",
+     "monthOfPublication": 12,
+     "yearOfPublication": 2026,
+     "printPublicationDate": "2026-12-01",
+     "journal": {
+      "title": "Emerging microbes & infections",
+      "medlineAbbreviation": "Emerg Microbes Infect",
+      "essn": "2222-1751",
+      "issn": "2222-1751",
+      "isoabbreviation": "Emerg Microbes Infect",
+      "nlmid": "101594885"
+     }
+    },
+    "pubYear": "2026",
+    "pageInfo": "2637292",
+    "abstractText": "The limited protection afforded by Bacille Calmette-Gu\u00e9rin (BCG) against pulmonary tuberculosis (TB) underscores the critical need for novel vaccine strategies. Alveolar macrophages (AMs), as the primary sentinel cells encountering inhaled <i>Mycobacterium tuberculosis</i> (<i>Mtb</i>), play a decisive role in early infection outcomes, yet their potential as a direct vaccine target remains largely untapped. Here, we developed a chimpanzee adenovirus vaccine expressing the <i>Mtb</i> antigen Rv1471 (rAd-Rv1471), which we previously identified for its unique capacity to induce innate immune memory. In murine models, intranasal rAd-Rv1471 administration reprogrammed AMs into a trained state, characterized by enhanced production of pro-inflammatory cytokines, elevated surface expression of MHC II and CD86, and improved cell-intrinsic control of intracellular mycobacterial growth. Transcriptomic analysis revealed upregulation of key immunometabolic pathways, including Akt/mTOR/HIF-1\u03b1 signalling and glycolysis. Concurrently, intranasal rAd-Rv1471 administration induced potent antigen-specific, polyfunctional T cells in the lung. This dual engagement of innate and adaptive immunity conferred significant protection against aerosol <i>Mtb</i> challenge. Furthermore, rAd-Rv1471 acted as an effective heterologous booster, enhancing protection in BCG-primed mice. Our findings establish rAd-Rv1471 as a synergistic mucosal vaccine candidate that concurrently induces trained immunity in AMs and polyfunctional T-cell responses, highlighting a promising dual-targeting strategy for next-generation TB vaccines.",
+    "affiliation": "Shanghai Public Health Clinical Center & Shanghai Institute of Infectious Diseases and Biosecurity, Fudan University, Shanghai, People's Republic of China.",
+    "publicationStatus": "ppublish",
+    "language": "eng",
+    "pubModel": "Print-Electronic",
+    "pubTypeList": {
+     "pubType": [
+      "research-article",
+      "Journal Article"
+     ]
+    },
+    "meshHeadingList": {
+     "meshHeading": [
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Lung",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "IM",
+          "qualifierName": "immunology",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "T-Lymphocytes",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "IM",
+          "qualifierName": "immunology",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Macrophages, Alveolar",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "IM",
+          "qualifierName": "immunology",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Animals"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Mice, Inbred C57BL"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Humans"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Pan troglodytes"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Mice"
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Mycobacterium tuberculosis",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "GE",
+          "qualifierName": "genetics",
+          "majorTopic_YN": "N"
+         },
+         {
+          "abbreviation": "IM",
+          "qualifierName": "immunology",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Adenoviridae",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "GE",
+          "qualifierName": "genetics",
+          "majorTopic_YN": "N"
+         },
+         {
+          "abbreviation": "IM",
+          "qualifierName": "immunology",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Tuberculosis",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "IM",
+          "qualifierName": "immunology",
+          "majorTopic_YN": "N"
+         },
+         {
+          "abbreviation": "PC",
+          "qualifierName": "prevention & control",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Tuberculosis, Pulmonary",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "IM",
+          "qualifierName": "immunology",
+          "majorTopic_YN": "N"
+         },
+         {
+          "abbreviation": "PC",
+          "qualifierName": "prevention & control",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Tuberculosis Vaccines",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "AD",
+          "qualifierName": "administration & dosage",
+          "majorTopic_YN": "N"
+         },
+         {
+          "abbreviation": "GE",
+          "qualifierName": "genetics",
+          "majorTopic_YN": "N"
+         },
+         {
+          "abbreviation": "IM",
+          "qualifierName": "immunology",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Antigens, Bacterial",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "GE",
+          "qualifierName": "genetics",
+          "majorTopic_YN": "N"
+         },
+         {
+          "abbreviation": "IM",
+          "qualifierName": "immunology",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Cytokines"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Female"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Immunity, Innate"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Trained Immunity"
+      }
+     ]
+    },
+    "keywordList": {
+     "keyword": [
+      "Mycobacterium tuberculosis",
+      "Vaccine",
+      "Alveolar macrophage",
+      "Trained Immunity",
+      "Rv1471"
+     ]
+    },
+    "chemicalList": {
+     "chemical": [
+      {
+       "name": "Antigens, Bacterial",
+       "registryNumber": "0"
+      },
+      {
+       "name": "Cytokines",
+       "registryNumber": "0"
+      },
+      {
+       "name": "Tuberculosis Vaccines",
+       "registryNumber": "0"
+      }
+     ]
+    },
+    "subsetList": {
+     "subset": [
+      {
+       "code": "IM",
+       "name": "Index Medicus"
+      }
+     ]
+    },
+    "fullTextUrlList": {
+     "fullTextUrl": [
+      {
+       "availability": "Subscription required",
+       "availabilityCode": "S",
+       "documentStyle": "doi",
+       "site": "DOI",
+       "url": "https://doi.org/10.1080/22221751.2026.2637292"
+      },
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "html",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC12978187"
+      },
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "pdf",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC12978187?pdf=render"
+      }
+     ]
+    },
+    "isOpenAccess": "Y",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "Y",
+    "citedByCount": 0,
+    "hasData": "Y",
+    "hasReferences": "N",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasLabsLinks": "Y",
+    "license": "cc by",
+    "hasEvaluations": "N",
+    "authMan": "N",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "N",
+    "hasTMAccessionNumbers": "N",
+    "dateOfCompletion": "2026-07-08",
+    "dateOfCreation": "2026-02-24",
+    "firstIndexDate": "2026-02-25",
+    "fullTextReceivedDate": "2026-03-14",
+    "dateOfRevision": "2026-07-08",
+    "electronicPublicationDate": "2026-03-10",
+    "firstPublicationDate": "2026-03-10"
+   },
+   {
+    "id": "42000255",
+    "source": "MED",
+    "pmid": "42000255",
+    "pmcid": "PMC13094712",
+    "fullTextIdList": {
+     "fullTextId": [
+      "PMC13094712"
+     ]
+    },
+    "doi": "10.1016/j.tig.2026.03.008",
+    "title": "Heterogeneity in microbial antibiotic responses: genetic basis and within-host evolution.",
+    "authorString": "Liu Q, Lyu LD.",
+    "authorList": {
+     "author": [
+      {
+       "fullName": "Liu Q",
+       "firstName": "Qingyun",
+       "lastName": "Liu",
+       "initials": "Q",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Department of Genetics, University of North Carolina at Chapel Hill, Chapel Hill, NC 27599, USA; Department of Microbiology and Immunology, University of North Carolina at Chapel Hill, Chapel Hill, NC 27599, USA. Electronic address: qingyun_liu@med.unc.edu."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Lyu LD",
+       "firstName": "Liang-Dong",
+       "lastName": "Lyu",
+       "initials": "LD",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0001-6391-6030"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Key Laboratory of Medical Molecular Virology of the Ministry of Education/Ministry of Health, Department of Medical Microbiology and Parasitology, School of Basic Medical Sciences, Fudan University, Shanghai 200032, China; Shanghai Clinical Research Center for Tuberculosis, Shanghai Key Laboratory of Tuberculosis, Shanghai Pulmonary Hospital, Shanghai 200433, China. Electronic address: ld.lyu@fudan.edu.cn."
+         }
+        ]
+       }
+      }
+     ]
+    },
+    "authorIdList": {
+     "authorId": [
+      {
+       "type": "ORCID",
+       "value": "0000-0001-6391-6030"
+      }
+     ]
+    },
+    "dataLinksTagsList": {
+     "dataLinkstag": [
+      "altmetrics",
+      "supporting_data"
+     ]
+    },
+    "journalInfo": {
+     "issue": "7",
+     "volume": "42",
+     "journalIssueId": 4227319,
+     "dateOfPublication": "2026 Jul",
+     "monthOfPublication": 7,
+     "yearOfPublication": 2026,
+     "printPublicationDate": "2026-07-01",
+     "journal": {
+      "title": "Trends in genetics : TIG",
+      "medlineAbbreviation": "Trends Genet",
+      "issn": "0168-9525",
+      "isoabbreviation": "Trends Genet",
+      "nlmid": "8507085"
+     }
+    },
+    "pubYear": "2026",
+    "pageInfo": "656-669",
+    "abstractText": "Antibiotic response phenotypes have traditionally been classified as either sensitive or resistant. However, accumulating evidence indicates that bacterial responses to antibiotics are far more heterogeneous than previously appreciated. A growing set of new descriptors-including antibiotic persistence, tolerance, heteroresistance, resilience, and perseverance-has been introduced to capture noncanonical antibiotic phenotypes, which are widespread in bacteria and recognized as a cause of treatment failure. Although defined by different criteria, these phenotypes all converge on the heterogeneous nature of bacterial antibiotic responses. In this review, we focus on the heterogeneity-causing mechanisms embedded in genome maintenance, transcription, and translation; discuss how within-host evolved mutations can modulate regulatory stochasticity and shift population dynamics in ways that favor bacterial propagation; and highlight key future directions.",
+    "affiliation": "Department of Genetics, University of North Carolina at Chapel Hill, Chapel Hill, NC 27599, USA; Department of Microbiology and Immunology, University of North Carolina at Chapel Hill, Chapel Hill, NC 27599, USA. Electronic address: qingyun_liu@med.unc.edu.",
+    "publicationStatus": "ppublish",
+    "language": "eng",
+    "pubModel": "Print-Electronic",
+    "pubTypeList": {
+     "pubType": [
+      "Research Support, Non-U.S. Gov't",
+      "research-article",
+      "Review",
+      "Journal Article",
+      "Research Support, N.I.H., Extramural"
+     ]
+    },
+    "grantsList": {
+     "grant": [
+      {
+       "grantId": "2024YFE0108000",
+       "agency": "National Key Research and Development Program of China",
+       "orderIn": 0
+      },
+      {
+       "grantId": "82372293",
+       "agency": "National Natural Science Foundation of China",
+       "orderIn": 0
+      },
+      {
+       "grantId": "2023YFC2307303",
+       "agency": "National Key Research and Development Program of China",
+       "orderIn": 0
+      },
+      {
+       "grantId": "DP2AI192739",
+       "agency": "National Institutes of Health",
+       "orderIn": 0
+      },
+      {
+       "agency": "Key Technologies Research and Development Program",
+       "orderIn": 0
+      },
+      {
+       "grantId": "2025ZD01907202",
+       "agency": "National Major Science and Technology Projects of China",
+       "orderIn": 0
+      }
+     ]
+    },
+    "meshHeadingList": {
+     "meshHeading": [
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Animals"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Humans"
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Bacteria",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "DE",
+          "qualifierName": "drug effects",
+          "majorTopic_YN": "N"
+         },
+         {
+          "abbreviation": "GE",
+          "qualifierName": "genetics",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Anti-Bacterial Agents",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "PD",
+          "qualifierName": "pharmacology",
+          "majorTopic_YN": "N"
+         },
+         {
+          "abbreviation": "TU",
+          "qualifierName": "therapeutic use",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Evolution, Molecular"
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Drug Resistance, Bacterial",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "GE",
+          "qualifierName": "genetics",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Phenotype"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Mutation"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Biological Evolution"
+      }
+     ]
+    },
+    "keywordList": {
+     "keyword": [
+      "Mutagenesis",
+      "Antibiotic Resistance",
+      "Antibiotic susceptibility",
+      "Antibiotic Tolerance",
+      "Population Heterogeneity",
+      "Stochastic Gene Expression",
+      "Within-host Evolution"
+     ]
+    },
+    "chemicalList": {
+     "chemical": [
+      {
+       "name": "Anti-Bacterial Agents",
+       "registryNumber": "0"
+      }
+     ]
+    },
+    "subsetList": {
+     "subset": [
+      {
+       "code": "IM",
+       "name": "Index Medicus"
+      }
+     ]
+    },
+    "fullTextUrlList": {
+     "fullTextUrl": [
+      {
+       "availability": "Subscription required",
+       "availabilityCode": "S",
+       "documentStyle": "doi",
+       "site": "DOI",
+       "url": "https://doi.org/10.1016/j.tig.2026.03.008"
+      },
+      {
+       "availability": "Free",
+       "availabilityCode": "F",
+       "documentStyle": "html",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC13094712"
+      },
+      {
+       "availability": "Free",
+       "availabilityCode": "F",
+       "documentStyle": "pdf",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC13094712?pdf=render"
+      },
+      {
+       "availability": "Free",
+       "availabilityCode": "F",
+       "documentStyle": "doi",
+       "site": "DOI",
+       "url": "https://doi.org/10.1016/j.tig.2026.03.008"
+      }
+     ]
+    },
+    "isOpenAccess": "N",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "citedByCount": 2,
+    "hasData": "Y",
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasLabsLinks": "Y",
+    "license": "cc by-nc-nd",
+    "hasEvaluations": "N",
+    "authMan": "Y",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "Y",
+    "manuscriptId": "NIHMS2161474",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+     "accessionType": [
+      "doi"
+     ]
+    },
+    "dateOfCompletion": "2026-07-07",
+    "dateOfCreation": "2026-04-18",
+    "firstIndexDate": "2026-04-20",
+    "fullTextReceivedDate": "2026-04-22",
+    "dateOfRevision": "2026-07-26",
+    "electronicPublicationDate": "2026-04-17",
+    "firstPublicationDate": "2026-04-17"
+   },
+   {
+    "id": "42353603",
+    "source": "MED",
+    "pmid": "42353603",
+    "doi": "10.3390/cimb48060598",
+    "title": "Genomic Characterization and Pathogenicity Island Analysis of 17 Mexican Isolates of &lt;i&gt;Corynebacterium pseudotuberculosis&lt;/i&gt; biovar &lt;i&gt;ovis&lt;/i&gt;.",
+    "authorString": "Jaimes-Gonzalez MG, Montes-de-Oca-Jimenez R, Ruiz-Riva-Palacio ME, Arteaga-Troncoso G, Acosta-Dibarrat JP, Rivadeneira-Barreiro PE, Zambrano-Rodriguez PC, Zavala-Vargas DI, de Castro Soares S, Sallum Ceballos VA, Sanchez-Aparicio P, de Carvalho Azevedo VA.",
+    "authorList": {
+     "author": [
+      {
+       "fullName": "Jaimes-Gonzalez MG",
+       "firstName": "Mabel Gethsemani",
+       "lastName": "Jaimes-Gonzalez",
+       "initials": "MG",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0009-0000-0075-3334"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Research and Advanced Studies in Animal Health Center, Faculty of Veterinary Medicine and Zootechnics, Autonomy University of the State of Mexico, Km 15.5 Toluca Pan-American Highway Atlacomulco, Toluca C.P. 50200, State of Mexico, Mexico."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Montes-de-Oca-Jimenez R",
+       "firstName": "Roberto",
+       "lastName": "Montes-de-Oca-Jimenez",
+       "initials": "R",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0001-9994-0948"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Research and Advanced Studies in Animal Health Center, Faculty of Veterinary Medicine and Zootechnics, Autonomy University of the State of Mexico, Km 15.5 Toluca Pan-American Highway Atlacomulco, Toluca C.P. 50200, State of Mexico, Mexico."
+         },
+         {
+          "affiliation": "Sor Juana Ines de la Cruz School, Autonomy University of the State of Mexico, Amecameca, Amecameca de Juarez C.P. 56900, State of Mexico, Mexico."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Ruiz-Riva-Palacio ME",
+       "firstName": "Martha Elba",
+       "lastName": "Ruiz-Riva-Palacio",
+       "initials": "ME",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0001-7653-3231"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Sor Juana Ines de la Cruz School, Autonomy University of the State of Mexico, Amecameca, Amecameca de Juarez C.P. 56900, State of Mexico, Mexico."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Arteaga-Troncoso G",
+       "firstName": "Gabriel",
+       "lastName": "Arteaga-Troncoso",
+       "initials": "G",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0001-9419-9572"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Department of Biology and Cell Development, National Institute of Perinatology, Chapultepec Hills Sec. IV, Miguel Hidalgo, Mexico City C.P. 11000, Mexico."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Acosta-Dibarrat JP",
+       "firstName": "Jorge Pablo",
+       "lastName": "Acosta-Dibarrat",
+       "initials": "JP",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0003-2901-4740"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Research and Advanced Studies in Animal Health Center, Faculty of Veterinary Medicine and Zootechnics, Autonomy University of the State of Mexico, Km 15.5 Toluca Pan-American Highway Atlacomulco, Toluca C.P. 50200, State of Mexico, Mexico."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Rivadeneira-Barreiro PE",
+       "firstName": "Pilar Eliana",
+       "lastName": "Rivadeneira-Barreiro",
+       "initials": "PE",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0003-1921-0967"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Department of Veterinary Medicine, Faculty of Veterinary Sciences, Technical University of Manabi, Urbina Avenue, Portoviejo C.P. 130105, Ecuador."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Zambrano-Rodriguez PC",
+       "firstName": "Pablo Cleomenes",
+       "lastName": "Zambrano-Rodriguez",
+       "initials": "PC",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0002-3496-8816"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Department of Veterinary Medicine, Faculty of Veterinary Sciences, Technical University of Manabi, Urbina Avenue, Portoviejo C.P. 130105, Ecuador."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Zavala-Vargas DI",
+       "firstName": "Dan Israel",
+       "lastName": "Zavala-Vargas",
+       "initials": "DI",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0001-8821-5900"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Research and Advanced Studies in Animal Health Center, Faculty of Veterinary Medicine and Zootechnics, Autonomy University of the State of Mexico, Km 15.5 Toluca Pan-American Highway Atlacomulco, Toluca C.P. 50200, State of Mexico, Mexico."
+         },
+         {
+          "affiliation": "Chimalhuacan General Hospital, IMSS-Wellness, Av. Del Pe\u00f1on Mza. 400 Lt. 1 Canteros Neighborhood, Chimalhuacan C.P. 56330, State of Mexico, Mexico."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "de Castro Soares S",
+       "firstName": "Siomar",
+       "lastName": "de Castro Soares",
+       "initials": "S",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0001-7299-3724"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Department of Microbiology, Immunology and Parasitology, Federal University of Triangulo Mineiro, Av. Frei Paulino, 30-Nossa Sra. da Abadia, Uberaba C.P. 38025-180, Minas Gerais, Brazil."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Sallum Ceballos VA",
+       "firstName": "Victor Augusto",
+       "lastName": "Sallum Ceballos",
+       "initials": "VA",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0001-5865-3651"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Department of Microbiology, Immunology and Parasitology, Federal University of Triangulo Mineiro, Av. Frei Paulino, 30-Nossa Sra. da Abadia, Uberaba C.P. 38025-180, Minas Gerais, Brazil."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Sanchez-Aparicio P",
+       "firstName": "Pedro",
+       "lastName": "Sanchez-Aparicio",
+       "initials": "P",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0002-6511-6595"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Research and Advanced Studies in Animal Health Center, Faculty of Veterinary Medicine and Zootechnics, Autonomy University of the State of Mexico, Km 15.5 Toluca Pan-American Highway Atlacomulco, Toluca C.P. 50200, State of Mexico, Mexico."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "de Carvalho Azevedo VA",
+       "firstName": "Vasco Ariston",
+       "lastName": "de Carvalho Azevedo",
+       "initials": "VA",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0002-4775-2280"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Department of Genetics, Ecology, and Evolution, Federal University of Minas Gerais, Av. Antonio Carlos, 6627, Pampulha, Belo Horizonte C.P. 31270, Minas Gerais, Brazil."
+         }
+        ]
+       }
+      }
+     ]
+    },
+    "authorIdList": {
+     "authorId": [
+      {
+       "type": "ORCID",
+       "value": "0000-0001-5865-3651"
+      },
+      {
+       "type": "ORCID",
+       "value": "0000-0001-7299-3724"
+      },
+      {
+       "type": "ORCID",
+       "value": "0000-0001-7653-3231"
+      },
+      {
+       "type": "ORCID",
+       "value": "0000-0001-8821-5900"
+      },
+      {
+       "type": "ORCID",
+       "value": "0000-0001-9419-9572"
+      },
+      {
+       "type": "ORCID",
+       "value": "0000-0001-9994-0948"
+      },
+      {
+       "type": "ORCID",
+       "value": "0000-0002-3496-8816"
+      },
+      {
+       "type": "ORCID",
+       "value": "0000-0002-4775-2280"
+      },
+      {
+       "type": "ORCID",
+       "value": "0000-0002-6511-6595"
+      },
+      {
+       "type": "ORCID",
+       "value": "0000-0003-1921-0967"
+      },
+      {
+       "type": "ORCID",
+       "value": "0000-0003-2901-4740"
+      },
+      {
+       "type": "ORCID",
+       "value": "0009-0000-0075-3334"
+      }
+     ]
+    },
+    "journalInfo": {
+     "issue": "6",
+     "volume": "48",
+     "journalIssueId": 4221248,
+     "dateOfPublication": "2026 Jun",
+     "monthOfPublication": 6,
+     "yearOfPublication": 2026,
+     "printPublicationDate": "2026-06-01",
+     "journal": {
+      "title": "Current issues in molecular biology",
+      "medlineAbbreviation": "Curr Issues Mol Biol",
+      "essn": "1467-3045",
+      "issn": "1467-3037",
+      "isoabbreviation": "Curr Issues Mol Biol",
+      "nlmid": "100931761"
+     }
+    },
+    "pubYear": "2026",
+    "pageInfo": "598",
+    "abstractText": "Pathogenicity islands (PAIs) are regions of bacterial genomes that harbor genes encoding virulence factors. Identifying molecules that enhance pathogenicity is crucial for understanding the mechanisms pathogens employ to cause disease and their evolution. <i>Corynebacterium pseudotuberculosis</i> (<i>C. pseudotuberculosis</i>) is a pathogenic microorganism that causes caseous lymphadenitis (CLA) in sheep and goats. Despite its prevalence in Mexico, its genetic material has not been analyzed for virulence factors acquired through horizontal gene transfer. Therefore, the aim of this study was to characterize the complete genomes of Mexican <i>C. pseudotuberculosis</i> strains and identify virulence-related genes harbored with PAIs. Seventeen strains of <i>C.pseudotuberculosis</i> biovar <i>ovis</i> isolated from Mexico were whole-genome sequenced using illumina technology, assembled de novo with SPAdes, and annotated using Prokka. PAIs were predicted with GIPSy based on genomic signatures associated with horizontal gene transfer, including G + C deviation, codon usage, virulence factors, transposases, and tRNA-flanking regions. Positive selection was assessed using POTION v1.2 by identifying orthologous groups enriched in non-synonymous substitutions. This represents the first comprehensive PAI analysis of Mexican <i>C. pseudotuberculosis</i> strains, identifying 14 putative pathogenicity islands harboring 51 virulence-associated genes. Additionally, positive selection analysis identified five coding sequences, including <i>radA</i> and <i>rpiB</i>, that are undergoing adaptive evolutionary changes. These findings elucidate the pathogenic mechanisms and genomic plasticity of Mexican <i>C. pseudotuberculosis</i> strains. They also highlight novel genetic targets for vaccine and therapeutic development against CLA.",
+    "affiliation": "Research and Advanced Studies in Animal Health Center, Faculty of Veterinary Medicine and Zootechnics, Autonomy University of the State of Mexico, Km 15.5 Toluca Pan-American Highway Atlacomulco, Toluca C.P. 50200, State of Mexico, Mexico.",
+    "publicationStatus": "epublish",
+    "language": "eng",
+    "pubModel": "Electronic",
+    "pubTypeList": {
+     "pubType": [
+      "Journal Article"
+     ]
+    },
+    "keywordList": {
+     "keyword": [
+      "virulence factors",
+      "Pathogenicity Islands",
+      "Caseous Lymphadenitis",
+      "Corynebacterium Pseudotuberculosis"
+     ]
+    },
+    "fullTextUrlList": {
+     "fullTextUrl": [
+      {
+       "availability": "Subscription required",
+       "availabilityCode": "S",
+       "documentStyle": "doi",
+       "site": "DOI",
+       "url": "https://doi.org/10.3390/cimb48060598"
+      }
+     ]
+    },
+    "isOpenAccess": "N",
+    "inEPMC": "N",
+    "inPMC": "N",
+    "hasPDF": "N",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "citedByCount": 0,
+    "hasData": "N",
+    "hasReferences": "N",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasLabsLinks": "N",
+    "hasEvaluations": "N",
+    "authMan": "N",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "N",
+    "hasTMAccessionNumbers": "N",
+    "dateOfCompletion": "2026-06-26",
+    "dateOfCreation": "2026-06-26",
+    "firstIndexDate": "2026-06-27",
+    "dateOfRevision": "2026-07-26",
+    "electronicPublicationDate": "2026-06-05",
+    "firstPublicationDate": "2026-06-05"
+   },
+   {
+    "id": "42343418",
+    "source": "MED",
+    "pmid": "42343418",
+    "pmcid": "PMC13292577",
+    "fullTextIdList": {
+     "fullTextId": [
+      "PMC13292577"
+     ]
+    },
+    "doi": "10.1186/s12964-026-03003-x",
+    "title": "Bacterial extracellular vesicles modulate epithelial antiviral responses via macrophage-mediated immunomodulation.",
+    "authorString": "Bierwagen J, L\u00fcckhof M, Heindl MR, B\u00f6ttcher-Friebertsh\u00e4user E, Rummel C, Lehmann M, Schmeck B, Jung AL.",
+    "authorList": {
+     "author": [
+      {
+       "fullName": "Bierwagen J",
+       "firstName": "Jeff",
+       "lastName": "Bierwagen",
+       "initials": "J",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Institute for Lung Research, Universities of Giessen and Marburg Lung Center, Philipps-University Marburg, German Center for Lung Research (DZL), Marburg, Germany."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "L\u00fcckhof M",
+       "firstName": "Mosche",
+       "lastName": "L\u00fcckhof",
+       "initials": "M",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Institute for Lung Research, Universities of Giessen and Marburg Lung Center, Philipps-University Marburg, German Center for Lung Research (DZL), Marburg, Germany."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Heindl MR",
+       "firstName": "Miriam Ruth",
+       "lastName": "Heindl",
+       "initials": "MR",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Institute of Virology, Philipps-University Marburg, Marburg, Germany."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "B\u00f6ttcher-Friebertsh\u00e4user E",
+       "firstName": "Eva",
+       "lastName": "B\u00f6ttcher-Friebertsh\u00e4user",
+       "initials": "E",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Institute of Virology, Philipps-University Marburg, Marburg, Germany."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Rummel C",
+       "firstName": "Christoph",
+       "lastName": "Rummel",
+       "initials": "C",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Department of Veterinary Physiology and Biochemistry, Justus Liebig University Giessen, Giessen, Germany."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Lehmann M",
+       "firstName": "Mareike",
+       "lastName": "Lehmann",
+       "initials": "M",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Institute for Lung Research, Universities of Giessen and Marburg Lung Center, Philipps-University Marburg, German Center for Lung Research (DZL), Marburg, Germany."
+         },
+         {
+          "affiliation": "Comprehensive Pneumology Center (CPC), Institute of Lung Health and Immunity, Helmholtz Zentrum M\u00fcnchen, German Center for Lung Research (DZL), Munich, Germany."
+         },
+         {
+          "affiliation": "Institute for Lung Health, Giessen, Germany."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Schmeck B",
+       "firstName": "Bernd",
+       "lastName": "Schmeck",
+       "initials": "B",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Institute for Lung Research, Universities of Giessen and Marburg Lung Center, Philipps-University Marburg, German Center for Lung Research (DZL), Marburg, Germany."
+         },
+         {
+          "affiliation": "Institute for Lung Health, Giessen, Germany."
+         },
+         {
+          "affiliation": "Core Facility Flow Cytometry - Bacterial Vesicles, Philipps-University Marburg, Marburg, Germany."
+         },
+         {
+          "affiliation": "Center for Synthetic Microbiology (SYNMIKRO), Philipps-University Marburg, Marburg, Germany."
+         },
+         {
+          "affiliation": "Department of Pulmonary and Critical Care Medicine, Clinic for Respiratory Infections, University Medical Center Marburg, Philipps-University Marburg, Marburg, Germany."
+         },
+         {
+          "affiliation": "Member of the German Center for Infectious Disease Research (DZIF), Marburg, Germany."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Jung AL",
+       "firstName": "Anna Lena",
+       "lastName": "Jung",
+       "initials": "AL",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0002-7762-4597"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Institute for Lung Research, Universities of Giessen and Marburg Lung Center, Philipps-University Marburg, German Center for Lung Research (DZL), Marburg, Germany. anna.jung@uni-marburg.de."
+         },
+         {
+          "affiliation": "Core Facility Flow Cytometry - Bacterial Vesicles, Philipps-University Marburg, Marburg, Germany. anna.jung@uni-marburg.de."
+         }
+        ]
+       }
+      }
+     ]
+    },
+    "authorIdList": {
+     "authorId": [
+      {
+       "type": "ORCID",
+       "value": "0000-0002-7762-4597"
+      }
+     ]
+    },
+    "journalInfo": {
+     "issue": "1",
+     "volume": "24",
+     "journalIssueId": 4206122,
+     "dateOfPublication": "2026 Jun",
+     "monthOfPublication": 6,
+     "yearOfPublication": 2026,
+     "printPublicationDate": "2026-06-01",
+     "journal": {
+      "title": "Cell communication and signaling : CCS",
+      "medlineAbbreviation": "Cell Commun Signal",
+      "essn": "1478-811X",
+      "issn": "1478-811X",
+      "isoabbreviation": "Cell Commun Signal",
+      "nlmid": "101170464"
+     }
+    },
+    "pubYear": "2026",
+    "pageInfo": "371",
+    "abstractText": "Bacterial extracellular vesicles (bEVs) are nano-sized, mostly spherical, double-membrane structures secreted by bacteria throughout their life cycle. In addition to their role in many prokaryotic processes, they can interact with cells of the host immune system, enabling a potential for medical application. This study investigated how bEVs from various pathogenic bacteria modulate human macrophage immune responses and their subsequent ability to protect lung alveolar epithelial cells against SARS-CoV-2 infection.Primary human blood-derived macrophages were stimulated with bEVs derived from Legionella pneumophila (Lp), Klebsiella pneumoniae (Kp), Escherichia coli (Ec), Salmonella Typhimurium (Sal) and Streptococcus pneumoniae (Sp). bEVs from Kp, Ec and Sal strongly induced pro-inflammatory cytokines and interferon-stimulated genes via Toll-like receptor 4-dependent signaling. In contrast, bEVs from Lp or Sp elicited minimal or no immune response. Conditioned media from Kp-, Ec- or Sal- bEV-stimulated macrophages further influenced Calu-3 epithelial cells, leading to the induction of interferon-stimulated genes. Notably, SARS-CoV-2 propagation tended to be reduced in Calu-3 cells pre-stimulated with conditioned media from Kp-bEV- and Ec-bEV-treated macrophages, as demonstrated by decreased infectious virus titers in TCID<sub>50</sub> assays.These findings provide new insights into macrophage-bEV interactions, demonstrating that gram-negative Kp- and Ec-derived bEVs induce a potent interferon-dependent antiviral state that can be propagated to lung epithelial cells in vitro. This study highlights a macrophage-driven mechanism of innate immune modulation that extends beyond immune cells to shape antiviral responsiveness in structural cells, providing a conceptual framework for future immunomodulatory or vaccine-oriented strategies.",
+    "affiliation": "Institute for Lung Research, Universities of Giessen and Marburg Lung Center, Philipps-University Marburg, German Center for Lung Research (DZL), Marburg, Germany.",
+    "publicationStatus": "epublish",
+    "language": "eng",
+    "pubModel": "Electronic",
+    "pubTypeList": {
+     "pubType": [
+      "research-article",
+      "Journal Article"
+     ]
+    },
+    "meshHeadingList": {
+     "meshHeading": [
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Macrophages",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "IM",
+          "qualifierName": "immunology",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Epithelial Cells",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "IM",
+          "qualifierName": "immunology",
+          "majorTopic_YN": "N"
+         },
+         {
+          "abbreviation": "VI",
+          "qualifierName": "virology",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Humans"
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Bacteria",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "IM",
+          "qualifierName": "immunology",
+          "majorTopic_YN": "N"
+         },
+         {
+          "abbreviation": "ME",
+          "qualifierName": "metabolism",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Cytokines",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "ME",
+          "qualifierName": "metabolism",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Immunomodulation"
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Extracellular Vesicles",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "IM",
+          "qualifierName": "immunology",
+          "majorTopic_YN": "N"
+         },
+         {
+          "abbreviation": "ME",
+          "qualifierName": "metabolism",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "COVID-19",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "IM",
+          "qualifierName": "immunology",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "SARS-CoV-2",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "IM",
+          "qualifierName": "immunology",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      }
+     ]
+    },
+    "keywordList": {
+     "keyword": [
+      "Pulmonary infection",
+      "innate immune response",
+      "Human Macrophages",
+      "Host-pathogen Interaction",
+      "Toll-like Receptor 4 (Tlr4)",
+      "Sars-cov-2",
+      "Bacterial Extracellular Vesicles (Bevs)"
+     ]
+    },
+    "chemicalList": {
+     "chemical": [
+      {
+       "name": "Cytokines",
+       "registryNumber": "0"
+      }
+     ]
+    },
+    "subsetList": {
+     "subset": [
+      {
+       "code": "IM",
+       "name": "Index Medicus"
+      }
+     ]
+    },
+    "fullTextUrlList": {
+     "fullTextUrl": [
+      {
+       "availability": "Subscription required",
+       "availabilityCode": "S",
+       "documentStyle": "doi",
+       "site": "DOI",
+       "url": "https://doi.org/10.1186/s12964-026-03003-x"
+      },
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "html",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC13292577"
+      },
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "pdf",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC13292577?pdf=render"
+      }
+     ]
+    },
+    "isOpenAccess": "Y",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "Y",
+    "citedByCount": 0,
+    "hasData": "Y",
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasLabsLinks": "N",
+    "license": "cc by",
+    "hasEvaluations": "N",
+    "authMan": "N",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "N",
+    "hasTMAccessionNumbers": "N",
+    "dateOfCompletion": "2026-06-25",
+    "dateOfCreation": "2026-06-25",
+    "firstIndexDate": "2026-06-25",
+    "fullTextReceivedDate": "2026-06-26",
+    "dateOfRevision": "2026-07-26",
+    "electronicPublicationDate": "2026-06-24",
+    "firstPublicationDate": "2026-06-24"
+   },
+   {
+    "id": "42296092",
+    "source": "MED",
+    "pmid": "42296092",
+    "pmcid": "PMC13293514",
+    "fullTextIdList": {
+     "fullTextId": [
+      "PMC13293514"
+     ]
+    },
+    "doi": "10.1371/journal.pbio.3003842",
+    "title": "Eco-evolutionary feedbacks drive the co-occurrence of restriction-modification systems and antimicrobial resistance genes in bacteria.",
+    "authorString": "Westley J, Bedekar P, Pursey E, Szczelkun MD, Recker M, van Houte S, Westra ER.",
+    "authorList": {
+     "author": [
+      {
+       "fullName": "Westley J",
+       "firstName": "Joseph",
+       "lastName": "Westley",
+       "initials": "J",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0002-5673-5677"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Centre for Ecology and Conservation, Faculty of Environment, Science, and Economy, University of Exeter, Penryn, United Kingdom."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Bedekar P",
+       "firstName": "Paritosh",
+       "lastName": "Bedekar",
+       "initials": "P",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Centre for Ecology and Conservation, Faculty of Environment, Science, and Economy, University of Exeter, Penryn, United Kingdom."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Pursey E",
+       "firstName": "Elizabeth",
+       "lastName": "Pursey",
+       "initials": "E",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Centre for Ecology and Conservation, Faculty of Environment, Science, and Economy, University of Exeter, Penryn, United Kingdom."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Szczelkun MD",
+       "firstName": "Mark D",
+       "lastName": "Szczelkun",
+       "initials": "MD",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0002-2501-6602"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "DNA-Protein Interactions Unit, School of Biochemistry, Faculty of Life Sciences, University of Bristol, Bristol, United Kingdom."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Recker M",
+       "firstName": "Mario",
+       "lastName": "Recker",
+       "initials": "M",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Centre for Ecology and Conservation, Faculty of Environment, Science, and Economy, University of Exeter, Penryn, United Kingdom."
+         },
+         {
+          "affiliation": "Institute for Tropical Medicine, University Hospital T\u00fcbingen, T\u00fcbingen, Germany."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "van Houte S",
+       "firstName": "Stineke",
+       "lastName": "van Houte",
+       "initials": "S",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Centre for Ecology and Conservation, Faculty of Environment, Science, and Economy, University of Exeter, Penryn, United Kingdom."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Westra ER",
+       "firstName": "Edze R",
+       "lastName": "Westra",
+       "initials": "ER",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Centre for Ecology and Conservation, Faculty of Environment, Science, and Economy, University of Exeter, Penryn, United Kingdom."
+         }
+        ]
+       }
+      }
+     ]
+    },
+    "authorIdList": {
+     "authorId": [
+      {
+       "type": "ORCID",
+       "value": "0000-0002-2501-6602"
+      },
+      {
+       "type": "ORCID",
+       "value": "0000-0002-5673-5677"
+      }
+     ]
+    },
+    "dataLinksTagsList": {
+     "dataLinkstag": [
+      "supporting_data"
+     ]
+    },
+    "journalInfo": {
+     "issue": "6",
+     "volume": "24",
+     "journalIssueId": 4205623,
+     "dateOfPublication": "2026 Jun",
+     "monthOfPublication": 6,
+     "yearOfPublication": 2026,
+     "printPublicationDate": "2026-06-01",
+     "journal": {
+      "title": "PLoS biology",
+      "medlineAbbreviation": "PLoS Biol",
+      "essn": "1545-7885",
+      "issn": "1544-9173",
+      "isoabbreviation": "PLoS Biol",
+      "nlmid": "101183755"
+     }
+    },
+    "pubYear": "2026",
+    "pageInfo": "e3003842",
+    "abstractText": "Bacterial pathogens commonly become drug resistant via horizontal acquisition of antimicrobial resistance genes (ARGs), which are often encoded on mobile genetic elements (MGEs). Although bacterial defence systems are typically considered barriers to horizontal gene transfer (HGT), previous studies revealed that bacteria with more restriction-modification (RM) systems (the most abundant bacterial defences) frequently carry more MGEs. It was suggested that this counterintuitive relationship might result from stronger selection for RM systems when exposure to costly MGEs increases. Here, we test this hypothesis using a combination of modeling and bioinformatics analysis of >40,000 bacterial genomes to better understand how eco-evolutionary feedbacks between selection for RM and acquisition of MGEs shape bacterial genome evolution. Our model predicts negative associations between HGT and RM, but only if RM diversity is high. By contrast, at low RM diversity, eco-evolutionary feedbacks drive the emergence of positive associations between HGT and RM. Consistent with these predictions, we identified negative relationships between acquired ARG counts and RM counts across species but positive relationships within individual species. Collectively, our work helps to understand how RM systems shape patterns of HGT of ARGs, which may offer opportunities for targeted surveillance of strains at higher risk of horizontally acquiring novel drug resistance alleles.",
+    "affiliation": "Centre for Ecology and Conservation, Faculty of Environment, Science, and Economy, University of Exeter, Penryn, United Kingdom.",
+    "publicationStatus": "epublish",
+    "language": "eng",
+    "pubModel": "Electronic-eCollection",
+    "pubTypeList": {
+     "pubType": [
+      "research-article",
+      "Journal Article"
+     ]
+    },
+    "grantsList": {
+     "grant": [
+      {
+       "grantId": "BB/X003051/1",
+       "agency": "Biotechnology and Biological Sciences Research Council",
+       "acronym": "BB_",
+       "orderIn": 0
+      },
+      {
+       "grantId": "DTP Studentship: 116682",
+       "agency": "Biotechnology and Biological Sciences Research Council",
+       "acronym": "BB_",
+       "orderIn": 0
+      }
+     ]
+    },
+    "meshHeadingList": {
+     "meshHeading": [
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Bacteria",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "DE",
+          "qualifierName": "drug effects",
+          "majorTopic_YN": "N"
+         },
+         {
+          "abbreviation": "GE",
+          "qualifierName": "genetics",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "DNA Restriction-Modification Enzymes",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "GE",
+          "qualifierName": "genetics",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Anti-Bacterial Agents",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "PD",
+          "qualifierName": "pharmacology",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Evolution, Molecular"
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Drug Resistance, Bacterial",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "GE",
+          "qualifierName": "genetics",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Gene Transfer, Horizontal",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "GE",
+          "qualifierName": "genetics",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Interspersed Repetitive Sequences",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "GE",
+          "qualifierName": "genetics",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Genes, Bacterial"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Genome, Bacterial",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "GE",
+          "qualifierName": "genetics",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      }
+     ]
+    },
+    "chemicalList": {
+     "chemical": [
+      {
+       "name": "Anti-Bacterial Agents",
+       "registryNumber": "0"
+      },
+      {
+       "name": "DNA Restriction-Modification Enzymes",
+       "registryNumber": "0"
+      }
+     ]
+    },
+    "subsetList": {
+     "subset": [
+      {
+       "code": "IM",
+       "name": "Index Medicus"
+      }
+     ]
+    },
+    "fullTextUrlList": {
+     "fullTextUrl": [
+      {
+       "availability": "Subscription required",
+       "availabilityCode": "S",
+       "documentStyle": "doi",
+       "site": "DOI",
+       "url": "https://doi.org/10.1371/journal.pbio.3003842"
+      },
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "html",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC13293514"
+      },
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "pdf",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC13293514?pdf=render"
+      }
+     ]
+    },
+    "isOpenAccess": "Y",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "Y",
+    "citedByCount": 0,
+    "hasData": "Y",
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasLabsLinks": "N",
+    "license": "cc by",
+    "hasEvaluations": "N",
+    "authMan": "N",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "N",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+     "accessionType": [
+      "doi"
+     ]
+    },
+    "dateOfCompletion": "2026-06-24",
+    "dateOfCreation": "2026-06-15",
+    "firstIndexDate": "2026-06-16",
+    "fullTextReceivedDate": "2026-06-26",
+    "dateOfRevision": "2026-07-26",
+    "electronicPublicationDate": "2026-06-15",
+    "firstPublicationDate": "2026-06-15"
+   },
+   {
+    "id": "42255629",
+    "source": "MED",
+    "pmid": "42255629",
+    "pmcid": "PMC13234646",
+    "fullTextIdList": {
+     "fullTextId": [
+      "PMC13234646"
+     ]
+    },
+    "doi": "10.1021/acsomega.5c11886",
+    "title": "Mucoadhesive Nanoemulsion Enhances the Antineoplastic Potential of Naringenin in Bladder Cancer Cell Lines.",
+    "authorString": "da Anuncia\u00e7\u00e3o KF, Roquete Amparo T, Dutra Sousa LR, Xavier VF, Vieira PMA, David Henrique Dos Santos O, Brand\u00e3o GC, da Silva GN.",
+    "authorList": {
+     "author": [
+      {
+       "fullName": "da Anuncia\u00e7\u00e3o KF",
+       "firstName": "Kamila de F\u00e1tima",
+       "lastName": "da Anuncia\u00e7\u00e3o",
+       "initials": "KF",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Postgraduate Program on Biological Sciences, Institute of Biological Sciences, Federal University of Ouro Preto, 35400-000 Ouro Preto, Brazil."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Roquete Amparo T",
+       "firstName": "Tatiane",
+       "lastName": "Roquete Amparo",
+       "initials": "T",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Postgraduate Program on Pharmaceutical Sciences, Federal University of Ouro Preto, 35400-000 Ouro Preto, Brazil."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Dutra Sousa LR",
+       "firstName": "Lucas Resende",
+       "lastName": "Dutra Sousa",
+       "initials": "LR",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Postgraduate Program on Pharmaceutical Sciences, Federal University of Ouro Preto, 35400-000 Ouro Preto, Brazil."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Xavier VF",
+       "firstName": "Viviane Flores",
+       "lastName": "Xavier",
+       "initials": "VF",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Postgraduate Program on Pharmaceutical Sciences, Federal University of Ouro Preto, 35400-000 Ouro Preto, Brazil."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Vieira PMA",
+       "firstName": "Paula Melo de Abreu",
+       "lastName": "Vieira",
+       "initials": "PMA",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0001-7033-7686"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Postgraduate Program on Biological Sciences, Institute of Biological Sciences, Federal University of Ouro Preto, 35400-000 Ouro Preto, Brazil."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "David Henrique Dos Santos O",
+       "firstName": "Orlando",
+       "lastName": "David Henrique Dos Santos",
+       "initials": "O",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0002-8904-6990"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Postgraduate Program on Pharmaceutical Sciences, Federal University of Ouro Preto, 35400-000 Ouro Preto, Brazil."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Brand\u00e3o GC",
+       "firstName": "Geraldo C\u00e9lio",
+       "lastName": "Brand\u00e3o",
+       "initials": "GC",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Postgraduate Program on Pharmaceutical Sciences, Federal University of Ouro Preto, 35400-000 Ouro Preto, Brazil."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "da Silva GN",
+       "firstName": "Glenda Nicioli",
+       "lastName": "da Silva",
+       "initials": "GN",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0001-9751-3379"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Postgraduate Program on Biological Sciences, Institute of Biological Sciences, Federal University of Ouro Preto, 35400-000 Ouro Preto, Brazil."
+         },
+         {
+          "affiliation": "Postgraduate Program on Pharmaceutical Sciences, Federal University of Ouro Preto, 35400-000 Ouro Preto, Brazil."
+         }
+        ]
+       }
+      }
+     ]
+    },
+    "authorIdList": {
+     "authorId": [
+      {
+       "type": "ORCID",
+       "value": "0000-0001-7033-7686"
+      },
+      {
+       "type": "ORCID",
+       "value": "0000-0001-9751-3379"
+      },
+      {
+       "type": "ORCID",
+       "value": "0000-0002-8904-6990"
+      }
+     ]
+    },
+    "dataLinksTagsList": {
+     "dataLinkstag": [
+      "supporting_data"
+     ]
+    },
+    "journalInfo": {
+     "issue": "21",
+     "volume": "11",
+     "journalIssueId": 4212205,
+     "dateOfPublication": "2026 Jun",
+     "monthOfPublication": 6,
+     "yearOfPublication": 2026,
+     "printPublicationDate": "2026-06-01",
+     "journal": {
+      "title": "ACS omega",
+      "medlineAbbreviation": "ACS Omega",
+      "essn": "2470-1343",
+      "issn": "2470-1343",
+      "isoabbreviation": "ACS Omega",
+      "nlmid": "101691658"
+     }
+    },
+    "pubYear": "2026",
+    "pageInfo": "30606-30616",
+    "abstractText": "Naringenin exhibits anticancer properties against various types of cancer. Bladder cancer is among the most prevalent cancers worldwide and is characterized by a high recurrence rate because of resistance to standard chemotherapy. Nanotechnology represents a prospective approach to counteracting the challenges associated with the therapeutic application of naringenin in the treatment of bladder cancer. The aim of this study was to evaluate the antineoplastic activity of naringenin in high-grade bladder cancer cell lines (J82 and UM-UC-3) and to develop nanoemulsions. The assessment of cellular toxicity was conducted using the sulforhodamine B method, clonogenic survival using crystal violet staining, cell migration by the wound healing assay, changes in the cell cycle using flow cytometry, and expression of the specific long noncoding RNAs <i>RP11-363E7.4</i> and <i>SBF-AS1</i> by quantitative reverse transcription polymerase chain reaction (RT-qPCR). Nanoemulsions with and without chitosan were developed using the phase inversion method and characterized by measuring particle size as well as release profile, encapsulation efficiency, and mucoadhesion in vitro and ex vivo. Naringenin significantly inhibited cell proliferation, viability, clonogenic survival, and migration and altered the cell cycle in both bladder cancer cell lines. Moreover, naringenin increased the expression of the long noncoding RNA <i>RP11-363E7.4</i> in the UM-UC-3 cell line. The nanoemulsions were found to be nanometric, monodisperse, stable, sustained-release systems, and exhibited adequate encapsulation efficiency. In addition, the formulations increased the cytotoxicity of naringenin, and the chitosan-containing nanoemulsion demonstrated mucoadhesion without ex vivo toxicity. Consequently, naringenin and nanoemulsions may represent promising alternatives for the development of therapeutic agents for the treatment of bladder cancer.",
+    "affiliation": "Postgraduate Program on Biological Sciences, Institute of Biological Sciences, Federal University of Ouro Preto, 35400-000 Ouro Preto, Brazil.",
+    "publicationStatus": "epublish",
+    "language": "eng",
+    "pubModel": "Electronic-eCollection",
+    "pubTypeList": {
+     "pubType": [
+      "research-article",
+      "Journal Article"
+     ]
+    },
+    "fullTextUrlList": {
+     "fullTextUrl": [
+      {
+       "availability": "Subscription required",
+       "availabilityCode": "S",
+       "documentStyle": "doi",
+       "site": "DOI",
+       "url": "https://doi.org/10.1021/acsomega.5c11886"
+      },
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "html",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC13234646"
+      },
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "pdf",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC13234646?pdf=render"
+      }
+     ]
+    },
+    "isOpenAccess": "Y",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "citedByCount": 0,
+    "hasData": "Y",
+    "hasReferences": "N",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasLabsLinks": "N",
+    "license": "cc by",
+    "hasEvaluations": "N",
+    "authMan": "N",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "N",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+     "accessionType": [
+      "doi"
+     ]
+    },
+    "dateOfCompletion": "2026-06-08",
+    "dateOfCreation": "2026-06-08",
+    "firstIndexDate": "2026-06-09",
+    "fullTextReceivedDate": "2026-06-07",
+    "dateOfRevision": "2026-06-08",
+    "electronicPublicationDate": "2026-05-19",
+    "firstPublicationDate": "2026-05-19"
+   },
+   {
+    "id": "42231978",
+    "source": "MED",
+    "pmid": "42231978",
+    "pmcid": "PMC13223964",
+    "fullTextIdList": {
+     "fullTextId": [
+      "PMC13223964"
+     ]
+    },
+    "doi": "10.1016/j.isci.2026.116052",
+    "title": "VPS33B regulates MHC class II antigen presentation in dendritic cells to drive CD4 T cell immunity.",
+    "authorString": "Kawarizadeh K, Vallez CN, Warrick KA, Ando S, McDaniel MM, Araki K, Pasare C.",
+    "authorList": {
+     "author": [
+      {
+       "fullName": "Kawarizadeh K",
+       "firstName": "Kiana",
+       "lastName": "Kawarizadeh",
+       "initials": "K",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Molecular Genetics, Biochemistry, and Microbiology Graduate Program, University of Cincinnati College of Medicine, Cincinnati, OH 45267, USA."
+         },
+         {
+          "affiliation": "Division of Immunobiology and Center for Inflammation and Tolerance, Cincinnati Children's Hospital Medical Center, Cincinnati, OH 45229, USA."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Vallez CN",
+       "firstName": "Charles N",
+       "lastName": "Vallez",
+       "initials": "CN",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Immunology Graduate Program, Cincinnati Children's Hospital Medical Center and University of Cincinnati, Cincinnati, OH 45229, USA."
+         },
+         {
+          "affiliation": "Division of Immunobiology and Center for Inflammation and Tolerance, Cincinnati Children's Hospital Medical Center, Cincinnati, OH 45229, USA."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Warrick KA",
+       "firstName": "Kathrynne A",
+       "lastName": "Warrick",
+       "initials": "KA",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Immunology Graduate Program, Cincinnati Children's Hospital Medical Center and University of Cincinnati, Cincinnati, OH 45229, USA."
+         },
+         {
+          "affiliation": "Division of Immunobiology and Center for Inflammation and Tolerance, Cincinnati Children's Hospital Medical Center, Cincinnati, OH 45229, USA."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Ando S",
+       "firstName": "Satomi",
+       "lastName": "Ando",
+       "initials": "S",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Division of Infectious Disease, Cincinnati Children's Hospital Medical Center, Cincinnati, OH 45229, USA."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "McDaniel MM",
+       "firstName": "Margaret M",
+       "lastName": "McDaniel",
+       "initials": "MM",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Division of Immunobiology and Center for Inflammation and Tolerance, Cincinnati Children's Hospital Medical Center, Cincinnati, OH 45229, USA."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Araki K",
+       "firstName": "Koichi",
+       "lastName": "Araki",
+       "initials": "K",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Division of Infectious Disease, Cincinnati Children's Hospital Medical Center, Cincinnati, OH 45229, USA."
+         },
+         {
+          "affiliation": "Department of Pediatrics, University of Cincinnati, College of Medicine, Cincinnati, OH 45267, USA."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Pasare C",
+       "firstName": "Chandrashekhar",
+       "lastName": "Pasare",
+       "initials": "C",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Division of Immunobiology and Center for Inflammation and Tolerance, Cincinnati Children's Hospital Medical Center, Cincinnati, OH 45229, USA."
+         },
+         {
+          "affiliation": "Department of Pediatrics, University of Cincinnati, College of Medicine, Cincinnati, OH 45267, USA."
+         }
+        ]
+       }
+      }
+     ]
+    },
+    "dataLinksTagsList": {
+     "dataLinkstag": [
+      "altmetrics",
+      "related_data",
+      "supporting_data"
+     ]
+    },
+    "journalInfo": {
+     "issue": "6",
+     "volume": "29",
+     "journalIssueId": 4192645,
+     "dateOfPublication": "2026 Jun",
+     "monthOfPublication": 6,
+     "yearOfPublication": 2026,
+     "printPublicationDate": "2026-06-01",
+     "journal": {
+      "title": "iScience",
+      "medlineAbbreviation": "iScience",
+      "essn": "2589-0042",
+      "issn": "2589-0042",
+      "isoabbreviation": "iScience",
+      "nlmid": "101724038"
+     }
+    },
+    "pubYear": "2026",
+    "pageInfo": "116052",
+    "abstractText": "Vacuolar protein sorting-associated protein (VPS)33B is essential for endosomal-lysosomal fusion, with its dysfunction linked to arthrogryposis, renal dysfunction, and cholestasis (ARC) syndrome. VPS33B has been implicated in mediating Toll-like receptor degradation in macrophages, a critical step to mitigate inflammation. Here, we uncover a pivotal function of VPS33B in dendritic cell (DC)-mediated antigen presentation. Loss of VPS33B in DCs impairs peptide-MHC class II presentation, leading to diminished CD4 T cell responses. Absence of VPS33B selectively compromises CD4-dependent CD8 T cell responses while not impacting CD4-independent CD8 T cell priming, indicating that VPS33B only affects the MHC class II pathway. Mechanistically, we find that VPS33B is required for optimal presentation of MHC class II-associated peptides as VPS33B-deficient DCs predominantly express MHC class II loaded with invariant chain degradation intermediates. Our work highlights VPS33B as a key regulator of antigen presentation and underscores its importance in orchestrating CD4 T cell-mediated immunity.",
+    "affiliation": "Molecular Genetics, Biochemistry, and Microbiology Graduate Program, University of Cincinnati College of Medicine, Cincinnati, OH 45267, USA.",
+    "publicationStatus": "epublish",
+    "language": "eng",
+    "pubModel": "Electronic-eCollection",
+    "pubTypeList": {
+     "pubType": [
+      "research-article",
+      "Journal Article"
+     ]
+    },
+    "grantsList": {
+     "grant": [
+      {
+       "agency": "National Institute of Allergy and Infectious Diseases",
+       "orderIn": 0
+      }
+     ]
+    },
+    "keywordList": {
+     "keyword": [
+      "Immunity"
+     ]
+    },
+    "fullTextUrlList": {
+     "fullTextUrl": [
+      {
+       "availability": "Subscription required",
+       "availabilityCode": "S",
+       "documentStyle": "doi",
+       "site": "DOI",
+       "url": "https://doi.org/10.1016/j.isci.2026.116052"
+      },
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "html",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC13223964"
+      },
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "pdf",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC13223964?pdf=render"
+      }
+     ]
+    },
+    "isOpenAccess": "Y",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "Y",
+    "citedByCount": 0,
+    "hasData": "Y",
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasLabsLinks": "Y",
+    "license": "cc by-nc-nd",
+    "hasEvaluations": "N",
+    "authMan": "N",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "N",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+     "accessionType": [
+      "gen"
+     ]
+    },
+    "dateOfCompletion": "2026-06-03",
+    "dateOfCreation": "2026-06-03",
+    "firstIndexDate": "2026-06-03",
+    "fullTextReceivedDate": "2026-06-04",
+    "dateOfRevision": "2026-06-03",
+    "electronicPublicationDate": "2026-05-22",
+    "firstPublicationDate": "2026-05-22"
+   },
+   {
+    "id": "42139971",
+    "source": "MED",
+    "pmid": "42139971",
+    "pmcid": "PMC13297119",
+    "fullTextIdList": {
+     "fullTextId": [
+      "PMC13297119"
+     ]
+    },
+    "doi": "10.1016/j.jaut.2026.103573",
+    "title": "Runx3 instructs Aire&lt;sup&gt;+&lt;/sup&gt; mTEC development, TSA gene expression, and central tolerance.",
+    "authorString": "Sin JH, Phillips SH, Parent AV, Waterfield MR.",
+    "authorList": {
+     "author": [
+      {
+       "fullName": "Sin JH",
+       "firstName": "Jun Hyung",
+       "lastName": "Sin",
+       "initials": "JH",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0009-0002-7338-3877"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Biomedical Sciences Graduate Program, University of California San Francisco, San Francisco, CA, USA; Department of Pediatrics, University of California San Francisco, San Francisco, CA, USA."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Phillips SH",
+       "firstName": "Sloan H",
+       "lastName": "Phillips",
+       "initials": "SH",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0009-0008-5566-6121"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Department of Pediatrics, University of California San Francisco, San Francisco, CA, USA."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Parent AV",
+       "firstName": "Audrey V",
+       "lastName": "Parent",
+       "initials": "AV",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Diabetes Center, University of California San Francisco, San Francisco, CA, USA."
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Waterfield MR",
+       "firstName": "Michael R",
+       "lastName": "Waterfield",
+       "initials": "MR",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "Biomedical Sciences Graduate Program, University of California San Francisco, San Francisco, CA, USA; Department of Pediatrics, University of California San Francisco, San Francisco, CA, USA. Electronic address: Michael.Waterfield@ucsf.edu."
+         }
+        ]
+       }
+      }
+     ]
+    },
+    "authorIdList": {
+     "authorId": [
+      {
+       "type": "ORCID",
+       "value": "0009-0002-7338-3877"
+      },
+      {
+       "type": "ORCID",
+       "value": "0009-0008-5566-6121"
+      }
+     ]
+    },
+    "dataLinksTagsList": {
+     "dataLinkstag": [
+      "altmetrics",
+      "supporting_data"
+     ]
+    },
+    "journalInfo": {
+     "volume": "161",
+     "journalIssueId": 4211324,
+     "dateOfPublication": "2026 Jun",
+     "monthOfPublication": 6,
+     "yearOfPublication": 2026,
+     "printPublicationDate": "2026-06-01",
+     "journal": {
+      "title": "Journal of autoimmunity",
+      "medlineAbbreviation": "J Autoimmun",
+      "essn": "1095-9157",
+      "issn": "0896-8411",
+      "isoabbreviation": "J Autoimmun",
+      "nlmid": "8812164"
+     }
+    },
+    "pubYear": "2026",
+    "pageInfo": "103573",
+    "abstractText": "The transcription factor Runx3 modulates key gene expression programs important for the development of multiple tissues. Here, we uncover new functions for Runx3 in thymic epithelial lineage development and show Runx3 expression in medullary thymic epithelial cells (mTECs) is required for both Autoimmune Regulator\u00a0+\u00a0(Aire<sup>+</sup>) mTEC development and tissue-specific antigen (TSA) gene expression. Consequently, TEC-specific deletion of Runx3 in mice results in a profound decrease in Aire\u202f<sup>+</sup>\u202fmTECs, a global loss of TSA gene expression, and the development of autoimmunity. Moreover, loss of Runx3 in TECs results in an expansion of immature CCL21<sup>+</sup> mTECs and a loss of Aire-dependent mimetic cells. Single-cell analysis reveals Runx3 modulates core transcriptional programs in TECs that correlate with the observed cellular changes. Our findings highlight a previously undescribed role for Runx3 in mTEC development and thymic central tolerance.",
+    "affiliation": "Biomedical Sciences Graduate Program, University of California San Francisco, San Francisco, CA, USA; Department of Pediatrics, University of California San Francisco, San Francisco, CA, USA.",
+    "publicationStatus": "ppublish",
+    "language": "eng",
+    "pubModel": "Print-Electronic",
+    "pubTypeList": {
+     "pubType": [
+      "research-article",
+      "Journal Article"
+     ]
+    },
+    "grantsList": {
+     "grant": [
+      {
+       "agency": "National Institutes of Health",
+       "orderIn": 0
+      },
+      {
+       "grantId": "P30DK063720",
+       "agency": "University of California, San Francisco",
+       "orderIn": 0
+      },
+      {
+       "grantId": "R01AI165829",
+       "agency": "National Institute of Allergy and Infectious Diseases",
+       "orderIn": 0
+      },
+      {
+       "grantId": "SCR_018206",
+       "agency": "University of California, San Francisco",
+       "orderIn": 0
+      },
+      {
+       "grantId": "R01 AI165829",
+       "agency": "NIAID NIH HHS",
+       "acronym": "AI",
+       "orderIn": 0
+      }
+     ]
+    },
+    "meshHeadingList": {
+     "meshHeading": [
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Thymus Gland",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "CY",
+          "qualifierName": "cytology",
+          "majorTopic_YN": "N"
+         },
+         {
+          "abbreviation": "IM",
+          "qualifierName": "immunology",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Epithelial Cells",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "IM",
+          "qualifierName": "immunology",
+          "majorTopic_YN": "N"
+         },
+         {
+          "abbreviation": "ME",
+          "qualifierName": "metabolism",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Animals"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Mice, Knockout"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Mice"
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Transcription Factors",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "GE",
+          "qualifierName": "genetics",
+          "majorTopic_YN": "N"
+         },
+         {
+          "abbreviation": "ME",
+          "qualifierName": "metabolism",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Cell Differentiation",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "GE",
+          "qualifierName": "genetics",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Autoimmunity",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "GE",
+          "qualifierName": "genetics",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Gene Expression Regulation"
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Core Binding Factor Alpha 3 Subunit",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "GE",
+          "qualifierName": "genetics",
+          "majorTopic_YN": "N"
+         },
+         {
+          "abbreviation": "ME",
+          "qualifierName": "metabolism",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Central Tolerance",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "abbreviation": "GE",
+          "qualifierName": "genetics",
+          "majorTopic_YN": "N"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "AIRE Protein"
+      }
+     ]
+    },
+    "chemicalList": {
+     "chemical": [
+      {
+       "name": "Transcription Factors",
+       "registryNumber": "0"
+      },
+      {
+       "name": "Core Binding Factor Alpha 3 Subunit",
+       "registryNumber": "0"
+      },
+      {
+       "name": "Runx3 protein, mouse",
+       "registryNumber": "0"
+      },
+      {
+       "name": "AIRE Protein",
+       "registryNumber": "0"
+      }
+     ]
+    },
+    "subsetList": {
+     "subset": [
+      {
+       "code": "IM",
+       "name": "Index Medicus"
+      }
+     ]
+    },
+    "fullTextUrlList": {
+     "fullTextUrl": [
+      {
+       "availability": "Subscription required",
+       "availabilityCode": "S",
+       "documentStyle": "doi",
+       "site": "DOI",
+       "url": "https://doi.org/10.1016/j.jaut.2026.103573"
+      },
+      {
+       "availability": "Free",
+       "availabilityCode": "F",
+       "documentStyle": "html",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC13297119"
+      },
+      {
+       "availability": "Free",
+       "availabilityCode": "F",
+       "documentStyle": "pdf",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC13297119?pdf=render"
+      },
+      {
+       "availability": "Free",
+       "availabilityCode": "F",
+       "documentStyle": "doi",
+       "site": "DOI",
+       "url": "https://doi.org/10.1016/j.jaut.2026.103573"
+      }
+     ]
+    },
+    "isOpenAccess": "N",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "Y",
+    "citedByCount": 0,
+    "hasData": "Y",
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasLabsLinks": "Y",
+    "hasEvaluations": "N",
+    "authMan": "Y",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "Y",
+    "manuscriptId": "NIHMS2188296",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+     "accessionType": [
+      "gen",
+      "uniprot"
+     ]
+    },
+    "dateOfCompletion": "2026-06-07",
+    "dateOfCreation": "2026-05-15",
+    "firstIndexDate": "2026-05-17",
+    "fullTextReceivedDate": "2026-06-27",
+    "dateOfRevision": "2026-07-26",
+    "electronicPublicationDate": "2026-05-15",
+    "firstPublicationDate": "2026-05-15"
+   }
+  ]
+ }
+}

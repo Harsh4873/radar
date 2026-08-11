@@ -1,0 +1,156 @@
+---
+/**
+ * /radar/campus/sources - the Source Manager.
+ *
+ * An honest inventory of what Radar can and cannot read, including the things
+ * it deliberately does not. `unavailable` is a first-class status, distinct
+ * from `failed`, and the reason is stated in full: a source that silently
+ * returns zero looks exactly like a quiet week, which is the worst possible
+ * failure mode for a discovery tool.
+ */
+import Base from '@/layouts/Base.astro';
+import { campus, fetchedAt, research } from '@/lib/data.ts';
+
+const all = [...research.sources, ...campus.sources];
+
+const statusOrder = { failed: 0, degraded: 1, unavailable: 2, ok: 3 } as const;
+const sorted = [...all].sort(
+  (a, b) => statusOrder[a.status] - statusOrder[b.status] || b.itemCount - a.itemCount,
+);
+
+const totalItems = all.reduce((sum, source) => sum + source.itemCount, 0);
+const healthy = all.filter((source) => source.status === 'ok').length;
+
+/** Sources Radar knows about but does not read, with the reason. */
+const notIngested = [
+  {
+    label: 'Gmail (a CampusRadar label)',
+    why: 'Designed but not built. The privacy-first shape is the right one — the user creates a `CampusRadar` Gmail label, filters route newsletters into it, and Radar reads only that label — but it needs OAuth and a server to hold the token, and Radar is a static site with no backend.',
+  },
+  {
+    label: 'Instagram',
+    why: 'Public-content access is restricted to Business/Creator accounts and hashtag search is capped at 30 unique hashtags per rolling seven days. Architecting a feed around that would break the first time a flyer-posting org changed account type.',
+  },
+  {
+    label: 'X',
+    why: 'The developer platform is consumption-priced. A small curated account watchlist would be viable; it is not free, so it is a decision rather than an oversight.',
+  },
+  {
+    label: 'YouTube',
+    way: true,
+    why: 'The Data API is good and watching official department channels would work. Not yet wired up — it is queued behind sources that carry events rather than recordings.',
+  },
+];
+---
+
+<Base
+  title="Sources — Radar"
+  description="What Radar reads, what it cannot read, and why."
+  engine="campus"
+  fetchedAt={fetchedAt}
+  current="sources"
+>
+  <section class="standfirst">
+    <h1>Sources</h1>
+    <p class="lede">
+      {healthy} of {all.length} sources healthy on the last run, contributing {totalItems} raw records
+      before deduplication. None of these are read in your browser — every upstream is fetched at
+      build time, because not one of them sends CORS headers.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Last run</h2>
+    <div class="panel table-scroll">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Source</th>
+            <th scope="col">Status</th>
+            <th scope="col">Records</th>
+            <th scope="col">Time</th>
+            <th scope="col">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            sorted.map((source) => (
+              <tr>
+                <th scope="row">
+                  {source.docsUrl.length > 0 ? (
+                    <a href={source.docsUrl} rel="noopener external">
+                      {source.label}
+                    </a>
+                  ) : (
+                    source.label
+                  )}
+                  <br />
+                  <span style="font-size:0.75rem; color:var(--muted);">{source.vertical}</span>
+                </th>
+                <td>
+                  <span class:list={['status', `status-${source.status}`]}>{source.status}</span>
+                </td>
+                <td>{source.itemCount}</td>
+                <td>{(source.durationMs / 1000).toFixed(1)}s</td>
+                <td style="font-size:0.8125rem; color:var(--muted);">{source.note ?? '—'}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Known, but not ingested</h2>
+    <p class="note">
+      Every one of these is a decision with a reason, not a gap someone forgot about.
+    </p>
+    <div class="panel prose">
+      {
+        notIngested.map((entry) => (
+          <>
+            <h3>{entry.label}</h3>
+            <p>{entry.why}</p>
+          </>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>How Radar behaves as a guest</h2>
+    <div class="panel prose">
+      <p>
+        Several of these APIs are run by public institutions and owe this project nothing, so the
+        HTTP layer is built around not being a nuisance:
+      </p>
+      <ul>
+        <li>
+          <strong>A descriptive User-Agent</strong> with a contact URL on every request. Anonymous
+          scraping is how an IP gets blocked, and the block lands on a shared runner.
+        </li>
+        <li>
+          <strong>Per-host rate limiting.</strong> NCBI allows 3 requests/second per IP without an
+          API key; arXiv's manual asks for one request every three seconds. Both are enforced by
+          hostname, so the budget holds across every caller in a run rather than per connector.
+        </li>
+        <li>
+          <strong>Bounded retries</strong> with exponential backoff and jitter, and
+          <code>Retry-After</code> honoured when a server sends it.
+        </li>
+        <li>
+          <strong>One pass per build.</strong> Radar makes tens of requests per run, not thousands,
+          and nothing is fetched on page view.
+        </li>
+      </ul>
+      <h3>What Radar refuses to publish</h3>
+      <p>
+        The Texas A&amp;M calendar includes a staff email on most events with registration, and the
+        study registry includes a coordinator address on nearly every listing. Radar drops those at
+        the connector, strips any address that appears in free text, and the build fails if an email
+        address reaches the published output. None of them are needed to tell you an event exists.
+      </p>
+    </div>
+  </section>
+</Base>

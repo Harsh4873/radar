@@ -1,0 +1,52 @@
+---
+/**
+ * A single-category campus page.
+ *
+ * The dedicated routes (/campus/sports/, /campus/companies/, ...) exist so a
+ * view is linkable and bookmarkable; the tabs on /campus/ cover the same
+ * ground for browsing. Both render the same cards, so this component is the
+ * shared body rather than four near-identical pages.
+ */
+import ItemCard from '@/components/ItemCard.astro';
+import type { RadarItem } from '@/types.ts';
+
+interface Props {
+  heading: string;
+  lede: string;
+  items: RadarItem[];
+  now: string;
+  emptyMessage: string;
+  /** Optional headline figures for the tally strip. */
+  tally?: { label: string; value: number; tone?: 'core' | 'adjacent' | 'methods' | 'plain' }[];
+}
+
+const { heading, lede, items, now, emptyMessage, tally = [] } = Astro.props;
+---
+
+<section class="standfirst">
+  <h1>{heading}</h1>
+  <p class="lede">{lede}</p>
+  {
+    tally.length > 0 && (
+      <ul class="tally">
+        {tally.map((entry) => (
+          <li class:list={[`t-${entry.tone ?? 'plain'}`]}>
+            <b>{entry.value}</b> {entry.label}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</section>
+
+{
+  items.length > 0 ? (
+    <ul class="feed" data-feed data-default-tab="all">
+      {items.map((item) => (
+        <ItemCard item={item} now={now} />
+      ))}
+    </ul>
+  ) : (
+    <p class="empty">{emptyMessage}</p>
+  )
+}

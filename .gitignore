@@ -1,0 +1,40 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+.astro/
+.output/
+.vercel/
+.netlify/
+
+# generated data (rebuilt by `npm run ingest`)
+# NOTE: fixtures/ is committed on purpose - it is the frozen test corpus and
+# the offline fallback. src/data/ is generated, but refresh.yml force-adds the
+# snapshots because they are also the diff baseline for change detection.
+src/data/
+
+# test / coverage
+coverage/
+*.tsbuildinfo
+
+# env
+.env
+.env.*
+!.env.example
+
+# logs
+*.log
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# claude code local settings
+.claude/settings.local.json
+
+# os / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json

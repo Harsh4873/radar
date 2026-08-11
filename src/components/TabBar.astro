@@ -1,0 +1,42 @@
+---
+/**
+ * Tab strip. Filtering happens client-side in `src/client/feed.ts`.
+ *
+ * These are buttons rather than links because every tab's content is already
+ * in the DOM - navigating would re-download the same page to hide different
+ * cards. The active tab is mirrored into the URL by the client script so a
+ * view is still linkable and survives a reload.
+ */
+import type { TabDef } from '@/lib/view.ts';
+
+interface Props {
+  tabs: readonly TabDef[];
+  active?: string;
+}
+
+const { tabs, active = 'for-you' } = Astro.props;
+---
+
+<div class="tabs" role="tablist" aria-label="Feed filters">
+  {
+    tabs.map((tab) => (
+      <button
+        class="tab"
+        type="button"
+        role="tab"
+        data-tab={tab.id}
+        title={tab.hint}
+        aria-selected={tab.id === active ? 'true' : 'false'}
+      >
+        {tab.label}
+      </button>
+    ))
+  }
+</div>
+
+<noscript>
+  <p class="note">
+    Tabs, saving, and personalized re-ranking need JavaScript. Every item is listed below in
+    relevance order regardless.
+  </p>
+</noscript>

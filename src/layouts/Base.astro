@@ -1,0 +1,116 @@
+---
+/**
+ * Page shell: landmarks, metadata, navigation, and the global stylesheet.
+ *
+ * Every internal URL is built off `import.meta.env.BASE_URL` because the site
+ * is served from https://harsh.bet/radar/ - a root-relative "/" would 404.
+ */
+import '@/styles/global.css';
+import { url } from '@/lib/view.ts';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Colours the engine chip in the header. */
+  engine?: 'research' | 'campus' | null;
+  /** ISO timestamp of the ingest that produced this page. */
+  fetchedAt?: string | undefined;
+  /** Marks the current nav item. */
+  current?: string | undefined;
+}
+
+const { title, description, engine = null, fetchedAt, current } = Astro.props;
+
+const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
+const canonical = new URL(base, Astro.site ?? 'https://harsh.bet').href;
+
+const fetchedLabel =
+  fetchedAt === undefined
+    ? null
+    : new Date(fetchedAt).toLocaleString('en-US', {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+        timeZone: 'America/Chicago',
+      });
+
+const nav = [
+  { id: 'home', label: 'Radar', href: url(base, '') },
+  { id: 'research', label: 'Research', href: url(base, 'research/') },
+  { id: 'campus', label: 'Campus', href: url(base, 'campus/') },
+  { id: 'digests', label: 'Digests', href: url(base, 'research/digests/') },
+  { id: 'watchlist', label: 'Watchlist', href: url(base, 'research/watchlist/') },
+  { id: 'sources', label: 'Sources', href: url(base, 'campus/sources/') },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content={description} />
+    {/* A personal feed keyed to one person's research. Nothing to index. */}
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <div class="brand">
+          <a href={url(base, '')}>Radar</a>
+          {engine === 'research' && <span class="engine engine-research">Research</span>}
+          {engine === 'campus' && <span class="engine engine-campus">Campus</span>}
+        </div>
+        <nav class="nav" aria-label="Radar sections">
+          {
+            nav.map((entry) => (
+              <a href={entry.href} aria-current={entry.id === current ? 'page' : undefined}>
+                {entry.label}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="wrap">
+        <slot />
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>
+          Radar is a personal discovery tool. It reads public APIs — Europe PMC, PubMed, bioRxiv,
+          medRxiv, Crossref, OpenAlex, arXiv, the Texas A&amp;M events calendar, and Aggie Research
+          Volunteers — and ranks what it finds against one person's interests. Every listing links
+          back to its source, which is the authority on the details.
+        </p>
+        <p>
+          Relevance scores are Radar's own opinion, computed from the signals shown on each card.
+          They are a sorting aid, not a judgement about quality. Nothing here is fetched live:
+          every figure was gathered when the site was last built.
+        </p>
+        <p>
+          Saved, dismissed, and tracked items live only in this browser's local storage. Radar has
+          no account, no server, and no analytics, and none of that data leaves your device.
+        </p>
+        {
+          fetchedLabel !== null && (
+            <p>
+              Data gathered {fetchedLabel} (US Central). Rebuild to refresh.
+            </p>
+          )
+        }
+      </div>
+    </footer>
+  </body>
+</html>

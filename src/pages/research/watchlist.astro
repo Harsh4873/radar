@@ -1,0 +1,203 @@
+---
+/**
+ * /radar/research/watchlist - saved and tracked papers, plus author watching.
+ *
+ * Entirely client-rendered from localStorage, because that is the only place
+ * this data exists - Radar has no account and no server. The page ships every
+ * paper's metadata as an inert JSON island and the script picks out the ones
+ * you saved.
+ */
+import Base from '@/layouts/Base.astro';
+import { fetchedAt, research } from '@/lib/data.ts';
+import { url } from '@/lib/view.ts';
+
+const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
+
+/** Minimal index. Full items would bloat the page for no gain. */
+const index = research.items.map((item) => ({
+  id: item.id,
+  title: item.title,
+  url: item.url,
+  journal: item.research?.journal ?? null,
+  date: item.research?.publishedDate ?? null,
+  relevance: item.relevance,
+  href: url(base, `research/paper/${item.id}/`),
+}));
+---
+
+<Base
+  title="Watchlist"
+  description="Papers you saved and are tracking, plus the authors and labs Radar watches for you."
+  engine="research"
+  fetchedAt={fetchedAt}
+  current="watchlist"
+>
+  <section class="standfirst">
+    <h1>Watchlist</h1>
+    <p class="lede">
+      Saved and tracked papers, and the authors you follow. All of it lives in this browser's local
+      storage — Radar has no account and no server, so this list is yours and travels nowhere.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Saved</h2>
+    <ul class="feed" id="saved-list"></ul>
+    <p class="empty" id="saved-empty">
+      Nothing saved yet. Hit <strong>Save</strong> on any card in
+      <a href={url(base, 'research/')}>ResearchRadar</a>.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Tracked for changes</h2>
+    <p class="note">
+      Radar re-checks these every ingest and reports revisions, new versions, and preprints that
+      reach a journal.
+    </p>
+    <ul class="feed" id="tracked-list"></ul>
+    <p class="empty" id="tracked-empty">Nothing tracked yet.</p>
+  </section>
+
+  <section class="section">
+    <h2>Authors and labs</h2>
+    <div class="panel">
+      <form id="watch-form" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <label class="sr-only" for="watch-input">Author or lab name</label>
+        <input
+          class="action"
+          id="watch-input"
+          name="name"
+          type="text"
+          placeholder="e.g. Sebastien Gagneux"
+          style="flex:1; min-width:14rem;"
+        />
+        <button class="action action-primary" type="submit">Watch</button>
+      </form>
+      <ul class="badges" id="watch-list" style="margin-top:0.75rem;"></ul>
+      <p class="note" style="margin-top:0.5rem;">
+        Watched names add <strong>+14</strong> to any paper they appear on at the next ingest.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Your data</h2>
+    <div class="panel">
+      <div class="actions" style="border-top:0; padding-top:0; margin-top:0;">
+        <button class="action" type="button" id="export">Export as JSON</button>
+        <button class="action" type="button" id="reset">Clear everything</button>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/json" id="paper-index" set:html={JSON.stringify(index)} />
+</Base>
+
+<script>
+  import { clearAll, exportState, loadState, saveState, watchAuthor } from '@/client/store.ts';
+
+  interface IndexEntry {
+    id: string;
+    title: string;
+    url: string;
+    journal: string | null;
+    date: string | null;
+    relevance: number;
+    href: string;
+  }
+
+  const raw = document.querySelector<HTMLScriptElement>('#paper-index')?.textContent ?? '[]';
+  const index: IndexEntry[] = JSON.parse(raw) as IndexEntry[];
+  const byId = new Map(index.map((entry) => [entry.id, entry]));
+
+  function render(): void {
+    const state = loadState();
+
+    for (const [listId, emptyId, ids] of [
+      ['saved-list', 'saved-empty', state.saved],
+      ['tracked-list', 'tracked-empty', state.tracked],
+    ] as const) {
+      const list = document.querySelector<HTMLElement>(`#${listId}`);
+      const empty = document.querySelector<HTMLElement>(`#${emptyId}`);
+      if (list === null || empty === null) continue;
+
+      // Ids can outlive a paper: it may have dropped out of the current
+      // snapshot. Filtering rather than rendering a broken row keeps the list
+      // honest without discarding the saved id, which may come back.
+      const entries = ids.map((id) => byId.get(id)).filter((entry): entry is IndexEntry => entry !== undefined);
+
+      list.replaceChildren(
+        ...entries.map((entry) => {
+          const li = document.createElement('li');
+          li.className = 'card';
+          const title = document.createElement('h3');
+          title.className = 'card-title';
+          const link = document.createElement('a');
+          link.href = entry.href;
+          link.textContent = entry.title;
+          title.append(link);
+          const meta = document.createElement('p');
+          meta.className = 'card-meta';
+          meta.textContent = [entry.journal, entry.date?.slice(0, 10), `${entry.relevance}/100`]
+            .filter(Boolean)
+            .join(' · ');
+          li.append(title, meta);
+          return li;
+        }),
+      );
+
+      list.hidden = entries.length === 0;
+      empty.hidden = entries.length > 0;
+      if (entries.length === 0 && ids.length > 0) {
+        empty.textContent = `${ids.length} item(s) saved, but none are in the current build.`;
+      }
+    }
+
+    const watchList = document.querySelector<HTMLElement>('#watch-list');
+    if (watchList !== null) {
+      watchList.replaceChildren(
+        ...state.authors.map((name) => {
+          const li = document.createElement('li');
+          li.className = 'badge';
+          const button = document.createElement('button');
+          button.className = 'action';
+          button.type = 'button';
+          button.textContent = `${name} ✕`;
+          button.addEventListener('click', () => {
+            saveState(watchAuthor(loadState(), name));
+            render();
+          });
+          li.append(button);
+          return li;
+        }),
+      );
+    }
+  }
+
+  document.querySelector<HTMLFormElement>('#watch-form')?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const input = document.querySelector<HTMLInputElement>('#watch-input');
+    if (input === null || input.value.trim().length === 0) return;
+    saveState(watchAuthor(loadState(), input.value));
+    input.value = '';
+    render();
+  });
+
+  document.querySelector('#export')?.addEventListener('click', () => {
+    const blob = new Blob([exportState(loadState())], { type: 'application/json' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'radar-state.json';
+    link.click();
+    URL.revokeObjectURL(link.href);
+  });
+
+  document.querySelector('#reset')?.addEventListener('click', () => {
+    if (!window.confirm('Clear every saved, dismissed, and tracked item? This cannot be undone.')) return;
+    clearAll();
+    render();
+  });
+
+  render();
+</script>

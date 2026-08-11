@@ -1,0 +1,114 @@
+---
+/**
+ * /radar/campus - the CampusRadar feed.
+ *
+ * Same machine as ResearchRadar, different data and a different value
+ * function: an event is worthless the moment it ends, so timing is one of the
+ * largest scoring terms rather than a tiebreak.
+ */
+import Base from '@/layouts/Base.astro';
+import ItemCard from '@/components/ItemCard.astro';
+import TabBar from '@/components/TabBar.astro';
+import { campus, fetchedAt, now } from '@/lib/data.ts';
+import { CAMPUS_TABS, byCategory, forYou, recentlyAdded, url } from '@/lib/view.ts';
+
+const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
+
+const items = campus.items;
+const top = forYou(items);
+const fresh = recentlyAdded(items, now, 7);
+
+const paid = items.filter((item) => (item.campus?.compensationUsd ?? 0) > 0);
+const confirmedFood = items.filter((item) => item.campus?.food.confidence === 'confirmed');
+const providedFood = items.filter((item) => item.campus?.food.confidence === 'provided');
+const cancelled = items.filter((item) => item.campus?.isCancelled === true);
+
+const changes = campus.diff.changes.filter(
+  (change) => change.kind === 'cancelled' || change.kind === 'location' || change.kind === 'time',
+);
+---
+
+<Base
+  title="CampusRadar"
+  description="Everything happening around Texas A&M that you could plausibly care about, in one ranked feed."
+  engine="campus"
+  fetchedAt={fetchedAt}
+  current="campus"
+>
+  <section class="standfirst">
+    <h1>CampusRadar</h1>
+    <p class="lede">
+      {campus.scanned} listings scanned across the Texas A&amp;M events calendar and Aggie Research
+      Volunteers. {items.length} kept; {top.length} that Radar thinks you should actually see.
+    </p>
+    <ul class="tally">
+      <li class="t-core"><b>{top.length}</b> worth knowing</li>
+      <li class="t-methods"><b>{paid.length}</b> paid studies</li>
+      <li class="t-adjacent"><b>{confirmedFood.length}</b> confirmed free food</li>
+      <li class="t-plain"><b>{fresh.length}</b> new this week</li>
+      <li class="t-plain"><b>{byCategory(items, 'companies').length}</b> employer events</li>
+    </ul>
+  </section>
+
+  {
+    changes.length > 0 && (
+      <section class="section">
+        <h2>Things that changed</h2>
+        <p class="note">Rooms moved, times shifted, events cancelled — since the previous ingest.</p>
+        <div class="panel">
+          <ul>
+            {changes.slice(0, 10).map((change) => (
+              <li>
+                <strong>{change.field}:</strong> {change.before ?? '—'} → {change.after ?? '—'}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    providedFood.length + confirmedFood.length > 0 && (
+      <section class="section">
+        <h2>About the food labels</h2>
+        <div class="panel prose">
+          <p>
+            Radar will not say food is free unless the source says so. Three tiers, and they look
+            different on purpose:
+          </p>
+          <ul class="badges" style="margin-bottom:0.5rem;">
+            <li class="food food-confirmed">Free food confirmed</li>
+            <li class="food food-provided">Food provided</li>
+            <li class="food food-mentioned">Food mentioned</li>
+          </ul>
+          <p style="margin:0;">
+            {confirmedFood.length} confirmed · {providedFood.length} provided. "Mentioned" means a
+            food word appeared and nothing more — a coffee chat is not free coffee.
+          </p>
+        </div>
+      </section>
+    )
+  }
+
+  <TabBar tabs={CAMPUS_TABS} />
+
+  <p class="note">
+    Showing <span data-count-for="visible">{items.length}</span> of {items.length} listings.
+    {cancelled.length > 0 && <> {cancelled.length} cancelled event(s) are kept, struck through.</>}
+    <button class="action" type="button" data-show-dismissed aria-pressed="false">Show dismissed</button>
+  </p>
+
+  <ul class="feed" data-feed data-default-tab="for-you">
+    {items.map((item) => <ItemCard item={item} now={now} />)}
+  </ul>
+
+  <p class="empty" data-empty-state hidden>
+    Nothing in this tab this week. Try another, or check
+    <a href={url(base, 'campus/sources/')}>which sources Radar can read</a>.
+  </p>
+</Base>
+
+<script>
+  import '@/client/feed.ts';
+</script>

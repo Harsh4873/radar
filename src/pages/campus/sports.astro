@@ -1,0 +1,34 @@
+---
+/** /radar/campus/sports - Aggie athletics and rec sports. */
+import Base from '@/layouts/Base.astro';
+import CategoryFeed from '@/components/CategoryFeed.astro';
+import { campus, fetchedAt, now } from '@/lib/data.ts';
+import { byCategory } from '@/lib/view.ts';
+
+const items = byCategory(campus.items, 'sports');
+const home = items.filter((item) => item.campus?.location !== null);
+---
+
+<Base
+  title="Sports — CampusRadar"
+  description="Aggie athletics and rec sports, ranked by when they happen and whether you care."
+  engine="campus"
+  fetchedAt={fetchedAt}
+  current="campus"
+>
+  <CategoryFeed
+    heading="Sports"
+    lede="Athletics and rec sports from the Texas A&M calendar. Ranked by timing first — a game next week beats a game in November."
+    items={items}
+    now={now}
+    tally={[
+      { label: 'upcoming', value: items.length, tone: 'core' },
+      { label: 'with a venue listed', value: home.length },
+    ]}
+    emptyMessage="No sports events in the current window. The athletics calendar fills up closer to a season."
+  />
+</Base>
+
+<script>
+  import '@/client/feed.ts';
+</script>

@@ -1,0 +1,180 @@
+---
+/**
+ * One feed card. The product's smallest complete unit.
+ *
+ * Carries its own ranking metadata in data attributes so `src/client/feed.ts`
+ * can filter, re-rank, and personalize without a round trip. With JavaScript
+ * off, the card is still complete and linked - only the buttons stop working.
+ *
+ * The evidence rules this component is responsible for enforcing:
+ *   - food tiers render differently and `mentioned` never says "free"
+ *   - a raffle never renders as an amount of money
+ *   - cancelled is struck through AND badged, never colour alone
+ */
+import type { RadarItem } from '@/types.ts';
+import { FOOD_LABELS } from '@/campus/freebies.ts';
+import { formatDateTime, formatRange, relative, signalsOf, tabsFor, url } from '@/lib/view.ts';
+
+interface Props {
+  item: RadarItem;
+  now: string;
+  /** Show the full reason list rather than the top few. */
+  detailed?: boolean;
+}
+
+const { item, now, detailed = false } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
+
+const research = item.research;
+const campus = item.campus;
+
+const detailHref =
+  research !== undefined
+    ? url(base, `research/paper/${item.id}/`)
+    : url(base, `campus/event/${item.id}/`);
+
+const scoreClass =
+  research !== undefined ? `score-${research.band}` : campus?.category === 'companies' ? 'score-core' : 'score-methods';
+
+const reasons = detailed ? item.reasons : item.reasons.slice(0, 5);
+
+// Events show when they happen; papers show when they were published.
+const whenLabel =
+  campus !== undefined
+    ? campus.seriesCount > 1
+      ? formatRange(campus.startsAt, campus.endsAt)
+      : campus.startsAt === null
+        ? 'Open listing'
+        : `${formatDateTime(campus.startsAt)} · ${relative(campus.startsAt, now)}`
+    : research?.publishedDate == null
+      ? 'Date unknown'
+      : `${formatDateTime(research.publishedDate)} · ${relative(research.publishedDate, now)}`;
+
+const distinctSources = [...new Set(item.sources.map((source) => source.source))];
+---
+
+<li
+  class:list={['card', { 'is-cancelled': campus?.isCancelled === true }]}
+  data-item-id={item.id}
+  data-relevance={item.relevance}
+  data-signals={signalsOf(item)}
+  data-tabs={tabsFor(item).join(',')}
+  data-first-seen={item.firstSeen}
+>
+  <div class="card-head">
+    <div>
+      <h3 class="card-title">
+        <a href={detailHref}>{item.title}</a>
+      </h3>
+      <p class="card-meta">
+        {whenLabel}
+        {campus?.location != null && <> · {campus.location}</>}
+        {campus?.organizer != null && <> · {campus.organizer}</>}
+        {research?.journal != null && <> · {research.journal}</>}
+        {campus?.seriesCount != null && campus.seriesCount > 1 && <> · {campus.seriesCount} sessions</>}
+      </p>
+    </div>
+
+    <div class:list={['score', scoreClass]}>
+      <b data-score>{item.relevance}</b>
+      <span>match</span>
+    </div>
+  </div>
+
+  <ul class="badges">
+    {item.status === 'new' && <li class="badge badge-new">New</li>}
+    {item.status === 'updated' && <li class="badge badge-updated">Updated</li>}
+    {campus?.isCancelled === true && <li class="badge badge-cancelled">Cancelled</li>}
+    {research !== undefined && <li class:list={['badge', `badge-${research.band}`]}>{research.band}</li>}
+    {research?.kind === 'preprint' && <li class="badge badge-adjacent">Preprint</li>}
+    {
+      research?.lifecycle.publishedDoi != null && (
+        <li class="badge badge-methods">Now published</li>
+      )
+    }
+
+    {
+      /*
+       * Food. THREE tiers, three treatments, and `mentioned` is deliberately
+       * grey, dashed, and worded as "Food mentioned" - never "free food".
+       * See src/campus/freebies.ts for why this distinction is load-bearing.
+       */
+      campus !== undefined && campus.food.confidence !== 'none' && (
+        <li class:list={['food', `food-${campus.food.confidence}`]} title={campus.food.evidence ?? undefined}>
+          {FOOD_LABELS[campus.food.confidence]}
+          {campus.food.items.length > 0 && <>: {campus.food.items.slice(0, 3).join(', ')}</>}
+        </li>
+      )
+    }
+
+    {
+      /* Guaranteed money only. A raffle never renders as an amount. */
+      campus?.compensationUsd != null && campus.compensationUsd > 0 && (
+        <li class="badge pay">${campus.compensationUsd}</li>
+      )
+    }
+    {
+      campus?.compensation != null && campus.compensationUsd === null && (
+        <li class="badge chance">{campus.compensation.slice(0, 40)}</li>
+      )
+    }
+
+    {campus?.isOnline === true && <li class="badge">Online</li>}
+    {research?.isOpenAccess === true && <li class="badge badge-methods">Open access</li>}
+  </ul>
+
+  {item.summary.length > 0 && <p class="card-summary">{item.summary}</p>}
+
+  {
+    reasons.length > 0 && (
+      <>
+        <p class="sr-only">Why Radar picked this:</p>
+        <ul class="reasons">
+          {reasons.map((entry) => (
+            <li class:list={['reason', { 'is-negative': entry.points < 0 }]}>
+              <b>
+                {entry.points > 0 ? '+' : ''}
+                {entry.points}
+              </b>
+              {entry.label}
+            </li>
+          ))}
+        </ul>
+      </>
+    )
+  }
+
+  {
+    distinctSources.length > 1 && (
+      <details class="sources">
+        <summary>{distinctSources.length} sources confirm this</summary>
+        <ul>
+          {item.sources.map((source) => (
+            <li>
+              <a href={source.url} rel="noopener external">
+                {source.source}
+              </a>
+              {source.channel != null && <> · {source.channel}</>}
+            </li>
+          ))}
+        </ul>
+      </details>
+    )
+  }
+
+  <div class="actions">
+    <a class="action action-primary" href={item.url} rel="noopener external">Open source</a>
+    {
+      research?.openAccessUrl != null && (
+        <a class="action" href={research.openAccessUrl} rel="noopener external">
+          Full text
+        </a>
+      )
+    }
+    <a class="action" href={detailHref}>Details</a>
+    <button class="action" type="button" data-action="save" aria-pressed="false">Save</button>
+    <button class="action" type="button" data-action="track" aria-pressed="false">Track</button>
+    <button class="action" type="button" data-action="more">More like this</button>
+    <button class="action" type="button" data-action="less">Not relevant</button>
+  </div>
+</li>

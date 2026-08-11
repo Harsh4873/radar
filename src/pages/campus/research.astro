@@ -1,0 +1,61 @@
+---
+/**
+ * /radar/campus/research - paid studies and research events.
+ *
+ * Two different things share this page on purpose: "get paid to participate in
+ * a study" and "go to a seminar". Both are research-adjacent opportunities and
+ * both come from the same classifier bucket.
+ */
+import Base from '@/layouts/Base.astro';
+import CategoryFeed from '@/components/CategoryFeed.astro';
+import { campus, fetchedAt, now } from '@/lib/data.ts';
+import { byCategory } from '@/lib/view.ts';
+
+const items = byCategory(campus.items, 'research');
+const paid = items.filter((item) => (item.campus?.compensationUsd ?? 0) > 0);
+const chance = items.filter(
+  (item) => item.campus?.compensation !== null && item.campus?.compensationUsd === null,
+);
+const totalPay = paid.reduce((sum, item) => sum + (item.campus?.compensationUsd ?? 0), 0);
+---
+
+<Base
+  title="Research & Studies — CampusRadar"
+  description="Paid research studies and research events at Texas A&M."
+  engine="campus"
+  fetchedAt={fetchedAt}
+  current="campus"
+>
+  <CategoryFeed
+    heading="Research & Studies"
+    lede="Paid studies from Aggie Research Volunteers, plus seminars, symposia, and research events from the university calendar."
+    items={items}
+    now={now}
+    tally={[
+      { label: 'listings', value: items.length, tone: 'core' },
+      { label: 'with a stated payment', value: paid.length, tone: 'methods' },
+      { label: 'dollars on the table', value: totalPay, tone: 'adjacent' },
+    ]}
+    emptyMessage="No research listings in the current window."
+  />
+
+  {
+    chance.length > 0 && (
+      <section class="section">
+        <div class="panel prose">
+          <h3 style="margin-top:0;">On the payment figures</h3>
+          <p>
+            {chance.length} listing(s) describe compensation that Radar refuses to turn into a
+            number — usually a raffle. A chance at $100 is not $100, so those show the original
+            wording in a dashed violet chip instead of a dollar amount. Ranges show the
+            <em>low</em> end, which is the part that is guaranteed.
+          </p>
+        </div>
+      </section>
+    )
+  }
+</Base>
+
+<script>
+  import '@/client/feed.ts';
+</script>

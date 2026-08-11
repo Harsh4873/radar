@@ -1,0 +1,95 @@
+---
+/**
+ * /radar/research - the ResearchRadar feed.
+ *
+ * Opens with the tally, not a search box. The premise of the whole product is
+ * that you should not have to go looking: the page tells you how much was
+ * scanned, how much matched, and how much is actually worth reading.
+ *
+ * Every item is rendered once. Tabs filter client-side, which is why nine tabs
+ * do not mean nine pages.
+ */
+import Base from '@/layouts/Base.astro';
+import ItemCard from '@/components/ItemCard.astro';
+import TabBar from '@/components/TabBar.astro';
+import { fetchedAt, now, research } from '@/lib/data.ts';
+import { RESEARCH_TABS, byBand, forYou, recentlyAdded, totalReadingMinutes, url } from '@/lib/view.ts';
+
+const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
+
+const items = research.items;
+const core = byBand(items, 'core');
+const adjacent = byBand(items, 'adjacent');
+const methods = byBand(items, 'methods');
+const top = forYou(items);
+const fresh = recentlyAdded(items, now, 7);
+
+const preprintChanges = research.diff.changes.filter(
+  (change) => change.kind === 'preprint-revised' || change.kind === 'preprint-published',
+);
+---
+
+<Base
+  title="ResearchRadar"
+  description="Papers worth reading, ranked against a research profile with the reasons shown."
+  engine="research"
+  fetchedAt={fetchedAt}
+  current="research"
+>
+  <section class="standfirst">
+    <h1>ResearchRadar</h1>
+    <p class="lede">
+      {research.scanned} candidates scanned across Europe PMC, PubMed, bioRxiv, medRxiv, OpenAlex and
+      arXiv. {items.length} matched your research profile; {top.length} are probably worth reading.
+      About {totalReadingMinutes(top)} minutes if you read them all.
+    </p>
+    <ul class="tally">
+      <li class="t-core"><b>{core.length}</b> highly relevant</li>
+      <li class="t-adjacent"><b>{adjacent.length}</b> adjacent</li>
+      <li class="t-methods"><b>{methods.length}</b> methods / tools</li>
+      <li class="t-plain"><b>{fresh.length}</b> new this week</li>
+    </ul>
+  </section>
+
+  {
+    preprintChanges.length > 0 && (
+      <section class="section">
+        <h2>What changed</h2>
+        <p class="note">
+          The thing an alert cannot tell you. Radar keeps the previous snapshot and diffs against it.
+        </p>
+        <div class="panel">
+          <ul>
+            {preprintChanges.slice(0, 10).map((change) => (
+              <li>
+                <strong>{change.field}:</strong> {change.before ?? '—'} → {change.after ?? '—'}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )
+  }
+
+  <TabBar tabs={RESEARCH_TABS} />
+
+  <p class="note">
+    Showing <span data-count-for="visible">{items.length}</span> of {items.length} papers.
+    <button class="action" type="button" data-show-dismissed aria-pressed="false">
+      Show dismissed
+    </button>
+  </p>
+
+  <ul class="feed" data-feed data-default-tab="for-you">
+    {items.map((item) => <ItemCard item={item} now={now} />)}
+  </ul>
+
+  <p class="empty" data-empty-state hidden>
+    Nothing in this tab. Try another, or <a href={url(base, 'research/topics/')}>review the profile</a>
+    that decides what Radar looks for.
+  </p>
+</Base>
+
+<script>
+  import '@/client/feed.ts';
+</script>

@@ -1,0 +1,134 @@
+---
+/**
+ * /radar/research/digests - the weekly ritual, and its history.
+ *
+ * Digests are built at ingest time and stored, not recomputed per view. That
+ * is deliberate: a past week's digest must not change retroactively as scores
+ * drift or items age out. Reading last month's digest should show what Radar
+ * actually said last month.
+ *
+ * All the shaping happens here in the frontmatter rather than in the template.
+ * Astro's template expressions are for expressions; a nested callback with a
+ * statement body does not parse, and pushing the work up here is clearer anyway.
+ */
+import Base from '@/layouts/Base.astro';
+import ItemCard from '@/components/ItemCard.astro';
+import type { Digest, RadarItem } from '@/types.ts';
+import { allItems, digests, fetchedAt, now } from '@/lib/data.ts';
+
+const itemsById = new Map(allItems.map((item) => [item.id, item]));
+
+interface DigestView {
+  digest: Digest;
+  /** Recommended items still present in the current build, with their hooks. */
+  entries: { item: RadarItem; headline: string }[];
+  /** Recommended ids that have since aged out of the snapshot. */
+  missing: number;
+}
+
+interface WeekView {
+  week: string;
+  views: DigestView[];
+}
+
+const byWeek = new Map<string, DigestView[]>();
+
+for (const digest of digests) {
+  const entries: DigestView['entries'] = [];
+  let missing = 0;
+
+  digest.recommended.forEach((id, index) => {
+    const item = itemsById.get(id);
+    // A digest can outlive its items: an event happened, a paper aged out.
+    // The digest still records what Radar said, so the count is reported
+    // rather than the row silently vanishing.
+    if (item === undefined) {
+      missing += 1;
+      return;
+    }
+    entries.push({ item, headline: digest.headlines[index] ?? '' });
+  });
+
+  const view: DigestView = { digest, entries, missing };
+  const bucket = byWeek.get(digest.weekOf);
+  if (bucket === undefined) byWeek.set(digest.weekOf, [view]);
+  else bucket.push(view);
+}
+
+const weeks: WeekView[] = [...byWeek.entries()]
+  .map(([week, views]) => ({ week, views }))
+  .sort((a, b) => (a.week < b.week ? 1 : -1));
+---
+
+<Base
+  title="Weekly digests"
+  description="Five papers worth reading this week, and what changed."
+  engine="research"
+  fetchedAt={fetchedAt}
+  current="digests"
+>
+  <section class="standfirst">
+    <h1>Weekly digests</h1>
+    <p class="lede">
+      Radar ingests daily; the ritual is weekly. Each digest is frozen when it is built, so an old
+      one still says what Radar said at the time rather than being quietly rewritten.
+    </p>
+  </section>
+
+  {
+    weeks.length === 0 && (
+      <p class="empty">No digests yet. The first one is written on the first ingest of a new week.</p>
+    )
+  }
+
+  {
+    weeks.map((week) => (
+      <section class="section">
+        <h2>Week of {week.week}</h2>
+
+        {week.views.map((view) => (
+          <>
+            <p class="note">
+              <strong>{view.digest.vertical === 'research' ? 'ResearchRadar' : 'CampusRadar'}:</strong>{' '}
+              {view.digest.scanned} scanned · {view.digest.candidates} candidates ·{' '}
+              {view.digest.recommended.length} recommended
+              {view.digest.estimatedMinutes > 0 && <> · about {view.digest.estimatedMinutes} min of reading</>}
+              {view.missing > 0 && <> · {view.missing} since aged out</>}
+            </p>
+
+            {view.entries.length > 0 ? (
+              <ul class="feed">
+                {view.entries.map((entry) => (
+                  <ItemCard item={entry.item} now={now} />
+                ))}
+              </ul>
+            ) : (
+              <p class="note">
+                {view.digest.recommended.length === 0
+                  ? 'Nothing cleared the bar that week.'
+                  : 'Everything from that week has aged out of the current build.'}
+              </p>
+            )}
+
+            {view.digest.changes.length > 0 && (
+              <div class="panel" style="margin-top:0.625rem;">
+                <h3 style="margin-top:0; font-size:0.9375rem;">Things that changed</h3>
+                <ul>
+                  {view.digest.changes.slice(0, 12).map((change) => (
+                    <li>
+                      <strong>{change.field}:</strong> {change.before ?? '—'} → {change.after ?? '—'}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </>
+        ))}
+      </section>
+    ))
+  }
+</Base>
+
+<script>
+  import '@/client/feed.ts';
+</script>

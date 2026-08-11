@@ -1,0 +1,144 @@
+---
+/**
+ * /radar - the combined home.
+ *
+ * The brief for this page is "what changed since your last visit", and the
+ * important detail is that the answer cannot be computed here: a static build
+ * has no idea when you last visited. So the page renders the full picture and
+ * `src/client/feed.ts` marks what is new against the timestamp in your own
+ * browser storage. The counts below are therefore "this week", which is true
+ * for everyone, with the personal cut layered on afterwards.
+ */
+import Base from '@/layouts/Base.astro';
+import ItemCard from '@/components/ItemCard.astro';
+import { campus, digests, fetchedAt, now, research } from '@/lib/data.ts';
+import { byBand, forYou, latestDigest, recentlyAdded, url } from '@/lib/view.ts';
+
+const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
+
+const researchNew = recentlyAdded(research.items, now, 7);
+const campusNew = recentlyAdded(campus.items, now, 7);
+
+const researchTop = forYou(research.items, 3);
+const campusTop = forYou(campus.items, 3);
+
+const coreCount = byBand(research.items, 'core').length;
+const revised = research.diff.changes.filter(
+  (change) => change.kind === 'preprint-revised' || change.kind === 'preprint-published',
+).length;
+
+const campusChanges = campus.diff.changes.filter(
+  (change) => change.kind === 'cancelled' || change.kind === 'location' || change.kind === 'time',
+).length;
+
+const paidStudies = campus.items.filter((item) => (item.campus?.compensationUsd ?? 0) > 0).length;
+const freeFood = campus.items.filter((item) => item.campus?.food.confidence === 'confirmed').length;
+
+const researchDigest = latestDigest(digests, 'research');
+const campusDigest = latestDigest(digests, 'campus');
+---
+
+<Base
+  title="Radar"
+  description="Two engines: ResearchRadar watches the literature, CampusRadar watches Texas A&M."
+  fetchedAt={fetchedAt}
+  current="home"
+>
+  <section class="standfirst">
+    <h1>Radar</h1>
+    <p class="lede">
+      Two engines over one pipeline. {research.scanned + campus.scanned} candidates were scanned in the
+      last run; {research.items.length + campus.items.length} cleared the bar.
+    </p>
+    <ul class="tally">
+      <li class="t-core"><b>{coreCount}</b> highly relevant papers</li>
+      <li class="t-plain"><b>{researchNew.length}</b> new papers this week</li>
+      <li class="t-plain"><b>{campusNew.length}</b> new events this week</li>
+      <li class="t-methods"><b>{paidStudies}</b> paid studies</li>
+    </ul>
+  </section>
+
+  <div class="engine-cards">
+    <a class="engine-card" href={url(base, 'research/')}>
+      <span class="engine engine-research">ResearchRadar</span>
+      <h2>{researchTop.length} papers worth seeing</h2>
+      <ul>
+        <li>{research.scanned} scanned → {research.items.length} matched your profile</li>
+        <li>{coreCount} highly relevant · {byBand(research.items, 'methods').length} methods papers</li>
+        <li>
+          {revised > 0 ? `${revised} tracked preprint(s) revised or published` : 'No preprint changes'}
+        </li>
+      </ul>
+    </a>
+
+    <a class="engine-card" href={url(base, 'campus/')}>
+      <span class="engine engine-campus">CampusRadar</span>
+      <h2>{campusTop.length} events worth seeing</h2>
+      <ul>
+        <li>{campus.scanned} scanned → {campus.items.length} kept</li>
+        <li>{paidStudies} paid studies · {freeFood} with confirmed free food</li>
+        <li>{campusChanges > 0 ? `${campusChanges} event change(s)` : 'No event changes'}</li>
+      </ul>
+    </a>
+  </div>
+
+  {
+    researchTop.length > 0 && (
+      <section class="section">
+        <h2>From ResearchRadar</h2>
+        <p class="note">
+          The top of the aggressively filtered feed. Every score is itemized on the card.
+        </p>
+        <ul class="feed" data-feed data-default-tab="all">
+          {researchTop.map((item) => (
+            <ItemCard item={item} now={now} />
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {
+    campusTop.length > 0 && (
+      <section class="section">
+        <h2>From CampusRadar</h2>
+        <p class="note">What Radar thinks is worth your time around Texas A&amp;M.</p>
+        <ul class="feed">
+          {campusTop.map((item) => (
+            <ItemCard item={item} now={now} />
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <section class="section">
+    <h2>This week's digests</h2>
+    <div class="panel">
+      {
+        researchDigest !== null ? (
+          <p>
+            <strong>Research, week of {researchDigest.weekOf}:</strong> {researchDigest.scanned} scanned,{' '}
+            {researchDigest.recommended.length} recommended, about {researchDigest.estimatedMinutes} min of
+            reading. <a href={url(base, 'research/digests/')}>Open the digest →</a>
+          </p>
+        ) : (
+          <p>No research digest yet - it is built on the first ingest of a new week.</p>
+        )
+      }
+      {
+        campusDigest !== null && (
+          <p>
+            <strong>Campus, week of {campusDigest.weekOf}:</strong> {campusDigest.scanned} scanned,{' '}
+            {campusDigest.recommended.length} worth considering.{' '}
+            <a href={url(base, 'campus/')}>Open CampusRadar →</a>
+          </p>
+        )
+      }
+    </div>
+  </section>
+</Base>
+
+<script>
+  import '@/client/feed.ts';
+</script>
