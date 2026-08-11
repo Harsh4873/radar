@@ -1,0 +1,50 @@
+[
+  {
+    "weekOf": "2026-08-10",
+    "vertical": "campus",
+    "scanned": 2043,
+    "candidates": 342,
+    "recommended": [
+      "campus-9abac9efcdc3",
+      "campus-01eb94d58854",
+      "campus-6f67f8efb539",
+      "campus-6babd91ddf6e",
+      "campus-19b191ab2098",
+      "campus-559862e36998"
+    ],
+    "headlines": [
+      "computer science · paid study · graduate opportunities",
+      "computer science · paid study · graduate opportunities",
+      "bioinformatics / genomics · paid study · pays $400",
+      "paid study · company recruiting · graduate opportunities",
+      "bioinformatics / genomics · data science · workshop / training",
+      "computer science · paid study · graduate opportunities"
+    ],
+    "changes": [],
+    "estimatedMinutes": 0
+  },
+  {
+    "weekOf": "2026-08-10",
+    "vertical": "research",
+    "scanned": 1071,
+    "candidates": 137,
+    "recommended": [
+      "research-5452ce5ce349",
+      "research-f738f15ccdda",
+      "research-1f10a46dbddd",
+      "research-99b7d555b77f",
+      "research-57b26561e916",
+      "research-9bf0633e2cbd"
+    ],
+    "headlines": [
+      "positive selection · codon-model analysis · PAML / codeml",
+      "positive selection · codon-model analysis · comparative genomics",
+      "M. tuberculosis · comparative genomics · phylogenetics",
+      "M. tuberculosis · positive selection · phylogenetics",
+      "M. tuberculosis · comparative genomics · selection methods applied to Mtb",
+      "positive selection · codon-model analysis · PAML / codeml"
+    ],
+    "changes": [],
+    "estimatedMinutes": 99
+  }
+]
