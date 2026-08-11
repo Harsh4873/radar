@@ -64,7 +64,7 @@ Everything upstream is read at **build time**. Not one of these APIs sends CORS 
 npm install
 npm run ingest      # pull every upstream, rank, diff, write src/data/
 npm run dev         # local site
-npm run test:run    # 132 tests, hermetic - never touches the network
+npm run test:run    # 146 tests, hermetic - never touches the network
 npm run typecheck
 npm run build       # ingest + astro build
 ```
@@ -84,6 +84,12 @@ Optional environment (see `.env.example`): `NCBI_API_KEY` raises E-utilities fro
 **Recency is a modifier, not a reason.** A paper matching no profile term is not published however new it is. An early run published 297 papers whose entire justification was "very recent" plus "open access" — coronary intervention, insomnia therapy, virus biosensing. `hasProfileMatch` is the gate that fixed it.
 
 **Crossref is enrichment, not discovery.** Its free-text search returns a paper about teacher efficacy in Kenya as the top hit for a tuberculosis query, dated `date-parts: [[2106]]`. It's an excellent metadata registry and a poor relevance engine; `assertPlausibleDate` exists because of that 2106.
+
+**Dates with no timezone are UTC.** WordPress returns `2025-02-17T15:53:22` with no zone, and `new Date()` parses that as *local* time — so the same input produced instants seven hours apart on a laptop in US Central and a CI runner in UTC, flipping 62 items to "Updated" on every alternation. `toIso` pins bare datetimes to UTC.
+
+**Timing bands are calendar days, not elapsed hours.** An event at 9am tomorrow is "tomorrow" even when it is 26 hours away. Elapsed-hours arithmetic also made a dozen events flip bands together at round times, so the snapshot differed between ingests three minutes apart for no reason a reader would recognise.
+
+**A failed request never deletes anything.** arXiv timed out on two of three queries in one live run; ten papers dropped out of the feed and came back marked NEW next time. `retainUnfetched` carries forward items whose every source was unreachable. It keys off `failedRequests > 0`, *not* `status === 'degraded'` — the TAMU calendar reports its 1000-record cap as a warning on every healthy run, and keying off that would retain every past event forever.
 
 **Series collapsing is not deduplication.** Dedupe merges records that are the same thing seen through different feeds. `src/campus/series.ts` merges records that are *different* things you think of as one — a five-day conference published as five events with five ids.
 

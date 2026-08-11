@@ -200,6 +200,7 @@ export async function fetchPreprints(options: BiorxivOptions = {}): Promise<Sour
       warnings,
       error: null,
       durationMs: Date.now() - startedAt,
+      failedRequests: 0,
     };
   } catch (err) {
     const message = describeError(err);
@@ -211,6 +212,7 @@ export async function fetchPreprints(options: BiorxivOptions = {}): Promise<Sour
       warnings,
       error: message,
       durationMs: Date.now() - startedAt,
+      failedRequests: 1,
     };
   }
 }

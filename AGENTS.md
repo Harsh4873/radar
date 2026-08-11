@@ -18,6 +18,9 @@ This repository is the owner's personal discovery system: ResearchRadar (literat
 - **Recency and open access never justify an item on their own.** Research items must match a profile term to be published at all (`hasProfileMatch`).
 - **Connectors never throw.** A dead upstream produces a warning, a `SourceReport`, and a smaller feed — never a failed build.
 - **Every point the ranker awards must be itemized in `reasons`.** If a scorer adds a silent bonus, the card is lying about why something is there.
+- **A failed upstream must never delete items.** `retainUnfetched` carries forward items whose every source was unreachable, and keys off `failedRequests > 0` rather than `status === 'degraded'`. Do not simplify that to a status check: the TAMU calendar is degraded on every healthy run because of its record cap, and retaining on that would turn the feed into an archive that never forgets.
+- **Timing bands are calendar days in America/Chicago**, never elapsed hours. "Tomorrow" means the next date. This is also what keeps scores from drifting between two ingests minutes apart.
+- **A datetime with no timezone is UTC.** Never let `new Date()` interpret a bare upstream timestamp as local time; the result then depends on which machine ran the ingest.
 - **Crossref is enrichment only.** Do not wire it to discovery; its free-text search returns unrelated work with impossible dates.
 
 ## Privacy — the hard rule

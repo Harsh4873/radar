@@ -163,6 +163,7 @@ export async function fetchCrossrefMetadata(
       warnings: [],
       error: null,
       durationMs: Date.now() - startedAt,
+      failedRequests: 0,
     };
   }
 
@@ -200,5 +201,6 @@ export async function fetchCrossrefMetadata(
     warnings,
     error: failures === batches ? `all ${failures} batch(es) failed` : null,
     durationMs: Date.now() - startedAt,
+    failedRequests: failures,
   };
 }

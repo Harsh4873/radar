@@ -121,6 +121,7 @@ async function main(): Promise<void> {
   const { ingestResearch } = await import('../src/research/ingest.ts');
   const { ingestCampus } = await import('../src/campus/ingest.ts');
   const { diffSnapshots, summarizeDiff } = await import('../src/core/change.ts');
+  const { retainUnfetched } = await import('../src/core/retain.ts');
   const { buildDigest, mergeDigests } = await import('../src/core/digest.ts');
 
   const only = arg('only');
@@ -154,8 +155,29 @@ async function main(): Promise<void> {
   const freshResearch = runResearch && !offline;
   const freshCampus = runCampus && !offline;
 
-  const researchItems = freshResearch ? research.items : (previous?.research.items ?? []);
-  const campusItems = freshCampus ? campus.items : (previous?.campus.items ?? []);
+  // Carry forward items whose sources could not be reached this run, so a
+  // transient upstream timeout does not delete them from the feed and then
+  // re-announce them as NEW next time. See src/core/retain.ts.
+  const researchRetain = freshResearch
+    ? retainUnfetched(previous?.research.items ?? null, research.items, research.reports)
+    : { items: previous?.research.items ?? [], retained: [], impaired: [] };
+
+  const campusRetain = freshCampus
+    ? retainUnfetched(previous?.campus.items ?? null, campus.items, campus.reports)
+    : { items: previous?.campus.items ?? [], retained: [], impaired: [] };
+
+  for (const [vertical, result] of [['research', researchRetain], ['campus', campusRetain]] as const) {
+    if (result.retained.length === 0) continue;
+    const message =
+      `${vertical}: kept ${result.retained.length} item(s) that ${result.impaired.join(', ')} ` +
+      `could not deliver this run - they are not gone, the source was unreachable`;
+    log(`WARNING ${message}`);
+    if (vertical === 'research') research.warnings.push(message);
+    else campus.warnings.push(message);
+  }
+
+  const researchItems = researchRetain.items;
+  const campusItems = campusRetain.items;
 
   if (researchItems.length === 0 && campusItems.length === 0) {
     console.error('[ingest] FATAL: no items from any source and no previous snapshot. Nothing to publish.');

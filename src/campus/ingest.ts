@@ -41,6 +41,7 @@ function reportFor(result: SourceResult<unknown>): SourceReport {
     itemCount: result.records.length,
     fetchSource: result.fetchSource,
     durationMs: result.durationMs,
+    failedRequests: result.failedRequests,
     note: result.error ?? (result.warnings[0] ?? null),
     docsUrl: DOCS[result.source] ?? '',
   };

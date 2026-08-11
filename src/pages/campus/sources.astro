@@ -92,7 +92,15 @@ const notIngested = [
                 </td>
                 <td>{source.itemCount}</td>
                 <td>{(source.durationMs / 1000).toFixed(1)}s</td>
-                <td style="font-size:0.8125rem; color:var(--muted);">{source.note ?? '—'}</td>
+                <td style="font-size:0.8125rem; color:var(--muted);">
+                  {source.failedRequests > 0 && (
+                    <strong style="display:block; color:var(--updated-fg);">
+                      {source.failedRequests} request(s) failed — items it could not deliver were kept
+                      from the previous run rather than dropped
+                    </strong>
+                  )}
+                  {source.note ?? (source.failedRequests > 0 ? '' : '—')}
+                </td>
               </tr>
             ))
           }
@@ -144,6 +152,16 @@ const notIngested = [
           and nothing is fetched on page view.
         </li>
       </ul>
+      <h3>When a source cannot be reached</h3>
+      <p>
+        A failed request does not delete anything. If every source that knows about an item was
+        unreachable on a given run, the item is carried forward from the previous snapshot and left
+        marked unchanged — because it never went anywhere, and announcing a two-year-old paper as
+        "new" because a server was slow would undermine the one badge this whole feed rests on.
+        Items that a <em>healthy</em> source simply stopped returning are dropped, which is what
+        should happen when an event passes or a listing is withdrawn.
+      </p>
+
       <h3>What Radar refuses to publish</h3>
       <p>
         The Texas A&amp;M calendar includes a staff email on most events with registration, and the

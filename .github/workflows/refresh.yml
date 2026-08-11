@@ -121,10 +121,22 @@ jobs:
             // campus items turn over as events pass, but not that fast.
             if (count(next) < count(prev) * 0.5) { process.stdout.write("suspect"); process.exit(0); }
 
-            // Compare items only. `fetchedAt` moves every run and is not a
-            // change anyone can see. This DOES catch events passing and
-            // scores shifting, which are real changes worth deploying.
-            const strip = (s) => JSON.stringify([s.research.items, s.campus.items]);
+            // Compare the MATERIAL content only.
+            //
+            // `fetchedAt` moves every run, and so does each item`s `lastSeen`
+            // - it means "last confirmed present", so it is supposed to. Both
+            // are invisible to a reader. Comparing raw JSON therefore reports
+            // a change on every single run and this job would commit ~1.8MB
+            // twice a day forever, which is exactly what the header warns
+            // about and what the first live run actually did.
+            //
+            // Everything else IS compared, including relevance: an event
+            // moving from "next week" to "tomorrow" changes its score and its
+            // position in the feed, and that is a change worth publishing.
+            const strip = (s) =>
+              JSON.stringify(
+                [...s.research.items, ...s.campus.items].map(({ lastSeen, ...rest }) => rest),
+              );
             process.stdout.write(strip(prev) === strip(next) ? "unchanged" : "changed");
           ')
 

@@ -312,6 +312,23 @@ export function toIso(value: unknown): string | null {
   // Pure numeric string = epoch. LiveWhale sends `last_modified` this way.
   if (/^\d{9,13}$/.test(text)) return toIso(Number.parseInt(text, 10));
 
+  /*
+   * A bare datetime with NO timezone is UTC, not local.
+   *
+   * This is not a nicety - it was a real bug. WordPress (Aggie Research
+   * Volunteers) returns `date` as `2025-02-17T15:53:22` with no zone, and
+   * `new Date()` parses that as LOCAL time per the spec. The same input then
+   * produced different output on different machines: 62 items came out seven
+   * hours apart between a laptop in US Central and a CI runner in UTC, which
+   * flipped them all to "Updated" on every alternation and quietly broke the
+   * promise that two runs over unchanged data produce identical output.
+   *
+   * Strings that DO carry a zone (LiveWhale's `2026-08-10T08:00:00-05:00`,
+   * anything ending in Z) do not match this and are left alone.
+   */
+  const bareDateTime = /^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}(:\d{2})?(\.\d+)?$/;
+  if (bareDateTime.test(text)) return toIso(`${text.replace(' ', 'T')}Z`);
+
   // `2024 Mar 15`, `2024 Mar`, `2024` - PubMed's esummary `pubdate`.
   const pubmed = /^(\d{4})(?:\s+([A-Za-z]{3,9}))?(?:\s+(\d{1,2}))?/.exec(text);
   if (pubmed?.[1] !== undefined && !text.includes('-') && !text.includes('/')) {
@@ -346,6 +363,58 @@ export function daysBetween(then: string | null, now: string): number | null {
   const b = Date.parse(now);
   if (Number.isNaN(a) || Number.isNaN(b)) return null;
   return Math.floor((b - a) / 86_400_000);
+}
+
+/**
+ * The timezone every date on this site is reasoned and rendered in.
+ *
+ * Campus events are in College Station and the literature feed is read by
+ * someone there, so "today" means today in Central time, not in UTC.
+ */
+export const DISPLAY_TZ = 'America/Chicago';
+
+/** Civil date (`YYYY-MM-DD`) of an instant, in the display timezone. */
+export function civilDate(iso: string, timeZone: string = DISPLAY_TZ): string | null {
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return null;
+  // 'en-CA' formats as YYYY-MM-DD, which sorts and parses cleanly.
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(date);
+}
+
+/**
+ * CALENDAR days from `now` until `then`. 0 = today, 1 = tomorrow, -1 = yesterday.
+ *
+ * Deliberately different from `daysBetween`, which counts elapsed 24-hour
+ * periods. Two reasons this one exists:
+ *
+ *   1. IT IS WHAT THE WORDS MEAN. An event at 9am tomorrow is "tomorrow" even
+ *      when it is 26 hours away, and an event tonight is "today" even when it
+ *      is 30 minutes away. Elapsed-hours arithmetic gets both wrong.
+ *
+ *   2. IT IS STABLE WITHIN A DAY. Elapsed-hours thresholds are crossed at
+ *      whatever time of day each event happens to start, and campus events
+ *      cluster at round times - so a dozen of them flip bands together at
+ *      9:00am. Measured: 12 items changed relevance between two ingests three
+ *      minutes apart, which made the snapshot differ for no reason a reader
+ *      would recognise. Calendar days change once, at midnight.
+ */
+export function calendarDaysUntil(then: string | null, now: string, timeZone: string = DISPLAY_TZ): number | null {
+  if (then === null) return null;
+  const thenDate = civilDate(then, timeZone);
+  const nowDate = civilDate(now, timeZone);
+  if (thenDate === null || nowDate === null) return null;
+
+  // Both are civil dates with no time component, so comparing them as UTC
+  // midnights is exact - no DST arithmetic involved.
+  const a = Date.parse(`${thenDate}T00:00:00.000Z`);
+  const b = Date.parse(`${nowDate}T00:00:00.000Z`);
+  if (Number.isNaN(a) || Number.isNaN(b)) return null;
+  return Math.round((a - b) / 86_400_000);
 }
 
 // ---------------------------------------------------------------------------

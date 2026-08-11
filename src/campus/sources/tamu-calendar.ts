@@ -287,5 +287,6 @@ export async function fetchTamuCalendar(options: TamuCalendarOptions = {}): Prom
     warnings,
     error: allFailed ? `all ${failures} feed(s) failed` : null,
     durationMs: Date.now() - startedAt,
+    failedRequests: failures,
   };
 }

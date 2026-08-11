@@ -85,6 +85,31 @@ function detectFieldChanges(before: RadarItem, after: RadarItem): ChangeEvent[] 
   return changes;
 }
 
+/**
+ * Preserve each source's own `firstSeen` across runs.
+ *
+ * The same reasoning as the item-level `firstSeen`, and it was missed the
+ * first time with a measurable cost: every `ItemSource` was being stamped with
+ * the current run's timestamp, so all 342 campus items' `sources` arrays
+ * rewrote on every single ingest. That made the snapshot differ byte-wise even
+ * when nothing had actually changed, which defeated the "only commit on a real
+ * change" gate in refresh.yml and would have committed ~1.8MB twice a day
+ * forever.
+ *
+ * Matching is on (source, externalId) - the same pair that identifies a source
+ * row everywhere else.
+ */
+export function carryForwardSources(
+  prior: readonly RadarItem['sources'][number][],
+  next: readonly RadarItem['sources'][number][],
+): RadarItem['sources'] {
+  const seenAt = new Map(prior.map((source) => [`${source.source}:${source.externalId}`, source.firstSeen]));
+  return next.map((source) => {
+    const previously = seenAt.get(`${source.source}:${source.externalId}`);
+    return previously === undefined ? source : { ...source, firstSeen: previously };
+  });
+}
+
 export interface DiffResult {
   /** Items with `status` and `firstSeen` reconciled against the previous run. */
   items: RadarItem[];
@@ -135,6 +160,7 @@ export function diffSnapshots(previous: readonly RadarItem[] | null, next: reado
       // The whole point: preserve when Radar FIRST saw this, not when this
       // run saw it. Drives "since your last visit" and the NEW badge.
       firstSeen: prior.firstSeen,
+      sources: carryForwardSources(prior.sources, item.sources),
       status: cancelled
         ? 'cancelled'
         : superseded

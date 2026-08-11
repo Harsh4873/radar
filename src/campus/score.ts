@@ -17,6 +17,7 @@
 import type { RadarItem, RelevanceReason } from '@/types.ts';
 import { cancellationSignal, corroborationSignal, imminenceSignal, reason, scoreItem } from '@/core/rank.ts';
 import { CAMPUS_INTERESTS } from '@/campus/profile.ts';
+import { calendarDaysUntil } from '@/core/text.ts';
 import { searchable } from '@/research/profile.ts';
 
 export interface CampusContext {
@@ -108,8 +109,10 @@ export function scoreCampusItem(item: RadarItem, context: CampusContext): RadarI
     const imminence = imminenceSignal(campus.startsAt, context.now);
     if (imminence !== null) reasons.push(imminence);
   } else if (campus.deadlineAt !== null) {
-    const untilDeadline = Math.floor((Date.parse(campus.deadlineAt) - Date.parse(context.now)) / 86_400_000);
-    if (Number.isFinite(untilDeadline)) {
+    // Calendar days, matching `imminenceSignal` - a deadline "closes this
+    // week" by the calendar, not by elapsed hours.
+    const untilDeadline = calendarDaysUntil(campus.deadlineAt, context.now);
+    if (untilDeadline !== null) {
       if (untilDeadline < 0) reasons.push(reason('timing', 'closed', -60));
       else if (untilDeadline <= 7) reasons.push(reason('timing', 'closes within a week', 10));
       else if (untilDeadline <= 30) reasons.push(reason('timing', 'closes this month', 4));

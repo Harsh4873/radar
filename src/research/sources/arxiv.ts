@@ -151,5 +151,6 @@ export async function fetchArxiv(options: ArxivOptions = {}): Promise<SourceResu
     warnings,
     error: allFailed ? `all ${failures} quer(ies) failed` : null,
     durationMs: Date.now() - startedAt,
+    failedRequests: failures,
   };
 }

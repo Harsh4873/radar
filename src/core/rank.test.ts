@@ -99,6 +99,31 @@ describe('recency and imminence', () => {
     const later = imminenceSignal('2026-09-20T18:00:00Z', NOW)?.points ?? 0;
     expect(today).toBeGreaterThan(later);
   });
+
+  it('uses calendar days, so "tomorrow" means the next date', () => {
+    // NOW is 2026-08-10T00:00Z = 2026-08-09 19:00 Central. An event at 9am on
+    // 2026-08-10 Central is TOMORROW by the calendar even though it is only
+    // 14 hours away; elapsed-hours arithmetic would call it "today".
+    const tomorrow = imminenceSignal('2026-08-10T14:00:00Z', NOW);
+    expect(tomorrow?.label).toBe('tomorrow');
+
+    // And something later the same Central evening is still today.
+    const tonight = imminenceSignal('2026-08-10T01:30:00Z', NOW);
+    expect(tonight?.label).toBe('today');
+  });
+
+  it('is stable across two runs minutes apart', () => {
+    // The churn this replaced: campus events cluster at round times, so a
+    // dozen of them crossed an elapsed-hours band together and the snapshot
+    // differed between ingests three minutes apart for no visible reason.
+    const events = ['2026-08-17T14:00:00Z', '2026-08-31T14:00:00Z', '2026-10-09T14:00:00Z'];
+    for (const event of events) {
+      const a = imminenceSignal(event, '2026-08-10T09:00:00Z');
+      const b = imminenceSignal(event, '2026-08-10T09:03:00Z');
+      expect(a?.points).toBe(b?.points);
+      expect(a?.label).toBe(b?.label);
+    }
+  });
 });
 
 describe('corroborationSignal', () => {
@@ -208,6 +233,43 @@ describe('diffSnapshots', () => {
     const { items } = diffSnapshots([before], [after]);
     expect(items[0]?.firstSeen).toBe('2026-01-01T00:00:00.000Z');
     expect(items[0]?.status).toBe('unchanged');
+  });
+
+  it("carries each source's own firstSeen forward", () => {
+    // Every ItemSource was being restamped with the current run's time, so all
+    // 342 campus items' `sources` arrays rewrote on every ingest and the
+    // "only commit on a real change" gate never held.
+    const before = paper({
+      sources: [
+        { source: 'europepmc', externalId: '1', url: '', channel: null, firstSeen: '2026-01-01T00:00:00.000Z', lastModified: null },
+      ],
+    });
+    const after = paper({
+      sources: [
+        { source: 'europepmc', externalId: '1', url: '', channel: null, firstSeen: '2026-08-10T00:00:00.000Z', lastModified: null },
+      ],
+    });
+
+    const { items } = diffSnapshots([before], [after]);
+    expect(items[0]?.sources[0]?.firstSeen).toBe('2026-01-01T00:00:00.000Z');
+  });
+
+  it('stamps a genuinely new source with this run', () => {
+    const before = paper({
+      sources: [
+        { source: 'europepmc', externalId: '1', url: '', channel: null, firstSeen: '2026-01-01T00:00:00.000Z', lastModified: null },
+      ],
+    });
+    const after = paper({
+      sources: [
+        { source: 'europepmc', externalId: '1', url: '', channel: null, firstSeen: NOW, lastModified: null },
+        { source: 'crossref', externalId: '2', url: '', channel: null, firstSeen: NOW, lastModified: null },
+      ],
+    });
+
+    const { items } = diffSnapshots([before], [after]);
+    expect(items[0]?.sources[0]?.firstSeen).toBe('2026-01-01T00:00:00.000Z');
+    expect(items[0]?.sources[1]?.firstSeen).toBe(NOW);
   });
 
   it('detects a preprint becoming published', () => {

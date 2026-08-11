@@ -191,6 +191,21 @@ describe('toIso', () => {
     expect(toIso([[2024]])).toBe('2024-01-01T00:00:00.000Z');
   });
 
+  it('treats a bare datetime with no timezone as UTC, not local', () => {
+    // WordPress returns `2025-02-17T15:53:22` with no zone. Parsing that as
+    // local time made the same input yield different instants on a laptop in
+    // US Central and a CI runner in UTC, flipping 62 items to "Updated" on
+    // every alternation between them.
+    expect(toIso('2025-02-17T15:53:22')).toBe('2025-02-17T15:53:22.000Z');
+    expect(toIso('2025-02-17 15:53:22')).toBe('2025-02-17T15:53:22.000Z');
+  });
+
+  it('respects an explicit timezone when one is present', () => {
+    // LiveWhale sends a real offset; it must not be reinterpreted as UTC.
+    expect(toIso('2026-08-10T08:00:00-05:00')).toBe('2026-08-10T13:00:00.000Z');
+    expect(toIso('2026-08-10T13:00:00Z')).toBe('2026-08-10T13:00:00.000Z');
+  });
+
   it('returns null rather than guessing', () => {
     expect(toIso('NA')).toBeNull();
     expect(toIso('')).toBeNull();

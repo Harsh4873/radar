@@ -19,7 +19,7 @@
  */
 
 import type { RadarItem, RelevanceReason } from '@/types.ts';
-import { daysBetween } from '@/core/text.ts';
+import { calendarDaysUntil } from '@/core/text.ts';
 
 // ---------------------------------------------------------------------------
 // Reason construction
@@ -76,7 +76,11 @@ export function finalizeScore(reasons: readonly RelevanceReason[]): {
  * recent" is a claim the data supports; "recency 0.732" is not.
  */
 export function recencySignal(occurredAt: string | null, now: string): RelevanceReason | null {
-  const age = daysBetween(occurredAt, now);
+  // Calendar days here too, for the same stability reason: publication dates
+  // are frequently midnight-stamped, so elapsed-hours arithmetic would flip a
+  // whole day's worth of papers between bands at the same instant every day.
+  const until = calendarDaysUntil(occurredAt, now);
+  const age = until === null ? null : -until;
   if (age === null) return null;
 
   // Future-dated publication (feeds do this for "in press") counts as brand new.
@@ -99,7 +103,10 @@ export function recencySignal(occurredAt: string | null, now: string): Relevance
  * falls out of the feed without needing a separate filter.
  */
 export function imminenceSignal(startsAt: string | null, now: string): RelevanceReason | null {
-  const daysUntil = startsAt === null ? null : -1 * (daysBetween(startsAt, now) ?? 0);
+  // CALENDAR days, not elapsed hours - see `calendarDaysUntil`. This is both
+  // what "today" and "tomorrow" actually mean and what keeps a score from
+  // drifting between two ingests minutes apart.
+  const daysUntil = calendarDaysUntil(startsAt, now);
   if (daysUntil === null) return null;
 
   if (daysUntil < -1) return reason('timing', 'already happened', -60);

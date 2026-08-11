@@ -373,6 +373,17 @@ export interface SourceReport {
   fetchSource: FetchSource;
   /** Wall-clock ms for the whole read, including retries. */
   durationMs: number;
+  /**
+   * Requests (queries, feeds, pages) that failed this run.
+   *
+   * Distinct from `status`, and the distinction is load-bearing: a source can
+   * be `degraded` for reasons that are not a fetch failure at all - the TAMU
+   * calendar reports a coverage note about its 1000-record cap on every
+   * healthy run. Only a NON-ZERO count here means "this source did not deliver
+   * everything it has", which is what `retainUnfetched` keys off.
+   */
+  failedRequests: number;
+
   /** Why it is degraded/failed/unavailable. Shown verbatim in the UI. */
   note: string | null;
   /** Public documentation, so the page can link out. */
@@ -436,6 +447,8 @@ export interface SourceResult<T> {
   warnings: string[];
   error: string | null;
   durationMs: number;
+  /** Requests that failed. 0 on a clean run. See `SourceReport.failedRequests`. */
+  failedRequests: number;
 }
 
 export interface Logger {

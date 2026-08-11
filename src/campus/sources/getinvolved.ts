@@ -46,6 +46,7 @@ export const GET_INVOLVED_REPORT: SourceReport = {
   itemCount: 0,
   fetchSource: 'empty',
   durationMs: 0,
+  failedRequests: 0,
   note:
     'No public API. Every path returns the same client-rendered page with HTTP 200 and no embedded event data, so there is no stable, lawful way to read it. Student-org events are partially covered via the Student Activities, MSC, and Student Interest calendar feeds.',
   docsUrl: 'https://getinvolved.tamu.edu/events',
@@ -65,5 +66,6 @@ export function fetchGetInvolved(): SourceResult<RawItem> {
     warnings: [],
     error: null,
     durationMs: 0,
+    failedRequests: 0,
   };
 }

@@ -274,5 +274,6 @@ export async function fetchOpenAlex(options: OpenAlexOptions = {}): Promise<Sour
     warnings,
     error: allFailed ? `all ${failures} quer(ies) failed` : null,
     durationMs: Date.now() - startedAt,
+    failedRequests: failures,
   };
 }

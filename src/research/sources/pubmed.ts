@@ -258,5 +258,6 @@ export async function fetchPubmed(options: PubmedOptions = {}): Promise<SourceRe
     warnings,
     error: allFailed ? `all ${failures} quer(ies) failed` : null,
     durationMs: Date.now() - startedAt,
+    failedRequests: failures,
   };
 }

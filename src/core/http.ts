@@ -58,6 +58,21 @@ const HOST_MIN_INTERVAL_MS: Record<string, number> = {
 
 const DEFAULT_MIN_INTERVAL_MS = 250;
 
+/**
+ * Per-host request timeout, where the default 20s is not enough.
+ *
+ * arXiv is measurably slow: two of three queries timed out at 20s in a live
+ * run, which cost the feed 119 records and made ten papers disappear and then
+ * come back marked NEW. It is not overloaded, it just takes its time on a
+ * 60-result query, so the fix is patience rather than retries - and the 3s
+ * per-host interval already keeps the request rate polite.
+ */
+const HOST_TIMEOUT_MS: Record<string, number> = {
+  'export.arxiv.org': 60_000,
+  // NCBI's efetch can be slow on a 100-PMID batch.
+  'eutils.ncbi.nlm.nih.gov': 40_000,
+};
+
 export const consoleLogger: Logger = {
   info: (msg) => console.log(msg),
   warn: (msg) => console.warn(msg),
@@ -143,6 +158,8 @@ export interface RequestOptions {
 
 interface ResolvedOptions {
   timeoutMs: number;
+  /** True when the caller named a timeout, so the per-host floor is skipped. */
+  timeoutExplicit: boolean;
   attempts: number;
   baseDelayMs: number;
   fetchImpl: typeof fetch;
@@ -153,6 +170,7 @@ interface ResolvedOptions {
 export function resolveOptions(options: RequestOptions = {}): ResolvedOptions {
   return {
     timeoutMs: options.timeoutMs ?? DEFAULT_TIMEOUT_MS,
+    timeoutExplicit: options.timeoutMs !== undefined,
     attempts: Math.max(1, options.attempts ?? DEFAULT_ATTEMPTS),
     baseDelayMs: options.baseDelayMs ?? DEFAULT_BASE_DELAY_MS,
     fetchImpl: options.fetchImpl ?? globalThis.fetch,
@@ -167,7 +185,12 @@ export function resolveOptions(options: RequestOptions = {}): ResolvedOptions {
  * Throws once every attempt is exhausted. Connectors are expected to catch.
  */
 async function request(url: string, accept: string, options: ResolvedOptions): Promise<Response> {
-  const { timeoutMs, attempts, baseDelayMs, fetchImpl, log, headers } = options;
+  const { attempts, baseDelayMs, fetchImpl, log, headers } = options;
+  // A caller-supplied timeout always wins; otherwise take the per-host value
+  // when this host needs longer than the default.
+  const timeoutMs = options.timeoutExplicit
+    ? options.timeoutMs
+    : Math.max(options.timeoutMs, HOST_TIMEOUT_MS[hostOf(url)] ?? 0);
   let lastError: unknown = new Error('no attempts made');
 
   if (typeof fetchImpl !== 'function') throw new Error('no fetch implementation available');

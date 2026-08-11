@@ -302,5 +302,6 @@ export async function fetchEuropePmc(options: EuropePmcOptions = {}): Promise<So
     warnings,
     error: allFailed ? `all ${failures} quer(ies) failed` : null,
     durationMs: Date.now() - startedAt,
+    failedRequests: failures,
   };
 }

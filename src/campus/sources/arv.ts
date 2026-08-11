@@ -38,8 +38,12 @@ interface WpRendered {
 
 interface ArvStudy {
   id?: number;
+  /** Local time, NO timezone suffix. Prefer the `_gmt` twin below. */
   date?: string;
   modified?: string;
+  /** The same instants in UTC. Unambiguous, so these are what Radar reads. */
+  date_gmt?: string;
+  modified_gmt?: string;
   link?: string;
   title?: WpRendered;
   content?: WpRendered;
@@ -130,9 +134,12 @@ export function mapStudy(study: ArvStudy): RawItem | null {
     // A study listing has no start time - it is open until it expires. Using
     // the posting date keeps "new this week" meaningful without inventing an
     // event time that the imminence scorer would then treat as a schedule.
-    occurredAt: toIso(study.date),
+    //
+    // `date_gmt` first: WordPress's `date` is local with no zone, so reading
+    // it directly makes the parsed instant depend on the machine's timezone.
+    occurredAt: toIso(study.date_gmt ?? study.date),
     endsAt: expiresAt,
-    lastModified: toIso(study.modified),
+    lastModified: toIso(study.modified_gmt ?? study.modified),
     tags,
     identity: [
       // IRB number is the true identity - the registry re-posts protocols - but
@@ -204,6 +211,7 @@ export async function fetchAggieResearchVolunteers(options: ArvOptions = {}): Pr
       warnings,
       error: null,
       durationMs: Date.now() - startedAt,
+      failedRequests: 0,
     };
   } catch (err) {
     const message = describeError(err);
@@ -215,6 +223,7 @@ export async function fetchAggieResearchVolunteers(options: ArvOptions = {}): Pr
       warnings,
       error: message,
       durationMs: Date.now() - startedAt,
+      failedRequests: 1,
     };
   }
 }
