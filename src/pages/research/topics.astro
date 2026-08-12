@@ -1,9 +1,9 @@
 ---
 /**
- * /radar/research/topics - the profile, made legible.
+ * /radar/research/topics - the published ranking scope, made legible.
  *
  * The ranking is only defensible if you can read the rules. This page prints
- * the entire research profile, weight by weight, alongside how many papers in
+ * the entire research scope, weight by weight, alongside how many papers in
  * the current build each term actually matched - so a term that never fires
  * is visible as dead weight rather than quietly doing nothing.
  */
@@ -42,14 +42,14 @@ for (const item of research.items) {
 ---
 
 <Base
-  title="Research profile"
+  title="Research scope"
   description="Every term ResearchRadar looks for, its weight, and how often it fired."
   engine="research"
   fetchedAt={fetchedAt}
   current="research"
 >
   <section class="standfirst">
-    <h1>Research profile</h1>
+    <h1>Published research scope</h1>
     <p class="lede">
       These rules decide what Radar looks for and how it scores what it finds. Matching is
       phrase-based, not keyword-based — <code>dN/dS</code>, <code>M. tuberculosis</code>, and
@@ -107,8 +107,6 @@ for (const item of research.items) {
       <ul>
         <li><strong>+12</strong> — selection methods applied to Mtb (an organism hit and a methods hit together)</li>
         <li><strong>+10</strong> — TB and a host metabolic angle together</li>
-        <li><strong>+16 max</strong> — cites papers you have saved, via the OpenAlex citation graph</li>
-        <li><strong>+14</strong> — an author on your watchlist</li>
       </ul>
       <h3>Penalties</h3>
       <ul>
@@ -118,7 +116,7 @@ for (const item of research.items) {
       </ul>
       <h3>What never earns a place on its own</h3>
       <p>
-        Recency and open access are <em>modifiers</em>. A paper that matches no profile term is not
+        Recency and open access are <em>modifiers</em>. A paper that matches no published-scope term is not
         published at all, however new it is — otherwise every recent open-access paper in biology
         would qualify, which is several hundred a day.
       </p>

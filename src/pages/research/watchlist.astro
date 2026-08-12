@@ -27,7 +27,7 @@ const index = research.items.map((item) => ({
 
 <Base
   title="Watchlist"
-  description="Papers you saved and are tracking, plus the authors and labs Radar watches for you."
+  description="Papers, authors, and labs saved only in this browser."
   engine="research"
   fetchedAt={fetchedAt}
   current="watchlist"
@@ -35,8 +35,8 @@ const index = research.items.map((item) => ({
   <section class="standfirst">
     <h1>Watchlist</h1>
     <p class="lede">
-      Saved and tracked papers, and the authors you follow. All of it lives in this browser's local
-      storage — Radar has no account and no server, so this list is yours and travels nowhere.
+      A fresh browser starts with an empty list. Anything saved or tracked here lives only in this
+      browser's local storage — Radar has no account and no server, so it travels nowhere.
     </p>
   </section>
 
@@ -50,10 +50,10 @@ const index = research.items.map((item) => ({
   </section>
 
   <section class="section">
-    <h2>Tracked for changes</h2>
+    <h2>Tracked locally</h2>
     <p class="note">
-      Radar re-checks these every ingest and reports revisions, new versions, and preprints that
-      reach a journal.
+      Tracking keeps a local shortlist of papers from the current published snapshot. It does not
+      change or target the next ingest.
     </p>
     <ul class="feed" id="tracked-list"></ul>
     <p class="empty" id="tracked-empty">Nothing tracked yet.</p>
@@ -76,7 +76,8 @@ const index = research.items.map((item) => ({
       </form>
       <ul class="badges" id="watch-list" style="margin-top:0.75rem;"></ul>
       <p class="note" style="margin-top:0.5rem;">
-        Watched names add <strong>+14</strong> to any paper they appear on at the next ingest.
+        Watched names stay in this browser as a local reference list. They do not change the
+        published ranking or server-side ingest.
       </p>
     </div>
   </section>

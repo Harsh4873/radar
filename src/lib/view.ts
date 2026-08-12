@@ -74,8 +74,8 @@ export interface TabDef {
 }
 
 export const RESEARCH_TABS: readonly TabDef[] = [
-  { id: 'for-you', label: 'For You', hint: 'The aggressive cut - 5 to 15 things' },
-  { id: 'new', label: 'New', hint: 'Everything matching the research profile' },
+  { id: 'for-you', label: 'Top', hint: 'The published-scope cut - 5 to 15 papers' },
+  { id: 'new', label: 'New', hint: 'Everything matching the published research scope' },
   { id: 'preprints', label: 'Preprints', hint: 'bioRxiv, medRxiv, arXiv' },
   { id: 'methods', label: 'Methods', hint: 'Codon models, PAML, HyPhy, phylogenetics, tooling' },
   { id: 'mtb', label: 'Mtb', hint: 'Tuberculosis-specific' },
@@ -84,7 +84,7 @@ export const RESEARCH_TABS: readonly TabDef[] = [
 ];
 
 export const CAMPUS_TABS: readonly TabDef[] = [
-  { id: 'for-you', label: 'For You', hint: 'Only what Radar thinks is worth seeing' },
+  { id: 'for-you', label: 'Top', hint: 'The published-scope cut of highest-ranked listings' },
   { id: 'campus', label: 'Campus', hint: 'Departments, seminars, workshops, research centres' },
   { id: 'companies', label: 'Companies', hint: 'Employers, info sessions, career fairs' },
   { id: 'sports', label: 'Sports', hint: 'Aggie athletics and rec sports' },

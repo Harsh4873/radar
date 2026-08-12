@@ -7,7 +7,7 @@
  * has no idea when you last visited. So the page renders the full picture and
  * `src/client/feed.ts` marks what is new against the timestamp in your own
  * browser storage. The counts below are therefore "this week", which is true
- * for everyone, with the personal cut layered on afterwards.
+ * for everyone, with local visitor feedback layered on afterwards.
  */
 import Base from '@/layouts/Base.astro';
 import ItemCard from '@/components/ItemCard.astro';
@@ -63,7 +63,7 @@ const campusDigest = latestDigest(digests, 'campus');
       <span class="engine engine-research">ResearchRadar</span>
       <h2>{researchTop.length} papers worth seeing</h2>
       <ul>
-        <li>{research.scanned} scanned → {research.items.length} matched your profile</li>
+        <li>{research.scanned} scanned → {research.items.length} matched the published scope</li>
         <li>{coreCount} highly relevant · {byBand(research.items, 'methods').length} methods papers</li>
         <li>
           {revised > 0 ? `${revised} tracked preprint(s) revised or published` : 'No preprint changes'}

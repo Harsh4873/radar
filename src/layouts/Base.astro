@@ -50,7 +50,7 @@ const nav = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <meta name="description" content={description} />
-    {/* A personal feed keyed to one person's research. Nothing to index. */}
+    {/* A narrowly scoped research feed plus local-only visitor state. Nothing to index. */}
     <meta name="robots" content="noindex, follow" />
     <link rel="canonical" href={canonical} />
     <meta property="og:title" content={title} />
@@ -89,9 +89,9 @@ const nav = [
     <footer class="site-footer">
       <div class="wrap">
         <p>
-          Radar is a personal discovery tool. It reads public APIs — Europe PMC, PubMed, bioRxiv,
+          Radar is a focused discovery tool. It reads public APIs — Europe PMC, PubMed, bioRxiv,
           medRxiv, Crossref, OpenAlex, arXiv, the Texas A&amp;M events calendar, and Aggie Research
-          Volunteers — and ranks what it finds against one person's interests. Every listing links
+          Volunteers — and ranks what it finds against a transparent, published scope. Every listing links
           back to its source, which is the authority on the details.
         </p>
         <p>

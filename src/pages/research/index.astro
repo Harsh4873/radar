@@ -33,7 +33,7 @@ const preprintChanges = research.diff.changes.filter(
 
 <Base
   title="ResearchRadar"
-  description="Papers worth reading, ranked against a research profile with the reasons shown."
+  description="Papers ranked against a transparent, published research scope with every reason shown."
   engine="research"
   fetchedAt={fetchedAt}
   current="research"
@@ -42,7 +42,7 @@ const preprintChanges = research.diff.changes.filter(
     <h1>ResearchRadar</h1>
     <p class="lede">
       {research.scanned} candidates scanned across Europe PMC, PubMed, bioRxiv, medRxiv, OpenAlex and
-      arXiv. {items.length} matched your research profile; {top.length} are probably worth reading.
+      arXiv. {items.length} matched the published research scope; {top.length} are probably worth reading.
       About {totalReadingMinutes(top)} minutes if you read them all.
     </p>
     <ul class="tally">
@@ -87,7 +87,7 @@ const preprintChanges = research.diff.changes.filter(
   </ul>
 
   <p class="empty" data-empty-state hidden>
-    Nothing in this tab. Try another, or <a href={url(base, 'research/topics/')}>review the profile</a>
+    Nothing in this tab. Try another, or <a href={url(base, 'research/topics/')}>review the published scope</a>
     that decides what Radar looks for.
   </p>
 </Base>

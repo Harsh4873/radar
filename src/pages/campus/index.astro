@@ -32,7 +32,7 @@ const changes = campus.diff.changes.filter(
 
 <Base
   title="CampusRadar"
-  description="Everything happening around Texas A&M that you could plausibly care about, in one ranked feed."
+  description="Texas A&M events and studies ranked by a transparent, published scope."
   engine="campus"
   fetchedAt={fetchedAt}
   current="campus"
@@ -41,7 +41,7 @@ const changes = campus.diff.changes.filter(
     <h1>CampusRadar</h1>
     <p class="lede">
       {campus.scanned} listings scanned across the Texas A&amp;M events calendar and Aggie Research
-      Volunteers. {items.length} kept; {top.length} that Radar thinks you should actually see.
+      Volunteers. {items.length} kept; {top.length} in the published top cut.
     </p>
     <ul class="tally">
       <li class="t-core"><b>{top.length}</b> worth knowing</li>
