@@ -4,7 +4,7 @@
  * Shorter funnel than the research side because the sources are cleaner - a
  * university calendar is already structured, where a literature search is not:
  *
- *   TAMU calendar (main + ~23 group feeds) + Aggie Research Volunteers
+ *   TAMU calendar (main + ~23 group feeds)
  *        -> normalize          strip emails, clean HTML, stable ids
  *        -> dedupe             the same event appears in several group feeds
  *        -> score              interests + value + timing
@@ -17,19 +17,16 @@ import { dedupe } from '@/core/dedupe.ts';
 import { normalizeAll } from '@/core/normalize.ts';
 import { INGEST_THRESHOLD, byRelevance } from '@/core/rank.ts';
 import { fetchTamuCalendar } from '@/campus/sources/tamu-calendar.ts';
-import { fetchAggieResearchVolunteers } from '@/campus/sources/arv.ts';
 import { GET_INVOLVED_REPORT } from '@/campus/sources/getinvolved.ts';
 import { collapseSeries } from '@/campus/series.ts';
 import { scoreCampus, type CampusContext } from '@/campus/score.ts';
 
 const LABELS: Record<string, string> = {
   'tamu-calendar': 'TAMU Events Calendar',
-  'aggie-research-volunteers': 'Aggie Research Volunteers',
 };
 
 const DOCS: Record<string, string> = {
   'tamu-calendar': 'https://calendar.tamu.edu/feeds/',
-  'aggie-research-volunteers': 'https://research.tamu.edu/study/',
 };
 
 function reportFor(result: SourceResult<unknown>): SourceReport {
@@ -74,6 +71,21 @@ export interface CampusIngestResult {
   warnings: string[];
 }
 
+/**
+ * Participant-recruitment studies belong exclusively in harsh.bet/studies.
+ * Keep academic talks, papers, symposia, sponsors, and research organizations
+ * in Radar; remove invitations asking a person to become a study subject.
+ */
+export function isParticipantResearchStudy(item: RawItem): boolean {
+  if (item.source === 'aggie-research-volunteers') return true;
+  const text = `${item.title} ${item.summary} ${item.tags.join(' ')} ${item.campus?.compensation ?? ''}`
+    .toLowerCase()
+    .replace(/[^a-z0-9$]+/g, ' ');
+  const recruitment = /\b(participants? needed|seeking participants?|recruiting participants?|volunteers? needed|take part in (?:a|our|this) study|participate in (?:a|our|this) study|study participants?|paid study|clinical trial participants?)\b/;
+  const studyContext = /\b(research study|clinical trial|human subjects?|irb|compensation|paid|participant)\b/;
+  return recruitment.test(text) && studyContext.test(text);
+}
+
 export async function ingestCampus(options: CampusIngestOptions): Promise<CampusIngestResult> {
   const log = options.log ?? consoleLogger;
   const days = options.days ?? 45;
@@ -88,7 +100,6 @@ export async function ingestCampus(options: CampusIngestOptions): Promise<Campus
   // --- 1. Fetch ----------------------------------------------------------
   const results: SourceResult<RawItem>[] = [];
   results.push(await fetchTamuCalendar({ ...options, days }));
-  results.push(await fetchAggieResearchVolunteers(options));
 
   for (const result of results) {
     reports.push(reportFor(result));
@@ -98,8 +109,13 @@ export async function ingestCampus(options: CampusIngestOptions): Promise<Campus
   // Registered but deliberately not implemented - the Sources page explains why.
   reports.push(GET_INVOLVED_REPORT);
 
-  const raws = results.flatMap((result) => result.records);
-  const scanned = raws.length;
+  const fetched = results.flatMap((result) => result.records);
+  const raws = fetched.filter((item) => !isParticipantResearchStudy(item));
+  const excludedStudies = fetched.length - raws.length;
+  const scanned = fetched.length;
+  if (excludedStudies > 0) {
+    log.info(`[campus] excluded ${excludedStudies} participant-recruitment study record(s); Studies owns that vertical`);
+  }
   log.info(`[campus] ${scanned} raw record(s) across ${results.length} source(s)`);
 
   // --- 2. Normalize ------------------------------------------------------
@@ -125,7 +141,6 @@ export async function ingestCampus(options: CampusIngestOptions): Promise<Campus
     now: options.now,
     mutedInterests: options.context?.mutedInterests ?? new Set(),
     watchedCompanies: options.context?.watchedCompanies ?? new Set(),
-    minStudyPayUsd: options.context?.minStudyPayUsd ?? 15,
   };
   const scored = scoreCampus(series, context);
 

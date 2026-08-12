@@ -6,8 +6,9 @@
  *
  *   1. TABS. Filtering client-side keeps tab switches instant and avoids
  *      shipping the same items in nine different pre-rendered pages.
- *   2. PERSONALIZATION. Saved/dismissed/tracked state lives in localStorage
- *      (see store.ts), so it can only be applied after load.
+ *   2. PERSONALIZATION. Saved/dismissed/tracked state is local-first and may
+ *      be mirrored to the private owner vault (see store.ts), so it is applied
+ *      after load.
  *   3. RE-RANKING. Learned per-signal bias adjusts the server's score in
  *      place, so "more like this" changes the next page view rather than
  *      waiting for the next ingest.
@@ -20,6 +21,7 @@ import {
   applyFeedback,
   loadState,
   saveState,
+  subscribeRadarState,
   toggleDismissed,
   toggleSaved,
   toggleTracked,
@@ -137,7 +139,10 @@ export function initFeed(): void {
 
   const { previous, state: stamped } = touchVisit(loadState());
   let state = stamped;
-  saveState(state);
+  // Visiting must not outrank a newer cloud record before the first owner-
+  // vault snapshot arrives. The visit is persisted, but it keeps the prior
+  // content stamp until the two copies have reconciled.
+  saveState(state, { visitOnly: true });
 
   let tab = root.dataset['defaultTab'] ?? 'for-you';
   let showDismissed = false;
@@ -146,6 +151,11 @@ export function initFeed(): void {
     for (const card of cards) paintCard(card, state, previous);
     applyView(cards, state, tab, showDismissed);
   };
+
+  subscribeRadarState((next) => {
+    state = next;
+    repaint();
+  });
 
   // --- Tabs --------------------------------------------------------------
   for (const button of document.querySelectorAll<HTMLElement>('[data-tab]')) {

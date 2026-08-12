@@ -78,6 +78,31 @@ function byId(a: RadarItem, b: RadarItem): number {
   return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
 }
 
+function excludesParticipantStudies(item: RadarItem): boolean {
+  return !item.sources.some((source) => source.source === 'aggie-research-volunteers')
+    && !/\b(participants? needed|seeking participants?|recruiting participants?|volunteers? needed|paid study|take part in (?:a|our|this) study|participate in (?:a|our|this) study)\b/i
+      .test(`${item.title} ${item.summary}`);
+}
+
+function sanitizeCampusSnapshot(snapshot: VerticalSnapshot | undefined): VerticalSnapshot | undefined {
+  if (!snapshot) return undefined;
+  const items = snapshot.items.filter(excludesParticipantStudies);
+  const kept = new Set(items.map((item) => item.id));
+  const excluded = new Set(snapshot.items.filter((item) => !excludesParticipantStudies(item)).map((item) => item.id));
+  const excludedId = (id: string) => excluded.has(id) || /(?:^|:)arv(?:-|:|$)/i.test(id);
+  return {
+    ...snapshot,
+    matched: items.length,
+    items,
+    sources: snapshot.sources.filter((source) => source.id !== 'aggie-research-volunteers'),
+    diff: {
+      added: snapshot.diff.added.filter((id) => kept.has(id)),
+      removed: snapshot.diff.removed.filter((id) => !excludedId(id)),
+      changes: snapshot.diff.changes.filter((change) => !excludedId(change.itemId)),
+    },
+  };
+}
+
 async function loadPrevious(): Promise<RadarSnapshot | null> {
   try {
     const parsed: unknown = JSON.parse(await readFile(RADAR_PATH, 'utf8'));
@@ -134,6 +159,10 @@ async function main(): Promise<void> {
   log('='.repeat(74));
 
   const previous = await loadPrevious();
+  const previousCampus = sanitizeCampusSnapshot(previous?.campus);
+  const excludedCampusIds = new Set(
+    (previous?.campus.items ?? []).filter((item) => !excludesParticipantStudies(item)).map((item) => item.id),
+  );
 
   // --- 1. Ingest ---------------------------------------------------------
   const runResearch = only === null || only === 'research';
@@ -163,8 +192,8 @@ async function main(): Promise<void> {
     : { items: previous?.research.items ?? [], retained: [], impaired: [] };
 
   const campusRetain = freshCampus
-    ? retainUnfetched(previous?.campus.items ?? null, campus.items, campus.reports)
-    : { items: previous?.campus.items ?? [], retained: [], impaired: [] };
+    ? retainUnfetched(previousCampus?.items ?? null, campus.items, campus.reports)
+    : { items: previousCampus?.items ?? [], retained: [], impaired: [] };
 
   for (const [vertical, result] of [['research', researchRetain], ['campus', campusRetain]] as const) {
     if (result.retained.length === 0) continue;
@@ -177,7 +206,9 @@ async function main(): Promise<void> {
   }
 
   const researchItems = researchRetain.items;
-  const campusItems = campusRetain.items;
+  // Apply the product boundary after retention too. Otherwise an old ARV
+  // record would survive forever when the source is intentionally removed.
+  const campusItems = campusRetain.items.filter(excludesParticipantStudies);
 
   if (researchItems.length === 0 && campusItems.length === 0) {
     console.error('[ingest] FATAL: no items from any source and no previous snapshot. Nothing to publish.');
@@ -195,7 +226,18 @@ async function main(): Promise<void> {
     : { items: campusItems, diff: previous?.campus.diff ?? { added: [], removed: [], changes: [] } };
 
   // --- 3. Digests --------------------------------------------------------
-  const storedDigests = await loadDigests();
+  const storedDigests = (await loadDigests()).map((digest) => {
+    if (digest.vertical !== 'campus' || excludedCampusIds.size === 0) return digest;
+    const keptIndexes = digest.recommended
+      .map((id, index) => ({ id, index }))
+      .filter(({ id }) => !excludedCampusIds.has(id));
+    return {
+      ...digest,
+      recommended: keptIndexes.map(({ id }) => id),
+      headlines: keptIndexes.map(({ index }) => digest.headlines[index] ?? '').filter(Boolean),
+      changes: digest.changes.filter((change) => !excludedCampusIds.has(change.itemId)),
+    };
+  });
   // Only rebuild a digest for a vertical that actually ran. Rebuilding from a
   // carried-forward list would recompute the same week from stale inputs and
   // could overwrite a real digest with a thinner one.
@@ -257,7 +299,7 @@ async function main(): Promise<void> {
         diff: campusDiff.diff,
         sources: campus.reports,
       }
-    : (previous?.campus ?? {
+    : (previousCampus ?? {
         vertical: 'campus',
         fetchedAt: now,
         scanned: 0,
@@ -310,8 +352,7 @@ async function main(): Promise<void> {
 
   const freeFood = campusSnapshot.items.filter((i) => i.campus?.food.confidence === 'confirmed').length;
   const provided = campusSnapshot.items.filter((i) => i.campus?.food.confidence === 'provided').length;
-  const paid = campusSnapshot.items.filter((i) => (i.campus?.compensationUsd ?? 0) > 0).length;
-  log(`  free food: ${freeFood} confirmed, ${provided} provided  |  paid studies: ${paid}`);
+  log(`  free food: ${freeFood} confirmed, ${provided} provided  |  participant studies: excluded (owned by Studies)`);
   log(`  diff: ${summarizeDiff(campusSnapshot.diff)}${freshCampus ? '' : '   [carried forward - vertical did not run]'}`);
   log('-'.repeat(74));
 

@@ -18,13 +18,17 @@
     "capture:fixtures": "node --experimental-strip-types scripts/capture-fixtures.ts",
     "test": "vitest",
     "test:run": "vitest run",
+    "test:rules": "npx --yes firebase-tools emulators:exec --project demo-radar-vault --only firestore \"vitest run src/firestore.rules.test.ts --testTimeout=60000\"",
+    "deploy:rules": "npx --yes firebase-tools deploy --only firestore:rules --project pickledgerpro",
     "typecheck": "astro check && tsc --noEmit"
   },
   "dependencies": {
-    "astro": "7.2.0"
+    "astro": "7.2.0",
+    "firebase": "^12.16.0"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
+    "@firebase/rules-unit-testing": "^5.0.1",
     "@tailwindcss/vite": "4.3.3",
     "@types/node": "22.19.1",
     "tailwindcss": "4.3.3",

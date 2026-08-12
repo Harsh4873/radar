@@ -315,9 +315,9 @@ export function toIso(value: unknown): string | null {
   /*
    * A bare datetime with NO timezone is UTC, not local.
    *
-   * This is not a nicety - it was a real bug. WordPress (Aggie Research
-   * Volunteers) returns `date` as `2025-02-17T15:53:22` with no zone, and
-   * `new Date()` parses that as LOCAL time per the spec. The same input then
+   * This is not a nicety - it was a real bug in a retired WordPress connector:
+   * a `date` like `2025-02-17T15:53:22` with no zone was parsed as LOCAL time
+   * per the spec. The same input then
    * produced different output on different machines: 62 items came out seven
    * hours apart between a laptop in US Central and a CI runner in UTC, which
    * flipped them all to "Updated" on every alternation and quietly broke the

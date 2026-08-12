@@ -2,23 +2,23 @@
   {
     "weekOf": "2026-08-10",
     "vertical": "campus",
-    "scanned": 2039,
-    "candidates": 362,
+    "scanned": 1951,
+    "candidates": 296,
     "recommended": [
       "campus-850a1c93dca2",
-      "campus-9abac9efcdc3",
-      "campus-01eb94d58854",
-      "campus-6f67f8efb539",
-      "campus-6babd91ddf6e",
-      "campus-850a1893dca2"
+      "campus-850a1893dca2",
+      "campus-19b191ab2098",
+      "campus-850a1a93dca2",
+      "campus-dc6180aafdac",
+      "campus-66242b45d684"
     ],
     "headlines": [
       "bioinformatics / genomics · biotech · data science",
-      "computer science · paid study · graduate opportunities",
-      "computer science · paid study · graduate opportunities",
-      "bioinformatics / genomics · paid study · pays $400",
-      "paid study · company recruiting · graduate opportunities",
-      "bioinformatics / genomics · data science · workshop / training"
+      "bioinformatics / genomics · data science · workshop / training",
+      "bioinformatics / genomics · data science · workshop / training",
+      "bioinformatics / genomics · data science · workshop / training",
+      "computer science · this week · workshop / training",
+      "company recruiting · graduate opportunities · workshop / training"
     ],
     "changes": [],
     "estimatedMinutes": 0
@@ -26,8 +26,8 @@
   {
     "weekOf": "2026-08-10",
     "vertical": "research",
-    "scanned": 1076,
-    "candidates": 145,
+    "scanned": 482,
+    "candidates": 115,
     "recommended": [
       "research-5452ce5ce349",
       "research-f738f15ccdda",

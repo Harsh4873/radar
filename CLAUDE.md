@@ -7,14 +7,13 @@ This repository is the owner's personal discovery system: ResearchRadar (literat
 - Radar lives on `main` and publishes under `/radar/`.
 - Do not add or modify PickLedger, betting, prediction, grading, player-prop, Gym, Daymark, Slate, Fare, Notes, or Recall source in this repository.
 - ResearchRadar **finds**; Recall **understands**. Do not rebuild paper reading, annotation, or study-guide features here. The handoff is the "Open in Recall" link on the paper page, which passes identifiers and nothing else.
-- `/studies` is a separate repo that indexes the same Aggie Research Volunteers registry. Radar reads it as one source among many; do not merge the two projects or move features between them.
-- Keep Radar local-first. Saved, dismissed, and tracked items stay in the visitor's browser. Do not add an account, a server, a backend database, or analytics.
+- `/studies` exclusively owns paid and unpaid participant-recruitment studies. Radar must not fetch, retain, rank, or publish that registry or equivalent recruitment listings. Academic papers, seminars, research organizations, sponsors, and campus research events remain in Radar.
+- Keep Radar local-first. A provisioned Google session may mirror personal state only to the canonical private owner vault; private state never enters public ingest or ranking. Do not add analytics or another backend.
 
 ## Invariants — do not break these without reading why they exist
 
 - **Item ids are identity-derived, not content-derived.** An event that changes rooms must keep its id, or every visitor silently loses their saved state on the next deploy. See `src/core/normalize.ts`.
 - **Never claim food is free unless the source says so.** `FoodConfidence` has four tiers and the UI must render `confirmed`, `provided`, and `mentioned` differently. Never flatten them to a boolean or to the words "free food". See `src/campus/freebies.ts`.
-- **A raffle is not money.** Lottery-shaped compensation yields `compensationUsd: null` and keeps the original wording. Never parse a raffle prize into a dollar figure.
 - **Recency and open access never justify an item on their own.** Research items must match a profile term to be published at all (`hasProfileMatch`).
 - **Connectors never throw.** A dead upstream produces a warning, a `SourceReport`, and a smaller feed — never a failed build.
 - **Every point the ranker awards must be itemized in `reasons`.** If a scorer adds a silent bonus, the card is lying about why something is there.
@@ -25,7 +24,7 @@ This repository is the owner's personal discovery system: ResearchRadar (literat
 
 ## Privacy — the hard rule
 
-`calendar.tamu.edu` publishes `registration_owner_email` (a real staff address) on well over half its events, and the study registry publishes a coordinator address on nearly every listing. This site deploys publicly.
+`calendar.tamu.edu` publishes `registration_owner_email` (a real staff address) on well over half its events. This site deploys publicly.
 
 - Connectors must never read those fields into a `RawItem`.
 - `stripEmails` runs over every text field in `normalize.ts`.

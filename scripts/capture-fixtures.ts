@@ -101,11 +101,6 @@ const CAPTURES: Capture[] = [
     url: 'https://calendar.tamu.edu/live/json/events/group/Career%20Center',
     trim: (data) => (Array.isArray(data) ? data.slice(0, 12) : data),
   },
-  {
-    file: 'arv-studies.json',
-    url: 'https://research.tamu.edu/wp-json/wp/v2/study?per_page=100',
-    trim: (data) => (Array.isArray(data) ? data.slice(0, 10) : data),
-  },
 ];
 
 function sleep(ms: number): Promise<void> {

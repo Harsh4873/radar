@@ -197,7 +197,7 @@ jobs:
             );
           ')
 
-          git commit -m "data: refresh snapshot (${SUMMARY})" \
+          git commit -m "chore(data): refresh snapshot (${SUMMARY})" \
                      -m "Automated by .github/workflows/refresh.yml."
 
           # Push once, then rebase and retry if a human landed a commit in the

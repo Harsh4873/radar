@@ -31,7 +31,6 @@ const campusChanges = campus.diff.changes.filter(
   (change) => change.kind === 'cancelled' || change.kind === 'location' || change.kind === 'time',
 ).length;
 
-const paidStudies = campus.items.filter((item) => (item.campus?.compensationUsd ?? 0) > 0).length;
 const freeFood = campus.items.filter((item) => item.campus?.food.confidence === 'confirmed').length;
 
 const researchDigest = latestDigest(digests, 'research');
@@ -54,7 +53,7 @@ const campusDigest = latestDigest(digests, 'campus');
       <li class="t-core"><b>{coreCount}</b> highly relevant papers</li>
       <li class="t-plain"><b>{researchNew.length}</b> new papers this week</li>
       <li class="t-plain"><b>{campusNew.length}</b> new events this week</li>
-      <li class="t-methods"><b>{paidStudies}</b> paid studies</li>
+      <li class="t-methods"><b>{freeFood}</b> confirmed free-food events</li>
     </ul>
   </section>
 
@@ -76,7 +75,7 @@ const campusDigest = latestDigest(digests, 'campus');
       <h2>{campusTop.length} events worth seeing</h2>
       <ul>
         <li>{campus.scanned} scanned → {campus.items.length} kept</li>
-        <li>{paidStudies} paid studies · {freeFood} with confirmed free food</li>
+        <li>Organizations, employers, sponsors, and campus events · {freeFood} with confirmed free food</li>
         <li>{campusChanges > 0 ? `${campusChanges} event change(s)` : 'No event changes'}</li>
       </ul>
     </a>

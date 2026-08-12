@@ -35,7 +35,7 @@ That preprint       now published in Evolutionary Applications
 ```
    RESEARCH                          CAMPUS
    Europe PMC  PubMed                TAMU calendar (main + 23 group feeds)
-   bioRxiv     medRxiv               Aggie Research Volunteers
+   bioRxiv     medRxiv               org · company · sponsor · campus events
    OpenAlex    arXiv
    Crossref (enrichment only)
         │                                  │
@@ -77,7 +77,9 @@ Optional environment (see `.env.example`): `NCBI_API_KEY` raises E-utilities fro
 
 **Item ids are identity-derived, not content-derived.** An event that changes rooms keeps its id, so your saved/dismissed state survives. Only `contentHash` moves, and that's what change detection reads.
 
-**Never claim food is free unless the source says so.** `src/campus/freebies.ts` returns a tier — `confirmed` / `provided` / `mentioned` / `none` — and the UI renders all three differently. "Coffee Chat with the Dean" contains the word "coffee" and is not free coffee. A raffle is never rendered as an amount of money, for the same reason.
+**Never claim food is free unless the source says so.** `src/campus/freebies.ts` returns a tier — `confirmed` / `provided` / `mentioned` / `none` — and the UI renders all three differently. "Coffee Chat with the Dean" contains the word "coffee" and is not free coffee.
+
+**Studies owns participant recruitment.** Radar does not ingest the Aggie Research Volunteers registry and filters equivalent recruitment language from calendar feeds and retained snapshots. Academic papers, seminars, organizations, sponsors, and research events remain in scope.
 
 **Emails never reach the build.** `calendar.tamu.edu` publishes `registration_owner_email` — a real staff address — on well over half its events. Three defences: the connectors never read those fields, `stripEmails` scrubs free text, and CI fails the build if an address appears anywhere in `dist/`.
 
@@ -109,8 +111,8 @@ src/
     classify.ts         category routing and employer extraction
     freebies.ts         the free-stuff evidence tiers
     series.ts           multi-day event collapsing
-    sources/            tamu-calendar · arv · getinvolved (documented refusal)
-  client/               localStorage state and browser re-ranking
+    sources/            tamu-calendar · getinvolved (documented refusal)
+  client/               local-first owner-vault state and browser re-ranking
   pages/                the routes
 fixtures/               frozen real upstream responses; the test corpus
 scripts/                ingest · capture-fixtures
@@ -118,4 +120,4 @@ scripts/                ingest · capture-fixtures
 
 ## Privacy
 
-Radar has no account, no server, and no analytics. Saved, dismissed, and tracked items live in your browser's local storage and are never transmitted. `/radar/research/watchlist/` can export the lot as JSON or clear it.
+Radar has no analytics. Saved, dismissed, tracked, author, company, feedback, and visit state stays local-first; after a provisioned Google sign-in it mirrors to the same private owner vault as the other harsh.bet apps. It never enters public ingest or ranking. `/radar/research/watchlist/` can export or clear the private state.

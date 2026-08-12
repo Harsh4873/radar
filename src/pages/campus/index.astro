@@ -20,7 +20,6 @@ const top = forYou(items);
 const forYouIds = new Set(top.map((item) => item.id));
 const fresh = recentlyAdded(items, now, 7);
 
-const paid = items.filter((item) => (item.campus?.compensationUsd ?? 0) > 0);
 const confirmedFood = items.filter((item) => item.campus?.food.confidence === 'confirmed');
 const providedFood = items.filter((item) => item.campus?.food.confidence === 'provided');
 const cancelled = items.filter((item) => item.campus?.isCancelled === true);
@@ -32,7 +31,7 @@ const changes = campus.diff.changes.filter(
 
 <Base
   title="CampusRadar"
-  description="Texas A&M events and studies ranked by a transparent, published scope."
+  description="Texas A&M organizations, companies, sponsors, and events ranked by a transparent scope."
   engine="campus"
   fetchedAt={fetchedAt}
   current="campus"
@@ -40,12 +39,12 @@ const changes = campus.diff.changes.filter(
   <section class="standfirst">
     <h1>CampusRadar</h1>
     <p class="lede">
-      {campus.scanned} listings scanned across the Texas A&amp;M events calendar and Aggie Research
-      Volunteers. {items.length} kept; {top.length} in the published top cut.
+      {campus.scanned} listings scanned across the Texas A&amp;M events calendar. {items.length} kept;
+      {top.length} in the published top cut. Participant-recruitment studies are handled only by Studies.
     </p>
     <ul class="tally">
       <li class="t-core"><b>{top.length}</b> worth knowing</li>
-      <li class="t-methods"><b>{paid.length}</b> paid studies</li>
+      <li class="t-methods"><b>{byCategory(items, 'research').length}</b> research events</li>
       <li class="t-adjacent"><b>{confirmedFood.length}</b> confirmed free food</li>
       <li class="t-plain"><b>{fresh.length}</b> new this week</li>
       <li class="t-plain"><b>{byCategory(items, 'companies').length}</b> employer events</li>

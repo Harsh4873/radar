@@ -89,7 +89,7 @@ export const CAMPUS_TABS: readonly TabDef[] = [
   { id: 'companies', label: 'Companies', hint: 'Employers, info sessions, career fairs' },
   { id: 'sports', label: 'Sports', hint: 'Aggie athletics and rec sports' },
   { id: 'clubs', label: 'Clubs', hint: 'Student organizations and social events' },
-  { id: 'studies', label: 'Research & Studies', hint: 'Paid studies and research events' },
+  { id: 'research-events', label: 'Research Events', hint: 'Seminars, symposia, labs, and research organizations' },
   { id: 'free', label: 'Free Stuff', hint: 'Only where the source actually says so' },
   { id: 'deadlines', label: 'Deadlines', hint: 'Applications, registration, scholarships' },
   { id: 'bcs', label: 'B/CS', hint: 'Bryan/College Station, beyond campus' },
@@ -139,7 +139,7 @@ export function tabsFor(item: RadarItem, inForYou?: boolean): string[] {
       companies: 'companies',
       sports: 'sports',
       clubs: 'clubs',
-      research: 'studies',
+      research: 'research-events',
       deadline: 'deadlines',
       community: 'bcs',
     };

@@ -73,8 +73,7 @@ const SPORTS_TERMS: readonly string[] = [
 const RESEARCH_TERMS: readonly string[] = [
   'seminar', 'colloquium', 'symposium', 'research', 'dissertation', 'thesis defense',
   'defense', 'lecture series', 'distinguished lecture', 'guest lecture', 'journal club',
-  'poster session', 'lab tour', 'study participants', 'participants needed',
-  'research study', 'clinical trial', 'irb', 'volunteers needed',
+  'poster session', 'lab tour',
 ];
 
 const ACADEMIC_TERMS: readonly string[] = [
@@ -130,8 +129,6 @@ export interface ClassifyInput {
   description: string;
   group: string | null;
   eventTypes: readonly string[];
-  /** Set for Aggie Research Volunteers records, which are always studies. */
-  isStudy?: boolean;
 }
 
 /**
@@ -158,13 +155,10 @@ export function extractCompanies(title: string, description: string): string[] {
 /**
  * Assign a category. ORDER IS THE POLICY.
  *
- * Study listings first (they are unambiguous and come from a dedicated feed),
- * then sports and companies - the two tabs a user opens on purpose - then
+ * Sports and companies - the two tabs a user opens on purpose - then
  * deadlines, then the softer academic/research/club buckets.
  */
 export function classify(input: ClassifyInput): CampusCategory {
-  if (input.isStudy === true) return 'research';
-
   const haystack = normalize(`${input.title} ${input.description}`);
   const group = (input.group ?? '').toLowerCase();
   const types = normalize(input.eventTypes.join(' '));
@@ -200,7 +194,7 @@ export const CATEGORY_LABELS: Record<CampusCategory, string> = {
   companies: 'Companies',
   sports: 'Sports',
   clubs: 'Clubs',
-  research: 'Research & Studies',
+  research: 'Research Events',
   academic: 'Campus',
   deadline: 'Deadlines',
   community: 'B/CS',

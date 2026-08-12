@@ -2,8 +2,8 @@
 /**
  * /radar/research/watchlist - saved and tracked papers, plus author watching.
  *
- * Entirely client-rendered from localStorage, because that is the only place
- * this data exists - Radar has no account and no server. The page ships every
+ * Client-rendered from local-first private state. A provisioned Google session
+ * mirrors that state to the shared owner vault. The page ships every
  * paper's metadata as an inert JSON island and the script picks out the ones
  * you saved.
  */
@@ -27,7 +27,7 @@ const index = research.items.map((item) => ({
 
 <Base
   title="Watchlist"
-  description="Papers, authors, and labs saved only in this browser."
+  description="Private saved papers, tracked work, authors, and companies, synced when signed in."
   engine="research"
   fetchedAt={fetchedAt}
   current="watchlist"
@@ -35,8 +35,9 @@ const index = research.items.map((item) => ({
   <section class="standfirst">
     <h1>Watchlist</h1>
     <p class="lede">
-      A fresh browser starts with an empty list. Anything saved or tracked here lives only in this
-      browser's local storage — Radar has no account and no server, so it travels nowhere.
+      A fresh signed-out browser starts with an empty list. Radar keeps an offline browser copy;
+      when either provisioned Google account is signed in, saved and tracked state follows through
+      the same private owner vault used by the other harsh.bet apps.
     </p>
   </section>
 
@@ -50,9 +51,9 @@ const index = research.items.map((item) => ({
   </section>
 
   <section class="section">
-    <h2>Tracked locally</h2>
+    <h2>Tracked</h2>
     <p class="note">
-      Tracking keeps a local shortlist of papers from the current published snapshot. It does not
+      Tracking keeps a private shortlist of papers from the current published snapshot. It does not
       change or target the next ingest.
     </p>
     <ul class="feed" id="tracked-list"></ul>

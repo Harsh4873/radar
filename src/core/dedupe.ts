@@ -335,11 +335,10 @@ export function shouldFuzzyMerge(a: RadarItem, b: RadarItem): boolean {
     const startA = a.campus?.startsAt ?? null;
     const startB = b.campus?.startsAt ?? null;
 
-    // Both undated: study listings from Aggie Research Volunteers have no
-    // start time by nature (they are open until they expire), so a time
-    // comparison can never fire and they would never merge however identical
-    // they are. Fall back to a near-exact title match plus the same organizer,
-    // which is strict enough that a false merge is very unlikely.
+    // Both undated: deadlines and public announcements sometimes have no
+    // start time, so a time comparison can never fire. Fall back to a
+    // near-exact title match plus the same organizer, which is strict enough
+    // that a false merge is very unlikely.
     if (startA === null && startB === null) {
       const sameOrganizer = (a.campus?.organizer ?? '') === (b.campus?.organizer ?? '');
       return sameOrganizer && similarity >= 0.94;

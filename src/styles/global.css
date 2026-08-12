@@ -757,6 +757,30 @@ a {
   margin: 0 0 0.5rem;
 }
 
+.vault-strip {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.vault-strip-inner {
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.vault-strip p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+.vault-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .prose p {
   font-size: 0.9375rem;
 }

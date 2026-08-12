@@ -8,7 +8,7 @@
  * far enough below zero to leave the feed without a separate filter.
  *
  *   Relevance = interest match
- *             + event value (paid studies, free food, named employers)
+ *             + event value (free food, named employers)
  *             + timing (today > this week > next month > over)
  *             + source corroboration
  *             - cancelled / already happened
@@ -26,24 +26,6 @@ export interface CampusContext {
   mutedInterests?: ReadonlySet<string>;
   /** Employers the user is actively tracking. */
   watchedCompanies?: ReadonlySet<string>;
-  /** Below this, a paid study is not worth the trip. */
-  minStudyPayUsd?: number;
-}
-
-/**
- * Points for the money a study pays.
- *
- * Banded rather than proportional. A linear term would let a single $500
- * study dominate the entire feed, and the real decision ("is this worth a few
- * hours?") is a threshold question, not a linear one.
- */
-function compensationSignal(usd: number | null, minimum: number): RelevanceReason | null {
-  if (usd === null) return null;
-  if (usd < minimum) return reason('pay', `pays $${usd} - below your floor`, -4);
-  if (usd >= 100) return reason('pay', `pays $${usd}`, 20);
-  if (usd >= 50) return reason('pay', `pays $${usd}`, 15);
-  if (usd >= 25) return reason('pay', `pays $${usd}`, 10);
-  return reason('pay', `pays $${usd}`, 5);
 }
 
 /**
@@ -94,10 +76,7 @@ export function scoreCampusItem(item: RadarItem, context: CampusContext): RadarI
     }
   }
 
-  // --- 3. Money and food --------------------------------------------------
-  const pay = compensationSignal(campus.compensationUsd, context.minStudyPayUsd ?? 15);
-  if (pay !== null) reasons.push(pay);
-
+  // --- 3. Food ------------------------------------------------------------
   const food = foodSignal(item);
   if (food !== null) reasons.push(food);
 

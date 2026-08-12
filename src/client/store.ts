@@ -1,12 +1,11 @@
 /**
- * Browser-side state: saved, dismissed, tracked, watchlists, and last visit.
+ * Browser + private owner-vault state: saved, dismissed, tracked, watchlists,
+ * and last visit.
  *
- * WHY THIS IS IN THE BROWSER AT ALL. Radar is a static site - there is no
- * server and no account - so anything personal has to live in the visitor's
- * own storage. That is a genuine feature, not a workaround: the reading
- * history of someone's research and the campus events they are interested in
- * are exactly the sort of thing that should not be sitting in someone else's
- * database. Nothing here is ever transmitted anywhere.
+ * The browser copy keeps Radar instant and offline-capable. When one of the
+ * two provisioned Google accounts is signed in, the same validated record is
+ * synchronized to the private harsh.bet owner vault so it follows the owner
+ * across devices. Public feed data and ingest jobs never receive this state.
  *
  * The one thing this design has to get right is that item ids are STABLE
  * across ingests. They are derived from an item's identity (DOI, LiveWhale
@@ -18,7 +17,8 @@
  * an exception in a page's critical path.
  */
 
-const STORAGE_KEY = 'radar:v1';
+export const RADAR_STORAGE_KEY = 'radar:v1';
+const CLIENT_ID_KEY = 'harsh.bet/owner-vault:client-id';
 
 /** Feedback on a single item. */
 export type Feedback = 'more' | 'less';
@@ -48,7 +48,18 @@ export interface RadarState {
   signalBias: Record<string, number>;
 }
 
-function emptyState(): RadarState {
+export interface RadarVaultRecord {
+  schemaVersion: 1;
+  state: RadarState;
+  updatedAtMs: number;
+  clientId: string;
+}
+
+type StateListener = (state: RadarState, record: RadarVaultRecord) => void;
+const listeners = new Set<StateListener>();
+let observedStamp = 0;
+
+export function emptyState(): RadarState {
   return {
     lastVisit: null,
     saved: [],
@@ -100,24 +111,138 @@ function coerce(raw: unknown): RadarState {
   };
 }
 
-export function loadState(): RadarState {
+function storage(): Storage | null {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw === null ? emptyState() : coerce(JSON.parse(raw));
+    return typeof localStorage === 'undefined' ? null : localStorage;
   } catch {
-    // Private browsing, disabled storage, or malformed JSON. A fresh state is
-    // a fine outcome; a thrown exception on page load is not.
-    return emptyState();
+    return null;
   }
 }
 
-export function saveState(state: RadarState): void {
+function getClientId(): string {
+  const store = storage();
+  if (!store) return 'browser-unavailable';
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    const existing = store.getItem(CLIENT_ID_KEY);
+    if (existing && existing.length <= 128) return existing;
+    const random = typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function'
+      ? crypto.randomUUID()
+      : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+    const next = `radar-${random}`.slice(0, 128);
+    store.setItem(CLIENT_ID_KEY, next);
+    return next;
   } catch {
-    // Quota exceeded or storage disabled. The UI has already updated
-    // optimistically; losing persistence is better than losing the page.
+    return 'browser-storage-blocked';
   }
+}
+
+function hasPersonalContent(state: RadarState): boolean {
+  return state.saved.length > 0
+    || state.dismissed.length > 0
+    || state.tracked.length > 0
+    || Object.keys(state.feedback).length > 0
+    || state.authors.length > 0
+    || state.companies.length > 0
+    || Object.keys(state.signalBias).length > 0;
+}
+
+export function parseRadarVaultRecord(raw: unknown): RadarVaultRecord | null {
+  if (!raw || typeof raw !== 'object') return null;
+  const value = raw as Record<string, unknown>;
+  if (value.schemaVersion !== 1 || !Number.isSafeInteger(value.updatedAtMs) || (value.updatedAtMs as number) < 0) {
+    return null;
+  }
+  const clientId = typeof value.clientId === 'string' && value.clientId.length > 0
+    ? value.clientId.slice(0, 128)
+    : getClientId();
+  return {
+    schemaVersion: 1,
+    state: coerce(value.state),
+    updatedAtMs: value.updatedAtMs as number,
+    clientId,
+  };
+}
+
+function freshRecord(): RadarVaultRecord {
+  return { schemaVersion: 1, state: emptyState(), updatedAtMs: 0, clientId: getClientId() };
+}
+
+function readRecord(): RadarVaultRecord {
+  const store = storage();
+  if (!store) return freshRecord();
+  try {
+    const raw = store.getItem(RADAR_STORAGE_KEY);
+    if (raw === null) return freshRecord();
+    const parsed: unknown = JSON.parse(raw);
+    const current = parseRadarVaultRecord(parsed);
+    if (current) return current;
+    // v1 stored the bare RadarState. Preserve meaningful lists and interests
+    // during the one-time owner-vault migration.
+    const state = coerce(parsed);
+    return {
+      schemaVersion: 1,
+      state,
+      updatedAtMs: hasPersonalContent(state) ? Date.now() : 0,
+      clientId: getClientId(),
+    };
+  } catch {
+    return freshRecord();
+  }
+}
+
+function writeRecord(record: RadarVaultRecord, notify = true): void {
+  observedStamp = Math.max(observedStamp, record.updatedAtMs);
+  try {
+    storage()?.setItem(RADAR_STORAGE_KEY, JSON.stringify(record));
+  } catch {
+    // The in-memory UI still works when persistence is blocked.
+  }
+  if (notify) for (const listener of [...listeners]) listener(record.state, record);
+}
+
+function mintStamp(): number {
+  const next = Math.max(Date.now(), observedStamp + 1);
+  observedStamp = next;
+  return next;
+}
+
+export function loadRadarVaultRecord(): RadarVaultRecord {
+  const record = readRecord();
+  observedStamp = Math.max(observedStamp, record.updatedAtMs);
+  return structuredClone(record);
+}
+
+export function loadState(): RadarState {
+  return loadRadarVaultRecord().state;
+}
+
+export function saveState(state: RadarState, options: { visitOnly?: boolean } = {}): void {
+  const previous = readRecord();
+  const record: RadarVaultRecord = {
+    schemaVersion: 1,
+    state: coerce(state),
+    updatedAtMs: options.visitOnly === true ? previous.updatedAtMs : mintStamp(),
+    clientId: previous.clientId || getClientId(),
+  };
+  writeRecord(record);
+}
+
+export function applyRemoteRadarRecord(raw: unknown): RadarVaultRecord | null {
+  const record = parseRadarVaultRecord(raw);
+  if (!record) return null;
+  writeRecord(record);
+  return structuredClone(record);
+}
+
+export function subscribeRadarState(listener: StateListener): () => void {
+  listeners.add(listener);
+  const record = loadRadarVaultRecord();
+  listener(record.state, record);
+  return () => listeners.delete(listener);
+}
+
+export function hasMeaningfulRadarRecord(record: RadarVaultRecord): boolean {
+  return record.state.lastVisit !== null || hasPersonalContent(record.state);
 }
 
 // ---------------------------------------------------------------------------
@@ -201,11 +326,13 @@ export function touchVisit(state: RadarState): { previous: string | null; state:
 }
 
 export function clearAll(): void {
-  try {
-    localStorage.removeItem(STORAGE_KEY);
-  } catch {
-    // Nothing to do; the page will behave as a fresh visitor.
-  }
+  const previous = readRecord();
+  writeRecord({
+    schemaVersion: 1,
+    state: emptyState(),
+    updatedAtMs: mintStamp(),
+    clientId: previous.clientId || getClientId(),
+  });
 }
 
 /** Export state as a downloadable blob, so it is the user's to keep. */

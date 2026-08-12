@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 
 import { mapEvent } from '@/campus/sources/tamu-calendar.ts';
-import { mapStudy, parseCompensation } from '@/campus/sources/arv.ts';
+import { isParticipantResearchStudy } from '@/campus/ingest.ts';
 import { classify, extractCompanies } from '@/campus/classify.ts';
 import { collapseSeries } from '@/campus/series.ts';
 import { normalizeItem } from '@/core/normalize.ts';
@@ -93,61 +93,31 @@ describe('TAMU calendar connector', () => {
   });
 });
 
-describe('Aggie Research Volunteers connector', () => {
-  const studies = json<Record<string, unknown>[]>('arv-studies.json');
-
-  it('maps a study listing with no start time', () => {
-    const item = mapStudy(studies[0]!)!;
-    expect(item.campus?.category).toBe('research');
-    // Open until it expires - it is not an event with a start time. Giving it
-    // one made the past-events cut delete all 86 listings.
-    expect(item.campus?.startsAt).toBeNull();
+describe('Studies/Radar product boundary', () => {
+  const event = (title: string, summary = '', source = 'tamu-calendar') => ({
+    vertical: 'campus' as const,
+    source: source as 'tamu-calendar',
+    externalId: 'test',
+    channel: 'test',
+    url: 'https://calendar.tamu.edu/event/test',
+    title,
+    summary,
+    occurredAt: null,
+    endsAt: null,
+    lastModified: null,
+    tags: [],
+    identity: ['event:test'],
   });
 
-  it('never carries the contact email through', () => {
-    for (const study of studies) {
-      const raw = mapStudy(study);
-      if (raw === null) continue;
-      const item = normalizeItem(raw, { now: NOW });
-      expect(JSON.stringify(item)).not.toMatch(EMAIL_PATTERN);
-    }
+  it('excludes participant recruitment and the retired ARV source', () => {
+    expect(isParticipantResearchStudy(event('Participants needed for a paid research study'))).toBe(true);
+    expect(isParticipantResearchStudy(event('Anything', '', 'aggie-research-volunteers'))).toBe(true);
   });
 
-  it('survives the past-events cut once normalized', () => {
-    // The regression test for the bug that silently dropped every study.
-    const item = normalizeItem(mapStudy(studies[0]!)!, { now: NOW })!;
-    expect(item.campus?.startsAt).toBeNull();
-    expect(item.campus?.endsAt ?? null).not.toBe(undefined);
-  });
-});
-
-describe('parseCompensation', () => {
-  it('parses the real "Up to $30" shape', () => {
-    const parsed = parseCompensation('Up to $30 <br>Paid as Amazon gift card');
-    expect(parsed.usd).toBe(30);
-    expect(parsed.isChance).toBe(false);
-    expect(parsed.text).not.toContain('<br>');
-  });
-
-  it('takes the guaranteed low end of a range', () => {
-    expect(parseCompensation('$10-$20 per session').usd).toBe(10);
-  });
-
-  it('refuses to price a raffle', () => {
-    // A chance at $100 is not $100.
-    const parsed = parseCompensation('Enter a raffle to win $100');
-    expect(parsed.usd).toBeNull();
-    expect(parsed.isChance).toBe(true);
-  });
-
-  it('returns null rather than guessing when no figure is given', () => {
-    expect(parseCompensation('Compensation available').usd).toBeNull();
-    expect(parseCompensation('').usd).toBeNull();
-    expect(parseCompensation(null).usd).toBeNull();
-  });
-
-  it('handles thousands separators', () => {
-    expect(parseCompensation('$1,200 total').usd).toBe(1200);
+  it('keeps academic papers, seminars, organizations, and sponsor events', () => {
+    expect(isParticipantResearchStudy(event('Genomics research seminar'))).toBe(false);
+    expect(isParticipantResearchStudy(event('Graduate Research Society sponsor showcase'))).toBe(false);
+    expect(isParticipantResearchStudy(event('New paper discussion: phylogenetic methods'))).toBe(false);
   });
 });
 
@@ -165,10 +135,6 @@ describe('classify', () => {
 
   it('routes deadlines ahead of the generic academic bucket', () => {
     expect(classify({ ...base, title: 'Scholarship applications due Friday' })).toBe('deadline');
-  });
-
-  it('marks study listings as research without reading the text', () => {
-    expect(classify({ ...base, title: 'anything', isStudy: true })).toBe('research');
   });
 
   it('falls back to community', () => {
@@ -237,10 +203,4 @@ describe('collapseSeries', () => {
     expect(collapseSeries([a, b]).items).toHaveLength(2);
   });
 
-  it('leaves undated items untouched', () => {
-    const undated = normalizeItem(mapStudy(json<Record<string, unknown>[]>('arv-studies.json')[0]!)!, {
-      now: NOW,
-    })!;
-    expect(collapseSeries([undated]).items).toHaveLength(1);
-  });
 });

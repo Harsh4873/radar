@@ -7,7 +7,7 @@
  * The tiers come straight from the brief:
  *
  *   VERY HIGH  computer science, bioinformatics, biotech, research
- *              opportunities, worthwhile paid studies
+ *              opportunities and academic events
  *   HIGH       company recruiting, career events, basketball, football,
  *              graduate opportunities
  *   MEDIUM     free food, social events, workshops
@@ -72,16 +72,6 @@ export const CAMPUS_INTERESTS: readonly CampusInterest[] = [
       'research assistant', 'undergraduate research', 'research opportunity',
       'lab position', 'reu', 'research experience', 'thesis', 'graduate research',
       'research symposium', 'poster session', 'research showcase',
-    ],
-  },
-  {
-    id: 'paid-study',
-    label: 'paid study',
-    weight: 20,
-    signal: 'opportunity',
-    patterns: [
-      'paid study', 'research study', 'participants needed', 'volunteers needed',
-      'compensation', 'clinical trial', 'study participants',
     ],
   },
   {

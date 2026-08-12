@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { clearAll, loadState } from './store.ts';
+import { clearAll, loadRadarVaultRecord, loadState } from './store.ts';
 
 const STORAGE_KEY = 'radar:v1';
 
@@ -45,18 +45,20 @@ describe('fresh visitor state', () => {
 
     clearAll();
 
-    expect(storage.removeItem).toHaveBeenCalledWith(STORAGE_KEY);
-    expect(values.has(STORAGE_KEY)).toBe(false);
+    expect(storage.removeItem).not.toHaveBeenCalled();
+    expect(values.has(STORAGE_KEY)).toBe(true);
     expect(loadState().saved).toEqual([]);
     expect(loadState().signalBias).toEqual({});
+    expect(loadRadarVaultRecord().updatedAtMs).toBeGreaterThan(0);
   });
 
-  it('describes browser state as local-only and never as input to a later ingest', () => {
+  it('describes private sync truthfully and never feeds it into public ingest', () => {
     const watchlist = readFileSync(new URL('../pages/research/watchlist.astro', import.meta.url), 'utf8');
     const topics = readFileSync(new URL('../pages/research/topics.astro', import.meta.url), 'utf8');
     const view = readFileSync(new URL('../lib/view.ts', import.meta.url), 'utf8');
 
-    expect(watchlist).toContain('A fresh browser starts with an empty list.');
+    expect(watchlist).toContain('A fresh signed-out browser starts with an empty list.');
+    expect(watchlist).toContain('private owner vault');
     expect(watchlist).toMatch(/It does not\s+change or target the next ingest\./);
     expect(watchlist).not.toContain('Radar re-checks these every ingest');
     expect(watchlist).not.toMatch(/add <strong>\+14<\/strong>.*next ingest/);

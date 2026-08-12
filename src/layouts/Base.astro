@@ -6,6 +6,7 @@
  * is served from https://harsh.bet/radar/ - a root-relative "/" would 404.
  */
 import '@/styles/global.css';
+import VaultControl from '@/components/VaultControl.astro';
 import { url } from '@/lib/view.ts';
 
 interface Props {
@@ -50,7 +51,7 @@ const nav = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <meta name="description" content={description} />
-    {/* A narrowly scoped research feed plus local-only visitor state. Nothing to index. */}
+    {/* A narrowly scoped feed plus private owner state. Nothing to index. */}
     <meta name="robots" content="noindex, follow" />
     <link rel="canonical" href={canonical} />
     <meta property="og:title" content={title} />
@@ -80,6 +81,8 @@ const nav = [
       </div>
     </header>
 
+    <VaultControl />
+
     <main id="main">
       <div class="wrap">
         <slot />
@@ -90,8 +93,9 @@ const nav = [
       <div class="wrap">
         <p>
           Radar is a focused discovery tool. It reads public APIs — Europe PMC, PubMed, bioRxiv,
-          medRxiv, Crossref, OpenAlex, arXiv, the Texas A&amp;M events calendar, and Aggie Research
-          Volunteers — and ranks what it finds against a transparent, published scope. Every listing links
+          medRxiv, Crossref, OpenAlex, arXiv, and the Texas A&amp;M events calendar — and ranks what it
+          finds against a transparent, published scope. Paid participant studies are excluded and handled
+          by Studies. Every listing links
           back to its source, which is the authority on the details.
         </p>
         <p>
@@ -100,8 +104,9 @@ const nav = [
           every figure was gathered when the site was last built.
         </p>
         <p>
-          Saved, dismissed, and tracked items live only in this browser's local storage. Radar has
-          no account, no server, and no analytics, and none of that data leaves your device.
+          Saved, dismissed, tracked, and interest state remains in this browser unless you sign in.
+          The two provisioned Google accounts sync it to one private Firebase owner vault; it is never
+          included in public ingest or ranking, and Radar has no analytics.
         </p>
         {
           fetchedLabel !== null && (

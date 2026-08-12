@@ -292,10 +292,7 @@ export interface CampusFacet {
   cost: string | null;
   hasRegistration: boolean;
 
-  /**
-   * Paid-study fields. Only ever set from Aggie Research Volunteers, which
-   * publishes compensation as free text.
-   */
+  /** Legacy compatibility only. Participant-study records are filtered before publish. */
   compensation: string | null;
   /** Parsed dollar figure when the text yields one unambiguously. */
   compensationUsd: number | null;
