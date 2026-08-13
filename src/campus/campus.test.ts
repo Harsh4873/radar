@@ -255,6 +255,8 @@ describe('classify', () => {
     expect(isIntramuralListing('Badminton club open play', '', 'TAMU Badminton Club')).toBe(false);
     expect(isIntramuralListing('Spikeball tournament', '', 'Texas A&M Spikeball')).toBe(false);
     expect(isIntramuralListing('Intramural Spikeball tournament', '', 'Student Life')).toBe(true);
+    expect(isIntramuralListing('Now Hiring: Intramural Sports Official', 'Student position', 'Rec Sports')).toBe(false);
+    expect(isIntramuralListing('INTRAMURAL SPORTS: Win A FREE Play Pass', 'Purchase a pass to enter a drawing', 'Rec Sports')).toBe(false);
     expect(isIntramuralListing('General interest meeting', '', 'Career Center', ['IM'])).toBe(false);
   });
 });

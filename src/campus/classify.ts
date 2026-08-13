@@ -83,7 +83,7 @@ const INTRAMURAL_ACTIVITY_TERMS: readonly string[] = [
 ];
 
 const INTRAMURAL_EVENT_TERMS: readonly string[] = [
-  'tournament', 'registration', 'register', 'league', 'play pass',
+  'tournament', 'registration', 'register', 'league',
   'free agent', 'captains meeting', 'captain meeting', 'orientation', 'playoffs',
   'championship', 'competition', 'challenge', 'officials training',
 ];
@@ -150,14 +150,19 @@ export function isIntramuralListing(
   tags: readonly string[] = [],
 ): boolean {
   const haystack = normalize(`${title} ${description}`);
-  if (hasAny(haystack, EXPLICIT_INTRAMURAL_TERMS)) return true;
+  const isConcreteEvent = hasAny(haystack, INTRAMURAL_EVENT_TERMS);
+
+  // The word "intramural" also appears in jobs and Play Pass promotions.
+  // Keep this tab scoped to a concrete registration, league, tournament, or
+  // scheduled program instead of treating every mention as an event.
+  if (hasAny(haystack, EXPLICIT_INTRAMURAL_TERMS)) return isConcreteEvent;
 
   // A sport name alone is not an intramural signal: a Badminton Club social,
   // a Spikeball club tournament, and a pickleball meet-and-greet belong in
   // Sports/Clubs. Without the explicit word "intramural", require Rec Sports
   // ownership plus concrete league/registration/competition language.
   const recSports = (organizer ?? '').toLowerCase().includes('rec sports');
-  if (!recSports || !hasAny(haystack, INTRAMURAL_EVENT_TERMS)) return false;
+  if (!recSports || !isConcreteEvent) return false;
 
   // The university calendar uses the exact short tag `IM` for some official
   // listings. Restrict it to Rec Sports so the common word "I'm" can never

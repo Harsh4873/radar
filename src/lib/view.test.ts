@@ -39,7 +39,7 @@ describe('campus agenda view', () => {
   });
 
   it('groups in Central time and tags intramural/timing membership', () => {
-    const item = event('im', 'Intramural Spikeball', '2026-08-12T23:30:00-05:00', ['IM']);
+    const item = event('im', 'Intramural Spikeball Tournament', '2026-08-12T23:30:00-05:00', ['IM']);
     expect(campusDayKey(item.campus?.startsAt ?? null)).toBe('2026-08-12');
     expect(tabsFor(item, false, NOW)).toEqual(expect.arrayContaining(['today', 'this-week', 'intramurals']));
   });
