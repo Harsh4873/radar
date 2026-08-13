@@ -1,0 +1,210 @@
+---
+/** /radar/campus/profile - private event plans and explicit campus interests. */
+import Base from '@/layouts/Base.astro';
+import { campus, fetchedAt } from '@/lib/data.ts';
+import { CATEGORY_LABELS } from '@/campus/classify.ts';
+import { CAMPUS_INTERESTS } from '@/campus/profile.ts';
+import type { CampusCategory } from '@/types.ts';
+import { byCampusDate, url } from '@/lib/view.ts';
+
+const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
+const categoryOrder: CampusCategory[] = [
+  'clubs', 'sports', 'companies', 'research', 'academic', 'deadline', 'community',
+];
+const categoryDescriptions: Record<CampusCategory, string> = {
+  clubs: 'Student organizations and social events',
+  sports: 'Athletics, intramurals, and rec sports',
+  companies: 'Recruiting, career fairs, and employers',
+  research: 'Seminars, symposia, and research groups',
+  academic: 'Workshops, training, and campus programs',
+  deadline: 'Applications, scholarships, and registration dates',
+  community: 'Bryan and College Station events',
+};
+
+const organizerCounts = new Map<string, number>();
+for (const item of campus.items) {
+  const organizer = item.campus?.organizer;
+  if (organizer === null || organizer === undefined) continue;
+  organizerCounts.set(organizer, (organizerCounts.get(organizer) ?? 0) + 1);
+}
+const organizerSuggestions = [
+  'Spikeball Club',
+  'Badminton Club',
+  'Football Club',
+  ...[...organizerCounts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([organizer]) => organizer),
+].filter((name, index, all) => all.indexOf(name) === index).slice(0, 60);
+
+const index = [...campus.items].sort(byCampusDate).map((item) => ({
+  id: item.id,
+  title: item.title,
+  startsAt: item.campus?.startsAt ?? null,
+  location: item.campus?.location ?? null,
+  organizer: item.campus?.organizer ?? null,
+  category: item.campus?.category ?? null,
+  interests: CAMPUS_INTERESTS
+    .filter((interest) => item.reasons.some((reason) => reason.label === interest.label))
+    .map((interest) => interest.id),
+  search: [item.title, item.summary, item.campus?.organizer ?? '', ...item.tags]
+    .join(' ')
+    .toLocaleLowerCase(),
+  href: url(base, `campus/event/${item.id}/`),
+  sourceHref: item.url,
+}));
+const indexJson = JSON.stringify(index).replace(/</g, '\\u003c');
+---
+
+<Base
+  title="Your Radar profile"
+  description="Choose campus interests, follow organizations, and manage events you are interested in or attending."
+  engine="campus"
+  fetchedAt={fetchedAt}
+  current="profile"
+>
+  <section class="profile-hero">
+    <div>
+      <p class="eyebrow">Your Radar</p>
+      <h1>Make the campus feed yours.</h1>
+      <p>
+        Choose what you care about, follow clubs and organizers, and keep every event you plan to
+        attend in one private place.
+      </p>
+    </div>
+    <a class="action action-primary" href={url(base, 'campus/')}>Browse the agenda</a>
+  </section>
+
+  <div class="profile-layout">
+    <aside class="profile-summary" aria-label="Profile summary">
+      <div class="panel profile-summary-card">
+        <p class="eyebrow">At a glance</p>
+        <dl class="profile-stats">
+          <div><dt>Going</dt><dd data-profile-count="going">0</dd></div>
+          <div><dt>Interested</dt><dd data-profile-count="interested">0</dd></div>
+          <div><dt>Preferences</dt><dd data-profile-count="preferences">0</dd></div>
+          <div><dt>Following</dt><dd data-profile-count="following">0</dd></div>
+        </dl>
+        <a class="text-link" href={url(base, 'campus/?tab=for-you')}>See your recommendations →</a>
+      </div>
+
+      <div class="panel profile-privacy">
+        <h2>Private by design</h2>
+        <p>
+          Your profile stays in this browser and syncs only to the private owner vault when you sign
+          in. It never enters Radar’s public event data or ranking pipeline.
+        </p>
+      </div>
+    </aside>
+
+    <div class="profile-content">
+      <section class="profile-section" aria-labelledby="category-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Tune your feed</p>
+            <h2 id="category-heading">Event categories</h2>
+          </div>
+          <p>Select any mix. Matching events join the <strong>For you</strong> view.</p>
+        </div>
+        <fieldset class="preference-grid">
+          <legend class="sr-only">Preferred campus event categories</legend>
+          {
+            categoryOrder.map((category) => (
+              <label class="preference-option">
+                <input type="checkbox" value={category} data-preference-category />
+                <span>
+                  <strong>{CATEGORY_LABELS[category]}</strong>
+                  <small>{categoryDescriptions[category]}</small>
+                </span>
+              </label>
+            ))
+          }
+        </fieldset>
+      </section>
+
+      <section class="profile-section" aria-labelledby="interest-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Topics and activities</p>
+            <h2 id="interest-heading">What are you into?</h2>
+          </div>
+          <p>Includes football, basketball, intramurals, Spikeball, Badminton, and academic interests.</p>
+        </div>
+        <fieldset class="interest-grid">
+          <legend class="sr-only">Preferred campus topics and activities</legend>
+          {
+            CAMPUS_INTERESTS.map((interest) => (
+              <label class="interest-option">
+                <input type="checkbox" value={interest.id} data-preference-interest />
+                <span>{interest.label}</span>
+              </label>
+            ))
+          }
+        </fieldset>
+      </section>
+
+      <section class="profile-section" aria-labelledby="follow-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Clubs and organizers</p>
+            <h2 id="follow-heading">Who do you want to follow?</h2>
+          </div>
+          <p>Follow a club even when it has no event in the current window.</p>
+        </div>
+        <form class="follow-form" data-follow-form>
+          <label for="follow-organizer">Club, team, department, or organizer</label>
+          <div>
+            <input
+              id="follow-organizer"
+              name="organizer"
+              type="text"
+              list="organizer-options"
+              autocomplete="off"
+              placeholder="Try “Spikeball Club” or “Rec Sports”"
+              data-follow-input
+            />
+            <button class="action action-primary" type="submit">Follow</button>
+          </div>
+          <datalist id="organizer-options">
+            {organizerSuggestions.map((organizer) => <option value={organizer} />)}
+          </datalist>
+        </form>
+        <ul class="followed-list" data-followed-list></ul>
+        <p class="empty compact-empty" data-followed-empty>You are not following any clubs or organizers yet.</p>
+        <p class="form-note">
+          Following changes your private For you view; it does not change the public ingest or expose
+          your preferences.
+        </p>
+      </section>
+
+      <section class="profile-section" aria-labelledby="plans-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Your plans</p>
+            <h2 id="plans-heading">Events you’re going to</h2>
+          </div>
+          <p>Ordered by date, just like the main agenda.</p>
+        </div>
+        <ul class="profile-event-list" data-profile-event-list="going"></ul>
+        <p class="empty" data-profile-empty="going">Nothing here yet. Mark an event as <strong>Going</strong> from the agenda.</p>
+      </section>
+
+      <section class="profile-section" aria-labelledby="saved-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Shortlist</p>
+            <h2 id="saved-heading">Events you’re interested in</h2>
+          </div>
+          <p>Save possibilities now and decide later.</p>
+        </div>
+        <ul class="profile-event-list" data-profile-event-list="interested"></ul>
+        <p class="empty" data-profile-empty="interested">Nothing saved yet. Use <strong>Interested</strong> on any event card.</p>
+      </section>
+    </div>
+  </div>
+
+  <script is:inline type="application/json" id="campus-profile-index" set:html={indexJson} />
+</Base>
+
+<script>
+  import '@/client/campus-profile.ts';
+</script>

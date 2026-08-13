@@ -93,7 +93,7 @@ const index = research.items.map((item) => ({
     </div>
   </section>
 
-  <script type="application/json" id="paper-index" set:html={JSON.stringify(index)} />
+  <script is:inline type="application/json" id="paper-index" set:html={JSON.stringify(index)} />
 </Base>
 
 <script>

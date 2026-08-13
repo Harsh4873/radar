@@ -1,0 +1,67 @@
+---
+/**
+ * Chronological campus agenda, progressively enhanced by client/feed.ts.
+ *
+ * Events are grouped and ordered at build time so the core experience stays
+ * useful without JavaScript. Search, filters, private profile state, and
+ * dismissed-item controls layer on after load without changing date order.
+ */
+import ItemCard from '@/components/ItemCard.astro';
+import type { RadarItem } from '@/types.ts';
+import {
+  agendaDayContext,
+  byCampusDate,
+  campusDayKey,
+  formatAgendaDate,
+} from '@/lib/view.ts';
+
+interface Props {
+  items: readonly RadarItem[];
+  now: string;
+  defaultTab?: string;
+  forYouIds?: ReadonlySet<string>;
+}
+
+interface AgendaGroup {
+  key: string;
+  startsAt: string | null;
+  items: RadarItem[];
+}
+
+const { items, now, defaultTab = 'all', forYouIds = new Set<string>() } = Astro.props;
+const groupsByKey = new Map<string, AgendaGroup>();
+
+for (const item of [...items].sort(byCampusDate)) {
+  const startsAt = item.campus?.startsAt ?? null;
+  const key = campusDayKey(startsAt);
+  const existing = groupsByKey.get(key);
+  if (existing !== undefined) existing.items.push(item);
+  else groupsByKey.set(key, { key, startsAt, items: [item] });
+}
+
+const groups = [...groupsByKey.values()];
+---
+
+<div class="agenda" data-feed data-default-tab={defaultTab} data-sort="chronological">
+  {
+    groups.map((group) => (
+      <section class="agenda-group" data-date-group data-date-key={group.key}>
+        <header class="agenda-date">
+          <div>
+            <p>{agendaDayContext(group.startsAt, now)}</p>
+            <h2>{formatAgendaDate(group.startsAt)}</h2>
+          </div>
+          <span class="agenda-count">
+            <span data-date-count>{group.items.length}</span>{' '}
+            <span data-date-count-label>{group.items.length === 1 ? 'event' : 'events'}</span>
+          </span>
+        </header>
+        <ul class="feed">
+          {group.items.map((item) => (
+            <ItemCard item={item} now={now} inForYou={forYouIds.has(item.id)} agenda />
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+</div>

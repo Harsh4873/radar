@@ -22,6 +22,7 @@ import {
   loadState,
   saveState,
   subscribeRadarState,
+  toggleAttending,
   toggleDismissed,
   toggleSaved,
   toggleTracked,
@@ -38,6 +39,10 @@ interface CardData {
   signals: string[];
   tabs: string[];
   firstSeen: number;
+  search: string;
+  category: string;
+  organizer: string;
+  interests: string[];
 }
 
 function readCards(root: ParentNode): CardData[] {
@@ -48,6 +53,10 @@ function readCards(root: ParentNode): CardData[] {
     signals: (element.dataset['signals'] ?? '').split(',').filter(Boolean),
     tabs: (element.dataset['tabs'] ?? '').split(',').filter(Boolean),
     firstSeen: Date.parse(element.dataset['firstSeen'] ?? '') || 0,
+    search: element.dataset['search'] ?? '',
+    category: element.dataset['category'] ?? '',
+    organizer: element.dataset['organizer'] ?? '',
+    interests: (element.dataset['interests'] ?? '').split(',').filter(Boolean),
   }));
 }
 
@@ -75,13 +84,16 @@ function paintCard(card: CardData, state: RadarState, lastVisit: string | null):
   const saved = state.saved.includes(id);
   const dismissed = state.dismissed.includes(id);
   const tracked = state.tracked.includes(id);
+  const attending = state.attending.includes(id);
 
   element.classList.toggle('is-saved', saved);
   element.classList.toggle('is-dismissed', dismissed);
   element.classList.toggle('is-tracked', tracked);
+  element.classList.toggle('is-attending', attending);
 
   for (const button of element.querySelectorAll<HTMLElement>('[data-action="save"]')) setPressed(button, saved);
   for (const button of element.querySelectorAll<HTMLElement>('[data-action="track"]')) setPressed(button, tracked);
+  for (const button of element.querySelectorAll<HTMLElement>('[data-action="attend"]')) setPressed(button, attending);
 
   // "New since your last visit" can only be decided in the browser, because
   // only the browser knows when that was.
@@ -97,24 +109,62 @@ function paintCard(card: CardData, state: RadarState, lastVisit: string | null):
   }
 }
 
-/** Show only the active tab's items, hide dismissed, and re-sort by score. */
-function applyView(cards: CardData[], state: RadarState, tab: string, showDismissed: boolean): void {
+function matchesProfile(card: CardData, state: RadarState): boolean {
+  if (state.preferredCategories.includes(card.category)) return true;
+  if (card.interests.some((interest) => state.campusInterests.includes(interest))) return true;
+  return state.followedOrganizers.some((organizer) =>
+    card.organizer.includes(organizer) || card.search.includes(organizer));
+}
+
+function matchesTab(card: CardData, state: RadarState, tab: string): boolean {
+  if (tab === 'all') return true;
+  if (tab === 'interested') return state.saved.includes(card.id);
+  if (tab === 'going') return state.attending.includes(card.id);
+  if (tab === 'for-you') return card.tabs.includes(tab) || matchesProfile(card, state);
+  return card.tabs.includes(tab);
+}
+
+function matchesSearch(card: CardData, query: string): boolean {
+  const terms = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
+  return terms.length === 0 || terms.every((term) => card.search.includes(term));
+}
+
+/** Show only the active filters, preserve campus chronology, and update groups. */
+function applyView(
+  root: HTMLElement,
+  cards: CardData[],
+  state: RadarState,
+  tab: string,
+  showDismissed: boolean,
+  query: string,
+): void {
   const visible: CardData[] = [];
 
   for (const card of cards) {
-    const inTab = tab === 'all' || card.tabs.includes(tab);
-    const hidden = !inTab || (!showDismissed && state.dismissed.includes(card.id));
+    const hidden = !matchesTab(card, state, tab)
+      || !matchesSearch(card, query)
+      || (!showDismissed && state.dismissed.includes(card.id));
     card.element.hidden = hidden;
     if (!hidden) visible.push(card);
   }
 
-  // Re-sort in place. Only touches order among visible cards, and only when
-  // bias actually changed something - a stable feed is easier to trust.
-  const parent = visible[0]?.element.parentElement;
+  // Research remains relevance-first. Campus agenda roots opt out because a
+  // personal preference must never make the dates jump around again.
+  const parent = root.dataset['sort'] === 'chronological' ? null : visible[0]?.element.parentElement;
   if (parent !== null && parent !== undefined) {
     const sorted = [...visible].sort((a, b) => adjustedScore(b, state) - adjustedScore(a, state));
     const changed = sorted.some((card, index) => card !== visible[index]);
     if (changed) for (const card of sorted) parent.append(card.element);
+  }
+
+  for (const group of root.querySelectorAll<HTMLElement>('[data-date-group]')) {
+    const groupCards = cards.filter((card) => group.contains(card.element));
+    const visibleInGroup = groupCards.filter((card) => !card.element.hidden).length;
+    group.hidden = visibleInGroup === 0;
+    const count = group.querySelector<HTMLElement>('[data-date-count]');
+    const label = group.querySelector<HTMLElement>('[data-date-count-label]');
+    if (count !== null) count.textContent = String(visibleInGroup);
+    if (label !== null) label.textContent = visibleInGroup === 1 ? 'event' : 'events';
   }
 
   for (const counter of document.querySelectorAll<HTMLElement>('[data-count-for]')) {
@@ -122,8 +172,17 @@ function applyView(cards: CardData[], state: RadarState, tab: string, showDismis
     counter.textContent = String(
       target === undefined || target === 'visible'
         ? visible.length
-        : cards.filter((card) => card.tabs.includes(target) && !state.dismissed.includes(card.id)).length,
+        : cards.filter((card) => matchesTab(card, state, target) && matchesSearch(card, query)
+            && !state.dismissed.includes(card.id)).length,
     );
+  }
+
+
+  for (const status of document.querySelectorAll<HTMLElement>('[data-search-summary]')) {
+    const noun = visible.length === 1 ? 'event' : 'events';
+    status.textContent = query.trim().length > 0
+      ? `${visible.length} ${noun} match “${query.trim()}”.`
+      : `${visible.length} ${noun} shown.`;
   }
 
   const empty = document.querySelector<HTMLElement>('[data-empty-state]');
@@ -136,6 +195,10 @@ export function initFeed(): void {
 
   const cards = readCards(root);
   if (cards.length === 0) return;
+  // Some overview pages show a second, smaller card section outside the main
+  // filterable feed. Its actions should still work even though it is not
+  // subject to the first feed's tabs or sorting.
+  const interactiveCards = readCards(document);
 
   const { previous, state: stamped } = touchVisit(loadState());
   let state = stamped;
@@ -146,10 +209,11 @@ export function initFeed(): void {
 
   let tab = root.dataset['defaultTab'] ?? 'for-you';
   let showDismissed = false;
+  let query = '';
 
   const repaint = (): void => {
-    for (const card of cards) paintCard(card, state, previous);
-    applyView(cards, state, tab, showDismissed);
+    for (const card of interactiveCards) paintCard(card, state, previous);
+    applyView(root, cards, state, tab, showDismissed, query);
   };
 
   subscribeRadarState((next) => {
@@ -162,7 +226,7 @@ export function initFeed(): void {
     button.addEventListener('click', () => {
       tab = button.dataset['tab'] ?? 'for-you';
       for (const other of document.querySelectorAll<HTMLElement>('[data-tab]')) {
-        other.setAttribute('aria-selected', other === button ? 'true' : 'false');
+        other.setAttribute('aria-pressed', other === button ? 'true' : 'false');
       }
       // Keep the tab in the URL so a view is linkable and survives reload.
       const url = new URL(window.location.href);
@@ -178,13 +242,44 @@ export function initFeed(): void {
     if (target !== null) {
       tab = requested;
       for (const other of document.querySelectorAll<HTMLElement>('[data-tab]')) {
-        other.setAttribute('aria-selected', other === target ? 'true' : 'false');
+        other.setAttribute('aria-pressed', other === target ? 'true' : 'false');
       }
     }
   }
 
+  // --- Search ------------------------------------------------------------
+  const search = document.querySelector<HTMLInputElement>('[data-event-search]');
+  const clearSearch = document.querySelector<HTMLButtonElement>('[data-clear-search]');
+  const searchForm = document.querySelector<HTMLFormElement>('[data-search-form]');
+  const requestedQuery = new URL(window.location.href).searchParams.get('q') ?? '';
+
+  const setQuery = (next: string): void => {
+    query = next;
+    clearSearch?.toggleAttribute('hidden', query.length === 0);
+    const nextUrl = new URL(window.location.href);
+    if (query.trim().length > 0) nextUrl.searchParams.set('q', query.trim());
+    else nextUrl.searchParams.delete('q');
+    window.history.replaceState({}, '', nextUrl);
+    repaint();
+  };
+
+  if (search !== null) {
+    search.value = requestedQuery;
+    query = requestedQuery;
+    clearSearch?.toggleAttribute('hidden', query.length === 0);
+    search.addEventListener('input', () => setQuery(search.value));
+  }
+  searchForm?.addEventListener('submit', (event) => event.preventDefault());
+  clearSearch?.addEventListener('click', () => {
+    if (search !== null) {
+      search.value = '';
+      search.focus();
+    }
+    setQuery('');
+  });
+
   // --- Card actions ------------------------------------------------------
-  root.addEventListener('click', (event) => {
+  document.addEventListener('click', (event) => {
     const target = event.target;
     if (!(target instanceof Element)) return;
 
@@ -195,12 +290,15 @@ export function initFeed(): void {
     const id = card?.dataset['itemId'];
     if (id === undefined) return;
 
-    const data = cards.find((entry) => entry.id === id);
+    const data = interactiveCards.find((entry) => entry.id === id);
     const action = button.dataset['action'];
 
     switch (action) {
       case 'save':
         state = toggleSaved(state, id);
+        break;
+      case 'attend':
+        state = toggleAttending(state, id);
         break;
       case 'dismiss':
         state = toggleDismissed(state, id);
@@ -219,6 +317,7 @@ export function initFeed(): void {
     }
 
     event.preventDefault();
+    button.closest('details')?.removeAttribute('open');
     saveState(state);
     repaint();
   });
@@ -232,6 +331,24 @@ export function initFeed(): void {
       repaint();
     });
   }
+
+
+  const reset = document.querySelector<HTMLButtonElement>('[data-reset-filters]');
+  reset?.addEventListener('click', () => {
+    tab = root.dataset['defaultTab'] ?? 'all';
+    showDismissed = false;
+    query = '';
+    if (search !== null) search.value = '';
+    clearSearch?.setAttribute('hidden', '');
+    for (const button of document.querySelectorAll<HTMLElement>('[data-tab]')) {
+      button.setAttribute('aria-pressed', button.dataset['tab'] === tab ? 'true' : 'false');
+    }
+    const nextUrl = new URL(window.location.href);
+    nextUrl.searchParams.delete('q');
+    nextUrl.searchParams.delete('tab');
+    window.history.replaceState({}, '', nextUrl);
+    repaint();
+  });
 
   repaint();
 }

@@ -131,6 +131,29 @@ export const CAMPUS_INTERESTS: readonly CampusInterest[] = [
       'swimming', 'olsen field', 'equestrian', 'golf',
     ],
   },
+  {
+    id: 'intramurals',
+    label: 'intramural & club sports',
+    weight: 8,
+    signal: 'sport',
+    patterns: [
+      'intramural', 'intramurals', 'club sports', 'play pass', 'rec sports',
+    ],
+  },
+  {
+    id: 'spikeball',
+    label: 'spikeball / roundnet',
+    weight: 7,
+    signal: 'sport',
+    patterns: ['spikeball', 'roundnet'],
+  },
+  {
+    id: 'badminton',
+    label: 'badminton',
+    weight: 7,
+    signal: 'sport',
+    patterns: ['badminton'],
+  },
 
   // --- MEDIUM -------------------------------------------------------------
   {

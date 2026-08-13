@@ -12,7 +12,7 @@
 import Base from '@/layouts/Base.astro';
 import ItemCard from '@/components/ItemCard.astro';
 import { campus, digests, fetchedAt, now, research } from '@/lib/data.ts';
-import { byBand, forYou, latestDigest, recentlyAdded, url } from '@/lib/view.ts';
+import { byBand, byCampusDate, forYou, latestDigest, recentlyAdded, url } from '@/lib/view.ts';
 
 const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
 
@@ -20,7 +20,7 @@ const researchNew = recentlyAdded(research.items, now, 7);
 const campusNew = recentlyAdded(campus.items, now, 7);
 
 const researchTop = forYou(research.items, 3);
-const campusTop = forYou(campus.items, 3);
+const campusTop = forYou(campus.items, 3).sort(byCampusDate);
 
 const coreCount = byBand(research.items, 'core').length;
 const revised = research.diff.changes.filter(

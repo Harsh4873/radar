@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-08-10",
     "vertical": "campus",
-    "scanned": 1940,
-    "candidates": 288,
+    "scanned": 2186,
+    "candidates": 367,
     "recommended": [
       "campus-850a1c93dca2",
       "campus-850a1893dca2",
@@ -20,36 +20,14 @@
       "computer science · this week · workshop / training",
       "company recruiting · graduate opportunities · workshop / training"
     ],
-    "changes": [
-      {
-        "itemId": "campus-43850245c2ea",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-12T05:00:00.000Z",
-        "after": "2026-08-13T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ab49a94a0920",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-12T05:00:00.000Z",
-        "after": "2026-08-13T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-d608cb4ea27f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-12T05:00:00.000Z",
-        "after": "2026-08-13T05:00:00.000Z"
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-08-10",
     "vertical": "research",
-    "scanned": 227,
-    "candidates": 85,
+    "scanned": 1084,
+    "candidates": 141,
     "recommended": [
       "research-5452ce5ce349",
       "research-f738f15ccdda",

@@ -11,9 +11,9 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 
-import { mapEvent } from '@/campus/sources/tamu-calendar.ts';
+import { GROUP_FEEDS, mapEvent } from '@/campus/sources/tamu-calendar.ts';
 import { isParticipantResearchStudy } from '@/campus/ingest.ts';
-import { classify, extractCompanies } from '@/campus/classify.ts';
+import { classify, extractCompanies, isIntramuralListing } from '@/campus/classify.ts';
 import { collapseSeries } from '@/campus/series.ts';
 import { normalizeItem } from '@/core/normalize.ts';
 import type { RadarItem } from '@/types.ts';
@@ -91,6 +91,11 @@ describe('TAMU calendar connector', () => {
       expect(item?.summary ?? '').not.toMatch(/<\/?[a-zA-Z][^>]*>/);
     }
   });
+
+  it('pulls both official Rec Sports feeds for fuller intramural coverage', () => {
+    expect(GROUP_FEEDS).toContain('Department of Rec Sports');
+    expect(GROUP_FEEDS).toContain('Rec Sports');
+  });
 });
 
 describe('Studies/Radar product boundary', () => {
@@ -139,6 +144,14 @@ describe('classify', () => {
 
   it('falls back to community', () => {
     expect(classify({ ...base, title: 'Farmers Market' })).toBe('community');
+  });
+
+  it('recognizes intramural sports and club-sport names', () => {
+    expect(classify({ ...base, title: 'Spikeball tournament registration' })).toBe('sports');
+    expect(classify({ ...base, title: 'Badminton club open play' })).toBe('sports');
+    expect(isIntramuralListing('Flag Football registration', '', 'Rec Sports')).toBe(true);
+    expect(isIntramuralListing('Officials orientation', '', 'Rec Sports', ['IM'])).toBe(true);
+    expect(isIntramuralListing('General interest meeting', '', 'Career Center', ['IM'])).toBe(false);
   });
 });
 

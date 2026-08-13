@@ -1,6 +1,15 @@
 import { readFileSync } from 'node:fs';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { clearAll, loadRadarVaultRecord, loadState } from './store.ts';
+import {
+  clearAll,
+  emptyState,
+  followOrganizer,
+  loadRadarVaultRecord,
+  loadState,
+  toggleAttending,
+  toggleCampusInterest,
+  togglePreferredCategory,
+} from './store.ts';
 
 const STORAGE_KEY = 'radar:v1';
 
@@ -21,17 +30,21 @@ afterEach(() => {
 });
 
 describe('fresh visitor state', () => {
-  it('starts with no saved, dismissed, tracked, or learned interests', () => {
+  it('starts with no saved, attending, dismissed, tracked, or learned interests', () => {
     installStorage();
 
     expect(loadState()).toEqual({
       lastVisit: null,
       saved: [],
+      attending: [],
       dismissed: [],
       tracked: [],
       feedback: {},
       authors: [],
       companies: [],
+      preferredCategories: [],
+      campusInterests: [],
+      followedOrganizers: [],
       signalBias: {},
     });
   });
@@ -64,5 +77,28 @@ describe('fresh visitor state', () => {
     expect(watchlist).not.toMatch(/add <strong>\+14<\/strong>.*next ingest/);
     expect(topics).not.toMatch(/papers you have saved|author on your watchlist/);
     expect(view).not.toContain("label: 'For You'");
+  });
+});
+
+describe('campus profile state', () => {
+  it('keeps Going and Interested as separate choices', () => {
+    const going = toggleAttending(emptyState(), 'campus-1');
+    expect(going.attending).toEqual(['campus-1']);
+    expect(going.saved).toEqual([]);
+
+    const noLongerGoing = toggleAttending(going, 'campus-1');
+    expect(noLongerGoing.attending).toEqual([]);
+    expect(noLongerGoing.saved).toEqual([]);
+  });
+
+  it('stores explicit categories, interests, and followed organizers privately', () => {
+    let state = emptyState();
+    state = togglePreferredCategory(state, 'sports');
+    state = toggleCampusInterest(state, 'badminton');
+    state = followOrganizer(state, '  Spikeball Club  ');
+
+    expect(state.preferredCategories).toEqual(['sports']);
+    expect(state.campusInterests).toEqual(['badminton']);
+    expect(state.followedOrganizers).toEqual(['spikeball club']);
   });
 });

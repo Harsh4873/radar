@@ -6,6 +6,9 @@
  */
 
 import type { CampusCategory, Digest, RadarItem, RadarSnapshot, ResearchBand } from '@/types.ts';
+import { calendarDaysUntil } from '@/core/text.ts';
+import { byRelevance } from '@/core/rank.ts';
+import { isIntramuralListing } from '@/campus/classify.ts';
 
 /** Everything on campus happens in Central time; render it that way. */
 const TZ = 'America/Chicago';
@@ -29,6 +32,72 @@ export function formatDate(iso: string | null): string {
   const date = new Date(iso);
   if (Number.isNaN(date.getTime())) return 'Undated';
   return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: TZ });
+}
+
+/** A compact time for an agenda card. */
+export function formatTime(iso: string | null): string {
+  if (iso === null) return 'Time TBD';
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return 'Time TBD';
+  return date.toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+    timeZone: TZ,
+  });
+}
+
+/** Stable Central-time day key used to group campus events. */
+export function campusDayKey(iso: string | null): string {
+  if (iso === null) return 'undated';
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return 'undated';
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    timeZone: TZ,
+  }).formatToParts(date);
+  const part = (type: Intl.DateTimeFormatPartTypes): string =>
+    parts.find((entry) => entry.type === type)?.value ?? '';
+  return `${part('year')}-${part('month')}-${part('day')}`;
+}
+
+/** Human date used by the chronological agenda headings. */
+export function formatAgendaDate(iso: string | null): string {
+  if (iso === null) return 'Date to be announced';
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return 'Date to be announced';
+  return date.toLocaleDateString('en-US', {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+    timeZone: TZ,
+  });
+}
+
+/** Small contextual label beside an agenda date: Today, Tomorrow, This week. */
+export function agendaDayContext(iso: string | null, now: string): string {
+  const days = calendarDaysUntil(iso, now);
+  if (days === null) return 'Open listing';
+  if (days < 0) return 'Earlier today';
+  if (days === 0) return 'Today';
+  if (days === 1) return 'Tomorrow';
+  if (days <= 7) return 'This week';
+  if (days <= 14) return 'Next week';
+  return 'Coming up';
+}
+
+/** Campus lists are always time-first; relevance only breaks equal-time ties. */
+export function byCampusDate(a: RadarItem, b: RadarItem): number {
+  const aTime = a.campus?.startsAt ?? a.occurredAt;
+  const bTime = b.campus?.startsAt ?? b.occurredAt;
+  const aStamp = aTime === null ? Number.NaN : Date.parse(aTime);
+  const bStamp = bTime === null ? Number.NaN : Date.parse(bTime);
+  if (!Number.isFinite(aStamp) && Number.isFinite(bStamp)) return 1;
+  if (!Number.isFinite(bStamp) && Number.isFinite(aStamp)) return -1;
+  if (Number.isFinite(aStamp) && Number.isFinite(bStamp) && aStamp !== bStamp) return aStamp - bStamp;
+  if (b.relevance !== a.relevance) return b.relevance - a.relevance;
+  return a.id.localeCompare(b.id);
 }
 
 /** A date range for a collapsed series: "Aug 23 – Aug 27". */
@@ -84,15 +153,22 @@ export const RESEARCH_TABS: readonly TabDef[] = [
 ];
 
 export const CAMPUS_TABS: readonly TabDef[] = [
-  { id: 'for-you', label: 'Top', hint: 'The published-scope cut of highest-ranked listings' },
+  { id: 'all', label: 'All', hint: 'Every upcoming listing in chronological order' },
+  { id: 'for-you', label: 'For you', hint: 'Top matches plus events matching your Radar profile' },
+  { id: 'today', label: 'Today', hint: 'Events happening today' },
+  { id: 'this-week', label: 'Next 7 days', hint: 'Events happening in the next seven calendar days' },
+  { id: 'intramurals', label: 'Intramurals', hint: 'Intramural and recreational club sports' },
   { id: 'campus', label: 'Campus', hint: 'Departments, seminars, workshops, research centres' },
   { id: 'companies', label: 'Companies', hint: 'Employers, info sessions, career fairs' },
   { id: 'sports', label: 'Sports', hint: 'Aggie athletics and rec sports' },
   { id: 'clubs', label: 'Clubs', hint: 'Student organizations and social events' },
   { id: 'research-events', label: 'Research Events', hint: 'Seminars, symposia, labs, and research organizations' },
-  { id: 'free', label: 'Free Stuff', hint: 'Only where the source actually says so' },
+  { id: 'free', label: 'Food provided', hint: 'Only events with explicit food evidence' },
+  { id: 'online', label: 'Online', hint: 'Events with an online option' },
   { id: 'deadlines', label: 'Deadlines', hint: 'Applications, registration, scholarships' },
   { id: 'bcs', label: 'B/CS', hint: 'Bryan/College Station, beyond campus' },
+  { id: 'interested', label: 'Interested', hint: 'Events you saved to your Radar profile' },
+  { id: 'going', label: 'Going', hint: 'Events you marked as attending' },
 ];
 
 /** The For You cut. Matches `FOR_YOU_THRESHOLD` in `src/core/rank.ts`. */
@@ -105,7 +181,7 @@ export const FOR_YOU_MIN = 55;
  * `for-you` - and the client filters on these, so this is the single place
  * that decides tab membership for both verticals.
  */
-export function tabsFor(item: RadarItem, inForYou?: boolean): string[] {
+export function tabsFor(item: RadarItem, inForYou?: boolean, now?: string): string[] {
   const tabs: string[] = [];
 
   /*
@@ -145,10 +221,21 @@ export function tabsFor(item: RadarItem, inForYou?: boolean): string[] {
     };
     tabs.push(byCategory[campus.category]);
 
+    if (now !== undefined) {
+      const days = calendarDaysUntil(campus.startsAt, now);
+      if (days === 0) tabs.push('today');
+      if (days !== null && days >= 0 && days <= 7) tabs.push('this-week');
+    }
+
+    if (
+      isIntramuralListing(item.title, item.summary, campus.organizer, item.tags)
+    ) tabs.push('intramurals');
+
     // Free Stuff admits only evidenced offers. `mentioned` is displayed on the
     // card but never earns a place in the tab - see src/campus/freebies.ts.
     if (campus.food.confidence === 'confirmed' || campus.food.confidence === 'provided') tabs.push('free');
     if (campus.deadlineAt !== null && campus.category !== 'deadline') tabs.push('deadlines');
+    if (campus.isOnline) tabs.push('online');
   }
 
   return tabs;
@@ -164,7 +251,10 @@ export function signalsOf(item: RadarItem): string {
 // ---------------------------------------------------------------------------
 
 export function forYou(items: readonly RadarItem[], limit = 15): RadarItem[] {
-  return items.filter((item) => item.relevance >= FOR_YOU_MIN).slice(0, limit);
+  return [...items]
+    .filter((item) => item.relevance >= FOR_YOU_MIN)
+    .sort(byRelevance)
+    .slice(0, limit);
 }
 
 export function byBand(items: readonly RadarItem[], band: ResearchBand): RadarItem[] {

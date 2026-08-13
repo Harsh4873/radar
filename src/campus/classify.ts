@@ -67,7 +67,15 @@ const SPORTS_TERMS: readonly string[] = [
   'football', 'basketball', 'baseball', 'softball', 'soccer', 'volleyball', 'tennis',
   'golf', 'track and field', 'cross country', 'swimming', 'diving', 'equestrian',
   'gymnastics', 'wrestling', 'aggies vs', 'vs texas', 'game day', 'kyle field',
-  'reed arena', 'olsen field', 'intramural', 'club sports',
+  'reed arena', 'olsen field', 'intramural', 'intramurals', 'club sports',
+  'spikeball', 'roundnet', 'badminton', 'flag football', 'pickleball',
+  'ultimate frisbee', 'sand volleyball', 'dodgeball',
+];
+
+const INTRAMURAL_TERMS: readonly string[] = [
+  'intramural', 'intramurals', 'intramural sports', 'spikeball', 'roundnet',
+  'badminton', 'flag football', 'pickleball', 'ultimate frisbee',
+  'sand volleyball', 'dodgeball', 'play pass',
 ];
 
 const RESEARCH_TERMS: readonly string[] = [
@@ -122,6 +130,23 @@ function normalize(text: string): string {
 
 function hasAny(haystack: string, terms: readonly string[]): boolean {
   return terms.some((term) => haystack.includes(` ${term} `));
+}
+
+/** Whether a published listing belongs in the dedicated Intramurals filter. */
+export function isIntramuralListing(
+  title: string,
+  description: string,
+  organizer: string | null,
+  tags: readonly string[] = [],
+): boolean {
+  const haystack = normalize(`${title} ${description}`);
+  if (hasAny(haystack, INTRAMURAL_TERMS)) return true;
+
+  // The university calendar uses the exact short tag `IM` for some Rec Sports
+  // listings. Restrict it to a Rec Sports owner so ordinary prose cannot turn
+  // the common word "I'm" into an intramural match after normalization.
+  const recSports = (organizer ?? '').toLowerCase().includes('rec sports');
+  return recSports && tags.some((tag) => tag.trim().toLowerCase() === 'im');
 }
 
 export interface ClassifyInput {

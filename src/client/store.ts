@@ -1,6 +1,6 @@
 /**
- * Browser + private owner-vault state: saved, dismissed, tracked, watchlists,
- * and last visit.
+ * Browser + private owner-vault state: saved, attending, dismissed, tracked,
+ * profile preferences, watchlists, and last visit.
  *
  * The browser copy keeps Radar instant and offline-capable. When one of the
  * two provisioned Google accounts is signed in, the same validated record is
@@ -28,6 +28,8 @@ export interface RadarState {
   lastVisit: string | null;
   /** Item ids the user saved. */
   saved: string[];
+  /** Campus event ids the user marked as attending. */
+  attending: string[];
   /** Item ids the user dismissed. Hidden from feeds but not forgotten. */
   dismissed: string[];
   /** Item ids to watch for changes (tracked papers, events). */
@@ -38,6 +40,12 @@ export interface RadarState {
   authors: string[];
   /** Lowercased employer names to watch. */
   companies: string[];
+  /** Campus category ids explicitly selected in the Radar profile. */
+  preferredCategories: string[];
+  /** Interest ids from src/campus/profile.ts selected in the Radar profile. */
+  campusInterests: string[];
+  /** Lowercased club or organizer names the user follows. */
+  followedOrganizers: string[];
   /**
    * Learned per-signal adjustments, keyed by reason signal (e.g. 'organism').
    *
@@ -63,11 +71,15 @@ export function emptyState(): RadarState {
   return {
     lastVisit: null,
     saved: [],
+    attending: [],
     dismissed: [],
     tracked: [],
     feedback: {},
     authors: [],
     companies: [],
+    preferredCategories: [],
+    campusInterests: [],
+    followedOrganizers: [],
     signalBias: {},
   };
 }
@@ -102,11 +114,15 @@ function coerce(raw: unknown): RadarState {
   return {
     lastVisit: typeof value.lastVisit === 'string' ? value.lastVisit : null,
     saved: strings(value.saved),
+    attending: strings(value.attending),
     dismissed: strings(value.dismissed),
     tracked: strings(value.tracked),
     feedback,
     authors: strings(value.authors).map((a) => a.toLowerCase()),
     companies: strings(value.companies).map((c) => c.toLowerCase()),
+    preferredCategories: strings(value.preferredCategories),
+    campusInterests: strings(value.campusInterests),
+    followedOrganizers: strings(value.followedOrganizers).map((name) => name.toLowerCase()),
     signalBias,
   };
 }
@@ -138,11 +154,15 @@ function getClientId(): string {
 
 function hasPersonalContent(state: RadarState): boolean {
   return state.saved.length > 0
+    || state.attending.length > 0
     || state.dismissed.length > 0
     || state.tracked.length > 0
     || Object.keys(state.feedback).length > 0
     || state.authors.length > 0
     || state.companies.length > 0
+    || state.preferredCategories.length > 0
+    || state.campusInterests.length > 0
+    || state.followedOrganizers.length > 0
     || Object.keys(state.signalBias).length > 0;
 }
 
@@ -259,8 +279,27 @@ export function toggleSaved(state: RadarState, id: string): RadarState {
   return { ...state, saved: toggle(state.saved, id), dismissed: state.dismissed.filter((d) => d !== id) };
 }
 
+export function toggleAttending(state: RadarState, id: string): RadarState {
+  // Attendance and interest are separate choices. Both restore a dismissed
+  // event, but neither silently changes the other status.
+  const attending = toggle(state.attending, id);
+  const going = attending.includes(id);
+  return {
+    ...state,
+    attending,
+    dismissed: going ? state.dismissed.filter((entry) => entry !== id) : state.dismissed,
+  };
+}
+
 export function toggleDismissed(state: RadarState, id: string): RadarState {
-  return { ...state, dismissed: toggle(state.dismissed, id), saved: state.saved.filter((s) => s !== id) };
+  const dismissed = toggle(state.dismissed, id);
+  const hiding = dismissed.includes(id);
+  return {
+    ...state,
+    dismissed,
+    saved: hiding ? state.saved.filter((entry) => entry !== id) : state.saved,
+    attending: hiding ? state.attending.filter((entry) => entry !== id) : state.attending,
+  };
 }
 
 export function toggleTracked(state: RadarState, id: string): RadarState {
@@ -296,7 +335,14 @@ export function applyFeedback(
   // "Less like this" implies dismissal of the item in front of you.
   const dismissed = verdict === 'less' && !state.dismissed.includes(id) ? [...state.dismissed, id] : state.dismissed;
 
-  return { ...state, feedback, signalBias, dismissed };
+  return {
+    ...state,
+    feedback,
+    signalBias,
+    dismissed,
+    saved: verdict === 'less' ? state.saved.filter((entry) => entry !== id) : state.saved,
+    attending: verdict === 'less' ? state.attending.filter((entry) => entry !== id) : state.attending,
+  };
 }
 
 export function watchAuthor(state: RadarState, name: string): RadarState {
@@ -309,6 +355,20 @@ export function watchCompany(state: RadarState, name: string): RadarState {
   const key = name.trim().toLowerCase();
   if (key.length === 0) return state;
   return { ...state, companies: toggle(state.companies, key) };
+}
+
+export function togglePreferredCategory(state: RadarState, category: string): RadarState {
+  return { ...state, preferredCategories: toggle(state.preferredCategories, category) };
+}
+
+export function toggleCampusInterest(state: RadarState, interest: string): RadarState {
+  return { ...state, campusInterests: toggle(state.campusInterests, interest) };
+}
+
+export function followOrganizer(state: RadarState, name: string): RadarState {
+  const key = name.trim().toLowerCase();
+  if (key.length === 0) return state;
+  return { ...state, followedOrganizers: toggle(state.followedOrganizers, key) };
 }
 
 /**

@@ -917,7 +917,8 @@ service cloud.firestore {
         ])
         && request.resource.data.state.keys().hasOnly([
           'lastVisit', 'saved', 'dismissed', 'tracked', 'feedback',
-          'authors', 'companies', 'signalBias'
+          'authors', 'companies', 'signalBias', 'attending',
+          'preferredCategories', 'campusInterests', 'followedOrganizers'
         ])
         && request.resource.data.state.saved is list
         && request.resource.data.state.saved.size() <= 5000
@@ -933,6 +934,18 @@ service cloud.firestore {
         && request.resource.data.state.companies.size() <= 1000
         && request.resource.data.state.signalBias is map
         && request.resource.data.state.signalBias.size() <= 1000
+        && (!('attending' in request.resource.data.state)
+          || (request.resource.data.state.attending is list
+            && request.resource.data.state.attending.size() <= 5000))
+        && (!('preferredCategories' in request.resource.data.state)
+          || (request.resource.data.state.preferredCategories is list
+            && request.resource.data.state.preferredCategories.size() <= 100))
+        && (!('campusInterests' in request.resource.data.state)
+          || (request.resource.data.state.campusInterests is list
+            && request.resource.data.state.campusInterests.size() <= 1000))
+        && (!('followedOrganizers' in request.resource.data.state)
+          || (request.resource.data.state.followedOrganizers is list
+            && request.resource.data.state.followedOrganizers.size() <= 1000))
         && (request.resource.data.state.lastVisit == null
           || (request.resource.data.state.lastVisit is string
             && request.resource.data.state.lastVisit.size() <= 64))

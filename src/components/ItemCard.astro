@@ -13,7 +13,19 @@
  */
 import type { RadarItem } from '@/types.ts';
 import { FOOD_LABELS } from '@/campus/freebies.ts';
-import { formatDateTime, formatRange, relative, signalsOf, tabsFor, url } from '@/lib/view.ts';
+import { CATEGORY_LABELS, isIntramuralListing } from '@/campus/classify.ts';
+import { CAMPUS_INTERESTS } from '@/campus/profile.ts';
+import {
+  formatDateTime,
+  formatAgendaDate,
+  formatRange,
+  formatTime,
+  campusDayKey,
+  relative,
+  signalsOf,
+  tabsFor,
+  url,
+} from '@/lib/view.ts';
 
 interface Props {
   item: RadarItem;
@@ -25,9 +37,11 @@ interface Props {
    * which knows the ranked order and the limit; see `tabsFor`.
    */
   inForYou?: boolean;
+  /** Render a compact time rail because the surrounding feed supplies the date. */
+  agenda?: boolean;
 }
 
-const { item, now, detailed = false, inForYou } = Astro.props;
+const { item, now, detailed = false, inForYou, agenda = false } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
 
 const research = item.research;
@@ -41,7 +55,7 @@ const detailHref =
 const scoreClass =
   research !== undefined ? `score-${research.band}` : campus?.category === 'companies' ? 'score-core' : 'score-methods';
 
-const reasons = detailed ? item.reasons : item.reasons.slice(0, 5);
+const reasons = detailed ? item.reasons : item.reasons.slice(0, 3);
 
 // Events show when they happen; papers show when they were published.
 const whenLabel =
@@ -56,27 +70,71 @@ const whenLabel =
       : `${formatDateTime(research.publishedDate)} · ${relative(research.publishedDate, now)}`;
 
 const distinctSources = [...new Set(item.sources.map((source) => source.source))];
+const intramural = campus !== undefined
+  && isIntramuralListing(item.title, item.summary, campus.organizer, item.tags);
+const interestIds = campus === undefined
+  ? []
+  : CAMPUS_INTERESTS
+      .filter((interest) => item.reasons.some((reason) => reason.label === interest.label))
+      .map((interest) => interest.id);
+const searchIndex = [
+  item.title,
+  item.summary,
+  whenLabel,
+  campus === undefined ? '' : formatAgendaDate(campus.startsAt),
+  campus === undefined ? '' : campusDayKey(campus.startsAt),
+  ...item.tags,
+  campus?.location ?? '',
+  campus?.organizer ?? '',
+  ...(campus?.companies ?? []),
+  campus === undefined ? '' : CATEGORY_LABELS[campus.category],
+].join(' ').toLocaleLowerCase();
 ---
 
 <li
-  class:list={['card', { 'is-cancelled': campus?.isCancelled === true }]}
+  class:list={[
+    'card',
+    { 'event-card': campus !== undefined, 'agenda-card': campus !== undefined && agenda, 'is-cancelled': campus?.isCancelled === true },
+  ]}
   data-item-id={item.id}
   data-relevance={item.relevance}
   data-signals={signalsOf(item)}
-  data-tabs={tabsFor(item, inForYou).join(',')}
+  data-tabs={tabsFor(item, inForYou, now).join(',')}
   data-first-seen={item.firstSeen}
+  data-starts-at={campus?.startsAt ?? ''}
+  data-category={campus?.category ?? ''}
+  data-organizer={(campus?.organizer ?? '').toLocaleLowerCase()}
+  data-interests={interestIds.join(',')}
+  data-search={searchIndex}
 >
   <div class="card-head">
-    <div>
+    {
+      campus !== undefined && agenda && (
+        <div class="event-time-block">
+          <strong>{campus.isAllDay ? 'All day' : formatTime(campus.startsAt)}</strong>
+          <span>
+            {campus.seriesCount > 1
+              ? `${campus.seriesCount} sessions`
+              : campus.startsAt === null
+                ? 'Schedule TBD'
+                : relative(campus.startsAt, now)}
+          </span>
+        </div>
+      )
+    }
+
+    <div class="card-copy">
       <h3 class="card-title">
         <a href={detailHref}>{item.title}</a>
       </h3>
       <p class="card-meta">
-        {whenLabel}
-        {campus?.location != null && <> · {campus.location}</>}
-        {campus?.organizer != null && <> · {campus.organizer}</>}
+        {(!agenda || campus === undefined) && whenLabel}
+        {(!agenda || campus === undefined) && campus?.location != null && <> · </>}
+        {campus?.location != null && <span>{campus.location}</span>}
+        {campus?.location != null && campus?.organizer != null && <> · </>}
+        {campus?.organizer != null && <span>{campus.organizer}</span>}
         {research?.journal != null && <> · {research.journal}</>}
-        {campus?.seriesCount != null && campus.seriesCount > 1 && <> · {campus.seriesCount} sessions</>}
+        {!agenda && campus?.seriesCount != null && campus.seriesCount > 1 && <> · {campus.seriesCount} sessions</>}
       </p>
     </div>
 
@@ -87,6 +145,8 @@ const distinctSources = [...new Set(item.sources.map((source) => source.source))
   </div>
 
   <ul class="badges">
+    {campus !== undefined && <li class="badge badge-category">{CATEGORY_LABELS[campus.category]}</li>}
+    {intramural && <li class="badge badge-intramural">Intramural</li>}
     {item.status === 'new' && <li class="badge badge-new">New</li>}
     {item.status === 'updated' && <li class="badge badge-updated">Updated</li>}
     {campus?.isCancelled === true && <li class="badge badge-cancelled">Cancelled</li>}
@@ -168,7 +228,9 @@ const distinctSources = [...new Set(item.sources.map((source) => source.source))
   }
 
   <div class="actions">
-    <a class="action action-primary" href={item.url} rel="noopener external">Open source</a>
+    <a class="action action-primary" href={item.url} rel="noopener external">
+      {campus !== undefined ? 'View event' : 'Open paper'}
+    </a>
     {
       research?.openAccessUrl != null && (
         <a class="action" href={research.openAccessUrl} rel="noopener external">
@@ -176,10 +238,22 @@ const distinctSources = [...new Set(item.sources.map((source) => source.source))
         </a>
       )
     }
-    <a class="action" href={detailHref}>Details</a>
-    <button class="action" type="button" data-action="save" aria-pressed="false">Save</button>
-    <button class="action" type="button" data-action="track" aria-pressed="false">Track</button>
-    <button class="action" type="button" data-action="more">More like this</button>
-    <button class="action" type="button" data-action="less">Not relevant</button>
+    <button class="action" type="button" data-action="save" aria-pressed="false">
+      {campus !== undefined ? 'Interested' : 'Save'}
+    </button>
+    {
+      campus !== undefined && (
+        <button class="action" type="button" data-action="attend" aria-pressed="false">Going</button>
+      )
+    }
+    <a class="action action-quiet" href={detailHref}>Details</a>
+    <details class="card-menu">
+      <summary class="action action-quiet">More</summary>
+      <div class="card-menu-popover">
+        <button class="action" type="button" data-action="track" aria-pressed="false">Track changes</button>
+        <button class="action" type="button" data-action="more">More like this</button>
+        <button class="action" type="button" data-action="less">Not for me</button>
+      </div>
+    </details>
   </div>
 </li>

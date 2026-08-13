@@ -7,7 +7,7 @@
  * ground for browsing. Both render the same cards, so this component is the
  * shared body rather than four near-identical pages.
  */
-import ItemCard from '@/components/ItemCard.astro';
+import CampusAgenda from '@/components/CampusAgenda.astro';
 import type { RadarItem } from '@/types.ts';
 
 interface Props {
@@ -41,11 +41,7 @@ const { heading, lede, items, now, emptyMessage, tally = [] } = Astro.props;
 
 {
   items.length > 0 ? (
-    <ul class="feed" data-feed data-default-tab="all">
-      {items.map((item) => (
-        <ItemCard item={item} now={now} />
-      ))}
-    </ul>
+    <CampusAgenda items={items} now={now} />
   ) : (
     <p class="empty">{emptyMessage}</p>
   )

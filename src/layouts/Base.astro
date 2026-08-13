@@ -23,7 +23,7 @@ interface Props {
 const { title, description, engine = null, fetchedAt, current } = Astro.props;
 
 const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
-const canonical = new URL(base, Astro.site ?? 'https://harsh.bet').href;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://harsh.bet').href;
 
 const fetchedLabel =
   fetchedAt === undefined
@@ -36,10 +36,11 @@ const fetchedLabel =
 
 const nav = [
   { id: 'home', label: 'Radar', href: url(base, '') },
-  { id: 'research', label: 'Research', href: url(base, 'research/') },
   { id: 'campus', label: 'Campus', href: url(base, 'campus/') },
+  { id: 'profile', label: 'Profile', href: url(base, 'campus/profile/') },
+  { id: 'research', label: 'Research', href: url(base, 'research/') },
   { id: 'digests', label: 'Digests', href: url(base, 'research/digests/') },
-  { id: 'watchlist', label: 'Watchlist', href: url(base, 'research/watchlist/') },
+  { id: 'watchlist', label: 'Saved', href: url(base, 'research/watchlist/') },
   { id: 'sources', label: 'Sources', href: url(base, 'campus/sources/') },
 ];
 ---
@@ -63,11 +64,14 @@ const nav = [
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
-      <div class="wrap">
-        <div class="brand">
-          <a href={url(base, '')}>Radar</a>
-          {engine === 'research' && <span class="engine engine-research">Research</span>}
-          {engine === 'campus' && <span class="engine engine-campus">Campus</span>}
+      <div class="wrap header-inner">
+        <div class="brand-lockup">
+          <div class="brand">
+            <a href={url(base, '')} aria-label="Radar home">RADAR</a>
+            {engine === 'research' && <span class="engine engine-research">Research</span>}
+            {engine === 'campus' && <span class="engine engine-campus">Campus</span>}
+          </div>
+          <p>Signals worth your attention.</p>
         </div>
         <nav class="nav" aria-label="Radar sections">
           {
@@ -83,7 +87,7 @@ const nav = [
 
     <VaultControl />
 
-    <main id="main">
+    <main id="main" class="page-main">
       <div class="wrap">
         <slot />
       </div>
@@ -91,28 +95,23 @@ const nav = [
 
     <footer class="site-footer">
       <div class="wrap">
-        <p>
-          Radar is a focused discovery tool. It reads public APIs — Europe PMC, PubMed, bioRxiv,
-          medRxiv, Crossref, OpenAlex, arXiv, and the Texas A&amp;M events calendar — and ranks what it
-          finds against a transparent, published scope. Paid participant studies are excluded and handled
-          by Studies. Every listing links
-          back to its source, which is the authority on the details.
-        </p>
-        <p>
-          Relevance scores are Radar's own opinion, computed from the signals shown on each card.
-          They are a sorting aid, not a judgement about quality. Nothing here is fetched live:
-          every figure was gathered when the site was last built.
-        </p>
-        <p>
-          Saved, dismissed, tracked, and interest state remains in this browser unless you sign in.
-          The two provisioned Google accounts sync it to one private Firebase owner vault; it is never
-          included in public ingest or ranking, and Radar has no analytics.
-        </p>
+        <div class="footer-brand">
+          <strong>RADAR</strong>
+          <span>Focused research and campus discovery.</span>
+        </div>
+        <div class="footer-copy">
+          <p>
+            Radar reads public research and Texas A&amp;M sources at build time. Every listing links to
+            its source, which remains the authority on details. Participant-recruitment studies stay in Studies.
+          </p>
+          <p>
+            Saved, attending, dismissed, tracked, and profile state stays private in this browser unless
+            you sign in to the owner vault. Radar has no analytics.
+          </p>
+        </div>
         {
           fetchedLabel !== null && (
-            <p>
-              Data gathered {fetchedLabel} (US Central). Rebuild to refresh.
-            </p>
+            <p class="footer-freshness">Data gathered {fetchedLabel} (US Central).</p>
           )
         }
       </div>
