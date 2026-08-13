@@ -43,4 +43,12 @@ describe('campus agenda view', () => {
     expect(campusDayKey(item.campus?.startsAt ?? null)).toBe('2026-08-12');
     expect(tabsFor(item, false, NOW)).toEqual(expect.arrayContaining(['today', 'this-week', 'intramurals']));
   });
+
+  it('lets a Get Involved sport-club event belong to both Sports and Clubs', () => {
+    const item = event('club-sport', 'TAMU Badminton Club Tournament', '2026-08-13T18:00:00-05:00');
+    const firstSource = item.sources[0]!;
+    item.sources = [{ ...firstSource, source: 'getinvolved', channel: 'TAMU Badminton Club' }];
+    expect(item.campus?.category).toBe('sports');
+    expect(tabsFor(item, false, NOW)).toEqual(expect.arrayContaining(['sports', 'clubs']));
+  });
 });

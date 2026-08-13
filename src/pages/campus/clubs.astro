@@ -3,10 +3,12 @@
 import Base from '@/layouts/Base.astro';
 import CategoryFeed from '@/components/CategoryFeed.astro';
 import { campus, fetchedAt, now } from '@/lib/data.ts';
-import { byCategory, url } from '@/lib/view.ts';
+import { url } from '@/lib/view.ts';
 
 const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
-const items = byCategory(campus.items, 'clubs');
+const items = campus.items.filter(
+  (item) => item.campus?.category === 'clubs' || item.sources.some((source) => source.source === 'getinvolved'),
+);
 ---
 
 <Base
@@ -18,7 +20,7 @@ const items = byCategory(campus.items, 'clubs');
 >
   <CategoryFeed
     heading="Clubs"
-    lede="Student organizations and campus life, from the Student Activities, MSC, and Student Interest calendars."
+    lede="Student organizations and campus life from Get Involved plus the Student Activities, MSC, and Student Interest calendars."
     items={items}
     now={now}
     tally={[{ label: 'club events', value: items.length, tone: 'core' }]}
@@ -27,11 +29,12 @@ const items = byCategory(campus.items, 'clubs');
 
   <section class="section">
     <div class="panel prose">
-      <h3 style="margin-top:0;">Coverage is partial, and here is why</h3>
+      <h3 style="margin-top:0;">Broader student-organization coverage</h3>
       <p>
-        Most student-org events live on Get Involved, which has no public API — every path returns
-        the same client-rendered page. What you see here comes from the university calendar groups
-        that do publish feeds. The
+        Radar now reads the official Get Involved event directory alongside university calendar
+        feeds. Clubs remain in control of what they publish, so an organization with no public event
+        will not be invented as an event. You can still follow any club by name from your
+        <a href={url(base, 'campus/profile/')}>Radar profile</a>. The
         <a href={url(base, 'campus/sources/')}>Sources page</a> has the details.
       </p>
     </div>

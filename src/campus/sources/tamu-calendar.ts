@@ -143,20 +143,74 @@ function coordinatesOf(event: LiveWhaleEvent): [number, number] | null {
   return [lat, lon];
 }
 
+const BARE_REC_FACILITIES = new Set([
+  '50 meter',
+  '50 meter pool',
+  'indoor climbing tower',
+  'lap pool',
+  'outdoor pool',
+  'peap',
+  'polo road',
+  'rc',
+  'southside rec center',
+  'student rec center',
+  'student recreation center',
+]);
+
+function normalizedWords(value: string): string {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Keep event discovery free of routine Rec Sports facility schedules.
+ *
+ * Daily cards such as "Lap Pool", "Polo Road Hours", and "RC Open" are
+ * operating data, not events. The one exception that belongs in a personal
+ * agenda is an explicit closure of the main Student Recreation Center. A bare
+ * "CLOSED" record is not enough: without a named facility it cannot honestly
+ * claim that the Student Rec is affected.
+ */
+export function isUsefulRecSportsListing(
+  title: string,
+  description: string,
+  group: string | null,
+  location: string | null,
+): boolean {
+  if (!(group ?? '').toLowerCase().includes('rec sports')) return true;
+
+  const normalizedTitle = normalizedWords(title);
+  const context = normalizedWords(`${title} ${description} ${location ?? ''}`);
+  const routineHours =
+    /\b(hours?|operating hours?|adjusted facility hours?)\b/.test(normalizedTitle)
+    || /\b(open|closed|closure)\b$/.test(normalizedTitle)
+    || BARE_REC_FACILITIES.has(normalizedTitle)
+    || (/\bfacilit(?:y|ies) (?:update|notice)\b/.test(normalizedTitle)
+      && /\b(hours?|open|closed|closure)\b/.test(context));
+
+  if (!routineHours) return true;
+
+  const studentRec = /\bstudent rec(?:reation)? center\b/.test(context);
+  const closure = /\b(closed|closure)\b/.test(context);
+  return studentRec && closure;
+}
+
 export function mapEvent(event: LiveWhaleEvent, channel: string): RawItem | null {
   const title = htmlToText(event.title);
   const id = event.id;
   if (title.length === 0 || id === undefined) return null;
+
+  // NOTE: `registration_owner_email` and `contact_info` are intentionally NOT
+  // read into the description. See the header.
+  const description = htmlToText(event.description);
+  const group = event.group_title ?? null;
+  const location = collapse(event.location_title ?? event.location ?? '') || null;
+  if (!isUsefulRecSportsListing(title, description, group, location)) return null;
 
   const url =
     typeof event.url === 'string' && event.url.length > 0
       ? event.url
       : `https://calendar.tamu.edu/event/${String(id)}`;
 
-  // NOTE: `registration_owner_email` and `contact_info` are intentionally NOT
-  // read into the description. See the header.
-  const description = htmlToText(event.description);
-  const group = event.group_title ?? null;
   const eventTypes = event.event_types ?? [];
 
   const startsAt = toIso(event.date_iso) ?? toIso(event.date_utc) ?? toIso(event.date_ts);
@@ -165,8 +219,6 @@ export function mapEvent(event: LiveWhaleEvent, channel: string): RawItem | null
   const freebies = detectFreebies(`${title} ${description}`, event.cost ?? null);
   const companies = extractCompanies(title, description);
   const category = classify({ title, description, group, eventTypes });
-
-  const location = collapse(event.location_title ?? event.location ?? '') || null;
 
   return {
     vertical: 'campus',

@@ -25,7 +25,109 @@
  */
 
 import type { RadarItem } from '@/types.ts';
-import { canonicalTitle } from '@/core/text.ts';
+import { mergeCluster } from '@/core/dedupe.ts';
+import { contentHashOf } from '@/core/normalize.ts';
+import { canonicalTitle, clamp } from '@/core/text.ts';
+
+const CLUB_CRAWL = /^club crawl\s+((?:fall|spring)\s+\d{4})(?:\s*[-:]\s*(.*))?$/i;
+
+function clubCrawlParts(title: string): { term: string; organization: string | null } | null {
+  const match = title.match(CLUB_CRAWL);
+  if (match === null) return null;
+  const term = match[1];
+  if (term === undefined) return null;
+  const rawOrganization = (match[2] ?? '')
+    .replace(/:\s*the official involvement festival at texas a&m\s*$/i, '')
+    .trim();
+  const organization = rawOrganization.length === 0
+    || /^the official involvement festival at texas a&m$/i.test(rawOrganization)
+    ? null
+    : rawOrganization;
+  return { term, organization };
+}
+
+/**
+ * Fold per-organization copies of Club Crawl into the one real-world event.
+ *
+ * Get Involved and LiveWhale publish a separate card for many participating
+ * organizations. Showing 30 adjacent cards for one festival destroys the
+ * chronological agenda, while dropping them loses club discovery. The merged
+ * card therefore keeps every source and adds each named organization as a
+ * non-rendered search tag; profile suggestions can read those tags too.
+ */
+export function collapseCoMarketedEvents(
+  items: readonly RadarItem[],
+): { items: RadarItem[]; collapsed: number } {
+  const groups = new Map<string, RadarItem[]>();
+  const passthrough: RadarItem[] = [];
+
+  for (const item of items) {
+    const parts = clubCrawlParts(item.title);
+    const startsAt = item.campus?.startsAt ?? null;
+    if (parts === null || startsAt === null) {
+      passthrough.push(item);
+      continue;
+    }
+    const key = `${parts.term.toLowerCase()}|${startsAt}`;
+    const group = groups.get(key);
+    if (group === undefined) groups.set(key, [item]);
+    else group.push(item);
+  }
+
+  const out = [...passthrough];
+  let collapsed = 0;
+
+  for (const group of groups.values()) {
+    if (group.length === 1) {
+      const only = group[0];
+      if (only !== undefined) out.push(only);
+      continue;
+    }
+
+    // Put the official umbrella record first so the aggregate keeps the same
+    // stable item id as participating organizations come and go.
+    const ordered = [...group].sort((a, b) => {
+      const official = (item: RadarItem): number =>
+        item.campus?.organizer?.toLowerCase() === 'club crawl' ? 1 : 0;
+      return official(b) - official(a);
+    });
+    const merged = mergeCluster(ordered);
+    const term = clubCrawlParts(merged.title)?.term ?? clubCrawlParts(ordered[0]?.title ?? '')?.term;
+    if (term === undefined) {
+      out.push(...group);
+      continue;
+    }
+
+    const organizations = [...new Set(
+      group
+        .map((item) => clubCrawlParts(item.title)?.organization ?? null)
+        .filter((name): name is string => name !== null),
+    )].sort((a, b) => a.localeCompare(b));
+    const tags = [...merged.tags];
+    const seenTags = new Set(tags.map((tag) => tag.toLowerCase()));
+    for (const organization of organizations) {
+      const tag = `Organization: ${organization}`;
+      if (!seenTags.has(tag.toLowerCase())) tags.push(tag);
+    }
+
+    const aggregate: RadarItem = {
+      ...merged,
+      title: `Club Crawl ${term}: The Official Involvement Festival at Texas A&M`,
+      summary: organizations.length === 0
+        ? merged.summary
+        : clamp(`${organizations.length} participating organizations: ${organizations.join(', ')}.`, 400),
+      tags,
+      campus: merged.campus === undefined
+        ? undefined
+        : { ...merged.campus, category: 'clubs', organizer: 'Club Crawl', seriesCount: 1 },
+    };
+    aggregate.contentHash = contentHashOf(aggregate);
+    out.push(aggregate);
+    collapsed += group.length - 1;
+  }
+
+  return { items: out, collapsed };
+}
 
 /**
  * Longest span that still reads as one series, in days.

@@ -4,7 +4,7 @@
  * Shorter funnel than the research side because the sources are cleaner - a
  * university calendar is already structured, where a literature search is not:
  *
- *   TAMU calendar (main + ~23 group feeds)
+ *   TAMU calendar (main + group feeds) + Get Involved student-org directory
  *        -> normalize          strip emails, clean HTML, stable ids
  *        -> dedupe             the same event appears in several group feeds
  *        -> score              interests + value + timing
@@ -17,16 +17,18 @@ import { dedupe } from '@/core/dedupe.ts';
 import { normalizeAll } from '@/core/normalize.ts';
 import { INGEST_THRESHOLD, byRelevance } from '@/core/rank.ts';
 import { fetchTamuCalendar } from '@/campus/sources/tamu-calendar.ts';
-import { GET_INVOLVED_REPORT } from '@/campus/sources/getinvolved.ts';
-import { collapseSeries } from '@/campus/series.ts';
+import { fetchGetInvolved } from '@/campus/sources/getinvolved.ts';
+import { collapseCoMarketedEvents, collapseSeries } from '@/campus/series.ts';
 import { scoreCampus, type CampusContext } from '@/campus/score.ts';
 
 const LABELS: Record<string, string> = {
   'tamu-calendar': 'TAMU Events Calendar',
+  getinvolved: 'Get Involved (student organizations)',
 };
 
 const DOCS: Record<string, string> = {
   'tamu-calendar': 'https://calendar.tamu.edu/feeds/',
+  getinvolved: 'https://getinvolved.tamu.edu/events',
 };
 
 function reportFor(result: SourceResult<unknown>): SourceReport {
@@ -98,16 +100,15 @@ export async function ingestCampus(options: CampusIngestOptions): Promise<Campus
   }
 
   // --- 1. Fetch ----------------------------------------------------------
-  const results: SourceResult<RawItem>[] = [];
-  results.push(await fetchTamuCalendar({ ...options, days }));
+  const results: SourceResult<RawItem>[] = await Promise.all([
+    fetchTamuCalendar({ ...options, days }),
+    fetchGetInvolved({ ...options, days }),
+  ]);
 
   for (const result of results) {
     reports.push(reportFor(result));
     warnings.push(...result.warnings.map((w) => `${result.source}: ${w}`));
   }
-
-  // Registered but deliberately not implemented - the Sources page explains why.
-  reports.push(GET_INVOLVED_REPORT);
 
   const fetched = results.flatMap((result) => result.records);
   const raws = fetched.filter((item) => !isParticipantResearchStudy(item));
@@ -129,11 +130,18 @@ export async function ingestCampus(options: CampusIngestOptions): Promise<Campus
   const { items: deduped, collapsed, clusters } = dedupe(normalized);
   log.info(`[campus] dedupe collapsed ${collapsed} duplicate(s) into ${clusters.length} cluster(s)`);
 
-  // --- 3b. Series --------------------------------------------------------
+  // --- 3b. Co-marketed events -------------------------------------------
+  // Club Crawl is posted once per participating organization across both
+  // official sources. Preserve those organizations as search tags on one
+  // real-world event instead of flooding one date with dozens of cards.
+  const { items: coMarketed, collapsed: coMarketedCollapsed } = collapseCoMarketedEvents(deduped);
+  log.info(`[campus] co-marketing collapse folded ${coMarketedCollapsed} duplicate event card(s)`);
+
+  // --- 3c. Series --------------------------------------------------------
   // Separate step from dedupe on purpose: these are genuinely different events
   // (five days of one conference, five LiveWhale ids) that the user thinks of
   // as one thing. See src/campus/series.ts.
-  const { items: series, collapsed: seriesCollapsed } = collapseSeries(deduped);
+  const { items: series, collapsed: seriesCollapsed } = collapseSeries(coMarketed);
   log.info(`[campus] series collapsing folded ${seriesCollapsed} extra occurrence(s)`);
 
   // --- 4. Score ----------------------------------------------------------

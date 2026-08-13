@@ -6,7 +6,7 @@ Two discovery engines over one pipeline, published at `https://harsh.bet/radar/`
 - **CampusRadar** (`/radar/campus`) — watches Texas A&M and tells you which of ~2,000 listings you'd actually care about.
 - **`/radar`** — the combined home: what changed since your last visit.
 
-They share ingestion, deduplication, ranking, change detection, and digests. Only the data differs.
+They share ingestion, deduplication, ranking, and change detection. Only the data differs.
 
 ## The idea
 
@@ -34,8 +34,8 @@ That preprint       now published in Evolutionary Applications
 
 ```
    RESEARCH                          CAMPUS
-   Europe PMC  PubMed                TAMU calendar (main + 23 group feeds)
-   bioRxiv     medRxiv               org · company · sponsor · campus events
+   Europe PMC  PubMed                TAMU calendar (main + group feeds)
+   bioRxiv     medRxiv               Get Involved student-organization events
    OpenAlex    arXiv
    Crossref (enrichment only)
         │                                  │
@@ -53,7 +53,7 @@ That preprint       now published in Evolutionary Applications
                        ▼
       DIFF          against the previous snapshot
                        ▼
-              FEED · DIGESTS · CHANGE LIST
+                 FEED · CHANGE LIST
 ```
 
 Everything upstream is read at **build time**. Not one of these APIs sends CORS headers, so a browser `fetch()` to any of them is blocked — the browser only ever gets static JSON. See the note in `astro.config.mjs`.
@@ -111,7 +111,7 @@ src/
     classify.ts         category routing and employer extraction
     freebies.ts         the free-stuff evidence tiers
     series.ts           multi-day event collapsing
-    sources/            tamu-calendar · getinvolved (documented refusal)
+    sources/            tamu-calendar · getinvolved
   client/               local-first owner-vault state and browser re-ranking
   pages/                the routes
 fixtures/               frozen real upstream responses; the test corpus

@@ -157,7 +157,7 @@ export const CAMPUS_TABS: readonly TabDef[] = [
   { id: 'for-you', label: 'For you', hint: 'Top matches plus events matching your Radar profile' },
   { id: 'today', label: 'Today', hint: 'Events happening today' },
   { id: 'this-week', label: 'Next 7 days', hint: 'Events happening in the next seven calendar days' },
-  { id: 'intramurals', label: 'Intramurals', hint: 'Intramural and recreational club sports' },
+  { id: 'intramurals', label: 'Intramurals', hint: 'Official registrations, leagues, tournaments, and events' },
   { id: 'campus', label: 'Campus', hint: 'Departments, seminars, workshops, research centres' },
   { id: 'companies', label: 'Companies', hint: 'Employers, info sessions, career fairs' },
   { id: 'sports', label: 'Sports', hint: 'Aggie athletics and rec sports' },
@@ -220,6 +220,13 @@ export function tabsFor(item: RadarItem, inForYou?: boolean, now?: string): stri
       community: 'bcs',
     };
     tabs.push(byCategory[campus.category]);
+
+    // Get Involved is the official student-organization directory. A sport
+    // club tournament can correctly be Sports by subject and Clubs by owner;
+    // the main discovery filters are intentionally overlapping.
+    if (item.sources.some((source) => source.source === 'getinvolved') && !tabs.includes('clubs')) {
+      tabs.push('clubs');
+    }
 
     if (now !== undefined) {
       const days = calendarDaysUntil(campus.startsAt, now);

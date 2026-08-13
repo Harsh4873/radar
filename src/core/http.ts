@@ -53,6 +53,7 @@ const HOST_MIN_INTERVAL_MS: Record<string, number> = {
   'export.arxiv.org': 3_000, // arXiv's own manual asks for one request per 3s.
   'www.ebi.ac.uk': 200,
   'calendar.tamu.edu': 200,
+  'getinvolved.tamu.edu': 300,
   'research.tamu.edu': 250,
 };
 

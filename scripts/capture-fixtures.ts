@@ -146,12 +146,14 @@ async function main(): Promise<void> {
   // The TAMU calendar sample is selected rather than truncated, and the PubMed
   // efetch capture depends on the ids esearch just returned, so both are
   // documented here rather than automated into a shape that hides the intent.
-  console.log('\nTwo fixtures are not captured automatically:');
+  console.log('\nThree fixtures are not captured automatically:');
   console.log('  tamu-calendar.json  - a hand-picked sample that must keep events carrying');
   console.log('                        registration emails, food words, coordinates, and online');
   console.log('                        links; the privacy and parser tests depend on those.');
   console.log('  pubmed-efetch.xml   - depends on the ids in pubmed-esearch.json; refetch with');
   console.log('                        efetch.fcgi?db=pubmed&id=<ids>&retmode=xml');
+  console.log('  getinvolved.html    - a hand-picked, email-free sample of the server-rendered');
+  console.log('                        point, multi-day, and same-day-range event card shapes.');
 
   if (failures > 0) {
     console.error(`\n${failures} capture(s) failed. Existing fixtures were left alone.`);

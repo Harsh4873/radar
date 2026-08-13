@@ -13,7 +13,7 @@ const categoryOrder: CampusCategory[] = [
 ];
 const categoryDescriptions: Record<CampusCategory, string> = {
   clubs: 'Student organizations and social events',
-  sports: 'Athletics, intramurals, and rec sports',
+  sports: 'Athletics, sport clubs, and intramurals',
   companies: 'Recruiting, career fairs, and employers',
   research: 'Seminars, symposia, and research groups',
   academic: 'Workshops, training, and campus programs',
@@ -23,14 +23,25 @@ const categoryDescriptions: Record<CampusCategory, string> = {
 
 const organizerCounts = new Map<string, number>();
 for (const item of campus.items) {
+  const names = new Set<string>();
   const organizer = item.campus?.organizer;
-  if (organizer === null || organizer === undefined) continue;
-  organizerCounts.set(organizer, (organizerCounts.get(organizer) ?? 0) + 1);
+  if (organizer !== null && organizer !== undefined) names.add(organizer);
+  for (const source of item.sources) {
+    if (source.source === 'getinvolved' && source.channel !== null) names.add(source.channel);
+  }
+  for (const tag of item.tags) {
+    if (tag.toLowerCase().startsWith('organization: ')) names.add(tag.slice('organization: '.length));
+  }
+  for (const name of names) organizerCounts.set(name, (organizerCounts.get(name) ?? 0) + 1);
 }
 const organizerSuggestions = [
-  'Spikeball Club',
-  'Badminton Club',
-  'Football Club',
+  'Texas A&M Spikeball',
+  'TAMU Badminton Club',
+  'Korean Aggies Badminton Club',
+  'Texas A&M Pickleball Club',
+  "Texas A&M Men's Soccer",
+  "Texas A&M University Women's Soccer Club",
+  "Texas A&M Women's Rugby Football Club",
   ...[...organizerCounts.entries()]
     .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
     .map(([organizer]) => organizer),
@@ -127,7 +138,7 @@ const indexJson = JSON.stringify(index).replace(/</g, '\\u003c');
             <p class="eyebrow">Topics and activities</p>
             <h2 id="interest-heading">What are you into?</h2>
           </div>
-          <p>Includes football, basketball, intramurals, Spikeball, Badminton, and academic interests.</p>
+          <p>Includes student organizations, football, intramurals, sport clubs, Spikeball, Badminton, and academic interests.</p>
         </div>
         <fieldset class="interest-grid">
           <legend class="sr-only">Preferred campus topics and activities</legend>
@@ -159,7 +170,7 @@ const indexJson = JSON.stringify(index).replace(/</g, '\\u003c');
               type="text"
               list="organizer-options"
               autocomplete="off"
-              placeholder="Try “Spikeball Club” or “Rec Sports”"
+              placeholder="Try “Texas A&M Spikeball” or “Rec Sports”"
               data-follow-input
             />
             <button class="action action-primary" type="submit">Follow</button>
@@ -172,7 +183,7 @@ const indexJson = JSON.stringify(index).replace(/</g, '\\u003c');
         <p class="empty compact-empty" data-followed-empty>You are not following any clubs or organizers yet.</p>
         <p class="form-note">
           Following changes your private For you view; it does not change the public ingest or expose
-          your preferences.
+          your preferences. <a href="https://getinvolved.tamu.edu/organizations?loc%5B0%5D=College%20Station" rel="noopener external">Browse the official organization directory →</a>
         </p>
       </section>
 

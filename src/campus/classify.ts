@@ -72,10 +72,20 @@ const SPORTS_TERMS: readonly string[] = [
   'ultimate frisbee', 'sand volleyball', 'dodgeball',
 ];
 
-const INTRAMURAL_TERMS: readonly string[] = [
-  'intramural', 'intramurals', 'intramural sports', 'spikeball', 'roundnet',
-  'badminton', 'flag football', 'pickleball', 'ultimate frisbee',
-  'sand volleyball', 'dodgeball', 'play pass',
+const EXPLICIT_INTRAMURAL_TERMS: readonly string[] = [
+  'intramural', 'intramurals', 'intramural sports',
+];
+
+const INTRAMURAL_ACTIVITY_TERMS: readonly string[] = [
+  'spikeball', 'roundnet', 'badminton', 'flag football', 'pickleball',
+  'ultimate frisbee', 'sand volleyball', 'dodgeball', 'battleship',
+  'basketball', 'soccer', 'softball', 'volleyball', 'cornhole', 'kickball',
+];
+
+const INTRAMURAL_EVENT_TERMS: readonly string[] = [
+  'tournament', 'registration', 'register', 'league', 'play pass',
+  'free agent', 'captains meeting', 'captain meeting', 'orientation', 'playoffs',
+  'championship', 'competition', 'challenge', 'officials training',
 ];
 
 const RESEARCH_TERMS: readonly string[] = [
@@ -140,13 +150,20 @@ export function isIntramuralListing(
   tags: readonly string[] = [],
 ): boolean {
   const haystack = normalize(`${title} ${description}`);
-  if (hasAny(haystack, INTRAMURAL_TERMS)) return true;
+  if (hasAny(haystack, EXPLICIT_INTRAMURAL_TERMS)) return true;
 
-  // The university calendar uses the exact short tag `IM` for some Rec Sports
-  // listings. Restrict it to a Rec Sports owner so ordinary prose cannot turn
-  // the common word "I'm" into an intramural match after normalization.
+  // A sport name alone is not an intramural signal: a Badminton Club social,
+  // a Spikeball club tournament, and a pickleball meet-and-greet belong in
+  // Sports/Clubs. Without the explicit word "intramural", require Rec Sports
+  // ownership plus concrete league/registration/competition language.
   const recSports = (organizer ?? '').toLowerCase().includes('rec sports');
-  return recSports && tags.some((tag) => tag.trim().toLowerCase() === 'im');
+  if (!recSports || !hasAny(haystack, INTRAMURAL_EVENT_TERMS)) return false;
+
+  // The university calendar uses the exact short tag `IM` for some official
+  // listings. Restrict it to Rec Sports so the common word "I'm" can never
+  // become a match after punctuation normalization.
+  const tagged = tags.some((tag) => tag.trim().toLowerCase() === 'im');
+  return tagged || hasAny(haystack, INTRAMURAL_ACTIVITY_TERMS);
 }
 
 export interface ClassifyInput {

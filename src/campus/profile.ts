@@ -75,6 +75,15 @@ export const CAMPUS_INTERESTS: readonly CampusInterest[] = [
     ],
   },
   {
+    id: 'student-orgs',
+    label: 'student organization events',
+    weight: 10,
+    signal: 'social',
+    patterns: [
+      'student organization', 'student org', 'club crawl', 'involvement festival',
+    ],
+  },
+  {
     id: 'data-science',
     label: 'data science',
     weight: 22,
@@ -133,11 +142,21 @@ export const CAMPUS_INTERESTS: readonly CampusInterest[] = [
   },
   {
     id: 'intramurals',
-    label: 'intramural & club sports',
+    label: 'intramural sports',
     weight: 8,
     signal: 'sport',
     patterns: [
-      'intramural', 'intramurals', 'club sports', 'play pass', 'rec sports',
+      'intramural', 'intramurals', 'play pass',
+    ],
+  },
+  {
+    id: 'club-sports',
+    label: 'sport clubs',
+    weight: 7,
+    signal: 'sport',
+    patterns: [
+      'club sports', 'sport club', 'spikeball club', 'badminton club',
+      'pickleball club', 'soccer club', 'volleyball club', 'tennis club',
     ],
   },
   {

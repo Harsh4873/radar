@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-08-10",
     "vertical": "campus",
-    "scanned": 2186,
-    "candidates": 367,
+    "scanned": 1779,
+    "candidates": 364,
     "recommended": [
       "campus-850a1c93dca2",
       "campus-850a1893dca2",
@@ -20,7 +20,15 @@
       "computer science · this week · workshop / training",
       "company recruiting · graduate opportunities · workshop / training"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-4c7f9e788290",
+        "kind": "title",
+        "field": "Title",
+        "before": "Club Crawl Fall 2026 - David Gilbert Leadership Conference",
+        "after": "Club Crawl Fall 2026: The Official Involvement Festival at Texas A&M"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {

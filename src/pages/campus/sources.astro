@@ -24,6 +24,10 @@ const healthy = all.filter((source) => source.status === 'ok').length;
 /** Sources Radar knows about but does not read, with the reason. */
 const notIngested = [
   {
+    label: 'IMLeagues',
+    why: 'This is the authority for Texas A&M intramural registration, leagues, tournaments, and game schedules. It has a documented REST API, but the Texas A&M network endpoints require approved OAuth partner credentials and return 403 without them. Radar links to IMLeagues and keeps official Rec Sports intramural announcements, but it does not call private SPA endpoints or republish team schedules.',
+  },
+  {
     label: 'Gmail (a CampusRadar label)',
     why: 'Designed but not built. The privacy-first shape is the right one — the user creates a `CampusRadar` Gmail label, filters route newsletters into it, and Radar reads only that label — but it needs OAuth and a server to hold the token, and Radar is a static site with no backend.',
   },

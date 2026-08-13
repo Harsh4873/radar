@@ -38,7 +38,7 @@ Radar reads public university and government APIs that owe this project nothing.
 
 - Keep the descriptive User-Agent with its contact URL on every request.
 - Per-host rate limits live in `src/core/http.ts` and are enforced by hostname so the budget holds across every caller. NCBI is 3 req/s unkeyed; arXiv asks for one request per three seconds.
-- Do not add a connector that scrapes a client-rendered page. `src/campus/sources/getinvolved.ts` documents why that was refused for Get Involved: it would work today, break silently on the next front-end deploy, and return zero events that look exactly like a quiet week.
+- Do not add a connector that scrapes a client-rendered page. Get Involved is allowed only because its event cards are now present in the initial server-rendered HTML; `src/campus/sources/getinvolved.ts` must not switch to private Livewire calls or headless-browser state. A markup response with zero parseable cards is a failed source, never a quiet week.
 - Do not increase the ingest schedule beyond twice daily without a reason.
 
 ## Verification

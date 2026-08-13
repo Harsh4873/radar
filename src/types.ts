@@ -354,11 +354,10 @@ export type SourceStatus = 'ok' | 'degraded' | 'failed' | 'unavailable';
  * One row of the Source Manager at /radar/campus/sources/.
  *
  * `unavailable` is not a failure - it means Radar knows about the source and
- * has determined there is no lawful, stable programmatic way in. Get Involved
- * is the current example: every path under getinvolved.tamu.edu returns the
- * same client-rendered SPA shell with HTTP 200 and no embedded event data, so
- * a "connector" for it would be a scraper that silently reports zero. Saying
- * so on the page is more useful than a green light that means nothing.
+ * has determined there is no stable programmatic way in. IMLeagues is the
+ * current campus example: it documents a useful API, but Texas A&M's network
+ * data requires approved OAuth partner credentials. Saying so on the page is
+ * more useful than a green light backed by private SPA calls.
  */
 export interface SourceReport {
   id: SourceId;
