@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-08-10",
     "vertical": "campus",
-    "scanned": 1561,
-    "candidates": 368,
+    "scanned": 1563,
+    "candidates": 383,
     "recommended": [
       "campus-850a1c93dca2",
       "campus-850a1893dca2",
@@ -20,61 +20,31 @@
       "computer science · this week · workshop / training",
       "company recruiting · graduate opportunities · workshop / training"
     ],
-    "changes": [
-      {
-        "itemId": "campus-43850245c2ea",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-13T05:00:00.000Z",
-        "after": "2026-08-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ab49a94a0920",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-13T05:00:00.000Z",
-        "after": "2026-08-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-d608cb4ea27f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-13T05:00:00.000Z",
-        "after": "2026-08-14T05:00:00.000Z"
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-08-10",
     "vertical": "research",
-    "scanned": 1074,
-    "candidates": 128,
+    "scanned": 228,
+    "candidates": 85,
     "recommended": [
       "research-c2d62b7e7385",
       "research-5452ce5ce349",
       "research-f738f15ccdda",
       "research-99b7d555b77f",
-      "research-1f10a46dbddd",
-      "research-57b26561e916"
+      "research-57b26561e916",
+      "research-9bf0633e2cbd"
     ],
     "headlines": [
       "M. tuberculosis · positive selection · comparative genomics",
       "positive selection · codon-model analysis · PAML / codeml",
       "positive selection · codon-model analysis · comparative genomics",
       "M. tuberculosis · positive selection · phylogenetics",
-      "M. tuberculosis · comparative genomics · phylogenetics",
-      "M. tuberculosis · comparative genomics · selection methods applied to Mtb"
+      "M. tuberculosis · comparative genomics · selection methods applied to Mtb",
+      "positive selection · codon-model analysis · PAML / codeml"
     ],
-    "changes": [
-      {
-        "itemId": "research-71b3221902ac",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v1",
-        "after": "v2"
-      }
-    ],
-    "estimatedMinutes": 99
+    "changes": [],
+    "estimatedMinutes": 96
   }
 ]
