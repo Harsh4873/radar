@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-08-10",
     "vertical": "campus",
-    "scanned": 1754,
-    "candidates": 394,
+    "scanned": 1751,
+    "candidates": 383,
     "recommended": [
       "campus-850a1c93dca2",
       "campus-850a1893dca2",
@@ -26,7 +26,7 @@
   {
     "weekOf": "2026-08-10",
     "vertical": "research",
-    "scanned": 237,
+    "scanned": 239,
     "candidates": 91,
     "recommended": [
       "research-c2d62b7e7385",
@@ -44,7 +44,15 @@
       "M. tuberculosis · comparative genomics · selection methods applied to Mtb",
       "positive selection · codon-model analysis · PAML / codeml"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "research-5d61d8344288",
+        "kind": "title",
+        "field": "Title",
+        "before": "Risk Factors for False-Negative T-SPOT.TB Results in Bacteriologically Confirmed Pulmonary Tuberculosis: A Retrospective Cohort Study of 4,931 Patients",
+        "after": "Risk Factors for False-Negative T-SPOT.TB Results in Bacteriologically Confirmed Pulmonary Tuberculosis: A Retrospective Cohort Study of 4,931 Patients."
+      }
+    ],
     "estimatedMinutes": 96
   }
 ]
