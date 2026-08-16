@@ -11,14 +11,14 @@ const home = items.filter((item) => item.campus?.location !== null);
 
 <Base
   title="Sports — CampusRadar"
-  description="Aggie athletics and rec sports, ranked by when they happen and whether you care."
+  description="Aggie athletics, rec sports, and the complete Fall 2026 intramural schedule."
   engine="campus"
   fetchedAt={fetchedAt}
   current="campus"
 >
   <CategoryFeed
     heading="Sports"
-    lede="Athletics and rec sports from the Texas A&M calendar. Ranked by timing first — a game next week beats a game in November."
+    lede="Athletics and rec sports from the Texas A&M calendar, plus every Fall 2026 IMLeagues sport and division. Ranked by timing first — a game next week beats a game in November."
     items={items}
     now={now}
     tally={[

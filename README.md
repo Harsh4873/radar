@@ -36,6 +36,7 @@ That preprint       now published in Evolutionary Applications
    RESEARCH                          CAMPUS
    Europe PMC  PubMed                TAMU calendar (main + group feeds)
    bioRxiv     medRxiv               Get Involved student-organization events
+                                      IMLeagues Fall 2026 public schedule
    OpenAlex    arXiv
    Crossref (enrichment only)
         │                                  │
@@ -111,7 +112,7 @@ src/
     classify.ts         category routing and employer extraction
     freebies.ts         the free-stuff evidence tiers
     series.ts           multi-day event collapsing
-    sources/            tamu-calendar · getinvolved
+    sources/            tamu-calendar · getinvolved · imleagues
   client/               local-first owner-vault state and browser re-ranking
   pages/                the routes
 fixtures/               frozen real upstream responses; the test corpus

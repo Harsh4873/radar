@@ -18,16 +18,19 @@ import { normalizeAll } from '@/core/normalize.ts';
 import { INGEST_THRESHOLD, byRelevance } from '@/core/rank.ts';
 import { fetchTamuCalendar } from '@/campus/sources/tamu-calendar.ts';
 import { fetchGetInvolved } from '@/campus/sources/getinvolved.ts';
+import { fetchImleaguesSchedule } from '@/campus/sources/imleagues.ts';
 import { collapseCoMarketedEvents, collapseSeries } from '@/campus/series.ts';
 import { scoreCampus, type CampusContext } from '@/campus/score.ts';
 
 const LABELS: Record<string, string> = {
   'tamu-calendar': 'TAMU Events Calendar',
+  imleagues: 'IMLeagues (Fall 2026 public schedule)',
   getinvolved: 'Get Involved (student organizations)',
 };
 
 const DOCS: Record<string, string> = {
   'tamu-calendar': 'https://calendar.tamu.edu/feeds/',
+  imleagues: 'https://www.imleagues.com/spa/intramural/e51f7ba476064b79bcad286acf5a7794/home',
   getinvolved: 'https://getinvolved.tamu.edu/events',
 };
 
@@ -41,7 +44,9 @@ function reportFor(result: SourceResult<unknown>): SourceReport {
     fetchSource: result.fetchSource,
     durationMs: result.durationMs,
     failedRequests: result.failedRequests,
-    note: result.error ?? (result.warnings[0] ?? null),
+    note: result.error ?? (result.warnings[0] ?? (result.source === 'imleagues'
+      ? 'Reviewed public Fall 2026 snapshot: 29 sports and all 106 published divisions; no private SPA calls.'
+      : null)),
     docsUrl: DOCS[result.source] ?? '',
   };
 }
@@ -103,6 +108,7 @@ export async function ingestCampus(options: CampusIngestOptions): Promise<Campus
   const results: SourceResult<RawItem>[] = await Promise.all([
     fetchTamuCalendar({ ...options, days }),
     fetchGetInvolved({ ...options, days }),
+    fetchImleaguesSchedule(options),
   ]);
 
   for (const result of results) {
@@ -167,7 +173,12 @@ export async function ingestCampus(options: CampusIngestOptions): Promise<Campus
     // Cancelled events are kept below the floor on purpose: the user may have
     // been planning to go, and "this got cancelled" is the single most useful
     // thing Radar can tell them that week.
-    return item.relevance >= INGEST_THRESHOLD || campus.isCancelled;
+    // The IMLeagues import is intentionally complete, not relevance-gated:
+    // every published division must remain available to every Radar visitor,
+    // including far-out sports that would otherwise sit below the discovery
+    // floor until their season drew closer.
+    const officialIntramuralSchedule = item.sources.some((source) => source.source === 'imleagues');
+    return item.relevance >= INGEST_THRESHOLD || campus.isCancelled || officialIntramuralSchedule;
   });
 
   log.info(`[campus] ${survivors.length}/${scored.length} kept after the floor and the past-events cut`);

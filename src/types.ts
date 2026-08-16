@@ -49,6 +49,7 @@ export type SourceId =
   | 'arxiv'
   // campus
   | 'tamu-calendar'
+  | 'imleagues'
   | 'aggie-research-volunteers'
   | 'getinvolved';
 
@@ -354,10 +355,8 @@ export type SourceStatus = 'ok' | 'degraded' | 'failed' | 'unavailable';
  * One row of the Source Manager at /radar/campus/sources/.
  *
  * `unavailable` is not a failure - it means Radar knows about the source and
- * has determined there is no stable programmatic way in. IMLeagues is the
- * current campus example: it documents a useful API, but Texas A&M's network
- * data requires approved OAuth partner credentials. Saying so on the page is
- * more useful than a green light backed by private SPA calls.
+ * has determined there is no stable programmatic way in. Saying so on the
+ * page is more useful than a green light backed by a brittle private call.
  */
 export interface SourceReport {
   id: SourceId;
