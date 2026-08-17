@@ -2,23 +2,23 @@
   {
     "weekOf": "2026-08-17",
     "vertical": "campus",
-    "scanned": 1826,
-    "candidates": 456,
+    "scanned": 1880,
+    "candidates": 469,
     "recommended": [
-      "campus-43850245c2ea",
-      "campus-ab49a94a0920",
-      "campus-d7a02ab418cc",
-      "campus-64a294a22d79",
-      "campus-97366693e72b",
-      "campus-74a1bf93d39a"
+      "campus-dc6183aafdac",
+      "campus-e4aad59412e5",
+      "campus-e4c9539412ff",
+      "campus-e4bee29412f6",
+      "campus-0198f37a1ff5",
+      "campus-edcb02941832"
     ],
     "headlines": [
-      "today",
-      "today",
-      "today",
-      "tomorrow · online",
-      "this week · food provided",
-      "tomorrow"
+      "computer science · this week · workshop / training",
+      "biotech · workshop / training · in the next 3 weeks",
+      "biotech · this week",
+      "company recruiting · in the next 3 weeks · social",
+      "student organization events · this week · 2 sources confirm",
+      "today · other Aggie sports"
     ],
     "changes": [],
     "estimatedMinutes": 0
@@ -26,16 +26,26 @@
   {
     "weekOf": "2026-08-17",
     "vertical": "research",
-    "scanned": 229,
-    "candidates": 82,
+    "scanned": 1099,
+    "candidates": 130,
     "recommended": [
-      "research-8403698f5108"
+      "research-c232ea0d6757",
+      "research-56d08c85b417",
+      "research-9482b93e28e1",
+      "research-8403698f5108",
+      "research-71b3231902ac",
+      "research-4a9124a8836e"
     ],
     "headlines": [
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
+      "positive selection · comparative genomics · phylogenetics",
+      "positive selection · phylogenetics · host-pathogen interaction",
+      "positive selection · antimicrobial resistance · host-pathogen interaction",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "M. tuberculosis · antimicrobial resistance · recent",
+      "comparative genomics · MCMC / Bayesian inference · recent"
     ],
     "changes": [],
-    "estimatedMinutes": 14
+    "estimatedMinutes": 97
   },
   {
     "weekOf": "2026-08-10",
