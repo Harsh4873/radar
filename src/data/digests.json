@@ -1,5 +1,43 @@
 [
   {
+    "weekOf": "2026-08-17",
+    "vertical": "campus",
+    "scanned": 1826,
+    "candidates": 456,
+    "recommended": [
+      "campus-43850245c2ea",
+      "campus-ab49a94a0920",
+      "campus-d7a02ab418cc",
+      "campus-64a294a22d79",
+      "campus-97366693e72b",
+      "campus-74a1bf93d39a"
+    ],
+    "headlines": [
+      "today",
+      "today",
+      "today",
+      "tomorrow · online",
+      "this week · food provided",
+      "tomorrow"
+    ],
+    "changes": [],
+    "estimatedMinutes": 0
+  },
+  {
+    "weekOf": "2026-08-17",
+    "vertical": "research",
+    "scanned": 229,
+    "candidates": 82,
+    "recommended": [
+      "research-8403698f5108"
+    ],
+    "headlines": [
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
+    ],
+    "changes": [],
+    "estimatedMinutes": 14
+  },
+  {
     "weekOf": "2026-08-10",
     "vertical": "campus",
     "scanned": 1816,
