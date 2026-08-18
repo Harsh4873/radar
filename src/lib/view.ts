@@ -177,9 +177,10 @@ export const FOR_YOU_MIN = 55;
 /**
  * Which tabs an item belongs to.
  *
- * An item can be in several - a paid genomics study is both `studies` and
- * `for-you` - and the client filters on these, so this is the single place
- * that decides tab membership for both verticals.
+ * An item can be in several tabs - a club tournament can be Sports and Clubs
+ * - and the client filters on these, so this is the single place that decides
+ * tab membership for the research and campus feeds. Paid participant studies
+ * are a separate engine under `/radar/studies/`.
  */
 export function tabsFor(item: RadarItem, inForYou?: boolean, now?: string): string[] {
   const tabs: string[] = [];

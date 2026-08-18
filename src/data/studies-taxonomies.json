@@ -1,0 +1,1874 @@
+{
+  "category": {
+    "37": {
+      "id": 37,
+      "count": 52,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=behavioral-sciences",
+      "name": "Behavioral Sciences",
+      "slug": "behavioral-sciences",
+      "taxonomy": "aux_study_category",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/37",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_category"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_category=37"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "38": {
+      "id": 38,
+      "count": 1,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=economics",
+      "name": "Economics",
+      "slug": "economics",
+      "taxonomy": "aux_study_category",
+      "parent": 37,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/38",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_category"
+          }
+        ],
+        "up": [
+          {
+            "embeddable": true,
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/37"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_category=38"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "39": {
+      "id": 39,
+      "count": 66,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=psychology-cognitive",
+      "name": "Psychology / Cognitive",
+      "slug": "psychology-cognitive",
+      "taxonomy": "aux_study_category",
+      "parent": 37,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/39",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_category"
+          }
+        ],
+        "up": [
+          {
+            "embeddable": true,
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/37"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_category=39"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "40": {
+      "id": 40,
+      "count": 4,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=sociology",
+      "name": "Sociology",
+      "slug": "sociology",
+      "taxonomy": "aux_study_category",
+      "parent": 37,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/40",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_category"
+          }
+        ],
+        "up": [
+          {
+            "embeddable": true,
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/37"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_category=40"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "41": {
+      "id": 41,
+      "count": 1,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=other",
+      "name": "Other",
+      "slug": "other",
+      "taxonomy": "aux_study_category",
+      "parent": 37,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/41",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_category"
+          }
+        ],
+        "up": [
+          {
+            "embeddable": true,
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/37"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_category=41"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "42": {
+      "id": 42,
+      "count": 10,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=clinical-trials",
+      "name": "Clinical Trials",
+      "slug": "clinical-trials",
+      "taxonomy": "aux_study_category",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/42",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_category"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_category=42"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "43": {
+      "id": 43,
+      "count": 11,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=brain-sciences",
+      "name": "Brain Sciences",
+      "slug": "brain-sciences",
+      "taxonomy": "aux_study_category",
+      "parent": 42,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/43",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_category"
+          }
+        ],
+        "up": [
+          {
+            "embeddable": true,
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/42"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_category=43"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "44": {
+      "id": 44,
+      "count": 12,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=health",
+      "name": "Health",
+      "slug": "health",
+      "taxonomy": "aux_study_category",
+      "parent": 42,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/44",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_category"
+          }
+        ],
+        "up": [
+          {
+            "embeddable": true,
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/42"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_category=44"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "45": {
+      "id": 45,
+      "count": 0,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=medicine",
+      "name": "Medicine",
+      "slug": "medicine",
+      "taxonomy": "aux_study_category",
+      "parent": 42,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/45",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_category"
+          }
+        ],
+        "up": [
+          {
+            "embeddable": true,
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/42"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_category=45"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "46": {
+      "id": 46,
+      "count": 1,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=other-clinical-trials",
+      "name": "Other",
+      "slug": "other-clinical-trials",
+      "taxonomy": "aux_study_category",
+      "parent": 42,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/46",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_category"
+          }
+        ],
+        "up": [
+          {
+            "embeddable": true,
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/42"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_category=46"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "47": {
+      "id": 47,
+      "count": 10,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=education",
+      "name": "Education",
+      "slug": "education",
+      "taxonomy": "aux_study_category",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/47",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_category"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_category=47"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "48": {
+      "id": 48,
+      "count": 2,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=pre-k",
+      "name": "Pre-K",
+      "slug": "pre-k",
+      "taxonomy": "aux_study_category",
+      "parent": 47,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/48",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_category"
+          }
+        ],
+        "up": [
+          {
+            "embeddable": true,
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/47"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_category=48"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "49": {
+      "id": 49,
+      "count": 4,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=elementary",
+      "name": "Elementary",
+      "slug": "elementary",
+      "taxonomy": "aux_study_category",
+      "parent": 47,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/49",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_category"
+          }
+        ],
+        "up": [
+          {
+            "embeddable": true,
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/47"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_category=49"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "50": {
+      "id": 50,
+      "count": 3,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=middle-school",
+      "name": "Middle School",
+      "slug": "middle-school",
+      "taxonomy": "aux_study_category",
+      "parent": 47,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/50",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_category"
+          }
+        ],
+        "up": [
+          {
+            "embeddable": true,
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/47"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_category=50"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "51": {
+      "id": 51,
+      "count": 3,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=high-school",
+      "name": "High School",
+      "slug": "high-school",
+      "taxonomy": "aux_study_category",
+      "parent": 47,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/51",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_category"
+          }
+        ],
+        "up": [
+          {
+            "embeddable": true,
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/47"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_category=51"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "52": {
+      "id": 52,
+      "count": 10,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=adult",
+      "name": "Adult",
+      "slug": "adult",
+      "taxonomy": "aux_study_category",
+      "parent": 47,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/52",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_category"
+          }
+        ],
+        "up": [
+          {
+            "embeddable": true,
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_category/47"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_category=52"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    }
+  },
+  "location": {
+    "53": {
+      "id": 53,
+      "count": 11,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_location&term=bryan-college-station-off-campus",
+      "name": "Bryan-College Station – off-campus",
+      "slug": "bryan-college-station-off-campus",
+      "taxonomy": "aux_study_location",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_location/53",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_location"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_location"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_location=53"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "54": {
+      "id": 54,
+      "count": 66,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_location&term=bryan-college-station-on-campus",
+      "name": "Bryan-College Station – on-campus",
+      "slug": "bryan-college-station-on-campus",
+      "taxonomy": "aux_study_location",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_location/54",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_location"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_location"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_location=54"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "55": {
+      "id": 55,
+      "count": 2,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_location&term=dallas-fort-worth",
+      "name": "Dallas &amp; Fort Worth",
+      "slug": "dallas-fort-worth",
+      "taxonomy": "aux_study_location",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_location/55",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_location"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_location"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_location=55"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "56": {
+      "id": 56,
+      "count": 2,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_location&term=galveston",
+      "name": "Galveston",
+      "slug": "galveston",
+      "taxonomy": "aux_study_location",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_location/56",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_location"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_location"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_location=56"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "57": {
+      "id": 57,
+      "count": 5,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_location&term=houston",
+      "name": "Houston",
+      "slug": "houston",
+      "taxonomy": "aux_study_location",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_location/57",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_location"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_location"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_location=57"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "58": {
+      "id": 58,
+      "count": 2,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_location&term=kingsville",
+      "name": "Kingsville",
+      "slug": "kingsville",
+      "taxonomy": "aux_study_location",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_location/58",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_location"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_location"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_location=58"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "59": {
+      "id": 59,
+      "count": 15,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_location&term=online-only",
+      "name": "Online Only",
+      "slug": "online-only",
+      "taxonomy": "aux_study_location",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_location/59",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_location"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_location"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_location=59"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "80": {
+      "id": 80,
+      "count": 0,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_location&term=other-locations",
+      "name": "Other Locations",
+      "slug": "other-locations",
+      "taxonomy": "aux_study_location",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_location/80",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_location"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_location"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_location=80"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "81": {
+      "id": 81,
+      "count": 0,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_location&term=round-rock",
+      "name": "Round Rock",
+      "slug": "round-rock",
+      "taxonomy": "aux_study_location",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_location/81",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_location"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_location"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_location=81"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "82": {
+      "id": 82,
+      "count": 1,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_location&term=corpus-christi",
+      "name": "Corpus Christi",
+      "slug": "corpus-christi",
+      "taxonomy": "aux_study_location",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_location/82",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_location"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_location"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_location=82"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    }
+  },
+  "sessionType": {
+    "60": {
+      "id": 60,
+      "count": 44,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_session_type&term=multiple-visits",
+      "name": "Multiple Visits",
+      "slug": "multiple-visits",
+      "taxonomy": "aux_study_session_type",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_session_type/60",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_session_type"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_session_type"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_session_type=60"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "61": {
+      "id": 61,
+      "count": 7,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_session_type&term=online-interview",
+      "name": "Online Interview",
+      "slug": "online-interview",
+      "taxonomy": "aux_study_session_type",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_session_type/61",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_session_type"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_session_type"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_session_type=61"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "62": {
+      "id": 62,
+      "count": 31,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_session_type&term=online-survey",
+      "name": "Online Survey",
+      "slug": "online-survey",
+      "taxonomy": "aux_study_session_type",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_session_type/62",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_session_type"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_session_type"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_session_type=62"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "63": {
+      "id": 63,
+      "count": 2,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_session_type&term=other",
+      "name": "Other",
+      "slug": "other",
+      "taxonomy": "aux_study_session_type",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_session_type/63",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_session_type"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_session_type"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_session_type=63"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "64": {
+      "id": 64,
+      "count": 5,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_session_type&term=remote",
+      "name": "Remote",
+      "slug": "remote",
+      "taxonomy": "aux_study_session_type",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_session_type/64",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_session_type"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_session_type"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_session_type=64"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "65": {
+      "id": 65,
+      "count": 28,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_session_type&term=single-visit",
+      "name": "Single Visit",
+      "slug": "single-visit",
+      "taxonomy": "aux_study_session_type",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_session_type/65",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_session_type"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_session_type"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_session_type=65"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    }
+  },
+  "topic": {
+    "31": {
+      "id": 31,
+      "count": 11,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_topic&term=childhood-development",
+      "name": "Childhood Development",
+      "slug": "childhood-development",
+      "taxonomy": "aux_study_topic",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_topic/31",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_topic"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_topic"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_topic=31"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "32": {
+      "id": 32,
+      "count": 7,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_topic&term=cultural",
+      "name": "Cultural",
+      "slug": "cultural",
+      "taxonomy": "aux_study_topic",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_topic/32",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_topic"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_topic"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_topic=32"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "33": {
+      "id": 33,
+      "count": 3,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_topic&term=fitness",
+      "name": "Fitness",
+      "slug": "fitness",
+      "taxonomy": "aux_study_topic",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_topic/33",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_topic"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_topic"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_topic=33"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "34": {
+      "id": 34,
+      "count": 44,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_topic&term=health",
+      "name": "Health",
+      "slug": "health",
+      "taxonomy": "aux_study_topic",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_topic/34",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_topic"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_topic"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_topic=34"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "35": {
+      "id": 35,
+      "count": 19,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_topic&term=technology",
+      "name": "Technology",
+      "slug": "technology",
+      "taxonomy": "aux_study_topic",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_topic/35",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_topic"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_topic"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_topic=35"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    "36": {
+      "id": 36,
+      "count": 36,
+      "description": "",
+      "link": "https://research.tamu.edu/?taxonomy=aux_study_topic&term=other",
+      "name": "Other",
+      "slug": "other",
+      "taxonomy": "aux_study_topic",
+      "parent": 0,
+      "meta": {
+        "aux_hidden_taxonomy_item": false
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_topic/36",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/aux_study_topic"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/taxonomies/aux_study_topic"
+          }
+        ],
+        "wp:post_type": [
+          {
+            "href": "https://research.tamu.edu/wp-json/wp/v2/study?aux_study_topic=36"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    }
+  }
+}

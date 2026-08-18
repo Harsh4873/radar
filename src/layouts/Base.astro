@@ -13,14 +13,16 @@ interface Props {
   title: string;
   description: string;
   /** Colours the engine chip in the header. */
-  engine?: 'research' | 'campus' | null;
+  engine?: 'research' | 'campus' | 'studies' | null;
   /** ISO timestamp of the ingest that produced this page. */
   fetchedAt?: string | undefined;
   /** Marks the current nav item. */
   current?: string | undefined;
+  /** Wider column for the studies listing and the combined home. */
+  layout?: 'default' | 'wide';
 }
 
-const { title, description, engine = null, fetchedAt, current } = Astro.props;
+const { title, description, engine = null, fetchedAt, current, layout = 'default' } = Astro.props;
 
 const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
 const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://harsh.bet').href;
@@ -37,10 +39,12 @@ const fetchedLabel =
 const nav = [
   { id: 'home', label: 'Radar', href: url(base, '') },
   { id: 'campus', label: 'Campus', href: url(base, 'campus/') },
-  { id: 'profile', label: 'Profile', href: url(base, 'campus/profile/') },
+  { id: 'studies', label: 'Studies', href: url(base, 'studies/') },
   { id: 'research', label: 'Research', href: url(base, 'research/') },
+];
+const tools = [
+  { id: 'profile', label: 'Profile', href: url(base, 'campus/profile/') },
   { id: 'watchlist', label: 'Saved', href: url(base, 'research/watchlist/') },
-  { id: 'sources', label: 'Sources', href: url(base, 'campus/sources/') },
 ];
 ---
 
@@ -63,45 +67,64 @@ const nav = [
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
-      <div class="wrap header-inner">
+      <div class="wrap wrap-wide header-inner">
         <div class="brand-lockup">
           <div class="brand">
             <a href={url(base, '')} aria-label="Radar home">RADAR</a>
             {engine === 'research' && <span class="engine engine-research">Research</span>}
             {engine === 'campus' && <span class="engine engine-campus">Campus</span>}
+            {engine === 'studies' && <span class="engine engine-studies">Studies</span>}
           </div>
-          <p>Signals worth your attention.</p>
+          <p>Literature, campus, and paid studies — one feed.</p>
         </div>
-        <nav class="nav" aria-label="Radar sections">
-          {
-            nav.map((entry) => (
-              <a href={entry.href} aria-current={entry.id === current ? 'page' : undefined}>
-                {entry.label}
-              </a>
-            ))
-          }
-        </nav>
+        <div class="header-navs">
+          <nav class="nav" aria-label="Radar sections">
+            {
+              nav.map((entry) => (
+                <a href={entry.href} aria-current={entry.id === current ? 'page' : undefined}>
+                  {entry.label}
+                </a>
+              ))
+            }
+          </nav>
+          <nav class="nav nav-tools" aria-label="Private lists">
+            {
+              tools.map((entry) => (
+                <a href={entry.href} aria-current={entry.id === current ? 'page' : undefined}>
+                  {entry.label}
+                </a>
+              ))
+            }
+          </nav>
+        </div>
       </div>
     </header>
 
     <VaultControl />
 
     <main id="main" class="page-main">
-      <div class="wrap">
+      <div class:list={['wrap', layout === 'wide' && 'wrap-wide']}>
         <slot />
       </div>
     </main>
 
     <footer class="site-footer">
-      <div class="wrap">
+      <div class="wrap wrap-wide">
         <div class="footer-brand">
           <strong>RADAR</strong>
-          <span>Focused research and campus discovery.</span>
+          <span>Literature, campus, and paid studies.</span>
         </div>
         <div class="footer-copy">
           <p>
-            Radar reads public research and Texas A&amp;M sources at build time. Every listing links to
-            its source, which remains the authority on details. Participant-recruitment studies stay in Studies.
+            Radar reads public research, Texas A&amp;M calendars, and the Aggie Research Volunteers
+            registry at build time. Every listing links to its source, which remains the authority
+            on details. Guaranteed pay and prize drawings are never shown the same way.
+          </p>
+          <p class="footer-engines">
+            <a href={url(base, 'campus/')}>Campus</a>
+            <a href={url(base, 'studies/')}>Studies</a>
+            <a href={url(base, 'research/')}>Research</a>
+            <a href={url(base, 'studies/about/')}>About studies</a>
           </p>
           <p>
             Saved, attending, dismissed, tracked, and profile state stays private in this browser unless

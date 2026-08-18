@@ -1,7 +1,7 @@
 ---
 /**
  * /radar/campus/research - research organizations and academic events.
- * Participant-recruitment studies belong exclusively in /studies.
+ * Participant-recruitment studies live under /radar/studies/.
  */
 import Base from '@/layouts/Base.astro';
 import CategoryFeed from '@/components/CategoryFeed.astro';
@@ -20,7 +20,7 @@ const items = byCategory(campus.items, 'research');
 >
   <CategoryFeed
     heading="Research Events"
-    lede="Seminars, symposia, research organizations, sponsors, and academic events from the university calendar. Paid participant studies are intentionally excluded and live in Studies."
+    lede="Seminars, symposia, research organizations, sponsors, and academic events from the university calendar. Paid participant studies are listed separately under Studies."
     items={items}
     now={now}
     tally={[

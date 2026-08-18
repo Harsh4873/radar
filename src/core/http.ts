@@ -1,7 +1,7 @@
 /**
  * The only place Radar talks to the network.
  *
- * Radar reads eight public APIs, several of them run by public institutions
+ * Radar reads public APIs, several of them run by public institutions
  * and none of them owed anything by this project. The rules here are about
  * being a guest:
  *
@@ -28,7 +28,7 @@ import type { Logger } from '@/types.ts';
 // ---------------------------------------------------------------------------
 
 export const USER_AGENT =
-  'radar/1.0 (+https://harsh.bet/radar; focused research + campus discovery aggregator; static site, one pass per build)';
+  'radar/1.0 (+https://harsh.bet/radar; focused research + campus + paid-study aggregator; static site, one pass per build)';
 
 export const DEFAULT_TIMEOUT_MS = 20_000;
 export const DEFAULT_ATTEMPTS = 3;

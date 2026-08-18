@@ -1,12 +1,13 @@
 # Radar
 
-Two discovery engines over one pipeline, published at `https://harsh.bet/radar/`.
+Three discovery engines over one pipeline, published at `https://harsh.bet/radar/`.
 
-- **ResearchRadar** (`/radar/research`) — watches the literature and tells you which papers are worth reading, with the reasons shown.
 - **CampusRadar** (`/radar/campus`) — watches Texas A&M and tells you which of ~2,000 listings you'd actually care about.
-- **`/radar`** — the combined home: what changed since your last visit.
+- **Studies** (`/radar/studies`) — ranks Aggie Research Volunteers listings by guaranteed pay per hour. Screening profile and filters stay local-first.
+- **ResearchRadar** (`/radar/research`) — watches the literature and tells you which papers are worth reading, with the reasons shown.
+- **`/radar`** — the combined home: what is worth your time across all three.
 
-They share ingestion, deduplication, ranking, and change detection. Only the data differs.
+They share ingestion, change detection, and the private owner vault. Only the ranking differs: literature and campus score relevance; studies score guaranteed $/hour. Raffles are never counted as pay.
 
 ## The idea
 
@@ -30,31 +31,33 @@ That preprint       bioRxiv v1 → v2
 That preprint       now published in Evolutionary Applications
 ```
 
+Studies is the same idea for paid research: the official board never puts pay and time on one axis, so Radar parses both, divides guaranteed dollars by stated hours, and ranks. A prize drawing is shown separately and never treated as a wage.
+
 ## Architecture
 
 ```
-   RESEARCH                          CAMPUS
-   Europe PMC  PubMed                TAMU calendar (main + group feeds)
-   bioRxiv     medRxiv               Get Involved student-organization events
-                                      IMLeagues Fall 2026 public schedule
-   OpenAlex    arXiv
+   RESEARCH                          CAMPUS                         STUDIES
+   Europe PMC  PubMed                TAMU calendar (main + group)   Aggie Research Volunteers
+   bioRxiv     medRxiv               Get Involved student events     (WordPress study API)
+   OpenAlex    arXiv                 IMLeagues Fall 2026 public
    Crossref (enrichment only)
-        │                                  │
-        └──────────────┬───────────────────┘
-                       ▼
-                   RAW ITEMS
-                       ▼
-      NORMALIZE     clean text, strip emails, stable ids
-                       ▼
-      DEDUPE        union-find on identity keys, then conservative fuzzy
-                       ▼
-      ENRICH        Crossref metadata, preprint→published linking
-                       ▼
-      RANK          additive over named signals, fully itemized
-                       ▼
+        │                                  │                              │
+        └──────────────┬───────────────────┴──────────────┬───────────────┘
+                       ▼                                  ▼
+                   RAW ITEMS                         STUDY RECORDS
+                       ▼                                  ▼
+      NORMALIZE     clean text, strip emails,      parse pay / time / eligibility
+                    stable ids                     strip contact addresses
+                       ▼                                  ▼
+      DEDUPE        union-find on identity keys    collapse duplicate IRB postings
+                       ▼                                  ▼
+      ENRICH        Crossref metadata
+                       ▼                                  ▼
+      RANK          additive over named signals    guaranteed $/hour (never raffles)
+                       ▼                                  ▼
       DIFF          against the previous snapshot
                        ▼
-                 FEED · CHANGE LIST
+                 FEED · CHANGE LIST · /radar/studies
 ```
 
 Everything upstream is read at **build time**. Not one of these APIs sends CORS headers, so a browser `fetch()` to any of them is blocked — the browser only ever gets static JSON. See the note in `astro.config.mjs`.
@@ -64,13 +67,14 @@ Everything upstream is read at **build time**. Not one of these APIs sends CORS 
 ```bash
 npm install
 npm run ingest      # pull every upstream, rank, diff, write src/data/
+npm run ingest:studies
 npm run dev         # local site
-npm run test:run    # 146 tests, hermetic - never touches the network
+npm run test:run    # hermetic - never touches the network
 npm run typecheck
 npm run build       # ingest + astro build
 ```
 
-Useful flags: `npm run ingest -- --only=campus`, `--offline`, `--days=30`.
+Useful flags: `npm run ingest -- --only=campus`, `--only=studies`, `--offline`, `--days=30`.
 
 Optional environment (see `.env.example`): `NCBI_API_KEY` raises E-utilities from 3 to 10 requests/second; `RADAR_CONTACT_EMAIL` opts into Crossref's and OpenAlex's polite pools. Neither is required, and neither is ever written into the output.
 
@@ -80,9 +84,11 @@ Optional environment (see `.env.example`): `NCBI_API_KEY` raises E-utilities fro
 
 **Never claim food is free unless the source says so.** `src/campus/freebies.ts` returns a tier — `confirmed` / `provided` / `mentioned` / `none` — and the UI renders all three differently. "Coffee Chat with the Dean" contains the word "coffee" and is not free coffee.
 
-**Studies owns participant recruitment.** Radar does not ingest the Aggie Research Volunteers registry and filters equivalent recruitment language from calendar feeds and retained snapshots. Academic papers, seminars, organizations, sponsors, and research events remain in scope.
+**Campus never publishes participant recruitment.** The Aggie Research Volunteers registry and equivalent calendar language belong to Studies. Academic papers, seminars, organizations, sponsors, and research events remain in Campus and Research.
 
-**Emails never reach the build.** `calendar.tamu.edu` publishes `registration_owner_email` — a real staff address — on well over half its events. Three defences: the connectors never read those fields, `stripEmails` scrubs free text, and CI fails the build if an address appears anywhere in `dist/`.
+**Studies ranks guaranteed pay, not relevance.** Unknown rates are a separate section, never sorted as $0. Prize drawings are labelled as chance, never as wages. The screening profile defaults every question to "prefer not to say" so an unanswered criterion cannot hide a listing.
+
+**Emails never reach the build.** `calendar.tamu.edu` publishes `registration_owner_email` — a real staff address — on well over half its events, and the study registry publishes coordinator addresses. Three defences: the connectors never read those fields, `stripEmails` / hex-tokenized contact buttons scrub free text, and CI fails the build if an address appears anywhere in `dist/`.
 
 **Recency is a modifier, not a reason.** A paper matching no profile term is not published however new it is. An early run published 297 papers whose entire justification was "very recent" plus "open access" — coronary intervention, insomnia therapy, virus biosensing. `hasProfileMatch` is the gate that fixed it.
 
@@ -100,7 +106,7 @@ Optional environment (see `.env.example`): `NCBI_API_KEY` raises E-utilities fro
 
 ```
 src/
-  types.ts              the central contract
+  types.ts              the central RadarItem contract
   core/                 vertical-agnostic engine
     http · text · xml · hash · normalize · dedupe · rank · change · digest
   research/
@@ -113,12 +119,14 @@ src/
     freebies.ts         the free-stuff evidence tiers
     series.ts           multi-day event collapsing
     sources/            tamu-calendar · getinvolved · imleagues
+  studies/
+    parsers for pay, time, eligibility, and the ARV fetch
   client/               local-first owner-vault state and browser re-ranking
-  pages/                the routes
+  pages/                the routes, including /studies/
 fixtures/               frozen real upstream responses; the test corpus
 scripts/                ingest · capture-fixtures
 ```
 
 ## Privacy
 
-Radar has no analytics. Saved, dismissed, tracked, author, company, feedback, and visit state stays local-first; after a provisioned Google sign-in it mirrors to the same private owner vault as the other harsh.bet apps. It never enters public ingest or ranking. `/radar/research/watchlist/` can export or clear the private state.
+Radar has no analytics. Saved, dismissed, tracked, author, company, feedback, visit, study-filter, and screening-profile state stays local-first; after a provisioned Google sign-in it mirrors to the same private owner vault as the other harsh.bet apps. It never enters public ingest or ranking. `/radar/research/watchlist/` can export or clear the private research state.

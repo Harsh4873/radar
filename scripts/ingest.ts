@@ -1,11 +1,11 @@
 /**
  * Build-time ingestion.  `npm run ingest`
  *
- *   fetch both verticals (network)
+ *   fetch research, campus, and studies (network)
  *     -> normalize -> dedupe -> enrich -> rank
- *     -> diff against the previous src/data/radar.json
+ *     -> diff against the previous snapshot
  *     -> build this week's digests
- *     -> write src/data/{radar,research,campus,sources,digests}.json
+ *     -> write src/data/{radar,digests,studies}.json
  *     -> print a human summary
  *
  * None of Radar's upstreams send CORS headers, so this is the only place they
@@ -20,9 +20,9 @@
  * site beats a broken deploy). 1 only when there is nothing at all to publish.
  *
  * FLAGS:
- *   --only=research|campus   run one vertical
- *   --offline                skip the network; rebuild from the existing snapshot
- *   --days=N                 lookback/lookahead window (default 14 research, 45 campus)
+ *   --only=research|campus|studies   run one vertical
+ *   --offline                        skip the network; rebuild from the existing snapshot
+ *   --days=N                         lookback/lookahead window (default 14 research, 45 campus)
  */
 
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
@@ -31,6 +31,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 import type { Digest, RadarItem, RadarSnapshot, SourceReport, VerticalSnapshot } from '../src/types.ts';
+import type { Snapshot as StudiesSnapshot } from '../src/studies/types.ts';
 
 /**
  * Teach bare Node the `@/*` -> `src/*` alias from tsconfig.json.
@@ -58,6 +59,9 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_DIR = join(ROOT, 'src', 'data');
 const RADAR_PATH = join(OUT_DIR, 'radar.json');
 const DIGESTS_PATH = join(OUT_DIR, 'digests.json');
+const STUDIES_PATH = join(OUT_DIR, 'studies.json');
+const STUDIES_TAXONOMY_PATH = join(OUT_DIR, 'studies-taxonomies.json');
+const STUDIES_DIFF_PATH = join(OUT_DIR, 'studies-diff.json');
 
 function log(msg = ''): void {
   console.log(msg);
@@ -115,6 +119,18 @@ async function loadPrevious(): Promise<RadarSnapshot | null> {
   }
 }
 
+async function loadPreviousStudies(): Promise<StudiesSnapshot | null> {
+  try {
+    const parsed: unknown = JSON.parse(await readFile(STUDIES_PATH, 'utf8'));
+    if (typeof parsed === 'object' && parsed !== null && Array.isArray((parsed as StudiesSnapshot).studies)) {
+      return parsed as StudiesSnapshot;
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 async function loadDigests(): Promise<Digest[]> {
   try {
     const parsed: unknown = JSON.parse(await readFile(DIGESTS_PATH, 'utf8'));
@@ -145,6 +161,8 @@ async function main(): Promise<void> {
   // Dynamic so the alias hook above is already installed. See registerHooks().
   const { ingestResearch } = await import('../src/research/ingest.ts');
   const { ingestCampus } = await import('../src/campus/ingest.ts');
+  const { ingestStudies } = await import('../src/studies/ingest.ts');
+  const { isKnownRate } = await import('../src/studies/effective-rate.ts');
   const { diffSnapshots, summarizeDiff } = await import('../src/core/change.ts');
   const { retainUnfetched } = await import('../src/core/retain.ts');
   const { buildDigest, mergeDigests } = await import('../src/core/digest.ts');
@@ -167,6 +185,7 @@ async function main(): Promise<void> {
   // --- 1. Ingest ---------------------------------------------------------
   const runResearch = only === null || only === 'research';
   const runCampus = only === null || only === 'campus';
+  const runStudies = only === null || only === 'studies';
 
   const research = runResearch
     ? await ingestResearch({ now, offline, ...(days === null ? {} : { days }) })
@@ -175,6 +194,11 @@ async function main(): Promise<void> {
   const campus = runCampus
     ? await ingestCampus({ now, offline, ...(days === null ? {} : { days }) })
     : { items: [], scanned: 0, matched: 0, reports: [], warnings: [] };
+
+  const previousStudies = await loadPreviousStudies();
+  const studiesResult = runStudies
+    ? await ingestStudies({ now, offline })
+    : null;
 
   // A vertical that was skipped this run keeps its PREVIOUS RESULT WHOLESALE -
   // items, statuses, and diff. Re-running the diff over an unchanged list is
@@ -316,13 +340,21 @@ async function main(): Promise<void> {
     digests,
   };
 
+  const studiesSnapshot = studiesResult?.snapshot ?? previousStudies;
+  const studiesWarnings = studiesResult?.warnings ?? [];
+
   // --- 5. Write ----------------------------------------------------------
   await mkdir(OUT_DIR, { recursive: true });
   await writeFile(RADAR_PATH, `${JSON.stringify(snapshot, null, 2)}\n`, 'utf8');
   await writeFile(DIGESTS_PATH, `${JSON.stringify(digests, null, 2)}\n`, 'utf8');
+  if (studiesResult !== null) {
+    await writeFile(STUDIES_PATH, `${JSON.stringify(studiesResult.snapshot, null, 2)}\n`, 'utf8');
+    await writeFile(STUDIES_TAXONOMY_PATH, `${JSON.stringify(studiesResult.taxonomies, null, 2)}\n`, 'utf8');
+    await writeFile(STUDIES_DIFF_PATH, `${JSON.stringify(studiesResult.diff, null, 2)}\n`, 'utf8');
+  }
 
   // --- 6. Summary --------------------------------------------------------
-  const allWarnings = [...research.warnings, ...campus.warnings];
+  const allWarnings = [...research.warnings, ...campus.warnings, ...studiesWarnings];
 
   log();
   log('-'.repeat(74));
@@ -352,8 +384,19 @@ async function main(): Promise<void> {
 
   const freeFood = campusSnapshot.items.filter((i) => i.campus?.food.confidence === 'confirmed').length;
   const provided = campusSnapshot.items.filter((i) => i.campus?.food.confidence === 'provided').length;
-  log(`  free food: ${freeFood} confirmed, ${provided} provided  |  participant studies: excluded (owned by Studies)`);
+  log(`  free food: ${freeFood} confirmed, ${provided} provided  |  recruitment listings live in Studies`);
   log(`  diff: ${summarizeDiff(campusSnapshot.diff)}${freshCampus ? '' : '   [carried forward - vertical did not run]'}`);
+
+  log();
+  log('STUDIES');
+  if (studiesSnapshot === null || studiesSnapshot.studies.length === 0) {
+    log('  no snapshot');
+  } else {
+    const live = studiesSnapshot.studies.filter((s) => !s.isExpired);
+    const rated = studiesSnapshot.studies.filter((s) => isKnownRate(s.effectiveHourly));
+    log(`  source ${studiesResult?.source.toUpperCase() ?? 'CACHE'}  published ${studiesSnapshot.studies.length}  live ${live.length}  ranked ${rated.length}`);
+    log(`  diff: +${studiesResult?.diff.added.length ?? 0}  -${studiesResult?.diff.removed.length ?? 0}  ~${studiesResult?.diff.changed.length ?? 0}${runStudies ? '' : '   [carried forward - vertical did not run]'}`);
+  }
   log('-'.repeat(74));
 
   if (allWarnings.length > 0) {
@@ -377,9 +420,22 @@ async function main(): Promise<void> {
     log(`       ${item.reasons.slice(0, 4).map((r) => `${r.points > 0 ? '+' : ''}${r.points} ${r.label}`).join('  ')}`);
   }
 
+  if (studiesSnapshot !== null && studiesSnapshot.studies.length > 0) {
+    log();
+    log('TOP 5 STUDIES');
+    const ranked = [...studiesSnapshot.studies]
+      .filter((s) => isKnownRate(s.effectiveHourly) && (s.effectiveHourly ?? 0) > 0)
+      .sort((a, b) => (b.effectiveHourly ?? 0) - (a.effectiveHourly ?? 0))
+      .slice(0, 5);
+    for (const study of ranked) {
+      log(`  $${(study.effectiveHourly ?? 0).toFixed(0).padStart(4)}/hr  ${study.title.slice(0, 58)}`);
+    }
+  }
+
   log();
   log(`Wrote ${RADAR_PATH}`);
   log(`Wrote ${DIGESTS_PATH} (${digests.length} digest(s))`);
+  if (studiesResult !== null) log(`Wrote ${STUDIES_PATH} (${studiesResult.snapshot.studies.length} studies)`);
   log(`Done in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`);
 }
 

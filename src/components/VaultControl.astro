@@ -25,9 +25,9 @@
       signOut?.toggleAttribute('hidden', !('email' in next && Boolean(next.email)));
       if (!status) return;
       if (next.state === 'connecting') status.textContent = 'Checking private sync…';
-      if (next.state === 'signed-out') status.textContent = 'Sign in to sync your Radar profile, saved items, attendance, tracking, and feedback.';
+      if (next.state === 'signed-out') status.textContent = 'Sign in to sync your Radar profile, saved items, attendance, tracking, study filters, and feedback.';
       if (next.state === 'syncing') status.textContent = `Syncing private Radar data${next.email ? ` for ${next.email}` : ''}…`;
-      if (next.state === 'synced') status.textContent = `Private Radar data is synced${next.email ? ` for ${next.email}` : ''}.`;
+      if (next.state === 'synced') status.textContent = `Private Radar and Studies data is synced${next.email ? ` for ${next.email}` : ''}.`;
       if (next.state === 'error') status.textContent = next.message;
     });
     signIn?.addEventListener('click', () => {

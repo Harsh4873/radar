@@ -79,9 +79,10 @@ export interface CampusIngestResult {
 }
 
 /**
- * Participant-recruitment studies belong exclusively in harsh.bet/studies.
- * Keep academic talks, papers, symposia, sponsors, and research organizations
- * in Radar; remove invitations asking a person to become a study subject.
+ * Paid participant-recruitment studies live in Radar's Studies engine
+ * (`/radar/studies/`). Keep academic talks, papers, symposia, sponsors, and
+ * research organizations in the campus feed; remove invitations asking a
+ * person to become a study subject.
  */
 export function isParticipantResearchStudy(item: RawItem): boolean {
   if (item.source === 'aggie-research-volunteers') return true;

@@ -2,17 +2,17 @@
 /**
  * /radar - the combined home.
  *
- * The brief for this page is "what changed since your last visit", and the
- * important detail is that the answer cannot be computed here: a static build
- * has no idea when you last visited. So the page renders the full picture and
- * `src/client/feed.ts` marks what is new against the timestamp in your own
- * browser storage. The counts below are therefore "this week", which is true
- * for everyone, with local visitor feedback layered on afterwards.
+ * Three engines: literature, campus, and paid participant studies. The page
+ * renders the current snapshot; `src/client/feed.ts` marks what is new against
+ * the timestamp in the visitor's own browser storage.
  */
 import Base from '@/layouts/Base.astro';
 import ItemCard from '@/components/ItemCard.astro';
-import { campus, fetchedAt, now, research } from '@/lib/data.ts';
+import StudyCard from '@/components/studies/StudyCard.astro';
+import { campus, fetchedAt, now, research, studies, studyTaxonomies } from '@/lib/data.ts';
 import { byBand, byCampusDate, forYou, recentlyAdded, url } from '@/lib/view.ts';
+import { isKnownRate, sortStudies } from '@/studies/effective-rate.ts';
+import type { TaxonomyTerm } from '@/studies/types.ts';
 
 const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
 
@@ -33,61 +33,154 @@ const campusChanges = campus.diff.changes.filter(
 
 const freeFood = campus.items.filter((item) => item.campus?.food.confidence === 'confirmed').length;
 
+const liveStudies = studies.studies.filter((study) => !study.isExpired);
+const rankedStudies = sortStudies(liveStudies.filter((study) => isKnownRate(study.effectiveHourly)));
+const topStudies = rankedStudies.filter((study) => (study.effectiveHourly ?? 0) > 0).slice(0, 4);
+const topRate = topStudies[0];
+
+function termMap(key: keyof typeof studyTaxonomies): Map<number, string> {
+  const raw = studyTaxonomies[key] as Record<string, TaxonomyTerm> | TaxonomyTerm[] | undefined;
+  const terms: TaxonomyTerm[] = Array.isArray(raw)
+    ? raw
+    : raw === undefined
+      ? []
+      : Object.values(raw);
+  return new Map(terms.filter((t) => t && typeof t.id === 'number').map((t) => [t.id, t.name]));
+}
+
+const locationNames = termMap('location');
+const sessionTypeNames = termMap('sessionType');
+function namesFor(ids: number[], lookup: Map<number, string>): string[] {
+  return ids.map((id) => lookup.get(id)).filter((n): n is string => typeof n === 'string');
+}
 ---
 
 <Base
   title="Radar"
-  description="Two engines: ResearchRadar watches the literature, CampusRadar watches Texas A&M."
+  description="Literature, Texas A&M campus, and paid research studies — ranked, with the reasons shown."
   fetchedAt={fetchedAt}
   current="home"
+  layout="wide"
 >
-  <section class="standfirst">
-    <h1>Radar</h1>
-    <p class="lede">
-      Two engines over one pipeline. {research.scanned + campus.scanned} candidates were scanned in the
-      last run; {research.items.length + campus.items.length} cleared the bar.
-    </p>
-    <ul class="tally">
-      <li class="t-core"><b>{coreCount}</b> highly relevant papers</li>
-      <li class="t-plain"><b>{researchNew.length}</b> new papers this week</li>
-      <li class="t-plain"><b>{campusNew.length}</b> new events this week</li>
-      <li class="t-methods"><b>{freeFood}</b> confirmed free-food events</li>
+  <section class="home-hero">
+    <div>
+      <p class="eyebrow">Radar</p>
+      <h1>What is worth your time.</h1>
+      <p class="home-hero-lede">
+        Three ranked feeds over one pipeline. {research.scanned + campus.scanned} campus and
+        literature candidates were scanned in the last run;
+        {research.items.length + campus.items.length} papers and events cleared the bar, plus
+        {liveStudies.length} live paid studies.
+      </p>
+    </div>
+    <ul class="home-metrics" aria-label="Radar summary">
+      <li>
+        <strong>{coreCount}</strong>
+        <span>highly relevant papers</span>
+      </li>
+      <li>
+        <strong>{campusNew.length}</strong>
+        <span>new campus events this week</span>
+      </li>
+      <li>
+        <strong>{liveStudies.length}</strong>
+        <span>live paid studies</span>
+      </li>
+      <li>
+        <strong>
+          {
+            topRate !== undefined
+              ? `$${Math.round(topRate.effectiveHourly as number)}`
+              : '—'
+          }
+        </strong>
+        <span>top guaranteed $/hr</span>
+      </li>
     </ul>
   </section>
 
-  <div class="engine-cards">
-    <a class="engine-card" href={url(base, 'research/')}>
-      <span class="engine engine-research">ResearchRadar</span>
-      <h2>{researchTop.length} papers worth seeing</h2>
-      <ul>
-        <li>{research.scanned} scanned → {research.items.length} matched the published scope</li>
-        <li>{coreCount} highly relevant · {byBand(research.items, 'methods').length} methods papers</li>
-        <li>
-          {revised > 0 ? `${revised} tracked preprint(s) revised or published` : 'No preprint changes'}
-        </li>
-      </ul>
+  <div class="engine-cards engine-cards-three">
+    <a class="engine-card" href={url(base, 'campus/')}>
+      <span class="engine engine-campus">Campus</span>
+      <h2>What is happening next</h2>
+      <p>
+        {campus.scanned} scanned → {campus.items.length} kept. Organizations, intramurals, employers,
+        and campus events{freeFood > 0 ? ` · ${freeFood} with confirmed free food` : ''}.
+      </p>
+      <p class="engine-card-meta">
+        {campusChanges > 0 ? `${campusChanges} event change(s)` : 'No event changes'}
+      </p>
     </a>
 
-    <a class="engine-card" href={url(base, 'campus/')}>
-      <span class="engine engine-campus">CampusRadar</span>
-      <h2>{campusTop.length} events worth seeing</h2>
-      <ul>
-        <li>{campus.scanned} scanned → {campus.items.length} kept</li>
-        <li>Organizations, employers, sponsors, and campus events · {freeFood} with confirmed free food</li>
-        <li>{campusChanges > 0 ? `${campusChanges} event change(s)` : 'No event changes'}</li>
-      </ul>
+    <a class="engine-card" href={url(base, 'studies/')}>
+      <span class="engine engine-studies">Studies</span>
+      <h2>Paid studies, ranked by rate</h2>
+      <p>
+        {liveStudies.length} live postings from Aggie Research Volunteers.
+        {rankedStudies.length} have a guaranteed hourly rate. Raffles are never counted as pay.
+      </p>
+      <p class="engine-card-meta">
+        Screening profile and filters stay private in this browser.
+      </p>
+    </a>
+
+    <a class="engine-card" href={url(base, 'research/')}>
+      <span class="engine engine-research">Research</span>
+      <h2>Papers worth reading</h2>
+      <p>
+        {research.scanned} scanned → {research.items.length} matched the published scope.
+        {coreCount} highly relevant · {byBand(research.items, 'methods').length} methods.
+      </p>
+      <p class="engine-card-meta">
+        {revised > 0 ? `${revised} tracked preprint(s) revised or published` : `${researchNew.length} new this week`}
+      </p>
     </a>
   </div>
 
   {
-    researchTop.length > 0 && (
+    topStudies.length > 0 && (
+      <section class="section studies-home">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Studies</p>
+            <h2>Highest guaranteed rates</h2>
+          </div>
+          <p>
+            <a class="text-link" href={url(base, 'studies/')}>
+              Open the full ranked list →
+            </a>
+          </p>
+        </div>
+        <ol class="card-list studies-app">
+          {topStudies.map((study) => (
+            <StudyCard
+              study={study}
+              locations={namesFor(study.locationIds, locationNames)}
+              sessionTypes={namesFor(study.sessionTypeIds, sessionTypeNames)}
+              actions={false}
+            />
+          ))}
+        </ol>
+      </section>
+    )
+  }
+
+  {
+    campusTop.length > 0 && (
       <section class="section">
-        <h2>From ResearchRadar</h2>
-        <p class="note">
-          The top of the aggressively filtered feed. Every score is itemized on the card.
-        </p>
-        <ul class="feed" data-feed data-default-tab="all">
-          {researchTop.map((item) => (
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Campus</p>
+            <h2>Worth your time around Texas A&amp;M</h2>
+          </div>
+          <p>
+            <a class="text-link" href={url(base, 'campus/')}>
+              Open the agenda →
+            </a>
+          </p>
+        </div>
+        <ul class="feed">
+          {campusTop.map((item) => (
             <ItemCard item={item} now={now} />
           ))}
         </ul>
@@ -96,12 +189,21 @@ const freeFood = campus.items.filter((item) => item.campus?.food.confidence === 
   }
 
   {
-    campusTop.length > 0 && (
+    researchTop.length > 0 && (
       <section class="section">
-        <h2>From CampusRadar</h2>
-        <p class="note">What Radar thinks is worth your time around Texas A&amp;M.</p>
-        <ul class="feed">
-          {campusTop.map((item) => (
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Research</p>
+            <h2>Top of the filtered literature feed</h2>
+          </div>
+          <p>
+            <a class="text-link" href={url(base, 'research/')}>
+              Open ResearchRadar →
+            </a>
+          </p>
+        </div>
+        <ul class="feed" data-feed data-default-tab="all">
+          {researchTop.map((item) => (
             <ItemCard item={item} now={now} />
           ))}
         </ul>

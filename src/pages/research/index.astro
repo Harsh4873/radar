@@ -37,19 +37,23 @@ const preprintChanges = research.diff.changes.filter(
   engine="research"
   fetchedAt={fetchedAt}
   current="research"
+  layout="wide"
 >
-  <section class="standfirst">
-    <h1>ResearchRadar</h1>
-    <p class="lede">
-      {research.scanned} candidates scanned across Europe PMC, PubMed, bioRxiv, medRxiv, OpenAlex and
-      arXiv. {items.length} matched the published research scope; {top.length} are probably worth reading.
-      About {totalReadingMinutes(top)} minutes if you read them all.
-    </p>
-    <ul class="tally">
-      <li class="t-core"><b>{core.length}</b> highly relevant</li>
-      <li class="t-adjacent"><b>{adjacent.length}</b> adjacent</li>
-      <li class="t-methods"><b>{methods.length}</b> methods / tools</li>
-      <li class="t-plain"><b>{fresh.length}</b> new this week</li>
+  <section class="home-hero research-hero">
+    <div>
+      <p class="eyebrow">ResearchRadar</p>
+      <h1>Papers that match the published scope.</h1>
+      <p class="home-hero-lede">
+        {research.scanned} candidates scanned across Europe PMC, PubMed, bioRxiv, medRxiv, OpenAlex and
+        arXiv. {items.length} matched; {top.length} are probably worth reading.
+        About {totalReadingMinutes(top)} minutes if you read them all.
+      </p>
+    </div>
+    <ul class="home-metrics" aria-label="Research summary">
+      <li><strong>{core.length}</strong><span>highly relevant</span></li>
+      <li><strong>{adjacent.length}</strong><span>adjacent</span></li>
+      <li><strong>{methods.length}</strong><span>methods / tools</span></li>
+      <li><strong>{fresh.length}</strong><span>new this week</span></li>
     </ul>
   </section>
 
