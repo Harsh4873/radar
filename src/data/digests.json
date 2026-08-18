@@ -2,50 +2,73 @@
   {
     "weekOf": "2026-08-17",
     "vertical": "campus",
-    "scanned": 1880,
-    "candidates": 469,
+    "scanned": 1878,
+    "candidates": 486,
     "recommended": [
       "campus-dc6183aafdac",
       "campus-e4aad59412e5",
       "campus-e4c9539412ff",
       "campus-e4bee29412f6",
-      "campus-0198f37a1ff5",
-      "campus-edcb02941832"
+      "campus-3c2bd845bf1f",
+      "campus-0198f37a1ff5"
     ],
     "headlines": [
       "computer science · this week · workshop / training",
       "biotech · workshop / training · in the next 3 weeks",
       "biotech · this week",
       "company recruiting · in the next 3 weeks · social",
-      "student organization events · this week · 2 sources confirm",
-      "today · other Aggie sports"
+      "today · workshop / training · online",
+      "student organization events · this week · 2 sources confirm"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-ac42edb40039",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-17T13:00:00.000Z",
+        "after": "2026-08-18T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-5b9301a2283a",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-17T13:30:00.000Z",
+        "after": "2026-08-18T05:00:00.000Z"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-08-17",
     "vertical": "research",
-    "scanned": 1099,
-    "candidates": 130,
+    "scanned": 1066,
+    "candidates": 135,
     "recommended": [
       "research-c232ea0d6757",
+      "research-08e8475ec500",
       "research-56d08c85b417",
       "research-9482b93e28e1",
       "research-8403698f5108",
-      "research-71b3231902ac",
-      "research-4a9124a8836e"
+      "research-8fddc1054f2b"
     ],
     "headlines": [
       "positive selection · comparative genomics · phylogenetics",
+      "comparative genomics · phylogenetics · very recent",
       "positive selection · phylogenetics · host-pathogen interaction",
       "positive selection · antimicrobial resistance · host-pathogen interaction",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · antimicrobial resistance · recent",
-      "comparative genomics · MCMC / Bayesian inference · recent"
+      "M. tuberculosis · host-pathogen interaction · recent"
     ],
-    "changes": [],
-    "estimatedMinutes": 97
+    "changes": [
+      {
+        "itemId": "research-c836e3435ec9",
+        "kind": "title",
+        "field": "Title",
+        "before": "Epidemiologic and clinical characteristics of Mycobacterium tuberculosis infection in Guangxi, China, 2018-2023: a retrospective study",
+        "after": "Epidemiologic and clinical characteristics of Mycobacterium tuberculosis infection in Guangxi, China, 2018-2023: a retrospective study."
+      }
+    ],
+    "estimatedMinutes": 95
   },
   {
     "weekOf": "2026-08-10",
