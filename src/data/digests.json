@@ -2,45 +2,31 @@
   {
     "weekOf": "2026-08-17",
     "vertical": "campus",
-    "scanned": 1974,
-    "candidates": 480,
+    "scanned": 1975,
+    "candidates": 506,
     "recommended": [
       "campus-dc6183aafdac",
       "campus-2b856eab2ad5",
       "campus-fb98e78b024e",
       "campus-fb91e18b0248",
-      "campus-e4aad59412e5",
-      "campus-e4c9539412ff"
+      "campus-e4c9539412ff",
+      "campus-e4aad59412e5"
     ],
     "headlines": [
       "computer science · this week · workshop / training",
       "research opportunity · workshop / training · in the next 3 weeks",
       "graduate opportunities · this week · free food: dinner, food",
       "research opportunity · workshop / training · later this term",
-      "biotech · workshop / training · in the next 3 weeks",
-      "biotech · this week"
+      "biotech · tomorrow",
+      "biotech · workshop / training · in the next 3 weeks"
     ],
     "changes": [
       {
-        "itemId": "campus-e4c5cf9412fc",
+        "itemId": "campus-ce7f93b4137f",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-08-25T01:00:00.000Z",
-        "after": "2026-08-25T00:00:00.000Z"
-      },
-      {
-        "itemId": "campus-e4c5cd9412fc",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-26T00:30:00.000Z",
-        "after": "2026-08-26T00:00:00.000Z"
-      },
-      {
-        "itemId": "campus-4c86a845c81d",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-19T22:00:00.000Z",
-        "after": "2026-08-19T22:30:00.000Z"
+        "before": "2026-08-18T13:30:00.000Z",
+        "after": "2026-08-19T05:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -48,26 +34,48 @@
   {
     "weekOf": "2026-08-17",
     "vertical": "research",
-    "scanned": 1097,
-    "candidates": 140,
+    "scanned": 900,
+    "candidates": 97,
     "recommended": [
       "research-b75c44e82c64",
-      "research-c232ea0d6757",
-      "research-08e8475ec500",
-      "research-56d08c85b417",
-      "research-9482b93e28e1",
-      "research-8403698f5108"
+      "research-999187d20e26",
+      "research-922ba126e666",
+      "research-91870f00a9fd",
+      "research-f08d6e9c1869",
+      "research-bab92b8febb1"
     ],
     "headlines": [
       "positive selection · codon-model analysis · comparative genomics",
-      "positive selection · comparative genomics · phylogenetics",
-      "comparative genomics · phylogenetics · very recent",
-      "positive selection · phylogenetics · host-pathogen interaction",
-      "positive selection · antimicrobial resistance · host-pathogen interaction",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
+      "M. tuberculosis · comparative genomics · antimicrobial resistance",
+      "positive selection · comparative genomics · pathogen evolution",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "M. tuberculosis · comparative genomics · antimicrobial resistance",
+      "comparative genomics · phylogenetics · antimicrobial resistance"
     ],
-    "changes": [],
-    "estimatedMinutes": 93
+    "changes": [
+      {
+        "itemId": "research-d3edceb15db0",
+        "kind": "title",
+        "field": "Title",
+        "before": "Chromosome-scale Juglans genomes focus fungal defense gene divergence in gene presence and absence instead of copy number",
+        "after": "Chromosome-scale reference genomes for two walnuts: Juglans ailantifolia and Juglans cinerea implicate gene presence and absence in fungal defense divergence"
+      },
+      {
+        "itemId": "research-d3edceb15db0",
+        "kind": "preprint-revised",
+        "field": "Preprint version",
+        "before": "v1",
+        "after": "v2"
+      },
+      {
+        "itemId": "research-71b3221902ac",
+        "kind": "preprint-revised",
+        "field": "Preprint version",
+        "before": "v1",
+        "after": "v2"
+      }
+    ],
+    "estimatedMinutes": 101
   },
   {
     "weekOf": "2026-08-10",
