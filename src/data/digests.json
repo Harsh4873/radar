@@ -2,31 +2,45 @@
   {
     "weekOf": "2026-08-17",
     "vertical": "campus",
-    "scanned": 1975,
-    "candidates": 506,
+    "scanned": 1970,
+    "candidates": 488,
     "recommended": [
       "campus-dc6183aafdac",
       "campus-2b856eab2ad5",
       "campus-fb98e78b024e",
+      "campus-52d8cca22344",
       "campus-fb91e18b0248",
-      "campus-e4c9539412ff",
-      "campus-e4aad59412e5"
+      "campus-e4c9539412ff"
     ],
     "headlines": [
       "computer science · this week · workshop / training",
       "research opportunity · workshop / training · in the next 3 weeks",
       "graduate opportunities · this week · free food: dinner, food",
+      "company recruiting · this week · intramural sports",
       "research opportunity · workshop / training · later this term",
-      "biotech · tomorrow",
-      "biotech · workshop / training · in the next 3 weeks"
+      "biotech · tomorrow"
     ],
     "changes": [
       {
-        "itemId": "campus-ce7f93b4137f",
+        "itemId": "campus-77ea6945e0b6",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-08-18T13:30:00.000Z",
-        "after": "2026-08-19T05:00:00.000Z"
+        "before": "2026-08-22T19:00:00.000Z",
+        "after": "2026-08-23T20:00:00.000Z"
+      },
+      {
+        "itemId": "campus-e4cfe1941304",
+        "kind": "title",
+        "field": "Title",
+        "before": "Clinics & Externships Skills Training/Orientation",
+        "after": "Clinics Skills Training/Orientation"
+      },
+      {
+        "itemId": "campus-f271538afcfb",
+        "kind": "title",
+        "field": "Title",
+        "before": "ASTR Seminar",
+        "after": "Results from the Hobby-Eberly Telescope Dark Energy Experiment"
       }
     ],
     "estimatedMinutes": 0
@@ -34,48 +48,34 @@
   {
     "weekOf": "2026-08-17",
     "vertical": "research",
-    "scanned": 900,
-    "candidates": 97,
+    "scanned": 1095,
+    "candidates": 151,
     "recommended": [
       "research-b75c44e82c64",
       "research-999187d20e26",
       "research-922ba126e666",
       "research-91870f00a9fd",
-      "research-f08d6e9c1869",
-      "research-bab92b8febb1"
+      "research-128006c85c64",
+      "research-f08d6e9c1869"
     ],
     "headlines": [
       "positive selection · codon-model analysis · comparative genomics",
       "M. tuberculosis · comparative genomics · antimicrobial resistance",
       "positive selection · comparative genomics · pathogen evolution",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · comparative genomics · antimicrobial resistance",
-      "comparative genomics · phylogenetics · antimicrobial resistance"
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "M. tuberculosis · comparative genomics · antimicrobial resistance"
     ],
     "changes": [
       {
-        "itemId": "research-d3edceb15db0",
+        "itemId": "research-2f72ed2da8a8",
         "kind": "title",
         "field": "Title",
-        "before": "Chromosome-scale Juglans genomes focus fungal defense gene divergence in gene presence and absence instead of copy number",
-        "after": "Chromosome-scale reference genomes for two walnuts: Juglans ailantifolia and Juglans cinerea implicate gene presence and absence in fungal defense divergence"
-      },
-      {
-        "itemId": "research-d3edceb15db0",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v1",
-        "after": "v2"
-      },
-      {
-        "itemId": "research-71b3221902ac",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v1",
-        "after": "v2"
+        "before": "Diagnostic utility of the urine lipoarabinomannan assay for tuberculosis screening in patients with diabetes mellitus",
+        "after": "Diagnostic utility of the urine lipoarabinomannan assay for tuberculosis screening in patients with diabetes mellitus."
       }
     ],
-    "estimatedMinutes": 101
+    "estimatedMinutes": 100
   },
   {
     "weekOf": "2026-08-10",
