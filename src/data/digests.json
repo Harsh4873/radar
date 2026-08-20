@@ -2,45 +2,31 @@
   {
     "weekOf": "2026-08-17",
     "vertical": "campus",
-    "scanned": 1970,
-    "candidates": 488,
+    "scanned": 1972,
+    "candidates": 511,
     "recommended": [
       "campus-dc6183aafdac",
       "campus-2b856eab2ad5",
+      "campus-e4c9539412ff",
       "campus-fb98e78b024e",
       "campus-52d8cca22344",
-      "campus-fb91e18b0248",
-      "campus-e4c9539412ff"
+      "campus-66209c45d681"
     ],
     "headlines": [
-      "computer science · this week · workshop / training",
+      "computer science · tomorrow · workshop / training",
       "research opportunity · workshop / training · in the next 3 weeks",
+      "biotech · today",
       "graduate opportunities · this week · free food: dinner, food",
       "company recruiting · this week · intramural sports",
-      "research opportunity · workshop / training · later this term",
-      "biotech · tomorrow"
+      "company recruiting · workshop / training · in the next 3 weeks"
     ],
     "changes": [
       {
-        "itemId": "campus-77ea6945e0b6",
+        "itemId": "campus-11b3477a28bc",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-08-22T19:00:00.000Z",
-        "after": "2026-08-23T20:00:00.000Z"
-      },
-      {
-        "itemId": "campus-e4cfe1941304",
-        "kind": "title",
-        "field": "Title",
-        "before": "Clinics & Externships Skills Training/Orientation",
-        "after": "Clinics Skills Training/Orientation"
-      },
-      {
-        "itemId": "campus-f271538afcfb",
-        "kind": "title",
-        "field": "Title",
-        "before": "ASTR Seminar",
-        "after": "Results from the Hobby-Eberly Telescope Dark Energy Experiment"
+        "before": "2026-08-19T13:00:00.000Z",
+        "after": "2026-08-20T05:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -48,34 +34,34 @@
   {
     "weekOf": "2026-08-17",
     "vertical": "research",
-    "scanned": 1095,
-    "candidates": 151,
+    "scanned": 1078,
+    "candidates": 129,
     "recommended": [
       "research-b75c44e82c64",
-      "research-999187d20e26",
-      "research-922ba126e666",
-      "research-91870f00a9fd",
       "research-128006c85c64",
-      "research-f08d6e9c1869"
+      "research-5f3fdb694120",
+      "research-8403698f5108",
+      "research-30d88d7efdfe",
+      "research-a9e8215c7f3c"
     ],
     "headlines": [
       "positive selection · codon-model analysis · comparative genomics",
-      "M. tuberculosis · comparative genomics · antimicrobial resistance",
-      "positive selection · comparative genomics · pathogen evolution",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "comparative genomics · phylogenetics · pathogen evolution",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · comparative genomics · antimicrobial resistance"
+      "positive selection · phylogenetics · recent",
+      "comparative genomics · MCMC / Bayesian inference · recent"
     ],
     "changes": [
       {
-        "itemId": "research-2f72ed2da8a8",
-        "kind": "title",
-        "field": "Title",
-        "before": "Diagnostic utility of the urine lipoarabinomannan assay for tuberculosis screening in patients with diabetes mellitus",
-        "after": "Diagnostic utility of the urine lipoarabinomannan assay for tuberculosis screening in patients with diabetes mellitus."
+        "itemId": "research-247bd81b8068",
+        "kind": "preprint-revised",
+        "field": "Preprint version",
+        "before": "v1",
+        "after": "v2"
       }
     ],
-    "estimatedMinutes": 100
+    "estimatedMinutes": 92
   },
   {
     "weekOf": "2026-08-10",
