@@ -2,66 +2,50 @@
   {
     "weekOf": "2026-08-17",
     "vertical": "campus",
-    "scanned": 1972,
-    "candidates": 511,
+    "scanned": 1973,
+    "candidates": 510,
     "recommended": [
+      "campus-e208fb8af3f2",
       "campus-dc6183aafdac",
+      "campus-eb37258af94b",
       "campus-2b856eab2ad5",
-      "campus-e4c9539412ff",
       "campus-fb98e78b024e",
-      "campus-52d8cca22344",
-      "campus-66209c45d681"
+      "campus-52d8cca22344"
     ],
     "headlines": [
+      "computer science · company recruiting · this week",
       "computer science · tomorrow · workshop / training",
+      "biotech · this week · workshop / training",
       "research opportunity · workshop / training · in the next 3 weeks",
-      "biotech · today",
       "graduate opportunities · this week · free food: dinner, food",
-      "company recruiting · this week · intramural sports",
-      "company recruiting · workshop / training · in the next 3 weeks"
+      "company recruiting · this week · intramural sports"
     ],
-    "changes": [
-      {
-        "itemId": "campus-11b3477a28bc",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-19T13:00:00.000Z",
-        "after": "2026-08-20T05:00:00.000Z"
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-08-17",
     "vertical": "research",
-    "scanned": 1078,
-    "candidates": 129,
+    "scanned": 1081,
+    "candidates": 131,
     "recommended": [
+      "research-f4c816ee8a32",
       "research-b75c44e82c64",
       "research-128006c85c64",
+      "research-d85a0d28f0ff",
       "research-5f3fdb694120",
-      "research-8403698f5108",
-      "research-30d88d7efdfe",
-      "research-a9e8215c7f3c"
+      "research-8403698f5108"
     ],
     "headlines": [
+      "M. tuberculosis · positive selection · comparative genomics",
       "positive selection · codon-model analysis · comparative genomics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "comparative genomics · phylogenetics · pathogen evolution",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "positive selection · phylogenetics · recent",
-      "comparative genomics · MCMC / Bayesian inference · recent"
+      "comparative genomics · phylogenetics · pathogen evolution",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
-    "changes": [
-      {
-        "itemId": "research-247bd81b8068",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v1",
-        "after": "v2"
-      }
-    ],
-    "estimatedMinutes": 92
+    "changes": [],
+    "estimatedMinutes": 98
   },
   {
     "weekOf": "2026-08-10",
