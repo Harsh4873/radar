@@ -2,50 +2,58 @@
   {
     "weekOf": "2026-08-17",
     "vertical": "campus",
-    "scanned": 1973,
-    "candidates": 510,
+    "scanned": 2027,
+    "candidates": 528,
     "recommended": [
       "campus-e208fb8af3f2",
       "campus-dc6183aafdac",
-      "campus-eb37258af94b",
       "campus-2b856eab2ad5",
+      "campus-eb37258af94b",
       "campus-fb98e78b024e",
       "campus-52d8cca22344"
     ],
     "headlines": [
       "computer science · company recruiting · this week",
-      "computer science · tomorrow · workshop / training",
+      "computer science · today · workshop / training",
+      "research opportunity · this week · workshop / training",
       "biotech · this week · workshop / training",
-      "research opportunity · workshop / training · in the next 3 weeks",
       "graduate opportunities · this week · free food: dinner, food",
       "company recruiting · this week · intramural sports"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-4c9b2645c82e",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-20T16:00:00.000Z",
+        "after": "2026-08-21T05:00:00.000Z"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-08-17",
     "vertical": "research",
-    "scanned": 1081,
-    "candidates": 131,
+    "scanned": 1051,
+    "candidates": 133,
     "recommended": [
       "research-f4c816ee8a32",
       "research-b75c44e82c64",
-      "research-128006c85c64",
+      "research-999187d20e26",
+      "research-bab92b8febb1",
       "research-d85a0d28f0ff",
-      "research-5f3fdb694120",
-      "research-8403698f5108"
+      "research-128006c85c64"
     ],
     "headlines": [
       "M. tuberculosis · positive selection · comparative genomics",
       "positive selection · codon-model analysis · comparative genomics",
+      "M. tuberculosis · comparative genomics · antimicrobial resistance",
+      "comparative genomics · phylogenetics · antimicrobial resistance",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "comparative genomics · phylogenetics · pathogen evolution",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
     "changes": [],
-    "estimatedMinutes": 98
+    "estimatedMinutes": 107
   },
   {
     "weekOf": "2026-08-10",
