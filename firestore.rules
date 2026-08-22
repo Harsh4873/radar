@@ -3,7 +3,8 @@ rules_version = '2';
 // Complete Firestore ruleset for every private harsh.bet app in the shared
 // `pickledgerpro` Firebase project. Deploying one rules file replaces the
 // project rules, so this file must stay identical in Gym, Daymark, Slate,
-// Fare, Notes, Research, Degree, Studies, and Radar. Approved verified Google
+// Fare, Notes, Research, Degree, Radar, Goals, and Recipes. The retired Studies
+// namespace remains here for recovery. Approved verified Google
 // identities resolve through a private membership document to one shared
 // owner vault. Legacy UID roots remain readable recovery archives; migration
 // can keep their writes open briefly through `legacyWritesEnabled`.
@@ -960,6 +961,84 @@ service cloud.firestore {
       allow create: if hasVaultAccess(vaultId) && isValidRadarVault();
       allow update: if hasVaultAccess(vaultId)
         && isValidRadarVault()
+        && request.resource.data.updatedAtMs >= resource.data.updatedAtMs;
+      allow delete: if false;
+    }
+
+    // Recipes (private pantry + recipe workspace) ------------------
+    function isValidRecipesVault() {
+      let data = request.resource.data;
+      let state = data.state;
+      let settings = state.settings;
+      return data.keys().hasAll([
+          'schemaVersion', 'state', 'updatedAt', 'updatedAtMs', 'clientId'
+        ])
+        && data.keys().hasOnly([
+          'schemaVersion', 'state', 'updatedAt', 'updatedAtMs', 'clientId'
+        ])
+        && data.schemaVersion == 1
+        && state is map
+        && state.keys().hasAll([
+          'version', 'settings', 'pantry', 'recipes', 'shopping',
+          'updatedAt', 'updatedAtMs', 'clientId'
+        ])
+        && state.keys().hasOnly([
+          'version', 'settings', 'pantry', 'recipes', 'shopping',
+          'updatedAt', 'updatedAtMs', 'clientId'
+        ])
+        && state.version == 1
+        && settings is map
+        && settings.keys().hasAll([
+          'theme', 'calorieTarget', 'proteinTargetG', 'maxCookMinutes',
+          'eggsAllowed', 'updatedAt'
+        ])
+        && settings.keys().hasOnly([
+          'theme', 'calorieTarget', 'proteinTargetG', 'maxCookMinutes',
+          'eggsAllowed', 'updatedAt'
+        ])
+        && settings.theme in ['dark', 'light', 'system']
+        && settings.calorieTarget is number
+        && settings.calorieTarget >= 100
+        && settings.calorieTarget <= 2000
+        && settings.proteinTargetG is number
+        && settings.proteinTargetG >= 0
+        && settings.proteinTargetG <= 200
+        && settings.maxCookMinutes is number
+        && settings.maxCookMinutes >= 5
+        && settings.maxCookMinutes <= 240
+        && settings.eggsAllowed == true
+        && settings.updatedAt is string
+        && settings.updatedAt.size() > 0
+        && settings.updatedAt.size() <= 64
+        && state.pantry is list
+        && state.pantry.size() <= 2000
+        && state.recipes is list
+        && state.recipes.size() <= 1000
+        && state.shopping is list
+        && state.shopping.size() <= 5000
+        && data.updatedAt is string
+        && data.updatedAt.size() > 0
+        && data.updatedAt.size() <= 64
+        && data.updatedAt.matches(
+          '^[0-9]{4}-(0[1-9]|1[0-2])-([0-2][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,9})?Z$'
+        )
+        && data.updatedAtMs is int
+        && data.updatedAtMs > 0
+        && data.updatedAtMs <= 253402300799999
+        && data.clientId is string
+        && data.clientId.size() > 0
+        && data.clientId.size() <= 128
+        && state.updatedAt == data.updatedAt
+        && state.updatedAtMs == data.updatedAtMs
+        && state.clientId == data.clientId;
+    }
+
+    match /recipes_vaults/{vaultId} {
+      allow read: if hasVaultAccess(vaultId);
+      allow create: if hasVaultAccess(vaultId) && isValidRecipesVault();
+      allow update: if hasVaultAccess(vaultId)
+        && isValidRecipesVault()
+        && request.resource.data.updatedAt >= resource.data.updatedAt
         && request.resource.data.updatedAtMs >= resource.data.updatedAtMs;
       allow delete: if false;
     }
