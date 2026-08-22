@@ -2,9 +2,9 @@
 /**
  * One feed card. The product's smallest complete unit.
  *
- * Carries its own ranking metadata in data attributes so `src/client/feed.ts`
- * can filter and re-rank from local feedback without a round trip. With JavaScript
- * off, the card is still complete and linked - only the buttons stop working.
+ * Same large-card layout as StudyCard: title + score, fact rows, chips, then
+ * actions. Carries ranking metadata in data attributes so `src/client/feed.ts`
+ * can filter and re-rank from local feedback without a round trip.
  *
  * The evidence rules this component is responsible for enforcing:
  *   - food tiers render differently and `mentioned` never says "free"
@@ -19,7 +19,6 @@ import {
   formatDateTime,
   formatAgendaDate,
   formatRange,
-  formatTime,
   campusDayKey,
   relative,
   signalsOf,
@@ -37,11 +36,9 @@ interface Props {
    * which knows the ranked order and the limit; see `tabsFor`.
    */
   inForYou?: boolean;
-  /** Render a compact time rail because the surrounding feed supplies the date. */
-  agenda?: boolean;
 }
 
-const { item, now, detailed = false, inForYou, agenda = false } = Astro.props;
+const { item, now, detailed = false, inForYou } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
 
 const research = item.research;
@@ -55,9 +52,8 @@ const detailHref =
 const scoreClass =
   research !== undefined ? `score-${research.band}` : campus?.category === 'companies' ? 'score-core' : 'score-methods';
 
-const reasons = detailed ? item.reasons : item.reasons.slice(0, 3);
+const reasons = detailed ? item.reasons : item.reasons.slice(0, 4);
 
-// Events show when they happen; papers show when they were published.
 const whenLabel =
   campus !== undefined
     ? campus.seriesCount > 1
@@ -88,13 +84,23 @@ const searchIndex = [
   campus?.organizer ?? '',
   ...(campus?.companies ?? []),
   campus === undefined ? '' : CATEGORY_LABELS[campus.category],
+  research?.journal ?? '',
+  ...(research?.authors.slice(0, 8).map((author) => author.name) ?? []),
 ].join(' ').toLocaleLowerCase();
+
+const where = campus?.location ?? null;
+const who = campus?.organizer ?? null;
+const journal = research?.journal ?? null;
+const authors = research === undefined || research.authors.length === 0
+  ? null
+  : research.authors.slice(0, 8).map((author) => author.name).join(', ')
+    + (research.authors.length > 8 ? ` +${research.authors.length - 8}` : '');
 ---
 
 <li
   class:list={[
     'card',
-    { 'event-card': campus !== undefined, 'agenda-card': campus !== undefined && agenda, 'is-cancelled': campus?.isCancelled === true },
+    { 'event-card': campus !== undefined, 'is-cancelled': campus?.isCancelled === true },
   ]}
   data-item-id={item.id}
   data-relevance={item.relevance}
@@ -107,88 +113,96 @@ const searchIndex = [
   data-interests={interestIds.join(',')}
   data-search={searchIndex}
 >
-  <div class="card-head">
-    {
-      campus !== undefined && agenda && (
-        <div class="event-time-block">
-          <strong>{campus.isAllDay ? 'All day' : formatTime(campus.startsAt)}</strong>
-          <span>
-            {campus.seriesCount > 1
-              ? `${campus.seriesCount} sessions`
-              : campus.startsAt === null
-                ? 'Schedule TBD'
-                : relative(campus.startsAt, now)}
-          </span>
-        </div>
-      )
-    }
-
-    <div class="card-copy">
+  <div class="card-top">
+    <div>
+      <p class="card-kicker">
+        {campus !== undefined && <span class="badge badge-category">{CATEGORY_LABELS[campus.category]}</span>}
+        {intramural && <span class="badge badge-intramural">Intramural</span>}
+        {item.status === 'new' && <span class="badge badge-new">New</span>}
+        {item.status === 'updated' && <span class="badge badge-updated">Updated</span>}
+        {campus?.isCancelled === true && <span class="badge badge-cancelled">Cancelled</span>}
+        {research !== undefined && <span class:list={['badge', `badge-${research.band}`]}>{research.band}</span>}
+        {research?.kind === 'preprint' && <span class="badge badge-adjacent">Preprint</span>}
+        {research?.lifecycle.publishedDoi != null && <span class="badge badge-methods">Now published</span>}
+        {research?.isOpenAccess === true && <span class="badge badge-methods">Open access</span>}
+        {campus?.isOnline === true && <span class="badge">Online</span>}
+        {
+          campus !== undefined && campus.food.confidence !== 'none' && (
+            <span class:list={['food', `food-${campus.food.confidence}`]} title={campus.food.evidence ?? undefined}>
+              {FOOD_LABELS[campus.food.confidence]}
+              {campus.food.items.length > 0 && <>: {campus.food.items.slice(0, 3).join(', ')}</>}
+            </span>
+          )
+        }
+        {
+          campus?.compensationUsd != null && campus.compensationUsd > 0 && (
+            <span class="badge pay">${campus.compensationUsd}</span>
+          )
+        }
+        {
+          campus?.compensation != null && campus.compensationUsd === null && (
+            <span class="badge chance">{campus.compensation.slice(0, 40)}</span>
+          )
+        }
+      </p>
       <h3 class="card-title">
         <a href={detailHref}>{item.title}</a>
       </h3>
-      <p class="card-meta">
-        {(!agenda || campus === undefined) && whenLabel}
-        {(!agenda || campus === undefined) && campus?.location != null && <> · </>}
-        {campus?.location != null && <span>{campus.location}</span>}
-        {campus?.location != null && campus?.organizer != null && <> · </>}
-        {campus?.organizer != null && <span>{campus.organizer}</span>}
-        {research?.journal != null && <> · {research.journal}</>}
-        {!agenda && campus?.seriesCount != null && campus.seriesCount > 1 && <> · {campus.seriesCount} sessions</>}
-      </p>
     </div>
-
     <div class:list={['score', scoreClass]}>
       <b data-score>{item.relevance}</b>
       <span>match</span>
     </div>
   </div>
 
-  <ul class="badges">
-    {campus !== undefined && <li class="badge badge-category">{CATEGORY_LABELS[campus.category]}</li>}
-    {intramural && <li class="badge badge-intramural">Intramural</li>}
-    {item.status === 'new' && <li class="badge badge-new">New</li>}
-    {item.status === 'updated' && <li class="badge badge-updated">Updated</li>}
-    {campus?.isCancelled === true && <li class="badge badge-cancelled">Cancelled</li>}
-    {research !== undefined && <li class:list={['badge', `badge-${research.band}`]}>{research.band}</li>}
-    {research?.kind === 'preprint' && <li class="badge badge-adjacent">Preprint</li>}
-    {
-      research?.lifecycle.publishedDoi != null && (
-        <li class="badge badge-methods">Now published</li>
-      )
-    }
-
-    {
-      /*
-       * Food. THREE tiers, three treatments, and `mentioned` is deliberately
-       * grey, dashed, and worded as "Food mentioned" - never "free food".
-       * See src/campus/freebies.ts for why this distinction is load-bearing.
-       */
-      campus !== undefined && campus.food.confidence !== 'none' && (
-        <li class:list={['food', `food-${campus.food.confidence}`]} title={campus.food.evidence ?? undefined}>
-          {FOOD_LABELS[campus.food.confidence]}
-          {campus.food.items.length > 0 && <>: {campus.food.items.slice(0, 3).join(', ')}</>}
-        </li>
-      )
-    }
-
-    {
-      /* Guaranteed money only. A raffle never renders as an amount. */
-      campus?.compensationUsd != null && campus.compensationUsd > 0 && (
-        <li class="badge pay">${campus.compensationUsd}</li>
-      )
-    }
-    {
-      campus?.compensation != null && campus.compensationUsd === null && (
-        <li class="badge chance">{campus.compensation.slice(0, 40)}</li>
-      )
-    }
-
-    {campus?.isOnline === true && <li class="badge">Online</li>}
-    {research?.isOpenAccess === true && <li class="badge badge-methods">Open access</li>}
-  </ul>
-
   {item.summary.length > 0 && <p class="card-summary">{item.summary}</p>}
+
+  <dl class="facts">
+    <div>
+      <dt>When</dt>
+      <dd>{whenLabel}</dd>
+    </div>
+    {
+      where !== null && (
+        <div>
+          <dt>Where</dt>
+          <dd>{where}</dd>
+        </div>
+      )
+    }
+    {
+      who !== null && (
+        <div>
+          <dt>Who</dt>
+          <dd>{who}</dd>
+        </div>
+      )
+    }
+    {
+      journal !== null && (
+        <div>
+          <dt>Journal</dt>
+          <dd>{journal}</dd>
+        </div>
+      )
+    }
+    {
+      authors !== null && (
+        <div>
+          <dt>Authors</dt>
+          <dd>{authors}</dd>
+        </div>
+      )
+    }
+    {
+      campus !== undefined && campus.seriesCount > 1 && (
+        <div>
+          <dt>Sessions</dt>
+          <dd>{campus.seriesCount}</dd>
+        </div>
+      )
+    }
+  </dl>
 
   {
     reasons.length > 0 && (

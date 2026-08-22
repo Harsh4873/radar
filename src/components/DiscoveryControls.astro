@@ -1,0 +1,79 @@
+---
+/**
+ * Shared search + tab chrome for Campus, Research, and Studies listings.
+ * Client scripts (feed.ts or the studies filter) own the behaviour; this is
+ * markup only so the three engines stop shipping three different filter UIs.
+ */
+import TabBar from '@/components/TabBar.astro';
+import type { TabDef } from '@/lib/view.ts';
+
+interface Props {
+  searchId: string;
+  searchLabel: string;
+  searchPlaceholder: string;
+  heading: string;
+  headingId?: string;
+  eyebrow?: string;
+  shown: number;
+  total: number;
+  /** Singular noun used in the live status line: event, paper, study. */
+  noun: string;
+  tabs: readonly TabDef[];
+  activeTab?: string;
+  dismissedLabel?: string;
+}
+
+const {
+  searchId,
+  searchLabel,
+  searchPlaceholder,
+  heading,
+  headingId,
+  eyebrow = 'Filters',
+  shown,
+  total,
+  noun,
+  tabs,
+  activeTab = 'all',
+  dismissedLabel = 'Show dismissed',
+} = Astro.props;
+
+const plural = `${noun}s`;
+---
+
+<div class="discovery-controls">
+  <form class="event-search" role="search" data-search-form>
+    <label for={searchId}>{searchLabel}</label>
+    <div class="search-field">
+      <input
+        id={searchId}
+        type="search"
+        name="q"
+        placeholder={searchPlaceholder}
+        autocomplete="off"
+        data-event-search
+      />
+      <button class="action search-clear" type="button" data-clear-search hidden>Clear</button>
+    </div>
+  </form>
+
+  <div class="filter-heading">
+    <div>
+      <p class="eyebrow">{eyebrow}</p>
+      <h2 id={headingId}>{heading}</h2>
+    </div>
+    <p>
+      <span data-count-for="visible">{shown}</span> of {total} shown
+    </p>
+  </div>
+  <TabBar tabs={tabs} active={activeTab} />
+  <slot />
+  <div class="filter-utility">
+    <p data-search-summary data-search-noun={noun} role="status" aria-live="polite">
+      {shown} {shown === 1 ? noun : plural} shown.
+    </p>
+    <button class="text-button" type="button" data-show-dismissed aria-pressed="false">
+      {dismissedLabel}
+    </button>
+  </div>
+</div>

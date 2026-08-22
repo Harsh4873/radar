@@ -152,6 +152,14 @@ export const RESEARCH_TABS: readonly TabDef[] = [
   { id: 'tracked', label: 'Tracked', hint: 'Papers you are following' },
 ];
 
+export const STUDIES_TABS: readonly TabDef[] = [
+  { id: 'all', label: 'All', hint: 'Every live posting in the current snapshot' },
+  { id: 'ranked', label: 'Ranked', hint: 'Guaranteed $/hour could be calculated' },
+  { id: 'online', label: 'Online', hint: 'Studies that can be done remotely' },
+  { id: 'inperson', label: 'In person', hint: 'Studies that require a campus visit' },
+  { id: 'saved', label: 'Saved', hint: 'Listings you kept on your Radar profile' },
+];
+
 export const CAMPUS_TABS: readonly TabDef[] = [
   { id: 'all', label: 'All', hint: 'Every upcoming listing in chronological order' },
   { id: 'for-you', label: 'For you', hint: 'Top matches plus events matching your Radar profile' },

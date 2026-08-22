@@ -18,13 +18,15 @@
  * page talks to research.tamu.edu at runtime - the upstream API sends no CORS
  * header, so a browser fetch would fail anyway.
  */
+import DiscoveryControls from '@/components/DiscoveryControls.astro';
 import FilterBar from '@/components/studies/FilterBar.astro';
-import ProfilePanel from '@/components/studies/ProfilePanel.astro';
+import ScreeningStatus from '@/components/studies/ScreeningStatus.astro';
 import StudyCard from '@/components/studies/StudyCard.astro';
 import snapshotJson from '@/data/studies.json';
 import taxonomiesJson from '@/data/studies-taxonomies.json';
 import Base from '@/layouts/Base.astro';
 import { isKnownRate, sortStudies, sortUnrated } from '@/studies/effective-rate.ts';
+import { STUDIES_TABS, url } from '@/lib/view.ts';
 import type { Snapshot, StudyRecord, TaxonomyTerm } from '@/studies/types.ts';
 
 // ---------------------------------------------------------------------------
@@ -55,6 +57,7 @@ function termMap(key: string): Map<number, string> {
 
 const locationNames = termMap('location');
 const sessionTypeNames = termMap('sessionType');
+const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
 
 function namesFor(ids: number[], lookup: Map<number, string>): string[] {
   return ids.map((id) => lookup.get(id)).filter((n): n is string => typeof n === 'string');
@@ -125,8 +128,9 @@ const description = `${live.length} currently posted paid research studies at Te
         <p class="eyebrow">Texas A&amp;M · Studies</p>
         <h1>Paid research studies, ranked by $/hour.</h1>
         <p class="studies-hero-lede">
-          Guaranteed pay per hour of your time. Raffles are never counted as pay. Filters and the
-          screening profile stay in this browser unless you sign in to the owner vault.
+          Guaranteed pay per hour of your time. Raffles are never counted as pay. Filters stay in this
+          browser; the screening form lives on
+          <a href={url(base, 'profile/#studies')}>your Radar profile</a>.
         </p>
       </div>
       <ul class="studies-hero-stats" aria-label="Studies summary">
@@ -153,21 +157,25 @@ const description = `${live.length} currently posted paid research studies at Te
       </ul>
     </header>
 
-    <div class="app-grid">
-      <aside class="app-side" aria-label="Filters">
-        {/* Owned by the profile agent. Collapsed here; the study pages open it. */}
-        <ProfilePanel class="profile-panel-index" />
+    <ScreeningStatus />
 
-        <FilterBar tagFacets={tagFacets} />
-      </aside>
+    <section class="campus-discovery" aria-labelledby="studies-heading">
+      <DiscoveryControls
+        searchId="f-q"
+        searchLabel="Search studies"
+        searchPlaceholder="sleep, MRI, survey, a lab name…"
+        heading="Live postings"
+        headingId="studies-heading"
+        shown={ranked.length + unrated.length}
+        total={live.length}
+        noun="study"
+        tabs={STUDIES_TABS}
+        activeTab="all"
+      />
+      <FilterBar tagFacets={tagFacets} />
 
-      <div class="app-main">
-        <p class="result-count" id="result-count" role="status" aria-live="polite">
-          Showing <strong>{ranked.length + unrated.length}</strong> of {live.length} live studies.
-        </p>
-        <p class="note" id="unknown-note" hidden></p>
-
-        <div id="results">
+      <div class="app-main" id="results">
+      <p class="note" id="unknown-note" hidden></p>
       <section class="section" id="section-ranked" aria-labelledby="h-ranked">
         <h2 class="section-head" id="h-ranked">Ranked by hourly rate</h2>
         <p class="section-note">
@@ -242,9 +250,8 @@ const description = `${live.length} currently posted paid research studies at Te
           </details>
         )
       }
-        </div>
       </div>
-    </div>
+    </section>
   </div>
 
   <script type="application/json" id="elig-data" is:inline set:html={eligibilityJson} />
@@ -296,19 +303,20 @@ const description = `${live.length} currently posted paid research studies at Te
   const rateSel = $<HTMLSelectElement>('f-rate');
   const totalSel = $<HTMLSelectElement>('f-total');
   const hoursSel = $<HTMLSelectElement>('f-hours');
-  const modeSel = $<HTMLSelectElement>('f-mode');
   const sortSel = $<HTMLSelectElement>('f-sort');
   const eligibleBox = $<HTMLInputElement>('f-eligible');
-  const dismissedBox = $<HTMLInputElement>('f-dismissed');
   const eligibleHint = $<HTMLElement>('f-eligible-hint');
   const tagBox = $<HTMLElement>('f-tags');
   const summary = $<HTMLElement>('f-summary');
-  const countEl = $<HTMLElement>('result-count');
   const unknownNote = $<HTMLElement>('unknown-note');
   const emptyState = $<HTMLElement>('empty-state');
   const sectionRanked = $<HTMLElement>('section-ranked');
   const sectionUnrated = $<HTMLElement>('section-unrated');
   const expiredBlock = $<HTMLDetailsElement>('expired-block');
+  const dismissedToggle = document.querySelector<HTMLElement>('[data-show-dismissed]');
+  const TAB_IDS = new Set(['all', 'ranked', 'online', 'inperson', 'saved']);
+  let studyTab = 'all';
+  let showDismissed = false;
 
   const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-study]'));
   const liveCards = cards.filter((c) => c.dataset.expired !== '1');
@@ -426,7 +434,7 @@ const description = `${live.length} currently posted paid research studies at Te
     if (eligibleHint !== null) {
       eligibleHint.textContent = profileAnswered
         ? 'Based on the screening profile saved in this browser. Studies that cannot be checked stay visible.'
-        : 'Answer the screening questions first. They stay local unless you sign in to the private owner vault.';
+        : 'Answer the screening questions on the Profile tab first. They stay local unless you sign in to the private owner vault.';
     }
     apply();
   }
@@ -436,15 +444,16 @@ const description = `${live.length} currently posted paid research studies at Te
   let hiddenForUnknown = 0;
 
   function matches(card: HTMLElement, words: string[], count: boolean): boolean {
-    if (personalState.dismissed.includes(card.dataset.id ?? '') && dismissedBox?.checked !== true) {
+    if (personalState.dismissed.includes(card.dataset.id ?? '') && !showDismissed) {
       return false;
     }
     const haystack = card.dataset.search ?? '';
     for (const w of words) if (!haystack.includes(w)) return false;
 
-    const mode = modeSel?.value ?? 'any';
-    if (mode === 'online' && card.dataset.online !== '1') return false;
-    if (mode === 'inperson' && card.dataset.inperson !== '1') return false;
+    if (studyTab === 'ranked' && card.dataset.rate === '') return false;
+    if (studyTab === 'online' && card.dataset.online !== '1') return false;
+    if (studyTab === 'inperson' && card.dataset.inperson !== '1') return false;
+    if (studyTab === 'saved' && !personalState.saved.includes(card.dataset.id ?? '')) return false;
 
     if (selectedTags.size > 0) {
       const tags = (card.dataset.tags ?? '').split(' ');
@@ -516,13 +525,15 @@ const description = `${live.length} currently posted paid research studies at Te
     if (sectionUnrated !== null) sectionUnrated.hidden = unratedVisible === 0;
     if (emptyState !== null) emptyState.hidden = visibleLive > 0;
 
-    if (countEl !== null) {
-      countEl.innerHTML =
-        visibleLive === 0
-          ? `Showing <strong>no</strong> live studies.`
-          : `Showing <strong>${visibleLive}</strong> of ${liveCards.length} live studies` +
-            (unratedVisible > 0 ? ` (${rankedVisible} ranked, ${unratedVisible} unrated)` : '') +
-            '.';
+    for (const counter of document.querySelectorAll<HTMLElement>('[data-count-for="visible"]')) {
+      counter.textContent = String(visibleLive);
+    }
+    const noun = visibleLive === 1 ? 'study' : 'studies';
+    const query = (qInput?.value ?? '').trim();
+    for (const status of document.querySelectorAll<HTMLElement>('[data-search-summary]')) {
+      status.textContent = query.length > 0
+        ? `${visibleLive} ${noun} match “${query}”.`
+        : `${visibleLive} ${noun} shown.`;
     }
     if (summary !== null) summary.textContent = `${visibleLive} shown`;
 
@@ -563,13 +574,13 @@ const description = `${live.length} currently posted paid research studies at Te
       minRate: rateSel?.value ?? '0',
       minTotal: totalSel?.value ?? '0',
       maxHours: hoursSel?.value ?? '',
-      mode: (modeSel?.value === 'online' || modeSel?.value === 'inperson') ? modeSel.value : 'any',
+      mode: studyTab === 'online' || studyTab === 'inperson' ? studyTab : 'any',
       sort: (sortSel?.value === 'total' || sortSel?.value === 'time' || sortSel?.value === 'new')
         ? sortSel.value
         : 'rate',
       tags: [...selectedTags].sort(),
       eligibleOnly: eligibleBox?.checked === true,
-      showDismissed: dismissedBox?.checked === true,
+      showDismissed,
     };
   }
 
@@ -577,15 +588,26 @@ const description = `${live.length} currently posted paid research studies at Te
     personalState = updateStudiesFilters(readFilters());
   }
 
+  function setStudyTab(next: string): void {
+    studyTab = TAB_IDS.has(next) ? next : 'all';
+    for (const button of document.querySelectorAll<HTMLElement>('[data-tab]')) {
+      button.setAttribute('aria-pressed', button.dataset['tab'] === studyTab ? 'true' : 'false');
+    }
+    const nextUrl = new URL(window.location.href);
+    if (studyTab === 'all') nextUrl.searchParams.delete('tab');
+    else nextUrl.searchParams.set('tab', studyTab);
+    window.history.replaceState({}, '', nextUrl);
+  }
+
   function restoreFilters(filters: StudiesFilters): void {
     if (qInput !== null) qInput.value = filters.query;
     if (rateSel !== null) rateSel.value = filters.minRate;
     if (totalSel !== null) totalSel.value = filters.minTotal;
     if (hoursSel !== null) hoursSel.value = filters.maxHours;
-    if (modeSel !== null) modeSel.value = filters.mode;
     if (sortSel !== null) sortSel.value = filters.sort;
     if (eligibleBox !== null) eligibleBox.checked = filters.eligibleOnly && !eligibleBox.disabled;
-    if (dismissedBox !== null) dismissedBox.checked = filters.showDismissed;
+    showDismissed = filters.showDismissed;
+    dismissedToggle?.setAttribute('aria-pressed', showDismissed ? 'true' : 'false');
     selectedTags.clear();
     for (const tag of filters.tags) selectedTags.add(tag);
     for (const btn of tagBox?.querySelectorAll<HTMLButtonElement>('[data-tag]') ?? []) {
@@ -598,14 +620,15 @@ const description = `${live.length} currently posted paid research studies at Te
     if (rateSel !== null) rateSel.value = '0';
     if (totalSel !== null) totalSel.value = '0';
     if (hoursSel !== null) hoursSel.value = '';
-    if (modeSel !== null) modeSel.value = 'any';
     if (sortSel !== null) sortSel.value = 'rate';
     if (eligibleBox !== null) eligibleBox.checked = false;
-    if (dismissedBox !== null) dismissedBox.checked = false;
+    showDismissed = false;
+    dismissedToggle?.setAttribute('aria-pressed', 'false');
     selectedTags.clear();
     for (const btn of tagBox?.querySelectorAll<HTMLButtonElement>('[data-tag]') ?? []) {
       btn.setAttribute('aria-pressed', 'false');
     }
+    setStudyTab('all');
     personalState = updateStudiesFilters({ ...DEFAULT_STUDIES_FILTERS, tags: [] });
     resort();
     apply();
@@ -614,11 +637,20 @@ const description = `${live.length} currently posted paid research studies at Te
   // -- wiring ---------------------------------------------------------------
 
   form?.addEventListener('submit', (e) => e.preventDefault());
+  document.querySelector('[data-search-form]')?.addEventListener('submit', (e) => e.preventDefault());
   qInput?.addEventListener('input', () => {
     persistFilters();
     apply();
   });
-  for (const el of [rateSel, totalSel, hoursSel, modeSel, eligibleBox, dismissedBox]) {
+  document.querySelector('[data-clear-search]')?.addEventListener('click', () => {
+    if (qInput !== null) {
+      qInput.value = '';
+      qInput.focus();
+    }
+    persistFilters();
+    apply();
+  });
+  for (const el of [rateSel, totalSel, hoursSel, eligibleBox]) {
     el?.addEventListener('change', () => {
       persistFilters();
       apply();
@@ -627,6 +659,19 @@ const description = `${live.length} currently posted paid research studies at Te
   sortSel?.addEventListener('change', () => {
     persistFilters();
     resort();
+    apply();
+  });
+  for (const button of document.querySelectorAll<HTMLElement>('[data-tab]')) {
+    button.addEventListener('click', () => {
+      setStudyTab(button.dataset['tab'] ?? 'all');
+      persistFilters();
+      apply();
+    });
+  }
+  dismissedToggle?.addEventListener('click', () => {
+    showDismissed = !showDismissed;
+    dismissedToggle.setAttribute('aria-pressed', showDismissed ? 'true' : 'false');
+    persistFilters();
     apply();
   });
   tagBox?.addEventListener('click', (event) => {
@@ -668,6 +713,19 @@ const description = `${live.length} currently posted paid research studies at Te
   }
 
   restoreFilters(personalState.filters);
+  const requestedTab = new URL(window.location.href).searchParams.get('tab');
+  if (requestedTab !== null && TAB_IDS.has(requestedTab)) setStudyTab(requestedTab);
+  else if (personalState.filters.mode === 'online' || personalState.filters.mode === 'inperson') {
+    setStudyTab(personalState.filters.mode);
+  } else {
+    setStudyTab(studyTab);
+  }
+  const clearSearch = document.querySelector<HTMLButtonElement>('[data-clear-search]');
+  const syncClear = (): void => {
+    clearSearch?.toggleAttribute('hidden', (qInput?.value ?? '').length === 0);
+  };
+  qInput?.addEventListener('input', syncClear);
+  syncClear();
   paintPersonalState(personalState);
   subscribeStudiesState((next) => {
     personalState = next;

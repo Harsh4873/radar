@@ -3,6 +3,7 @@ import { mapEvent } from '@/campus/sources/tamu-calendar.ts';
 import { normalizeItem } from '@/core/normalize.ts';
 import {
   CAMPUS_TABS,
+  STUDIES_TABS,
   byCampusDate,
   campusDayKey,
   tabsFor,
@@ -28,6 +29,12 @@ describe('campus agenda view', () => {
     expect(CAMPUS_TABS.map((tab) => tab.id)).toEqual(expect.arrayContaining([
       'today', 'this-week', 'intramurals', 'online', 'interested', 'going',
     ]));
+  });
+
+  it('exposes studies listing tabs that match the campus filter chrome', () => {
+    expect(STUDIES_TABS.map((tab) => tab.id)).toEqual([
+      'all', 'ranked', 'online', 'inperson', 'saved',
+    ]);
   });
 
   it('sorts campus events strictly by start time before relevance', () => {

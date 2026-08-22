@@ -58,7 +58,7 @@ const groups = [...groupsByKey.values()];
         </header>
         <ul class="feed">
           {group.items.map((item) => (
-            <ItemCard item={item} now={now} inForYou={forYouIds.has(item.id)} agenda />
+            <ItemCard item={item} now={now} inForYou={forYouIds.has(item.id)} />
           ))}
         </ul>
       </section>

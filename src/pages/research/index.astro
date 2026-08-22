@@ -6,12 +6,12 @@
  * that you should not have to go looking: the page tells you how much was
  * scanned, how much matched, and how much is actually worth reading.
  *
- * Every item is rendered once. Tabs filter client-side, which is why nine tabs
- * do not mean nine pages.
+ * Every item is rendered once. Tabs and search filter client-side, which is
+ * why nine tabs do not mean nine pages.
  */
 import Base from '@/layouts/Base.astro';
+import DiscoveryControls from '@/components/DiscoveryControls.astro';
 import ItemCard from '@/components/ItemCard.astro';
-import TabBar from '@/components/TabBar.astro';
 import { fetchedAt, now, research } from '@/lib/data.ts';
 import { RESEARCH_TABS, byBand, forYou, recentlyAdded, totalReadingMinutes, url } from '@/lib/view.ts';
 
@@ -22,7 +22,6 @@ const core = byBand(items, 'core');
 const adjacent = byBand(items, 'adjacent');
 const methods = byBand(items, 'methods');
 const top = forYou(items);
-// One source of truth for the For You cut, shared by the lede and the tab.
 const forYouIds = new Set(top.map((item) => item.id));
 const fresh = recentlyAdded(items, now, 7);
 
@@ -48,6 +47,9 @@ const preprintChanges = research.diff.changes.filter(
         arXiv. {items.length} matched; {top.length} are probably worth reading.
         About {totalReadingMinutes(top)} minutes if you read them all.
       </p>
+      <div class="hero-actions">
+        <a class="action action-on-dark" href={url(base, 'profile/#research')}>Open your profile</a>
+      </div>
     </div>
     <ul class="home-metrics" aria-label="Research summary">
       <li><strong>{core.length}</strong><span>highly relevant</span></li>
@@ -77,23 +79,29 @@ const preprintChanges = research.diff.changes.filter(
     )
   }
 
-  <TabBar tabs={RESEARCH_TABS} />
+  <section class="campus-discovery" aria-labelledby="papers-heading">
+    <DiscoveryControls
+      searchId="paper-search"
+      searchLabel="Search papers"
+      searchPlaceholder="Search a title, journal, author, or method"
+      heading="Papers"
+      headingId="papers-heading"
+      shown={items.length}
+      total={items.length}
+      noun="paper"
+      tabs={RESEARCH_TABS}
+      activeTab="for-you"
+    />
 
-  <p class="note">
-    Showing <span data-count-for="visible">{items.length}</span> of {items.length} papers.
-    <button class="action" type="button" data-show-dismissed aria-pressed="false">
-      Show dismissed
-    </button>
-  </p>
+    <ul class="feed card-list" data-feed data-default-tab="for-you">
+      {items.map((item) => <ItemCard item={item} now={now} inForYou={forYouIds.has(item.id)} />)}
+    </ul>
 
-  <ul class="feed" data-feed data-default-tab="for-you">
-    {items.map((item) => <ItemCard item={item} now={now} inForYou={forYouIds.has(item.id)} />)}
-  </ul>
-
-  <p class="empty" data-empty-state hidden>
-    Nothing in this tab. Try another, or <a href={url(base, 'research/topics/')}>review the published scope</a>
-    that decides what Radar looks for.
-  </p>
+    <p class="empty empty-search" data-empty-state hidden>
+      Nothing in this view. Try another filter, or <a href={url(base, 'research/topics/')}>review the published scope</a>
+      that decides what Radar looks for.
+    </p>
+  </section>
 </Base>
 
 <script>

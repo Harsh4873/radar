@@ -130,7 +130,9 @@ export function initCampusProfile(): void {
       following: state.followedOrganizers.length,
     };
     for (const output of document.querySelectorAll<HTMLElement>('[data-profile-count]')) {
-      output.textContent = String(counts[output.dataset['profileCount'] ?? ''] ?? 0);
+      const key = output.dataset['profileCount'];
+      if (key === undefined || key === '' || !(key in counts)) continue;
+      output.textContent = String(counts[key] ?? 0);
     }
   };
 

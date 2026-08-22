@@ -2,7 +2,7 @@
 /** /radar/campus - chronological campus discovery and personal event planning. */
 import Base from '@/layouts/Base.astro';
 import CampusAgenda from '@/components/CampusAgenda.astro';
-import TabBar from '@/components/TabBar.astro';
+import DiscoveryControls from '@/components/DiscoveryControls.astro';
 import { campus, fetchedAt, now } from '@/lib/data.ts';
 import { calendarDaysUntil } from '@/core/text.ts';
 import { isIntramuralListing } from '@/campus/classify.ts';
@@ -27,18 +27,8 @@ const thisWeek = items.filter((item) => {
 });
 const intramurals = items.filter((item) =>
   isIntramuralListing(item.title, item.summary, item.campus?.organizer ?? null, item.tags));
-const confirmedFood = items.filter((item) => item.campus?.food.confidence === 'confirmed');
-const providedFood = items.filter((item) => item.campus?.food.confidence === 'provided');
 const cancelled = items.filter((item) => item.campus?.isCancelled === true);
 const nextEvent = items.find((item) => item.campus?.isCancelled !== true) ?? null;
-
-const changes = campus.diff.changes
-  .filter((change) => change.kind === 'cancelled' || change.kind === 'location' || change.kind === 'time')
-  .slice(0, 6)
-  .map((change) => ({
-    ...change,
-    title: campus.items.find((item) => item.id === change.itemId)?.title ?? 'Event update',
-  }));
 ---
 
 <Base
@@ -59,7 +49,7 @@ const changes = campus.diff.changes
       </p>
       <div class="hero-actions">
         <a class="action action-primary" href="#events">Browse the agenda</a>
-        <a class="action action-on-dark" href={url(base, 'campus/profile/')}>Set up your profile</a>
+        <a class="action action-on-dark" href={url(base, 'profile/')}>Set up your profile</a>
       </div>
     </div>
 
@@ -87,106 +77,21 @@ const changes = campus.diff.changes
     <li><strong>{fresh.length}</strong><span>added this week</span></li>
   </ul>
 
-  <div class="campus-layout">
-    <aside class="campus-sidebar" aria-label="Campus Radar overview">
-      <section class="panel sidebar-card">
-        <p class="eyebrow">Your Radar</p>
-        <h2>Plan once. Keep it together.</h2>
-        <p>Mark events as Interested or Going, follow clubs, and choose the activities you care about.</p>
-        <a class="action action-primary" href={url(base, 'campus/profile/')}>Open your profile</a>
-      </section>
-
-      {
-        changes.length > 0 && (
-          <details class="panel sidebar-details">
-            <summary>{changes.length} recent event changes</summary>
-            <ul>
-              {changes.map((change) => (
-                <li>
-                  <strong>{change.title}</strong>
-                  <span>{change.field}: {change.before ?? '—'} → {change.after ?? '—'}</span>
-                </li>
-              ))}
-            </ul>
-          </details>
-        )
-      }
-
-      <details class="panel sidebar-details">
-        <summary>How food labels work</summary>
-        <div class="sidebar-detail-body">
-          <ul class="badges">
-            <li class="food food-confirmed">Free food confirmed</li>
-            <li class="food food-provided">Food provided</li>
-            <li class="food food-mentioned">Food mentioned</li>
-          </ul>
-          <p>
-            {confirmedFood.length} confirmed · {providedFood.length} provided. “Mentioned” never means free.
-          </p>
-        </div>
-      </details>
-
-      <details class="panel sidebar-details">
-        <summary>Intramural coverage</summary>
-        <div class="sidebar-detail-body">
-          <p>
-            Radar includes every Fall 2026 IMLeagues sport and division, with registration windows,
-            join deadlines, fees, and season dates. Individual team game schedules stay in the
-            signed-in IMLeagues system.
-          </p>
-          <a class="text-link" href="https://www.imleagues.com/tamu" rel="noopener external">
-            Open the full IMLeagues schedule →
-          </a>
-        </div>
-      </details>
-
-      <section class="panel sidebar-card coverage-card">
-        <p class="eyebrow">Coverage</p>
-        <h2>{campus.scanned} listings checked</h2>
-        <p>
-          Radar reads the official university calendar, dedicated Rec Sports feeds, the reviewed
-          IMLeagues Fall 2026 schedule, and Get Involved student-organization events. Participant
-          recruitment listings live under Studies.
-        </p>
-        <a class="text-link" href={url(base, 'campus/sources/')}>Review every source →</a>
-      </section>
-    </aside>
-
+  <div class="campus-layout campus-layout-feed">
     <section class="campus-discovery" id="events" aria-labelledby="agenda-heading">
-      <div class="discovery-controls">
-        <form class="event-search" role="search" data-search-form>
-          <label for="event-search">Search campus events</label>
-          <div class="search-field">
-            <input
-              id="event-search"
-              type="search"
-              name="q"
-              placeholder="Search an event, club, sport, location, or date"
-              autocomplete="off"
-              data-event-search
-            />
-            <button class="action search-clear" type="button" data-clear-search hidden>Clear</button>
-          </div>
-        </form>
-
-        <div class="filter-heading">
-          <div>
-            <p class="eyebrow">Filters</p>
-            <h2 id="agenda-heading">Upcoming events</h2>
-          </div>
-          <p>
-            <span data-count-for="visible">{items.length}</span> of {items.length} shown
-          </p>
-        </div>
-        <TabBar tabs={CAMPUS_TABS} active="all" />
-
-        <div class="filter-utility">
-          <p data-search-summary role="status" aria-live="polite">{items.length} events shown.</p>
-          <button class="text-button" type="button" data-show-dismissed aria-pressed="false">
-            Show dismissed{cancelled.length > 0 && <> · {cancelled.length} cancelled</>}
-          </button>
-        </div>
-      </div>
+      <DiscoveryControls
+        searchId="event-search"
+        searchLabel="Search campus events"
+        searchPlaceholder="Search an event, club, sport, location, or date"
+        heading="Upcoming events"
+        headingId="agenda-heading"
+        shown={items.length}
+        total={items.length}
+        noun="event"
+        tabs={CAMPUS_TABS}
+        activeTab="all"
+        dismissedLabel={cancelled.length > 0 ? `Show dismissed · ${cancelled.length} cancelled` : 'Show dismissed'}
+      />
 
       <CampusAgenda items={items} now={now} defaultTab="all" forYouIds={forYouIds} />
 

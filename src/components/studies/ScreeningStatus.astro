@@ -1,0 +1,29 @@
+---
+/**
+ * Compact link from Studies pages to the screening form on the Profile tab.
+ * The form itself is not duplicated here; eligibility still reads the same
+ * local-first store.
+ */
+import { url } from '@/lib/view.ts';
+
+const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
+---
+
+<p class="screening-status">
+  Screening profile: <strong data-screening-summary>not set — nothing is filtered out</strong>
+  · <a class="text-link" href={url(base, 'profile/#studies')}>Edit on Profile</a>
+</p>
+
+<script>
+  import { PROFILE_FIELD_COUNT, answeredCount, subscribe } from '@/studies/profile.ts';
+
+  subscribe((profile) => {
+    const n = answeredCount(profile);
+    const text = n === 0
+      ? 'not set — nothing is filtered out'
+      : `${n} of ${PROFILE_FIELD_COUNT} answered`;
+    for (const el of document.querySelectorAll('[data-screening-summary]')) {
+      el.textContent = text;
+    }
+  });
+</script>

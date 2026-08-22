@@ -1,36 +1,27 @@
 ---
 /**
- * ProfilePanel - the nine-question self-report form that drives eligibility
- * filtering.
+ * Nine-question self-report form that drives Studies eligibility filtering.
+ *
+ * Lives on the unified Profile tab. The listing and study pages read the same
+ * local-first store; they do not re-ask these questions.
  *
  * DESIGN RULES THIS COMPONENT ENFORCES
  *
  * 1. Every question has an explicit "Prefer not to say", and it is the
- *    default. Unknown is a real answer here, not an empty state: the
- *    eligibility checker turns an unanswered criterion into an 'unknown'
- *    verdict rather than an 'ineligible' one, so a blank profile shows the
- *    user everything and a partly-filled one only ever narrows things down
- *    for reasons the user actually stated. A form that quietly treated
- *    "unanswered" as "no" would hide studies people qualify for.
+ *    default. Unknown is a real answer: the eligibility checker turns an
+ *    unanswered criterion into an 'unknown' verdict rather than 'ineligible'.
  *
- * 2. The panel renders its unanswered state on the server and fills in from
- *    localStorage on the client. Nothing about the user is ever baked into
- *    the static HTML, because the static HTML is the same file for everyone.
+ * 2. The panel renders unanswered on the server and fills from localStorage
+ *    on the client. Nothing about the user is baked into the static HTML.
  *
- * 3. The privacy note is not fine print. It is in the panel body, above the
- *    questions, in the same size as everything else, because we are asking
- *    for pregnancy and seizure history and the user deserves to know where
- *    that goes before they answer, not after.
+ * 3. The privacy note is not fine print. It sits above the questions, in the
+ *    same size as everything else.
  */
-
 interface Props {
-  /** Start expanded. The study detail page opens it; the index does not. */
-  open?: boolean;
-  /** Heading level, so the panel can sit under an h1 or an h2. */
   class?: string;
 }
 
-const { open = false, class: className = '' } = Astro.props;
+const { class: className = '' } = Astro.props;
 
 type Choice = { value: string; label: string };
 
@@ -47,11 +38,6 @@ interface Question {
   choices: Choice[];
 }
 
-/**
- * Wording note: each question is phrased the way the exclusion criteria are
- * phrased in the listings, so "Yes" always means the same thing in both
- * places and nobody has to mentally invert a double negative.
- */
 const QUESTIONS: Question[] = [
   {
     field: 'rightHanded',
@@ -115,50 +101,34 @@ const QUESTIONS: Question[] = [
 ];
 ---
 
-<details class={`profile-panel rounded-lg border border-gray-300 bg-white ${className}`} open={open}>
-  <summary
-    class="cursor-pointer list-none rounded-lg px-4 py-3 font-semibold select-none hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
-  >
-    <span class="mr-2 inline-block transition-transform" data-profile-caret aria-hidden="true">▸</span>
-    Your details
-    <span class="ml-2 text-sm font-normal text-gray-600" data-profile-count>
-      (not set — nothing is filtered out)
-    </span>
-  </summary>
-
-  <div class="border-t border-gray-200 px-4 py-4">
-    <!-- Privacy statement. Deliberately first, deliberately not small print. -->
-    <div class="mb-5 rounded-md border border-brand-500/40 bg-brand-50 p-3 text-sm">
-      <p class="font-semibold">Private, local-first details.</p>
-      <p class="mt-1">
-        Your answers are saved in this browser. If you sign in with one of the two provisioned
-        Google accounts, they also sync to the same private Firebase owner vault so you do not
-        have to re-enter them on another device. There is no analytics on this page. Pressing
-        <em>Clear my details</em> clears the profile locally and from the synced record.
-      </p>
-      <p class="mt-2">
-        What you enter is only used to sort listings into "looks like a fit", "probably not", and
-        "cannot tell". That is a
-        <strong>reading of the wording on each listing, not a medical or official determination</strong>.
-        Only the study team can say whether you qualify, and they will screen you themselves.
-      </p>
+<section class:list={['profile-section', 'profile-panel', className]} aria-labelledby="studies-screening-heading">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Studies</p>
+      <h2 id="studies-screening-heading">Screening profile</h2>
     </div>
+    <p data-profile-count>Not set — nothing is filtered out.</p>
+  </div>
 
-    <noscript>
-      <p class="mb-4 rounded-md border border-amber-400 bg-amber-50 p-3 text-sm">
-        This form needs JavaScript. Without it every listing is shown unfiltered, which is the
-        safe default.
-      </p>
-    </noscript>
+  <div class="screening-privacy">
+    <p><strong>Private, local-first details.</strong> Answers stay in this browser. If you sign in with a provisioned Google account, they also sync to the private owner vault. There is no analytics. <em>Clear my details</em> wipes the local copy and the synced record.</p>
+    <p>
+      What you enter only sorts listings into “looks like a fit”, “probably not”, and “cannot tell”. That is a
+      <strong>reading of the wording on each listing, not a medical or official determination</strong>.
+      Only the study team can say whether you qualify.
+    </p>
+  </div>
 
-    <form data-profile-form class="grid gap-5 sm:grid-cols-2">
-      <!-- Age: free entry, with an explicit way to un-answer it. -->
-      <fieldset class="sm:col-span-2">
-        <legend class="text-sm font-semibold">How old are you?</legend>
-        <p class="mt-0.5 text-sm text-gray-600">
-          Nearly every listing states an age range, so this is the single most useful answer.
-        </p>
-        <div class="mt-2 flex flex-wrap items-center gap-2">
+  <noscript>
+    <p class="note">This form needs JavaScript. Without it every listing is shown unfiltered, which is the safe default.</p>
+  </noscript>
+
+  <form data-profile-form class="screening-form">
+    <fieldset class="screening-age">
+      <legend>How old are you?</legend>
+      <p class="help">Nearly every listing states an age range, so this is the single most useful answer.</p>
+      <div class="follow-form">
+        <div>
           <input
             type="number"
             inputmode="numeric"
@@ -168,55 +138,41 @@ const QUESTIONS: Question[] = [
             data-profile-field="age"
             aria-label="Your age in years"
             placeholder="Prefer not to say"
-            class="w-44 rounded-md border border-gray-300 px-2 py-1.5 text-sm focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-brand-500"
           />
-          <button
-            type="button"
-            data-profile-clear-age
-            class="rounded-md border border-gray-300 px-2 py-1.5 text-sm hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-brand-500"
-          >
-            Prefer not to say
-          </button>
+          <button type="button" class="action" data-profile-clear-age>Prefer not to say</button>
         </div>
-      </fieldset>
+      </div>
+    </fieldset>
 
-      {
-        QUESTIONS.map((q) => (
-          <fieldset>
-            <legend class="text-sm font-semibold">{q.legend}</legend>
-            {q.help && <p class="mt-0.5 text-sm text-gray-600">{q.help}</p>}
-            <div class="mt-2 flex flex-col gap-1">
-              {q.choices.map((c) => (
-                <label class="flex cursor-pointer items-center gap-2 text-sm">
-                  <input
-                    type="radio"
-                    name={`profile-${q.field}`}
-                    value={c.value}
-                    data-profile-field={q.field}
-                    checked={c.value === ''}
-                    class="h-4 w-4"
-                  />
-                  <span class={c.value === '' ? 'text-gray-600' : ''}>{c.label}</span>
-                </label>
-              ))}
-            </div>
-          </fieldset>
-        ))
-      }
-    </form>
+    {
+      QUESTIONS.map((q) => (
+        <fieldset>
+          <legend>{q.legend}</legend>
+          {q.help && <p class="help">{q.help}</p>}
+          <div>
+            {q.choices.map((c) => (
+              <label class="screening-choice">
+                <input
+                  type="radio"
+                  name={`profile-${q.field}`}
+                  value={c.value}
+                  data-profile-field={q.field}
+                  checked={c.value === ''}
+                />
+                <span>{c.label}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+      ))
+    }
 
-    <div class="mt-5 flex flex-wrap items-center gap-3 border-t border-gray-200 pt-4">
-      <button
-        type="button"
-        data-profile-clear
-        class="rounded-md border border-gray-400 px-3 py-1.5 text-sm font-medium hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
-      >
-        Clear my details
-      </button>
-      <span class="text-sm text-gray-600" data-profile-status role="status" aria-live="polite"></span>
+    <div class="screening-form-actions actions" style="border-top: 1px solid var(--border); padding-top: 0.85rem; margin-top: 0.25rem;">
+      <button type="button" class="action" data-profile-clear>Clear my details</button>
+      <span data-profile-status role="status" aria-live="polite"></span>
     </div>
-  </div>
-</details>
+  </form>
+</section>
 
 <script>
   import {
@@ -256,18 +212,20 @@ const QUESTIONS: Question[] = [
     return raw === 'male' || raw === 'female' || raw === 'other' ? raw : null;
   }
 
+  function countLabel(n: number): string {
+    return n === 0
+      ? 'Not set — nothing is filtered out.'
+      : `${n} of ${PROFILE_FIELD_COUNT} answered`;
+  }
+
   let panelIndex = 0;
 
   for (const panel of document.querySelectorAll<HTMLElement>('.profile-panel')) {
     const form = panel.querySelector<HTMLFormElement>('[data-profile-form]');
     const status = panel.querySelector<HTMLElement>('[data-profile-status]');
     const count = panel.querySelector<HTMLElement>('[data-profile-count]');
-    const caret = panel.querySelector<HTMLElement>('[data-profile-caret]');
     if (!form) continue;
 
-    // Radio `name` is a document-wide grouping key, so two panels on one page
-    // would share groups and de-select each other. Scope the names per
-    // instance at runtime rather than baking an index into the static HTML.
     const scope = panelIndex++;
     if (scope > 0) {
       for (const input of form.querySelectorAll<HTMLInputElement>('input[type="radio"][name]')) {
@@ -275,8 +233,6 @@ const QUESTIONS: Question[] = [
       }
     }
 
-    // Guards against the write-then-read-then-rewrite loop: `subscribe` fires
-    // on every change, including ones this panel just made.
     let applying = false;
 
     const render = (profile: UserProfile): void => {
@@ -305,11 +261,12 @@ const QUESTIONS: Question[] = [
       }
 
       const n = answeredCount(profile);
-      if (count) {
-        count.textContent =
-          n === 0
-            ? '(not set — nothing is filtered out)'
-            : `(${n} of ${PROFILE_FIELD_COUNT} answered)`;
+      if (count) count.textContent = countLabel(n);
+      for (const output of document.querySelectorAll<HTMLElement>('[data-profile-count="screening"]')) {
+        output.textContent = String(n);
+      }
+      for (const summary of document.querySelectorAll<HTMLElement>('[data-screening-summary]')) {
+        summary.textContent = countLabel(n);
       }
       if (status) {
         status.textContent = hasStorage()
@@ -329,8 +286,6 @@ const QUESTIONS: Question[] = [
 
       if (field === 'age') {
         const raw = el.value.trim();
-        // An out-of-range or nonsense entry is sanitized to null by
-        // setProfile rather than silently corrected to a boundary value.
         setProfile({ age: raw === '' ? null : Number(raw) });
         return;
       }
@@ -353,14 +308,6 @@ const QUESTIONS: Question[] = [
       clearProfile();
       if (status) status.textContent = 'Cleared. Nothing about you is stored on this device.';
     });
-
-    if (caret) {
-      const syncCaret = (): void => {
-        caret.textContent = (panel as HTMLDetailsElement).open ? '▾' : '▸';
-      };
-      panel.addEventListener('toggle', syncCaret);
-      syncCaret();
-    }
 
     subscribe(render);
   }

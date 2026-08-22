@@ -19,7 +19,7 @@ import { checkEligibility } from '@/studies/parse-eligibility.ts';
 import { rateBucket, type RateBucket } from '@/studies/effective-rate.ts';
 import { EMPTY_PROFILE } from '@/studies/profile.ts';
 import { scrubEmails } from '@/studies/mailto.ts';
-import ProfilePanel from '@/components/studies/ProfilePanel.astro';
+import ScreeningStatus from '@/components/studies/ScreeningStatus.astro';
 import ContactButton from '@/components/studies/ContactButton.astro';
 import snapshotJson from '@/data/studies.json';
 import taxonomiesJson from '@/data/studies-taxonomies.json';
@@ -495,7 +495,7 @@ const description = scrubEmails(study.summary).slice(0, 180);
         </div>
 
         <div class="mt-4">
-          <ProfilePanel />
+          <ScreeningStatus />
         </div>
       </section>
 

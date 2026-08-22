@@ -179,7 +179,9 @@ function applyView(
 
 
   for (const status of document.querySelectorAll<HTMLElement>('[data-search-summary]')) {
-    const noun = visible.length === 1 ? 'event' : 'events';
+    const singular = status.dataset['searchNoun'] ?? 'event';
+    const plural = `${singular}s`;
+    const noun = visible.length === 1 ? singular : plural;
     status.textContent = query.trim().length > 0
       ? `${visible.length} ${noun} match “${query.trim()}”.`
       : `${visible.length} ${noun} shown.`;

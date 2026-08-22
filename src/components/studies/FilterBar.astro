@@ -1,18 +1,10 @@
 ---
 /**
- * Filter controls.
- *
- * Progressive enhancement: this is a plain `<form>` of native controls with no
- * framework. Without JavaScript nothing is hidden - every study is already in
- * the document - so the worst case is that the controls do nothing, which the
- * `<noscript>` note says out loud.
- *
- * Keyboard: everything here is a native input, select, button or checkbox, so
- * tab order and activation come for free. The tag chips are real `<button>`s
- * with `aria-pressed`, not styled divs.
+ * Extra study filters that sit under the shared search + tabs chrome.
+ * Search, All/Ranked/Online/Saved tabs, and Show dismissed live in
+ * DiscoveryControls; this form is the pay/time/type row unique to Studies.
  */
 interface Props {
-  /** Tag slug -> number of non-expired studies carrying it, most common first. */
   tagFacets: { slug: string; label: string; count: number }[];
 }
 
@@ -29,25 +21,12 @@ const HOUR_STEPS = [
 ];
 ---
 
-<form class="filters" id="filters" role="search" aria-label="Filter studies">
+<form class="filters" id="filters" aria-label="Study pay and time filters">
   <noscript>
     <p class="note">
       These filters need JavaScript. Every study is still listed below, ranked by hourly rate.
     </p>
   </noscript>
-
-  <label class="field">
-    <span class="field-label">Search</span>
-    <input
-      class="control"
-      type="search"
-      id="f-q"
-      name="q"
-      placeholder="sleep, MRI, survey, a lab name…"
-      autocomplete="off"
-      enterkeyhint="search"
-    />
-  </label>
 
   <div class="field-row field-row-3">
     <label class="field">
@@ -75,26 +54,15 @@ const HOUR_STEPS = [
     </label>
   </div>
 
-  <div class="field-row">
-    <label class="field">
-      <span class="field-label">Format</span>
-      <select class="control" id="f-mode" name="mode">
-        <option value="any">Online or in person</option>
-        <option value="online">Online only</option>
-        <option value="inperson">In person only</option>
-      </select>
-    </label>
-
-    <label class="field">
-      <span class="field-label">Sort by</span>
-      <select class="control" id="f-sort" name="sort">
-        <option value="rate">Best hourly rate</option>
-        <option value="total">Most total pay</option>
-        <option value="time">Shortest time</option>
-        <option value="new">Most recently posted</option>
-      </select>
-    </label>
-  </div>
+  <label class="field">
+    <span class="field-label">Sort by</span>
+    <select class="control" id="f-sort" name="sort">
+      <option value="rate">Best hourly rate</option>
+      <option value="total">Most total pay</option>
+      <option value="time">Shortest time</option>
+      <option value="new">Most recently posted</option>
+    </select>
+  </label>
 
   <fieldset class="field">
     <legend class="field-label">Study type &mdash; matches any selected</legend>
@@ -115,16 +83,8 @@ const HOUR_STEPS = [
     <label class="switch-text" for="f-eligible">
       Hide studies I am not eligible for
       <span class="switch-hint" id="f-eligible-hint">
-        Uses your private local-first screening profile; it syncs only after owner-vault sign-in.
+        Uses your private screening profile on the Profile tab; it syncs only after owner-vault sign-in.
       </span>
-    </label>
-  </div>
-
-  <div class="switch-row">
-    <input type="checkbox" id="f-dismissed" name="dismissed" />
-    <label class="switch-text" for="f-dismissed">
-      Show dismissed studies
-      <span class="switch-hint">Dismissed listings stay recoverable and sync with your private vault.</span>
     </label>
   </div>
 

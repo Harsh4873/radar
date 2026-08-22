@@ -129,4 +129,4 @@ scripts/                ingest · capture-fixtures
 
 ## Privacy
 
-Radar has no analytics. Saved, dismissed, tracked, author, company, feedback, visit, study-filter, and screening-profile state stays local-first; after a provisioned Google sign-in it mirrors to the same private owner vault as the other harsh.bet apps. It never enters public ingest or ranking. `/radar/research/watchlist/` can export or clear the private research state.
+Radar has no analytics. Saved, dismissed, tracked, author, company, feedback, visit, study-filter, and screening-profile state stays local-first; after a provisioned Google sign-in it mirrors to the same private owner vault as the other harsh.bet apps. It never enters public ingest or ranking. `/radar/profile/` holds campus interests, studies screening, and saved research.

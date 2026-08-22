@@ -1,205 +1,24 @@
 ---
-/**
- * /radar/research/watchlist - saved and tracked papers, plus author watching.
- *
- * Client-rendered from local-first private state. A provisioned Google session
- * mirrors that state to the shared owner vault. The page ships every
- * paper's metadata as an inert JSON island and the script picks out the ones
- * you saved.
- */
-import Base from '@/layouts/Base.astro';
-import { fetchedAt, research } from '@/lib/data.ts';
+/** /radar/research/watchlist - saved papers now live on the unified profile. */
 import { url } from '@/lib/view.ts';
 
-const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
-
-/** Minimal index. Full items would bloat the page for no gain. */
-const index = research.items.map((item) => ({
-  id: item.id,
-  title: item.title,
-  url: item.url,
-  journal: item.research?.journal ?? null,
-  date: item.research?.publishedDate ?? null,
-  relevance: item.relevance,
-  href: url(base, `research/paper/${item.id}/`),
-}));
+const dest = url(import.meta.env.BASE_URL.replace(/\/*$/, '/'), 'profile/#research');
 ---
 
-<Base
-  title="Watchlist"
-  description="Private saved papers, tracked work, authors, and companies, synced when signed in."
-  engine="research"
-  fetchedAt={fetchedAt}
-  current="watchlist"
->
-  <section class="standfirst">
-    <h1>Watchlist</h1>
-    <p class="lede">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${dest}`} />
+    <link rel="canonical" href={dest} />
+    <title>Moved — Radar profile</title>
+  </head>
+  <body>
+    <p>
+      Saved papers, tracked work, and author watching now live on
+      <a href={dest}>your Radar profile</a>.
       A fresh signed-out browser starts with an empty list. Radar keeps an offline browser copy;
       when either provisioned Google account is signed in, saved and tracked state follows through
-      the same private owner vault used by the other harsh.bet apps.
+      the private owner vault. It does not change or target the next ingest.
     </p>
-  </section>
-
-  <section class="section">
-    <h2>Saved</h2>
-    <ul class="feed" id="saved-list"></ul>
-    <p class="empty" id="saved-empty">
-      Nothing saved yet. Hit <strong>Save</strong> on any card in
-      <a href={url(base, 'research/')}>ResearchRadar</a>.
-    </p>
-  </section>
-
-  <section class="section">
-    <h2>Tracked</h2>
-    <p class="note">
-      Tracking keeps a private shortlist of papers from the current published snapshot. It does not
-      change or target the next ingest.
-    </p>
-    <ul class="feed" id="tracked-list"></ul>
-    <p class="empty" id="tracked-empty">Nothing tracked yet.</p>
-  </section>
-
-  <section class="section">
-    <h2>Authors and labs</h2>
-    <div class="panel">
-      <form id="watch-form" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-        <label class="sr-only" for="watch-input">Author or lab name</label>
-        <input
-          class="action"
-          id="watch-input"
-          name="name"
-          type="text"
-          placeholder="e.g. Sebastien Gagneux"
-          style="flex:1; min-width:14rem;"
-        />
-        <button class="action action-primary" type="submit">Watch</button>
-      </form>
-      <ul class="badges" id="watch-list" style="margin-top:0.75rem;"></ul>
-      <p class="note" style="margin-top:0.5rem;">
-        Watched names stay in this browser as a local reference list. They do not change the
-        published ranking or server-side ingest.
-      </p>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Your data</h2>
-    <div class="panel">
-      <div class="actions" style="border-top:0; padding-top:0; margin-top:0;">
-        <button class="action" type="button" id="export">Export as JSON</button>
-        <button class="action" type="button" id="reset">Clear everything</button>
-      </div>
-    </div>
-  </section>
-
-  <script is:inline type="application/json" id="paper-index" set:html={JSON.stringify(index)} />
-</Base>
-
-<script>
-  import { clearAll, exportState, loadState, saveState, watchAuthor } from '@/client/store.ts';
-
-  interface IndexEntry {
-    id: string;
-    title: string;
-    url: string;
-    journal: string | null;
-    date: string | null;
-    relevance: number;
-    href: string;
-  }
-
-  const raw = document.querySelector<HTMLScriptElement>('#paper-index')?.textContent ?? '[]';
-  const index: IndexEntry[] = JSON.parse(raw) as IndexEntry[];
-  const byId = new Map(index.map((entry) => [entry.id, entry]));
-
-  function render(): void {
-    const state = loadState();
-
-    for (const [listId, emptyId, ids] of [
-      ['saved-list', 'saved-empty', state.saved],
-      ['tracked-list', 'tracked-empty', state.tracked],
-    ] as const) {
-      const list = document.querySelector<HTMLElement>(`#${listId}`);
-      const empty = document.querySelector<HTMLElement>(`#${emptyId}`);
-      if (list === null || empty === null) continue;
-
-      // Ids can outlive a paper: it may have dropped out of the current
-      // snapshot. Filtering rather than rendering a broken row keeps the list
-      // honest without discarding the saved id, which may come back.
-      const entries = ids.map((id) => byId.get(id)).filter((entry): entry is IndexEntry => entry !== undefined);
-
-      list.replaceChildren(
-        ...entries.map((entry) => {
-          const li = document.createElement('li');
-          li.className = 'card';
-          const title = document.createElement('h3');
-          title.className = 'card-title';
-          const link = document.createElement('a');
-          link.href = entry.href;
-          link.textContent = entry.title;
-          title.append(link);
-          const meta = document.createElement('p');
-          meta.className = 'card-meta';
-          meta.textContent = [entry.journal, entry.date?.slice(0, 10), `${entry.relevance}/100`]
-            .filter(Boolean)
-            .join(' · ');
-          li.append(title, meta);
-          return li;
-        }),
-      );
-
-      list.hidden = entries.length === 0;
-      empty.hidden = entries.length > 0;
-      if (entries.length === 0 && ids.length > 0) {
-        empty.textContent = `${ids.length} item(s) saved, but none are in the current build.`;
-      }
-    }
-
-    const watchList = document.querySelector<HTMLElement>('#watch-list');
-    if (watchList !== null) {
-      watchList.replaceChildren(
-        ...state.authors.map((name) => {
-          const li = document.createElement('li');
-          li.className = 'badge';
-          const button = document.createElement('button');
-          button.className = 'action';
-          button.type = 'button';
-          button.textContent = `${name} ✕`;
-          button.addEventListener('click', () => {
-            saveState(watchAuthor(loadState(), name));
-            render();
-          });
-          li.append(button);
-          return li;
-        }),
-      );
-    }
-  }
-
-  document.querySelector<HTMLFormElement>('#watch-form')?.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const input = document.querySelector<HTMLInputElement>('#watch-input');
-    if (input === null || input.value.trim().length === 0) return;
-    saveState(watchAuthor(loadState(), input.value));
-    input.value = '';
-    render();
-  });
-
-  document.querySelector('#export')?.addEventListener('click', () => {
-    const blob = new Blob([exportState(loadState())], { type: 'application/json' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = 'radar-state.json';
-    link.click();
-    URL.revokeObjectURL(link.href);
-  });
-
-  document.querySelector('#reset')?.addEventListener('click', () => {
-    if (!window.confirm('Clear every saved, dismissed, and tracked item? This cannot be undone.')) return;
-    clearAll();
-    render();
-  });
-
-  render();
-</script>
+  </body>
+</html>

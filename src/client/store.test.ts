@@ -67,12 +67,16 @@ describe('fresh visitor state', () => {
 
   it('describes private sync truthfully and never feeds it into public ingest', () => {
     const watchlist = readFileSync(new URL('../pages/research/watchlist.astro', import.meta.url), 'utf8');
+    const profile = readFileSync(new URL('../pages/profile/index.astro', import.meta.url), 'utf8');
     const topics = readFileSync(new URL('../pages/research/topics.astro', import.meta.url), 'utf8');
     const view = readFileSync(new URL('../lib/view.ts', import.meta.url), 'utf8');
 
     expect(watchlist).toContain('A fresh signed-out browser starts with an empty list.');
     expect(watchlist).toContain('private owner vault');
     expect(watchlist).toMatch(/It does not\s+change or target the next ingest\./);
+    expect(profile).toContain('A fresh signed-out browser starts with an empty list.');
+    expect(profile).toContain('private owner vault');
+    expect(profile).toMatch(/It does not\s+change or target the next ingest\./);
     expect(watchlist).not.toContain('Radar re-checks these every ingest');
     expect(watchlist).not.toMatch(/add <strong>\+14<\/strong>.*next ingest/);
     expect(topics).not.toMatch(/papers you have saved|author on your watchlist/);
