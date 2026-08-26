@@ -1,5 +1,153 @@
 [
   {
+    "weekOf": "2026-08-24",
+    "vertical": "campus",
+    "scanned": 2465,
+    "candidates": 478,
+    "recommended": [
+      "campus-9bea78a35026",
+      "campus-708d30a33792",
+      "campus-7090baa33795",
+      "campus-7090bea33795",
+      "campus-70a53ca337a7",
+      "campus-77e659a33b5d"
+    ],
+    "headlines": [
+      "company recruiting · graduate opportunities · today",
+      "company recruiting · today · workshop / training",
+      "company recruiting · today · workshop / training",
+      "company recruiting · today · workshop / training",
+      "company recruiting · today · workshop / training",
+      "computer science · workshop / training · in the next 3 weeks"
+    ],
+    "changes": [
+      {
+        "itemId": "campus-e4aae09412e5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-05T05:00:00.000Z",
+        "after": "2026-09-05T04:00:00.000Z"
+      },
+      {
+        "itemId": "campus-e4aae39412e5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-12T05:00:00.000Z",
+        "after": "2026-09-12T04:00:00.000Z"
+      },
+      {
+        "itemId": "campus-3948dca214e8",
+        "kind": "title",
+        "field": "Title",
+        "before": "HET Seminar",
+        "after": "Weil-Petersson Volumes and Various Supersymmetric and q-Deformed Extensions from ODEs"
+      },
+      {
+        "itemId": "campus-6b882293ce52",
+        "kind": "title",
+        "field": "Title",
+        "before": "MSEN 681 SEMINAR SERIES - Understanding non-classical crystallization pathways by using advanced in situ microscopy and X-ray scattering techniques",
+        "after": "MSEN 681 SEMINAR SERIES: Understanding non-classical crystallization pathways by using advanced in situ microscopy and X-ray scattering techniques"
+      },
+      {
+        "itemId": "campus-e4aae29412e5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-19T05:00:00.000Z",
+        "after": "2026-09-19T04:00:00.000Z"
+      },
+      {
+        "itemId": "campus-f2893e8afd0f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-17T05:00:00.000Z",
+        "after": "2026-10-17T04:00:00.000Z"
+      },
+      {
+        "itemId": "campus-19cddee766b6",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-09T22:30:00.000Z",
+        "after": "2026-09-16T22:30:00.000Z"
+      },
+      {
+        "itemId": "campus-ab499b4a0920",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-22T05:00:00.000Z",
+        "after": "2026-08-26T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-f2893f8afd0f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-14T06:00:00.000Z",
+        "after": "2026-11-14T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-f289408afd0f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-27T06:00:00.000Z",
+        "after": "2026-11-28T05:00:00.000Z"
+      }
+    ],
+    "estimatedMinutes": 0
+  },
+  {
+    "weekOf": "2026-08-24",
+    "vertical": "research",
+    "scanned": 1069,
+    "candidates": 140,
+    "recommended": [
+      "research-09796749a40e",
+      "research-6f9bab9f70aa",
+      "research-0714a5a5bf3b",
+      "research-735d7e9a0bf6",
+      "research-b81af9a35296",
+      "research-43625b6ca4df"
+    ],
+    "headlines": [
+      "positive selection · codon-model analysis · PAML / codeml",
+      "positive selection · codon-model analysis · comparative genomics",
+      "M. tuberculosis · positive selection · host-pathogen interaction",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "positive selection · codon-model analysis · phylogenetics",
+      "codon-model analysis · phylogenetics · MCMC / Bayesian inference"
+    ],
+    "changes": [
+      {
+        "itemId": "research-488cdf206a53",
+        "kind": "title",
+        "field": "Title",
+        "before": "Gut microbiota-driven immunomodulation in tuberculosis: targeting dysbiosis to overcome drug resistance",
+        "after": "Gut microbiota-driven immunomodulation in tuberculosis: targeting dysbiosis to overcome drug resistance."
+      },
+      {
+        "itemId": "research-a4ff973e31fb",
+        "kind": "title",
+        "field": "Title",
+        "before": "Development of the First Cytochrome Oxidase I Barcode and Evidence for a Single Haplotype Associated with the Recent United States Invasion of the Pasture Mealybug Heliococcus summervillei (Pseudococcidae, Hemiptera)",
+        "after": "Development of the First Cytochrome Oxidase I Barcode and Evidence for a Single Haplotype Associated with the Recent United States Invasion of the Pasture Mealybug Heliococcus summervillei (Hemiptera: Pseudococcidae)"
+      },
+      {
+        "itemId": "research-a4ff973e31fb",
+        "kind": "preprint-revised",
+        "field": "Preprint version",
+        "before": "v1",
+        "after": "v2"
+      },
+      {
+        "itemId": "research-f7146e5ebac2",
+        "kind": "title",
+        "field": "Title",
+        "before": "Long-read metagenomics reveals a high burden of antimicrobial resistance, mobile genetic elements, and bacterial diversity in hospital and community wastewater from Conakry, Guinea",
+        "after": "Long-read metagenomics reveals a high burden of antimicrobial resistance, mobile genetic elements and bacterial diversity in hospital and community wastewater from Conakry, Guinea"
+      }
+    ],
+    "estimatedMinutes": 97
+  },
+  {
     "weekOf": "2026-08-17",
     "vertical": "campus",
     "scanned": 1989,

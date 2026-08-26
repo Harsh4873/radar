@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-18T23:27:23.078Z",
+  "fetchedAt": "2026-08-26T17:30:45.126Z",
   "totalFromHeader": 89,
   "studies": [
     {
@@ -1785,7 +1785,7 @@
       },
       "effectiveHourly": 20,
       "isExpired": false,
-      "staleness": "aging",
+      "staleness": "stale",
       "tags": [
         "in-person",
         "survey",
@@ -3439,7 +3439,7 @@
       },
       "effectiveHourly": 20,
       "isExpired": false,
-      "staleness": "aging",
+      "staleness": "stale",
       "tags": [
         "online",
         "survey"
@@ -6340,7 +6340,7 @@
       },
       "effectiveHourly": 20,
       "isExpired": false,
-      "staleness": "fresh",
+      "staleness": "aging",
       "tags": [
         "online",
         "in-person",
