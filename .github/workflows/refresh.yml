@@ -5,11 +5,11 @@
 # matters here - an event that happened last week still reading as upcoming.
 #
 # What a run does:
-#   1. ingest both verticals from live upstreams   (npm run ingest)
+#   1. ingest all three engines from live upstreams (npm run ingest)
 #   2. refuse to publish a result that looks wrong (empty, or a collapse in
 #      item count that suggests a partial upstream response)
 #   3. prove the site still builds from it         (astro build)
-#   4. commit src/data/{radar,digests}.json        (only on a real change)
+#   4. commit the Radar and Studies snapshots      (only on a real change)
 #   5. dispatch deploy-pages.yml so Pages republishes
 #
 # FOUR THINGS THAT ARE EASY TO GET WRONG HERE:
@@ -20,10 +20,10 @@
 #     committed copy, every run would think every item was brand new and the
 #     "what changed?" feed would be permanently empty.
 #
-#   * `radar.json` changes on EVERY run regardless of upstream, because
-#     `fetchedAt` is a timestamp. `git diff --quiet` would therefore always
-#     report a change and this job would commit twice a day forever. The
-#     material-change check below compares the items only.
+#   * `radar.json` and `studies.json` change on EVERY run regardless of
+#     upstream, because `fetchedAt` is a timestamp. `git diff --quiet` would
+#     therefore always report a change and this job would commit twice a day
+#     forever. The tested material-change gate compares reader-visible data.
 #
 #   * A partial upstream failure is NOT a workflow failure. Connectors never
 #     throw; a dead source produces a warning and a smaller feed. But a
@@ -48,6 +48,10 @@ on:
     inputs:
       force_deploy:
         description: 'Redeploy even if the data did not change'
+        type: boolean
+        default: false
+      accept_collapse:
+        description: 'Publish an intentional greater-than-half item-count drop'
         type: boolean
         default: false
 
@@ -81,10 +85,18 @@ jobs:
       # the diff baseline and what the sanity check below compares against.
       - name: Restore and save the committed snapshot
         run: |
+          set -euo pipefail
           mkdir -p src/data
-          git show HEAD:src/data/radar.json > src/data/radar.json 2>/dev/null || true
-          git show HEAD:src/data/digests.json > src/data/digests.json 2>/dev/null || true
+
+          for snapshot in radar.json digests.json studies.json studies-taxonomies.json studies-diff.json; do
+            if git cat-file -e "HEAD:src/data/$snapshot" 2>/dev/null; then
+              git show "HEAD:src/data/$snapshot" > "src/data/$snapshot"
+            fi
+          done
+
           cp src/data/radar.json /tmp/prev-radar.json 2>/dev/null || true
+          cp src/data/studies.json /tmp/prev-studies.json 2>/dev/null || true
+          cp src/data/studies-taxonomies.json /tmp/prev-studies-taxonomies.json 2>/dev/null || true
 
       - name: Ingest
         env:
@@ -94,59 +106,39 @@ jobs:
           # requests that identify themselves. Never written into the output -
           # the email guard in the deploy would fail the build if it were.
           RADAR_CONTACT_EMAIL: ${{ secrets.RADAR_CONTACT_EMAIL }}
-        run: npm run ingest 2>&1 | tee /tmp/ingest.log || true
+        run: |
+          set -o pipefail
+          npm run ingest 2>&1 | tee /tmp/ingest.log
 
       - name: Decide whether this result is publishable
         id: gate
         run: |
           set -euo pipefail
 
-          if [ ! -f src/data/radar.json ]; then
-            echo "::error::ingest produced no snapshot - nothing to publish."
-            exit 1
-          fi
+          for snapshot in radar.json studies.json studies-taxonomies.json studies-diff.json; do
+            if [ ! -s "src/data/$snapshot" ]; then
+              echo "::error::ingest produced no src/data/$snapshot - nothing to publish."
+              exit 1
+            fi
+          done
 
-          VERDICT=$(node -e '
-            const fs = require("fs");
-            const read = (p) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; } };
-            const prev = read("/tmp/prev-radar.json");
-            const next = read("src/data/radar.json");
-            const count = (s) => (s?.research?.items?.length ?? 0) + (s?.campus?.items?.length ?? 0);
-
-            if (count(next) === 0) { process.stdout.write("empty"); process.exit(0); }
-            if (prev === null) { process.stdout.write("changed"); process.exit(0); }
-
-            // A partial upstream response that still parses would otherwise
-            // publish a gutted feed. Halving is far outside normal churn -
-            // campus items turn over as events pass, but not that fast.
-            if (count(next) < count(prev) * 0.5) { process.stdout.write("suspect"); process.exit(0); }
-
-            // Compare the MATERIAL content only.
-            //
-            // `fetchedAt` moves every run, and so does each item`s `lastSeen`
-            // - it means "last confirmed present", so it is supposed to. Both
-            // are invisible to a reader. Comparing raw JSON therefore reports
-            // a change on every single run and this job would commit ~1.8MB
-            // twice a day forever, which is exactly what the header warns
-            // about and what the first live run actually did.
-            //
-            // Everything else IS compared, including relevance: an event
-            // moving from "next week" to "tomorrow" changes its score and its
-            // position in the feed, and that is a change worth publishing.
-            const strip = (s) =>
-              JSON.stringify(
-                [...s.research.items, ...s.campus.items].map(({ lastSeen, ...rest }) => rest),
-              );
-            process.stdout.write(strip(prev) === strip(next) ? "unchanged" : "changed");
-          ')
+          VERDICT=$(node --experimental-strip-types scripts/refresh-gate.ts \
+            /tmp/prev-radar.json src/data/radar.json \
+            /tmp/prev-studies.json src/data/studies.json \
+            /tmp/prev-studies-taxonomies.json src/data/studies-taxonomies.json)
 
           case "$VERDICT" in
             empty)
-              echo "::error::Snapshot contains zero items. Refusing to publish."
+              echo "::error::A Radar or Studies snapshot is empty or invalid. Refusing to publish."
               exit 1 ;;
             suspect)
-              echo "::warning::Item count collapsed by more than half. Refusing to publish; re-run manually if upstream really shrank."
-              echo "verdict=skip" >> "$GITHUB_OUTPUT" ;;
+              if [ "${{ inputs.accept_collapse }}" = "true" ]; then
+                echo "::warning::An item count collapsed by more than half; publishing because accept_collapse was set."
+                echo "verdict=changed" >> "$GITHUB_OUTPUT"
+              else
+                echo "::warning::A Radar or Studies count collapsed by more than half. Refusing to publish; dispatch manually with accept_collapse if the drop is real."
+                echo "verdict=skip" >> "$GITHUB_OUTPUT"
+              fi ;;
             unchanged)
               echo "Nothing material changed upstream."
               echo "verdict=unchanged" >> "$GITHUB_OUTPUT" ;;
@@ -185,15 +177,24 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           # -f because src/data/ is git-ignored; see the header comment.
-          git add -f src/data/radar.json src/data/digests.json
+          git add -f \
+            src/data/radar.json \
+            src/data/digests.json \
+            src/data/studies.json \
+            src/data/studies-taxonomies.json \
+            src/data/studies-diff.json
 
           SUMMARY=$(node -e '
-            const snap = JSON.parse(require("fs").readFileSync("src/data/radar.json", "utf8"));
+            const fs = require("fs");
+            const snap = JSON.parse(fs.readFileSync("src/data/radar.json", "utf8"));
+            const studies = JSON.parse(fs.readFileSync("src/data/studies.json", "utf8"));
+            const studiesDiff = JSON.parse(fs.readFileSync("src/data/studies-diff.json", "utf8"));
             const r = snap.research, c = snap.campus;
             const n = (d) => d.added.length + d.removed.length + d.changes.length;
+            const sn = (d) => d.added.length + d.removed.length + d.changed.length;
             process.stdout.write(
-              `${r.items.length} papers, ${c.items.length} campus items; ` +
-              `${n(r.diff)} research + ${n(c.diff)} campus change(s)`
+              `${r.items.length} papers, ${c.items.length} campus items, ${studies.studies.length} studies; ` +
+              `${n(r.diff)} research + ${n(c.diff)} campus + ${sn(studiesDiff)} studies change(s)`
             );
           ')
 

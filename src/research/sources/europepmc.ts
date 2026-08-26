@@ -73,7 +73,8 @@ interface EpmcResult {
   isOpenAccess?: string;
   citedByCount?: number;
   pubTypeList?: { pubType?: string[] };
-  keywordList?: { keyword?: string[] };
+  // Europe PMC occasionally emits null inside this nominally string array.
+  keywordList?: { keyword?: (string | null)[] };
   meshHeadingList?: { meshHeading?: { descriptorName?: string }[] };
   fullTextUrlList?: { fullTextUrl?: EpmcFullTextUrl[] };
 }
@@ -158,7 +159,8 @@ export function mapRecord(record: EpmcResult, query: string): RawItem | null {
     toIso(record.electronicPublicationDate) ??
     toIso(record.pubYear);
 
-  const keywords = record.keywordList?.keyword ?? [];
+  const keywords = (record.keywordList?.keyword ?? [])
+    .filter((value): value is string => typeof value === 'string');
   const mesh = (record.meshHeadingList?.meshHeading ?? [])
     .map((m) => m.descriptorName)
     .filter((v): v is string => typeof v === 'string');

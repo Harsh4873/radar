@@ -44,7 +44,7 @@ interface BiorxivRecord {
   /** A STRING, e.g. '2'. */
   version?: string | number;
   type?: string;
-  category?: string;
+  category?: string | null;
   abstract?: string;
   /** Published DOI, or the literal 'NA' while unpublished. */
   published?: string;
@@ -73,6 +73,9 @@ export function mapRecord(record: BiorxivRecord, server: PreprintServer): RawIte
   const version = Number.parseInt(String(record.version ?? '1'), 10);
   const abstract = htmlToText(record.abstract);
   const date = toIso(record.date);
+  const category = typeof record.category === 'string' && record.category.trim().length > 0
+    ? record.category
+    : null;
 
   // Authors are a single '; '-separated string: "Loconsole, M.; Xue, C."
   const authors = (record.authors ?? '')
@@ -91,14 +94,14 @@ export function mapRecord(record: BiorxivRecord, server: PreprintServer): RawIte
     vertical: 'research',
     source: server satisfies SourceId,
     externalId: `${doi}v${Number.isFinite(version) ? version : 1}`,
-    channel: record.category ?? null,
+    channel: category,
     url: `https://www.${server}.org/content/${doi}v${Number.isFinite(version) ? version : 1}`,
     title,
     summary: abstract,
     occurredAt: date,
     endsAt: null,
     lastModified: date,
-    tags: record.category === undefined ? [] : [record.category],
+    tags: category === null ? [] : [category],
     identity,
     research: {
       doi,
@@ -116,7 +119,7 @@ export function mapRecord(record: BiorxivRecord, server: PreprintServer): RawIte
       // content URL above is the full text.
       isOpenAccess: true,
       openAccessUrl: `https://www.${server}.org/content/${doi}v${Number.isFinite(version) ? version : 1}.full`,
-      topics: record.category === undefined ? [] : [record.category],
+      topics: category === null ? [] : [category],
       citesTracked: [],
       lifecycle: {
         preprintVersion: Number.isFinite(version) ? version : 1,

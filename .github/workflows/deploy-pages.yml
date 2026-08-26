@@ -64,21 +64,30 @@ jobs:
 
       - name: Restore the committed snapshot
         run: |
+          set -euo pipefail
           mkdir -p src/data
-          git show HEAD:src/data/radar.json > src/data/radar.json 2>/dev/null || echo "no committed snapshot"
-          git show HEAD:src/data/digests.json > src/data/digests.json 2>/dev/null || echo '[]' > src/data/digests.json
+          for snapshot in radar.json digests.json studies.json studies-taxonomies.json studies-diff.json; do
+            if ! git cat-file -e "HEAD:src/data/$snapshot" 2>/dev/null; then
+              echo "::error::Missing committed src/data/$snapshot. Run refresh.yml first."
+              exit 1
+            fi
+            git show "HEAD:src/data/$snapshot" > "src/data/$snapshot"
+          done
 
       - name: Require build data
         run: |
-          if [ ! -f src/data/radar.json ]; then
-            echo "::error::No committed snapshot. Run 'npm run ingest' locally and commit src/data/radar.json, or run refresh.yml first."
-            exit 1
-          fi
+          for snapshot in radar.json digests.json studies.json studies-taxonomies.json studies-diff.json; do
+            [ -s "src/data/$snapshot" ] || { echo "::error::Missing or empty src/data/$snapshot."; exit 1; }
+          done
           node -e '
-            const snap = JSON.parse(require("fs").readFileSync("src/data/radar.json", "utf8"));
+            const fs = require("fs");
+            const snap = JSON.parse(fs.readFileSync("src/data/radar.json", "utf8"));
+            const studies = JSON.parse(fs.readFileSync("src/data/studies.json", "utf8"));
             const n = (snap.research?.items?.length ?? 0) + (snap.campus?.items?.length ?? 0);
+            const s = studies.studies?.length ?? 0;
             if (n === 0) { console.error("::error::snapshot has zero items."); process.exit(1); }
-            console.log(`building against ${n} items from ${snap.fetchedAt}`);
+            if (s === 0) { console.error("::error::Studies snapshot has zero items."); process.exit(1); }
+            console.log(`building against ${n} Radar items and ${s} studies from ${snap.fetchedAt}`);
           '
 
       - name: Typecheck
@@ -108,11 +117,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for f in dist/index.html dist/research/index.html dist/campus/index.html; do
+          for f in dist/index.html dist/research/index.html dist/campus/index.html dist/studies/index.html; do
             [ -s "$f" ] || { echo "::error::missing or empty build output: $f"; exit 1; }
           done
           grep -Fq '"/radar/_astro/' dist/index.html
           grep -Fq 'href="/radar/research/"' dist/index.html
+          grep -Fq 'href="/radar/studies/"' dist/index.html
           test ! -e CNAME
           test ! -e dist/CNAME
           # _astro/ starts with an underscore, which Jekyll would exclude.

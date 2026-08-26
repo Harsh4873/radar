@@ -28,7 +28,7 @@
 
 import type { Logger, SourceResult } from '@/types.ts';
 import { buildUrl, consoleLogger, contactEmail, describeError, getJson, type RequestOptions } from '@/core/http.ts';
-import { htmlToText, normalizeDoi, toIso } from '@/core/text.ts';
+import { htmlToText, normalizeDoi, stripEmails, toIso } from '@/core/text.ts';
 
 const ENDPOINT = 'https://api.crossref.org/works';
 
@@ -125,7 +125,10 @@ export function mapItem(item: CrossrefItem, now: string): CrossrefEnrichment | n
     isOpenAccess: openLicense !== undefined,
     openAccessUrl: openLicense === undefined ? null : (pdfLink?.URL ?? item.URL ?? null),
     // Crossref abstracts are JATS XML when present at all.
-    abstract: htmlToText(item.abstract),
+    // Enrichment runs after the normalizer's global email scrub, so Crossref
+    // must enforce the same privacy boundary before its longer abstract can
+    // replace the already-clean discovery-source copy.
+    abstract: stripEmails(htmlToText(item.abstract)),
     type: item.type ?? null,
     subjects: item.subject ?? [],
   };

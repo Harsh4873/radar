@@ -10,7 +10,7 @@ export default defineConfig({
   test: {
     environment: 'node',
     globals: true,
-    include: ['src/**/*.test.ts'],
+    include: ['src/**/*.test.ts', 'scripts/**/*.test.ts'],
     // Unit tests must be hermetic. Connectors take an injectable `fetchImpl`
     // and every parser test runs against fixtures/, never the network. A test
     // that reaches the internet is a bug: PubMed and Crossref both rate-limit,

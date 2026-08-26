@@ -2,12 +2,10 @@
 #
 # STEP ORDER IS LOAD-BEARING: `ingest` runs BEFORE `typecheck`.
 #
-# `src/data/` is git-ignored, so a fresh clone has no radar.json. `src/lib/data.ts`
-# imports it directly (`import snapshotJson from '@/data/radar.json'`), and with
-# `resolveJsonModule` that is a hard module resolution: `tsc` and `astro check`
-# both fail with "Cannot find module '@/data/radar.json'" if the file is not
-# there yet. Running the ingest first turns that confusing type error back into
-# what it actually is - missing build input.
+# `src/data/` is git-ignored, but refresh.yml force-adds the generated Radar and
+# Studies snapshots because page modules import them directly. Restoring the
+# committed copies gives CI deterministic build inputs without touching the
+# network.
 #
 # CI runs the ingest OFFLINE. A pull request must not depend on eight external
 # APIs being up, and it must not put load on NCBI or a university calendar on
@@ -46,29 +44,45 @@ jobs:
         run: npm ci
 
       - name: Restore the committed snapshot
-        # refresh.yml force-adds src/data/radar.json past .gitignore precisely
-        # so CI and the deploy have something to build against without hitting
-        # the network. On the very first run it does not exist yet.
         run: |
+          set -euo pipefail
           mkdir -p src/data
-          git show HEAD:src/data/radar.json > src/data/radar.json 2>/dev/null || echo "no committed snapshot yet"
-          git show HEAD:src/data/digests.json > src/data/digests.json 2>/dev/null || echo '[]' > src/data/digests.json
+          for snapshot in radar.json digests.json studies.json studies-taxonomies.json studies-diff.json; do
+            if ! git cat-file -e "HEAD:src/data/$snapshot" 2>/dev/null; then
+              echo "::error::Missing committed src/data/$snapshot. Run refresh.yml first."
+              exit 1
+            fi
+            git show "HEAD:src/data/$snapshot" > "src/data/$snapshot"
+          done
 
       - name: Build data (offline)
-        run: npm run ingest:offline || true
+        run: npm run ingest:offline
+
+      # Offline Studies ingestion deliberately avoids taxonomy requests. Put
+      # the committed taxonomy and diff artifacts back before building so CI
+      # verifies the same labels and feed metadata that production will use.
+      - name: Restore committed Studies artifacts after offline ingest
+        run: |
+          set -euo pipefail
+          for snapshot in studies.json studies-taxonomies.json studies-diff.json; do
+            git show "HEAD:src/data/$snapshot" > "src/data/$snapshot"
+          done
 
       - name: Require build data
         run: |
-          if [ ! -f src/data/radar.json ]; then
-            echo "::error::No src/data/radar.json. Run 'npm run ingest' locally and commit the snapshot, or wait for refresh.yml."
-            exit 1
-          fi
+          for snapshot in radar.json digests.json studies.json studies-taxonomies.json studies-diff.json; do
+            [ -s "src/data/$snapshot" ] || { echo "::error::Missing or empty src/data/$snapshot."; exit 1; }
+          done
           node -e '
-            const snap = JSON.parse(require("fs").readFileSync("src/data/radar.json", "utf8"));
+            const fs = require("fs");
+            const snap = JSON.parse(fs.readFileSync("src/data/radar.json", "utf8"));
+            const studies = JSON.parse(fs.readFileSync("src/data/studies.json", "utf8"));
             const r = snap.research?.items?.length ?? 0;
             const c = snap.campus?.items?.length ?? 0;
+            const s = studies.studies?.length ?? 0;
             if (r + c === 0) { console.error("::error::snapshot has zero items; nothing to build against."); process.exit(1); }
-            console.log(`radar.json: ${r} papers, ${c} campus items`);
+            if (s === 0) { console.error("::error::Studies snapshot has zero items; nothing to build against."); process.exit(1); }
+            console.log(`radar.json: ${r} papers, ${c} campus items; studies.json: ${s} studies`);
           '
 
       - name: Typecheck
@@ -107,13 +121,14 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for f in dist/index.html dist/research/index.html dist/campus/index.html dist/campus/sources/index.html; do
+          for f in dist/index.html dist/research/index.html dist/campus/index.html dist/campus/sources/index.html dist/studies/index.html; do
             [ -s "$f" ] || { echo "::error::missing or empty build output: $f"; exit 1; }
           done
           # Every asset and link must carry the /radar/ base. Serving these
           # anywhere else 404s, so a wrong prefix is a broken deploy.
           grep -Fq '"/radar/_astro/' dist/index.html
           grep -Fq 'href="/radar/research/"' dist/index.html
+          grep -Fq 'href="/radar/studies/"' dist/index.html
           # The domain lives on the user site; a CNAME here would hijack it.
           test ! -e CNAME
           test ! -e dist/CNAME

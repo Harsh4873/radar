@@ -70,6 +70,18 @@ describe('Europe PMC', () => {
     expect(abstract).not.toContain('<h4>');
     expect(abstract).toMatch(/Background \w/);
   });
+
+  it('drops null keywords instead of crashing the whole ingest', () => {
+    const record = {
+      ...data.resultList.result[0]!,
+      keywordList: { keyword: ['genomics', null, 'phylogenetics'] },
+    };
+    const item = mapEpmc(record, 'q')!;
+
+    expect(item.tags).toContain('genomics');
+    expect(item.tags).toContain('phylogenetics');
+    expect(item.tags.every((tag) => typeof tag === 'string')).toBe(true);
+  });
 });
 
 describe('bioRxiv / medRxiv', () => {
@@ -106,6 +118,15 @@ describe('bioRxiv / medRxiv', () => {
       if (item?.research?.lifecycle.publishedDoi == null) continue;
       expect(item.identity).not.toContain(`doi:${item.research.lifecycle.publishedDoi}`);
     }
+  });
+
+  it('treats a null category as a missing tag', () => {
+    const record = { ...data.collection[0]!, category: null };
+    const item = mapPreprint(record, 'biorxiv')!;
+
+    expect(item.channel).toBeNull();
+    expect(item.tags).toEqual([]);
+    expect(item.research?.topics).toEqual([]);
   });
 });
 
@@ -205,6 +226,15 @@ describe('Crossref', () => {
   it('maps DOI metadata', () => {
     const record = mapCrossref(data.message.items[0]!, NOW);
     expect(record?.doi).toMatch(/^10\./);
+  });
+
+  it('scrubs contact addresses from enrichment abstracts', () => {
+    const record = mapCrossref({
+      DOI: '10.1038/example',
+      abstract: '<jats:p>Contact coordinator@example.org for materials.</jats:p>',
+    }, NOW);
+
+    expect(record?.abstract).toBe('Contact [email removed] for materials.');
   });
 
   it('rejects impossible future dates', () => {
