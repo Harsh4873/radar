@@ -24,6 +24,28 @@ function studies(count = 4, fetchedAt = '2026-08-18T00:00:00Z') {
       title: `Study ${index}`,
       staleness: 'fresh',
     })),
+    sourceReports: [
+      {
+        id: 'aggie-research-volunteers',
+        status: 'ok',
+        itemCount: count,
+        fetchSource: 'network',
+        failedRequests: 0,
+        complete: true,
+        durationMs: 120,
+        note: null as string | null,
+      },
+      {
+        id: 'clinicaltrials-gov',
+        status: 'ok',
+        itemCount: 2,
+        fetchSource: 'network',
+        failedRequests: 0,
+        complete: true,
+        durationMs: 220,
+        note: null as string | null,
+      },
+    ],
   };
 }
 
@@ -70,6 +92,33 @@ describe('decideRefresh', () => {
     (value.nextStudies as ReturnType<typeof studies>).totalFromHeader += 1;
 
     expect(decideRefresh(value)).toBe('changed');
+  });
+
+  it('publishes a Studies source failure or recovery even when retained records match', () => {
+    const value = input();
+    const next = value.nextStudies as ReturnType<typeof studies>;
+    next.sourceReports[1] = {
+      ...next.sourceReports[1]!,
+      status: 'degraded',
+      fetchSource: 'cache',
+      failedRequests: 1,
+      complete: false,
+      note: 'temporary timeout',
+    };
+
+    expect(decideRefresh(value)).toBe('changed');
+  });
+
+  it('ignores Studies request duration and diagnostic wording churn', () => {
+    const value = input();
+    const next = value.nextStudies as ReturnType<typeof studies>;
+    next.sourceReports[0] = {
+      ...next.sourceReports[0]!,
+      durationMs: 9_999,
+      note: 'same health, different diagnostic wording',
+    };
+
+    expect(decideRefresh(value)).toBe('unchanged');
   });
 
   it('publishes a taxonomy-only change', () => {

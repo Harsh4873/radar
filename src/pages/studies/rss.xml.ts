@@ -49,6 +49,7 @@ import type { APIRoute } from 'astro';
 import diffJson from '@/data/studies-diff.json';
 import snapshotJson from '@/data/studies.json';
 import { scrubEmails } from '@/studies/mailto.ts';
+import { studySourceLabel, studySourceReferences } from '@/studies/source-display.ts';
 import type { ParsedCompensation, Snapshot, StudyRecord } from '@/studies/types.ts';
 
 // ---------------------------------------------------------------------------
@@ -228,6 +229,12 @@ function row(label: string, value: string | null): string {
   return value === null || value === '' ? '' : `<p><strong>${label}:</strong> ${value}</p>`;
 }
 
+function officialLinks(study: StudyRecord): string {
+  return studySourceReferences(study)
+    .map((source) => `<a href="${source.url}">${studySourceLabel(source.source)}</a>`)
+    .join(' &middot; ');
+}
+
 function describe(study: StudyRecord, detailUrl: string, prefix?: string): string {
   const comp = study.compensation;
   // Free-text fields; the site's no-raw-addresses policy applies here too.
@@ -257,7 +264,7 @@ function describe(study: StudyRecord, detailUrl: string, prefix?: string): strin
     study.isExpired ? '<p><strong>This posting has already expired.</strong></p>' : '',
     compRaw ? `<p><strong>Listed compensation text:</strong> ${compRaw}</p>` : '',
     durRaw ? `<p><strong>Listed duration text:</strong> ${durRaw}</p>` : '',
-    `<p><a href="${detailUrl}">Full breakdown</a> &middot; <a href="${study.url}">Official listing on research.tamu.edu</a></p>`,
+    `<p><a href="${detailUrl}">Full breakdown</a> &middot; ${officialLinks(study)}</p>`,
     `<p><small>${DISCLAIMER}</small></p>`,
   ]
     .filter(Boolean)
@@ -362,12 +369,12 @@ export const GET: APIRoute = (context) => {
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>TAMU paid research studies - new listings</title>
+    <title>Texas A&amp;M participant studies - new listings</title>
     <link>${xml(siteUrl)}</link>
     <atom:link href="${xml(feedUrl)}" rel="self" type="application/rss+xml" />
     <description>${xml(
-      'Newly posted paid research studies recruiting volunteers at Texas A&M, with the ' +
-        'effective hourly rate in every title. ' +
+      'New participant-study opportunities connected to Texas A&M from official registries, with ' +
+        'the effective hourly rate in each title when the source states enough pay and time data. ' +
         DISCLAIMER,
     )}</description>
     <language>en-us</language>

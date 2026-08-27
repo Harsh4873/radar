@@ -17,6 +17,11 @@
 import RateBadge from '@/components/studies/RateBadge.astro';
 import { decodeEntities, stripHtml } from '@/studies/html.ts';
 import { scrubEmails } from '@/studies/mailto.ts';
+import {
+  combinedStudyLocations,
+  studySourceLabel,
+  studySourceReferences,
+} from '@/studies/source-display.ts';
 import type { StudyRecord } from '@/studies/types.ts';
 
 interface Props {
@@ -127,10 +132,10 @@ const TAG_LABEL: Record<string, string> = {
 };
 
 const STALENESS_BADGE: Record<string, { text: string; title: string }> = {
-  fresh: { text: 'Fresh', title: 'IRB approval is recent, so this posting is probably current.' },
-  aging: { text: 'Aging', title: 'IRB approval is 9-18 months old. Confirm the study is still recruiting.' },
-  stale: { text: 'Stale', title: 'IRB approval is over 18 months old. Quite likely finished - worth an email anyway.' },
-  expired: { text: 'Posting expired', title: 'The listing’s own expiration date has passed, but TAMU is still serving it.' },
+  fresh: { text: 'Fresh', title: 'An official source recently confirmed or updated this study.' },
+  aging: { text: 'Aging', title: 'The official record is 9-18 months old. Confirm the study is still recruiting.' },
+  stale: { text: 'Stale', title: 'The official record is over 18 months old. Confirm recruitment before planning around it.' },
+  expired: { text: 'Posting expired', title: 'The listing’s own expiration date has passed and no current registry confirmation overrides it.' },
 };
 
 // ---------------------------------------------------------------------------
@@ -157,8 +162,12 @@ if (comp.completionBonus !== null && comp.completionBonus > 0) {
 if (comp.hasNonCashPerk) perks.push('plus a non-cash perk');
 if (comp.sonaCreditOption) perks.push('SONA credit alternative');
 
-const place = [...new Set(locations.map(decodeEntities))].join(', ');
+const place = combinedStudyLocations(study, locations).map(decodeEntities).join(', ');
 const sessions = [...new Set(sessionTypes.map(decodeEntities))].join(', ');
+const officialSources = studySourceReferences(study);
+const recordLabel = study.irbNumber
+  ?? officialSources.find((source) => source.source === 'clinicaltrials-gov')?.externalId
+  ?? 'Official record';
 
 // Flags that describe a hard requirement get the amber chip; the rest are grey.
 const REQUIREMENT_RE = /(required|excludes|only|condition-gated|screening|must|no\b)/i;
@@ -166,7 +175,8 @@ const MAX_FLAGS = 6;
 const shownFlags = elig.flags.slice(0, MAX_FLAGS);
 const extraFlags = elig.flags.length - shownFlags.length;
 
-// `raw` is straight out of WordPress meta: it carries `<br>` and `<u>` tags.
+// ARV `raw` text can carry `<br>` and `<u>` tags; registry-only records leave
+// it blank because ClinicalTrials.gov does not publish participant pay/time.
 // stripHtml maps block tags to a space so amounts never fuse together.
 // scrubEmails keeps coordinators' personal addresses out of the static HTML,
 // matching the policy ContactButton enforces - free-text fields occasionally
@@ -327,9 +337,16 @@ const searchText = scrubEmails(
   }
 
   <p class="card-foot">
-    <span>{study.irbNumber ?? 'No IRB number'}</span>
-    <a class="go" href={study.url} rel="noopener external">
-      Original listing on research.tamu.edu &nearr;
-    </a>
+    <span>{recordLabel}</span>
+    <span class="go">
+      {officialSources.map((source, index) => (
+        <>
+          {index > 0 && <> · </>}
+          <a href={source.url} rel="noopener external">
+            {studySourceLabel(source.source)} &nearr;
+          </a>
+        </>
+      ))}
+    </span>
   </p>
 </li>

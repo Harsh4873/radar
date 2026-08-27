@@ -22,7 +22,7 @@
  * FLAGS:
  *   --only=research|campus|studies   run one vertical
  *   --offline                        skip the network; rebuild from the existing snapshot
- *   --days=N                         lookback/lookahead window (default 14 research, 45 campus)
+ *   --days=N                         lookback/lookahead window (default 14 research, 90 campus)
  */
 
 import { readFile, writeFile, mkdir } from 'node:fs/promises';

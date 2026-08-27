@@ -2,80 +2,52 @@
   {
     "weekOf": "2026-08-24",
     "vertical": "campus",
-    "scanned": 2474,
-    "candidates": 447,
+    "scanned": 5335,
+    "candidates": 568,
     "recommended": [
+      "campus-f26e4e8afcf9",
+      "campus-d8f2bf8aeeae",
+      "campus-cffb1d8ae983",
+      "campus-df29754ea7cc",
       "campus-8063cc9cf7d9",
-      "campus-9bea77a35026",
-      "campus-972c6293e722",
-      "campus-708d37a33792",
-      "campus-77e659a33b5d",
-      "campus-ac0b4ea358f2"
+      "campus-9bea77a35026"
     ],
     "headlines": [
+      "computer science · data science · company recruiting",
+      "computer science · company recruiting · free food: food",
+      "biotech · graduate opportunities · workshop / training",
+      "research opportunity · company recruiting · food provided",
       "computer science · employer: qualcomm, texas instruments · workshop / training",
-      "company recruiting · graduate opportunities · tomorrow",
-      "company recruiting · tomorrow · employer: l3harris",
-      "company recruiting · this week · free food: food",
-      "computer science · workshop / training · in the next 3 weeks",
-      "graduate opportunities · this week · workshop / training"
+      "company recruiting · graduate opportunities · today"
     ],
     "changes": [
       {
-        "itemId": "campus-6b9c2193ce63",
+        "itemId": "campus-11afd07a28b9",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-03T21:00:00.000Z",
-        "after": "2026-09-02T22:30:00.000Z"
-      },
-      {
-        "itemId": "campus-bcb8bd46078b",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-26T05:00:00.000Z",
+        "before": "2026-08-26T13:00:00.000Z",
         "after": "2026-08-27T05:00:00.000Z"
       },
       {
-        "itemId": "campus-ac42edb40039",
+        "itemId": "campus-11b6c47a28bf",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-08-26T05:00:00.000Z",
+        "before": "2026-08-26T13:00:00.000Z",
         "after": "2026-08-27T05:00:00.000Z"
       },
       {
-        "itemId": "campus-11bdd47a28c5",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-26T05:00:00.000Z",
-        "after": "2026-08-27T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-2b92ddab2ae1",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-26T05:00:00.000Z",
-        "after": "2026-08-27T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-77e70445e0b3",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-26T05:00:00.000Z",
-        "after": "2026-08-27T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ab499b4a0920",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-26T05:00:00.000Z",
-        "after": "2026-08-27T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-e208ff8af3f2",
+        "itemId": "campus-394c5aa214ec",
         "kind": "title",
         "field": "Title",
-        "before": "Lunar Eclipse Star Party",
-        "after": "CANCELED Lunar Eclipse Star Party"
+        "before": "HEPEC Seminar",
+        "after": "Directional Dark Matter Forces with MICROSCOPE"
+      },
+      {
+        "itemId": "campus-d608c84ea27f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-09T13:00:00.000Z",
+        "after": "2026-09-10T05:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0

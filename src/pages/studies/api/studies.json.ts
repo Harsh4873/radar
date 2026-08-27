@@ -3,12 +3,9 @@
  *
  * WHY THIS EXISTS
  * ---------------
- * Texas A&M's registry is already open, but it is open in a shape nobody can
- * use: compensation and duration are free text, expired postings still report
- * `status: "publish"`, and the endpoint sends no `Access-Control-Allow-Origin`
- * so no browser can read it directly. Every consumer therefore has to rebuild
- * the same parsing and the same expiry detection before they can ask a single
- * interesting question.
+ * Radar combines the public Aggie Research Volunteers feed with recruiting
+ * ClinicalTrials.gov records. ARV compensation/duration are free text; the
+ * clinical-trial registry does not publish participant pay at all.
  *
  * This file is that work, published. It is the exact `StudyRecord[]` the site
  * itself renders - same parse, same `effectiveHourly`, same `isExpired` - so
@@ -42,8 +39,7 @@
  * sometimes fills with an address - study 8458's is `mpkj.engelen@ctral.org`)
  * are nulled out below. The keys stay present so the `StudyRecord` type still
  * describes the payload; only the values are withheld. Every record carries
- * `url`, the official Texas A&M listing, where a human can read the contact
- * exactly as the university published it.
+ * official source links where a human can find the registry's contact path.
  *
  * The redaction is an explicit override AFTER the spread, so a future field
  * cannot re-introduce the leak by being added to `StudyRecord` - but a future
@@ -62,6 +58,7 @@ import type { APIRoute } from 'astro';
 
 import snapshotJson from '@/data/studies.json';
 import taxonomiesJson from '@/data/studies-taxonomies.json';
+import { studyHasDisplaySource } from '@/studies/source-display.ts';
 import type { Snapshot, StudyRecord, TaxonomyTerm } from '@/studies/types.ts';
 
 const snapshot = snapshotJson as unknown as Snapshot;
@@ -73,7 +70,7 @@ const taxonomies = taxonomiesJson as unknown as TaxonomyFile;
 const FALLBACK_ORIGIN = 'https://harsh.bet';
 
 /** Bump when a field is removed or its meaning changes. Additions do not. */
-const SCHEMA_VERSION = 2;
+const SCHEMA_VERSION = 3;
 
 /**
  * The contact fields withheld from the published payload. Listed once so the
@@ -112,13 +109,28 @@ export const GET: APIRoute = (context) => {
   const studies: StudyRecord[] = Array.isArray(snapshot.studies) ? snapshot.studies : [];
   const rated = studies.filter((s) => typeof s.effectiveHourly === 'number');
   const expired = studies.filter((s) => s.isExpired);
+  const sourceCounts = {
+    aggieResearchVolunteers: studies.filter((s) => studyHasDisplaySource(s, 'aggie-research-volunteers')).length,
+    clinicalTrialsGov: studies.filter((s) => studyHasDisplaySource(s, 'clinicaltrials-gov')).length,
+  };
 
   const payload = {
     meta: {
       schemaVersion: SCHEMA_VERSION,
       generatedAt: snapshot.fetchedAt,
-      /** Where the numbers came from, so nobody has to guess. */
-      source: 'https://research.tamu.edu/wp-json/wp/v2/study',
+      /** Where the records came from, so nobody has to guess. */
+      sources: [
+        {
+          id: 'aggie-research-volunteers',
+          url: 'https://research.tamu.edu/wp-json/wp/v2/study',
+          records: sourceCounts.aggieResearchVolunteers,
+        },
+        {
+          id: 'clinicaltrials-gov',
+          url: 'https://clinicaltrials.gov/api/v2/studies',
+          records: sourceCounts.clinicalTrialsGov,
+        },
+      ],
       site: abs('studies/'),
       feed: abs('studies/rss.xml'),
       self: abs('studies/api/studies.json'),
@@ -126,7 +138,7 @@ export const GET: APIRoute = (context) => {
       count: studies.length,
       /** `X-WP-Total` at fetch time. Exceeds `count` because near-duplicate
        *  re-postings of the same IRB protocol are collapsed to one record. */
-      upstreamTotal: snapshot.totalFromHeader,
+      aggieResearchVolunteersUpstreamTotal: snapshot.totalFromHeader,
       expiredCount: expired.length,
       ratedCount: rated.length,
 
@@ -141,13 +153,14 @@ export const GET: APIRoute = (context) => {
       /** The rules a consumer will otherwise get wrong. */
       notes: [
         'effectiveHourly is guaranteed USD per hour of participant time. null means UNKNOWN, never zero: unknown pay, unknown hours, and raffle-only compensation all produce null. A genuine unpaid study is 0, which is a different claim. Do not coerce null to 0 when sorting.',
-        'isExpired is derived here, not upstream. The registry keeps serving expired postings with status "publish", so it cannot be used to tell whether a study is still recruiting.',
-        'compensation.raw and duration.raw are the original free-text fields. Every parsed number is a heuristic reading of them and may be wrong; check against raw before relying on a figure.',
-        'contactEmail, contactPhone and contactName are always null here. They are deliberately withheld: the upstream listings carry the personal addresses of graduate students and research coordinators, who agreed to appear on a university recruitment page and not in a bulk-downloadable file. Use each record’s `url` to reach the official listing, which shows the contact.',
+        'isExpired is derived from ARV dates, but an exact matching ClinicalTrials.gov record with current RECRUITING status overrides an outdated ARV expiration.',
+        'compensation.raw and duration.raw are ARV’s original free-text fields. Every parsed number is heuristic. ClinicalTrials.gov does not publish participant compensation or duration, so registry-only records keep these values unknown.',
+        'sources lists every official registry that confirms a record. Cross-source merges use normalized protocol ids first, then exact normalized titles; no fuzzy title matching is used.',
+        'contactEmail, contactPhone and contactName are always null here. ARV contact details are deliberately withheld, and ClinicalTrials.gov contact objects are never ingested. Follow a record in `sources` for official contact options.',
       ],
 
       license:
-        'Underlying study data is published by Texas A&M University. This normalization is provided as-is with no warranty. Attribution appreciated, not required.',
+        'Underlying study data is published by Texas A&M University and ClinicalTrials.gov. This normalization is provided as-is with no warranty. Attribution appreciated, not required.',
       disclaimer:
         'Unofficial. Not affiliated with, endorsed by, or operated by Texas A&M University. Parsed figures are derived automatically from free text and may be inaccurate. Confirm details with the study contact and the official listing before participating.',
     },

@@ -15,8 +15,7 @@
  *      often still worth an email.
  *
  * All data is read from src/data/studies.json at BUILD time. Nothing on this
- * page talks to research.tamu.edu at runtime - the upstream API sends no CORS
- * header, so a browser fetch would fail anyway.
+ * page talks to either registry at runtime.
  */
 import DiscoveryControls from '@/components/DiscoveryControls.astro';
 import FilterBar from '@/components/studies/FilterBar.astro';
@@ -26,6 +25,7 @@ import snapshotJson from '@/data/studies.json';
 import taxonomiesJson from '@/data/studies-taxonomies.json';
 import Base from '@/layouts/Base.astro';
 import { isKnownRate, sortStudies, sortUnrated } from '@/studies/effective-rate.ts';
+import { combinedStudyLocations } from '@/studies/source-display.ts';
 import { STUDIES_TABS, url } from '@/lib/view.ts';
 import type { Snapshot, StudyRecord, TaxonomyTerm } from '@/studies/types.ts';
 
@@ -61,6 +61,10 @@ const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
 
 function namesFor(ids: number[], lookup: Map<number, string>): string[] {
   return ids.map((id) => lookup.get(id)).filter((n): n is string => typeof n === 'string');
+}
+
+function locationsFor(study: StudyRecord): string[] {
+  return combinedStudyLocations(study, namesFor(study.locationIds, locationNames));
 }
 
 // ---------------------------------------------------------------------------
@@ -111,11 +115,11 @@ const eligibilityById = Object.fromEntries(all.map((s) => [s.id, s.eligibility])
 const eligibilityJson = JSON.stringify(eligibilityById).replace(/</g, '\\u003c');
 
 const topRate = ranked.find((s) => isKnownRate(s.effectiveHourly) && s.effectiveHourly > 0);
-const description = `${live.length} currently posted paid research studies at Texas A&M, ranked by guaranteed pay per hour.`;
+const description = `${live.length} current participant-study opportunities connected to Texas A&M, with stated pay ranked by guaranteed dollars per hour.`;
 ---
 
 <Base
-  title="Paid studies — Radar"
+  title="Studies — Radar"
   description={description}
   engine="studies"
   fetchedAt={snapshot.fetchedAt}
@@ -126,10 +130,11 @@ const description = `${live.length} currently posted paid research studies at Te
     <header class="studies-hero">
       <div class="studies-hero-copy">
         <p class="eyebrow">Texas A&amp;M · Studies</p>
-        <h1>Paid research studies, ranked by $/hour.</h1>
+        <h1>Research studies, with paid opportunities ranked by $/hour.</h1>
         <p class="studies-hero-lede">
-          Guaranteed pay per hour of your time. Raffles are never counted as pay. Filters stay in this
-          browser; the screening form lives on
+          Aggie Research Volunteers plus recruiting ClinicalTrials.gov records. When pay is stated,
+          Radar ranks guaranteed dollars per hour; raffles never count as pay. Filters stay in this
+          browser, and the screening form lives on
           <a href={url(base, 'profile/#studies')}>your Radar profile</a>.
         </p>
       </div>
@@ -180,14 +185,14 @@ const description = `${live.length} currently posted paid research studies at Te
         <h2 class="section-head" id="h-ranked">Ranked by hourly rate</h2>
         <p class="section-note">
           Guaranteed pay divided by the time the listing says it takes. Studies that list no
-          compensation appear here as unpaid, at the bottom.
+          compensation explicitly appear here as unpaid, at the bottom.
         </p>
         <ol class="card-list" id="list-ranked">
           {
             ranked.map((s) => (
               <StudyCard
                 study={s}
-                locations={namesFor(s.locationIds, locationNames)}
+                locations={locationsFor(s)}
                 sessionTypes={namesFor(s.sessionTypeIds, sessionTypeNames)}
               />
             ))
@@ -201,15 +206,16 @@ const description = `${live.length} currently posted paid research studies at Te
             <h2 class="section-head" id="h-unrated">Rate could not be calculated</h2>
             <p class="section-note">
               These {unrated.length} studies are not ranked and never mixed into the list above.
-              Either the pay, the time commitment, or both were missing from the listing, or the
-              only compensation is a prize drawing. Unknown is not the same as badly paid &mdash;
-              several of these may be worth an email.
+              Either the pay, the time commitment, or both were missing from the official record,
+              or the only compensation is a prize drawing. ClinicalTrials.gov does not publish
+              participant compensation, so its registry-only studies stay here as unknown rather
+              than being mislabeled unpaid.
             </p>
             <ol class="card-list" id="list-unrated">
               {unrated.map((s) => (
                 <StudyCard
                   study={s}
-                  locations={namesFor(s.locationIds, locationNames)}
+                  locations={locationsFor(s)}
                   sessionTypes={namesFor(s.sessionTypeIds, sessionTypeNames)}
                 />
               ))}
@@ -233,16 +239,15 @@ const description = `${live.length} currently posted paid research studies at Te
           <details class="expired-block" id="expired-block">
             <summary>Show {expired.length} expired postings</summary>
             <p class="section-note">
-              The listing&rsquo;s own expiration date has passed, though TAMU still serves the page
-              and the status still reads &ldquo;publish&rdquo;. Some of these teams are still
-              recruiting and simply never updated the date, so they are kept rather than deleted.
-              Assume nothing; email and ask.
+              The ARV listing&rsquo;s own expiration date has passed and no current official registry
+              record confirms that it is recruiting. Radar keeps these visible for transparency,
+              but treat them as closed unless the study team says otherwise.
             </p>
             <ol class="card-list" id="list-expired">
               {expired.map((s) => (
                 <StudyCard
                   study={s}
-                  locations={namesFor(s.locationIds, locationNames)}
+                  locations={locationsFor(s)}
                   sessionTypes={namesFor(s.sessionTypeIds, sessionTypeNames)}
                 />
               ))}

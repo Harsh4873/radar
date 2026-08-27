@@ -59,11 +59,27 @@ function radarMaterial(research: unknown[], campus: unknown[]): unknown {
 }
 
 function studiesMaterial(snapshot: JsonObject, studies: unknown[]): unknown {
+  const reports = Array.isArray(snapshot.sourceReports)
+    ? snapshot.sourceReports
+        .filter(isObject)
+        .map((report) => ({
+          id: typeof report.id === 'string' ? report.id : '',
+          status: typeof report.status === 'string' ? report.status : '',
+          itemCount: typeof report.itemCount === 'number' ? report.itemCount : 0,
+          fetchSource: typeof report.fetchSource === 'string' ? report.fetchSource : '',
+          failedRequests: typeof report.failedRequests === 'number' ? report.failedRequests : 0,
+          complete: report.complete === true,
+        }))
+        .sort((a, b) => a.id.localeCompare(b.id))
+    : [];
   return {
     // This is published in /studies/api/studies.json and can change when the
     // upstream adds a duplicate that normalization deliberately collapses.
     totalFromHeader: snapshot.totalFromHeader ?? null,
     studies,
+    // Persist failure/recovery and per-registry coverage changes, but ignore
+    // request duration, timestamps, and diagnostic wording that can churn.
+    sourceReports: reports,
   };
 }
 

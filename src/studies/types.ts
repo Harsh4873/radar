@@ -4,7 +4,8 @@
  * Every parser, ranker, and UI component in this project codes against the
  * types in this file. Treat changes here as breaking changes.
  *
- * Upstream: https://research.tamu.edu/wp-json/wp/v2/study?per_page=100
+ * Primary upstream: https://research.tamu.edu/wp-json/wp/v2/study?per_page=100
+ * Expanded registry: https://clinicaltrials.gov/api/v2/studies
  *   - Returns all 86 records in a single page (X-WP-Total: 86, X-WP-TotalPages: 1).
  *   - Sends NO Access-Control-Allow-Origin, so the browser cannot fetch it.
  *     All upstream reads happen server-side at build time.
@@ -247,6 +248,38 @@ export interface ParsedEligibility {
  */
 export type Staleness = 'fresh' | 'aging' | 'stale' | 'expired';
 
+export type StudySourceId = 'aggie-research-volunteers' | 'clinicaltrials-gov';
+
+/** One official registry's view of a participant opportunity. */
+export interface StudySourceReference {
+  source: StudySourceId;
+  externalId: string;
+  url: string;
+  /** Registry-level recruitment status, when the source publishes one. */
+  status: 'recruiting' | 'expired' | 'unknown';
+  /** Last date on which that registry verified or updated the record. */
+  verifiedAt: string | null;
+  /** Registry protocol identifiers used only for exact cross-source matching. */
+  protocolIds: string[];
+  /** Official and brief titles used only for exact cross-source matching. */
+  titleAliases: string[];
+}
+
+/** Build-time health for one Studies registry, persisted for the Sources page. */
+export interface StudySourceReport {
+  id: StudySourceId;
+  label: string;
+  vertical: 'studies';
+  status: 'ok' | 'degraded' | 'failed';
+  itemCount: number;
+  fetchSource: 'network' | 'fixture' | 'cache' | 'empty';
+  durationMs: number;
+  failedRequests: number;
+  complete: boolean;
+  note: string | null;
+  docsUrl: string;
+}
+
 /** A fully normalized study. This is what the UI renders and ranks. */
 export interface StudyRecord {
   /** Upstream numeric post ID, as a string, so it can key maps and diffs. */
@@ -256,8 +289,10 @@ export interface StudyRecord {
   title: string;
   /** Short plain-text blurb derived from the excerpt. */
   summary: string;
-  /** Canonical research.tamu.edu URL (RawStudy.link). */
+  /** Preferred official record URL. */
   url: string;
+  /** Every official registry that confirms this opportunity. */
+  sources: StudySourceReference[];
   piName: string | null;
   contactName: string | null;
   contactEmail: string | null;
@@ -280,6 +315,8 @@ export interface StudyRecord {
   locationIds: number[];
   sessionTypeIds: number[];
   topicIds: number[];
+  /** Source-native place labels when no ARV taxonomy id exists. */
+  locationLabels: string[];
 
   compensation: ParsedCompensation;
   duration: ParsedDuration;
@@ -350,6 +387,8 @@ export interface Snapshot {
   /** X-WP-Total header value. Compare against studies.length to spot truncation. */
   totalFromHeader: number;
   studies: StudyRecord[];
+  /** Registry health from this ingest. Optional for pre-provenance snapshots. */
+  sourceReports?: StudySourceReport[];
 }
 
 /** Field-level delta between two snapshots. Ids are StudyRecord.id strings. */

@@ -102,6 +102,9 @@ export interface FetchStudiesResult {
   warnings: string[];
   /** Why the network path failed, when it did. */
   error: string | null;
+  /** True only when every reported record was read and validated. */
+  complete: boolean;
+  durationMs: number;
 }
 
 export interface FetchTaxonomiesResult {
@@ -263,6 +266,7 @@ export async function fetchAllStudies(options: FetchOptions = {}): Promise<Fetch
   const perPage = options.perPage ?? DEFAULT_PER_PAGE;
   const allowFallback = options.allowFallback ?? true;
   const warnings: string[] = [];
+  const startedAt = Date.now();
   const fetchedAt = new Date().toISOString();
 
   try {
@@ -274,18 +278,27 @@ export async function fetchAllStudies(options: FetchOptions = {}): Promise<Fetch
     const first = await getJson<unknown>(firstUrl, http);
     if (!Array.isArray(first.data)) throw new Error('upstream did not return a JSON array');
 
+    let complete = true;
     const studies: RawStudy[] = first.data.filter(isRawStudyLike);
     if (studies.length !== first.data.length) {
+      complete = false;
       warnings.push(`page 1: dropped ${first.data.length - studies.length} malformed record(s)`);
     }
 
-    const totalFromHeader = toPositiveInt(first.headers.get('x-wp-total')) ?? studies.length;
-    const reportedPages = toPositiveInt(first.headers.get('x-wp-totalpages')) ?? 1;
+    const headerTotal = toPositiveInt(first.headers.get('x-wp-total'));
+    const headerPages = toPositiveInt(first.headers.get('x-wp-totalpages'));
+    if (headerTotal === null || headerPages === null) {
+      complete = false;
+      warnings.push('pagination headers were missing or invalid');
+    }
+    const totalFromHeader = headerTotal ?? studies.length;
+    const reportedPages = headerPages ?? 1;
     const totalPages = Math.max(1, reportedPages);
 
     log.info(`[fetch:studies] page 1/${totalPages}: ${studies.length} records (X-WP-Total: ${totalFromHeader})`);
 
     if (totalPages > MAX_PAGES) {
+      complete = false;
       warnings.push(`upstream reports ${totalPages} pages; capping at ${MAX_PAGES}`);
     }
 
@@ -297,6 +310,10 @@ export async function fetchAllStudies(options: FetchOptions = {}): Promise<Fetch
       const next = await getJson<unknown>(url, http);
       if (!Array.isArray(next.data)) throw new Error(`page ${page} did not return a JSON array`);
       const pageRecords = next.data.filter(isRawStudyLike);
+      if (pageRecords.length !== next.data.length) {
+        complete = false;
+        warnings.push(`page ${page}: dropped ${next.data.length - pageRecords.length} malformed record(s)`);
+      }
       studies.push(...pageRecords);
       log.info(`[fetch:studies] page ${page}/${totalPages}: ${pageRecords.length} records`);
     }
@@ -306,6 +323,7 @@ export async function fetchAllStudies(options: FetchOptions = {}): Promise<Fetch
     // Truncation check. A short read is a data-quality bug, not a crash: we
     // still publish, but the discrepancy is loud and lands in the summary.
     if (totalFromHeader !== studies.length) {
+      complete = false;
       warnings.push(
         `X-WP-Total is ${totalFromHeader} but ${studies.length} record(s) were read - upstream may be paginating differently`,
       );
@@ -316,26 +334,37 @@ export async function fetchAllStudies(options: FetchOptions = {}): Promise<Fetch
     const seen = new Set<number>();
     const unique = studies.filter((s) => (seen.has(s.id) ? false : (seen.add(s.id), true)));
     if (unique.length !== studies.length) {
+      complete = false;
       warnings.push(`removed ${studies.length - unique.length} record(s) repeated across pages`);
     }
 
     for (const w of warnings) log.warn(`[fetch:studies] WARNING ${w}`);
     log.info(`[fetch:studies] SOURCE=network - ${unique.length} records`);
 
-    return { studies: unique, totalFromHeader, totalPages, source: 'network', fetchedAt, warnings, error: null };
+    return {
+      studies: unique,
+      totalFromHeader,
+      totalPages,
+      source: 'network',
+      fetchedAt,
+      warnings,
+      error: null,
+      complete,
+      durationMs: Date.now() - startedAt,
+    };
   } catch (err) {
     const message = describeError(err);
     log.error(`[fetch:studies] network read FAILED: ${message}`);
 
     if (!allowFallback) {
       log.error('[fetch:studies] SOURCE=empty - fallback disabled');
-      return { studies: [], totalFromHeader: 0, totalPages: 0, source: 'empty', fetchedAt, warnings, error: message };
+      return { studies: [], totalFromHeader: 0, totalPages: 0, source: 'empty', fetchedAt, warnings, error: message, complete: false, durationMs: Date.now() - startedAt };
     }
 
     const fixture = await loadFixtureStudies();
     if (fixture.length === 0) {
       log.error('[fetch:studies] SOURCE=empty - fixture unreadable too; downstream must handle an empty list');
-      return { studies: [], totalFromHeader: 0, totalPages: 0, source: 'empty', fetchedAt, warnings, error: message };
+      return { studies: [], totalFromHeader: 0, totalPages: 0, source: 'empty', fetchedAt, warnings, error: message, complete: false, durationMs: Date.now() - startedAt };
     }
 
     warnings.push(`network read failed (${message}); served ${fixture.length} record(s) from the committed fixture`);
@@ -349,6 +378,8 @@ export async function fetchAllStudies(options: FetchOptions = {}): Promise<Fetch
       fetchedAt,
       warnings,
       error: message,
+      complete: false,
+      durationMs: Date.now() - startedAt,
     };
   }
 }

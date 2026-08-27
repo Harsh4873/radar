@@ -379,6 +379,15 @@ export interface SourceReport {
    */
   failedRequests: number;
 
+  /**
+   * Feed/query channels that failed, when a connector can identify them.
+   *
+   * Missing means the failure applies to the whole source. An empty array means
+   * no channel failed. This lets retention distinguish one dead LiveWhale group
+   * from the other calendar feeds that answered normally.
+   */
+  failedChannels?: string[];
+
   /** Why it is degraded/failed/unavailable. Shown verbatim in the UI. */
   note: string | null;
   /** Public documentation, so the page can link out. */
@@ -444,6 +453,8 @@ export interface SourceResult<T> {
   durationMs: number;
   /** Requests that failed. 0 on a clean run. See `SourceReport.failedRequests`. */
   failedRequests: number;
+  /** Optional channel-level failure detail. See `SourceReport.failedChannels`. */
+  failedChannels?: string[];
 }
 
 export interface Logger {

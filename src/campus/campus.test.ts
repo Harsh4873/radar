@@ -12,6 +12,9 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 
 import {
+  buildCalendarWindows,
+  calendarRangeUrl,
+  fetchTamuCalendar,
   GROUP_FEEDS,
   isUsefulRecSportsListing,
   mapEvent,
@@ -131,6 +134,85 @@ describe('TAMU calendar connector', () => {
     expect(mapEvent({ id: 901, title: 'Intramural Basketball Tournament', group_title: group }, 'Rec Sports')).not.toBeNull();
     expect(mapEvent({ id: 902, title: 'Aggie UX Office Hours', group_title: 'Marketing' }, 'Main')).not.toBeNull();
   });
+
+  it('builds exact non-overlapping Central-time date windows', () => {
+    expect(buildCalendarWindows('2026-08-27T04:30:00.000Z', 16)).toEqual([
+      { start: '2026-08-26', end: '2026-09-01' },
+      { start: '2026-09-02', end: '2026-09-08' },
+      { start: '2026-09-09', end: '2026-09-11' },
+    ]);
+    expect(calendarRangeUrl('https://calendar.test/events', { start: '2026-08-26', end: '2026-09-01' }))
+      .toBe('https://calendar.test/events/start_date/2026-08-26/end_date/2026-09-01/max/1000');
+  });
+
+  it('splits a capped date range instead of silently truncating it', async () => {
+    const calls: string[] = [];
+    const event = (id: number) => ({ id, title: `Event ${id}`, date_iso: '2026-08-10T12:00:00-05:00' });
+    const result = await fetchTamuCalendar({
+      now: NOW,
+      days: 2,
+      groups: [],
+      attempts: 1,
+      fetchImpl: async (input) => {
+        const url = String(input);
+        calls.push(url);
+        const body = calls.length === 1
+          ? Array.from({ length: 1000 }, (_, index) => event(index + 1))
+          : [event(calls.length + 2000)];
+        return new Response(JSON.stringify(body), { status: 200 });
+      },
+    });
+
+    expect(calls).toHaveLength(3);
+    expect(calls[0]).toContain('/start_date/2026-08-09/end_date/2026-08-11/');
+    expect(result.records).toHaveLength(2);
+    expect(result.failedRequests).toBe(0);
+  });
+
+  it('reports a malformed calendar response as a failed channel', async () => {
+    const result = await fetchTamuCalendar({
+      now: NOW,
+      days: 0,
+      groups: [],
+      attempts: 1,
+      fetchImpl: async () => new Response(JSON.stringify({ maintenance: true }), { status: 200 }),
+    });
+
+    expect(result.error).toContain('calendar channel');
+    expect(result.failedRequests).toBe(1);
+    expect(result.failedChannels).toEqual(['Main University Calendar']);
+  });
+
+  it('rejects an all-malformed event array without marking the channel successful', async () => {
+    const result = await fetchTamuCalendar({
+      now: NOW,
+      days: 0,
+      groups: [],
+      attempts: 1,
+      fetchImpl: async () => new Response(JSON.stringify([{ maintenance: true }]), { status: 200 }),
+    });
+
+    expect(result.records).toEqual([]);
+    expect(result.fetchSource).toBe('empty');
+    expect(result.failedRequests).toBe(1);
+  });
+
+  it('falls back to the default horizon when days is not finite', async () => {
+    const calls: string[] = [];
+    const result = await fetchTamuCalendar({
+      now: NOW,
+      days: Number.NaN,
+      groups: [],
+      attempts: 1,
+      fetchImpl: async (input) => {
+        calls.push(String(input));
+        return new Response('[]', { status: 200 });
+      },
+    });
+
+    expect(calls[0]).toContain('/start_date/2026-08-09/end_date/2026-08-15/');
+    expect(result.warnings).toContain('requested an invalid calendar horizon; using 90 days');
+  });
 });
 
 describe('Get Involved connector', () => {
@@ -195,6 +277,47 @@ describe('Get Involved connector', () => {
       fetchImpl: async () => new Response('<html>maintenance</html>', { status: 200 }),
     });
     expect(result.error).toContain('no parseable event cards');
+    expect(result.failedRequests).toBe(1);
+  });
+
+  it('walks a full directory page and a final short page', async () => {
+    const cards = (from: number, count: number): string => Array.from({ length: count }, (_, offset) => {
+      const id = from + offset;
+      return `<a href="https://getinvolved.tamu.edu/org/club/events/${id}/${id + 1000}" title="Event ${id}"></a>`
+        + '<p class="text-sm2">Test Club</p>'
+        + '<p class="text-sm2">Sun, Sep 6, 2026 1:00 pm</p>'
+        + '<p class="text-sm2">MSC</p>';
+    }).join('');
+    const pages = [cards(1, 250), cards(251, 2)];
+    let calls = 0;
+    const result = await fetchGetInvolved({
+      now: NOW,
+      days: 90,
+      attempts: 1,
+      fetchImpl: async () => new Response(pages[calls++] ?? '', { status: 200 }),
+    });
+
+    expect(calls).toBe(2);
+    expect(result.records).toHaveLength(252);
+    expect(result.error).toBeNull();
+  });
+
+  it('treats an empty later page as a failed request instead of a clean end', async () => {
+    const cards = Array.from({ length: 250 }, (_, id) =>
+      `<a href="https://getinvolved.tamu.edu/org/club/events/${id + 1}" title="Event ${id + 1}"></a>`
+      + '<p class="text-sm2">Test Club</p>'
+      + '<p class="text-sm2">Sun, Sep 6, 2026 1:00 pm</p>',
+    ).join('');
+    let calls = 0;
+    const result = await fetchGetInvolved({
+      now: NOW,
+      days: 90,
+      attempts: 1,
+      fetchImpl: async () => new Response(calls++ === 0 ? cards : '<html>maintenance</html>', { status: 200 }),
+    });
+
+    expect(calls).toBe(2);
+    expect(result.records).toHaveLength(250);
     expect(result.failedRequests).toBe(1);
   });
 });

@@ -133,6 +133,15 @@ describe('normalizeStudy - full record snapshots', () => {
       summary:
         'This study aims to better understand the roles of the campus environment in promoting or hindering the students’ health and quality of life, and support our future efforts to develop healthy campus environments.',
       url: 'https://research.tamu.edu/study/green-campus-and-health-2/',
+      sources: [{
+        source: 'aggie-research-volunteers',
+        externalId: '11901',
+        url: 'https://research.tamu.edu/study/green-campus-and-health-2/',
+        status: 'unknown',
+        verifiedAt: '2026-04-08T00:59:57.000Z',
+        protocolIds: ['STUDY2025-1035'],
+        titleAliases: ['Green Campus and Health'],
+      }],
       // Upstream stores the "PI: " prefix inside the value; normalize preserves
       // the meta field verbatim rather than second-guessing it.
       piName: 'PI: Chanam Lee, PhD, MLA',
@@ -149,6 +158,7 @@ describe('normalizeStudy - full record snapshots', () => {
       modifiedDate: '2026-04-08T00:59:57.000Z',
       categoryIds: [37],
       locationIds: [53, 54],
+      locationLabels: [],
       sessionTypeIds: [62],
       topicIds: [34],
       compensation: {
@@ -210,6 +220,15 @@ describe('normalizeStudy - full record snapshots', () => {
       summary:
         'This study is designed to test the effect of different tasks, including practicing gender neutral pronouns, on misgendering',
       url: 'https://research.tamu.edu/study/practicing-gender-neutral-pronouns/',
+      sources: [{
+        source: 'aggie-research-volunteers',
+        externalId: '12764',
+        url: 'https://research.tamu.edu/study/practicing-gender-neutral-pronouns/',
+        status: 'unknown',
+        verifiedAt: '2026-06-04T16:01:33.000Z',
+        protocolIds: ['STUDY2026-0369'],
+        titleAliases: ['Practicing Gender Neutral Pronouns'],
+      }],
       piName: 'PI: Allegra Midgette, Ph.D.',
       contactName: 'Mirka Dirzo (lab manager)',
       contactEmail: 'mdlab@tamu.edu',
@@ -223,6 +242,7 @@ describe('normalizeStudy - full record snapshots', () => {
       modifiedDate: '2026-06-04T16:01:33.000Z',
       categoryIds: [39],
       locationIds: [59],
+      locationLabels: [],
       sessionTypeIds: [62],
       topicIds: [],
       compensation: {

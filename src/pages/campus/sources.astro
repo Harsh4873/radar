@@ -9,9 +9,9 @@
  * failure mode for a discovery tool.
  */
 import Base from '@/layouts/Base.astro';
-import { campus, fetchedAt, research } from '@/lib/data.ts';
+import { campus, fetchedAt, research, studies } from '@/lib/data.ts';
 
-const all = [...research.sources, ...campus.sources];
+const all = [...research.sources, ...campus.sources, ...(studies.sourceReports ?? [])];
 
 const statusOrder = { failed: 0, degraded: 1, unavailable: 2, ok: 3 } as const;
 const sorted = [...all].sort(
@@ -53,9 +53,9 @@ const notIngested = [
   <section class="standfirst">
     <h1>Sources</h1>
     <p class="lede">
-      {healthy} of {all.length} sources healthy on the last run, contributing {totalItems} raw records
-      before deduplication. None of these are read in your browser — every upstream is fetched at
-      build time, because not one of them sends CORS headers.
+      {healthy} of {all.length} sources healthy on the last run, contributing {totalItems} source
+      records or confirmations. None of these are read in your browser — every upstream is fetched
+      during the scheduled build-time ingest.
     </p>
   </section>
 
@@ -164,10 +164,10 @@ const notIngested = [
 
       <h3>What Radar refuses to publish</h3>
       <p>
-        The Texas A&amp;M calendar includes a staff email on most events with registration, and the
-        study registry includes a coordinator address on nearly every listing. Radar drops those at
-        the connector, strips any address that appears in free text, and the build fails if an email
-        address reaches the published output. None of them are needed to tell you an event exists.
+        The Texas A&amp;M calendar includes a staff email on most events with registration, and ARV
+        includes a coordinator address on nearly every listing. Calendar addresses are dropped at
+        the connector; ARV addresses are excluded from static HTML and the public API; ClinicalTrials.gov
+        contact objects are never ingested. The build fails if an address reaches published output.
       </p>
     </div>
   </section>

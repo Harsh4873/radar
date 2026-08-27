@@ -1,5 +1,5 @@
 /**
- * Studies ingestion: Aggie Research Volunteers registry.
+ * Studies ingestion: Aggie Research Volunteers + ClinicalTrials.gov.
  *
  * The upstream API sends no CORS header, so this is the only place the
  * registry is read. Ranking is guaranteed $/hour, not Radar relevance, which
@@ -14,6 +14,14 @@ import type { Logger } from '@/types.ts';
 import { consoleLogger } from '@/core/http.ts';
 import { fetchAllStudies, fetchTaxonomies } from '@/studies/fetch-studies.ts';
 import { normalizeAndDedupe, unexpectedLifecycleValues } from '@/studies/normalize.ts';
+import {
+  hydrateStudyRecord,
+  mergeClinicalTrialRecords,
+  normalizeClinicalTrials,
+  stabilizeClinicalTrialIdentities,
+  studyHasSource,
+} from '@/studies/clinicaltrials-normalize.ts';
+import { fetchClinicalTrials } from '@/studies/sources/clinicaltrials.ts';
 import { diffSnapshots } from '@/studies/diff.ts';
 import type { Snapshot, SnapshotDiff, StudyRecord, TaxonomyMaps } from '@/studies/types.ts';
 
@@ -40,6 +48,16 @@ function byId(a: StudyRecord, b: StudyRecord): number {
   return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
 }
 
+function unchanged(previous: Snapshot): StudiesIngestResult['diff'] {
+  return {
+    generatedAt: previous.fetchedAt,
+    previousFetchedAt: previous.fetchedAt,
+    added: [],
+    removed: [],
+    changed: [],
+  };
+}
+
 async function loadPreviousSnapshot(): Promise<Snapshot | null> {
   try {
     const parsed: unknown = JSON.parse(await readFile(STUDIES_SNAPSHOT_URL, 'utf8'));
@@ -64,13 +82,7 @@ export async function ingestStudies(options: StudiesIngestOptions): Promise<Stud
       return {
         snapshot: previous,
         taxonomies: { category: {}, location: {}, sessionType: {}, topic: {} },
-        diff: {
-          generatedAt: previous.fetchedAt,
-          previousFetchedAt: previous.fetchedAt,
-          added: [],
-          removed: [],
-          changed: [],
-        },
+        diff: unchanged(previous),
         source: 'cache',
         warnings: ['offline mode'],
       };
@@ -78,64 +90,26 @@ export async function ingestStudies(options: StudiesIngestOptions): Promise<Stud
     log.warn('[studies] offline mode with no committed snapshot - normalizing the fixture');
   }
 
-  const [studiesResult, taxonomyResult] = options.offline === true
-    ? [
-        await fetchAllStudies({ allowFallback: true, log, fetchImpl: async () => {
-          throw new Error('offline');
-        } }),
-        await fetchTaxonomies({ allowFallback: true, log, fetchImpl: async () => {
-          throw new Error('offline');
-        } }),
-      ]
-    : [await fetchAllStudies({ log }), await fetchTaxonomies({ log })];
+  const offlineFetch = async (): Promise<Response> => {
+    throw new Error('offline');
+  };
+  const arvOptions = options.offline === true
+    ? { allowFallback: true, log, fetchImpl: offlineFetch }
+    : { log };
+  const taxonomyOptions = options.offline === true
+    ? { allowFallback: true, log, fetchImpl: offlineFetch }
+    : { log };
+  const clinicalOptions = options.offline === true
+    ? { log, attempts: 1, fetchImpl: offlineFetch }
+    : { log };
 
-  warnings.push(...studiesResult.warnings, ...taxonomyResult.warnings);
+  const [studiesResult, taxonomyResult, clinicalResult] = await Promise.all([
+    fetchAllStudies(arvOptions),
+    fetchTaxonomies(taxonomyOptions),
+    fetchClinicalTrials(clinicalOptions),
+  ]);
 
-  if (studiesResult.source === 'fixture' && previous !== null && previous.studies.length > 0) {
-    warnings.push('network read failed; keeping the previous snapshot rather than overwriting it with fixture data');
-    log.warn('[studies] SOURCE=cache - fixture fallback skipped because a real snapshot already exists');
-    return {
-      snapshot: previous,
-      taxonomies: taxonomyResult.taxonomies,
-      diff: {
-        generatedAt: previous.fetchedAt,
-        previousFetchedAt: previous.fetchedAt,
-        added: [],
-        removed: [],
-        changed: [],
-      },
-      source: 'cache',
-      warnings,
-    };
-  }
-
-  if (studiesResult.studies.length === 0) {
-    if (previous !== null && previous.studies.length > 0) {
-      warnings.push('studies fetch returned nothing; keeping the previous snapshot');
-      log.warn('[studies] SOURCE=cache - previous snapshot retained');
-      return {
-        snapshot: previous,
-        taxonomies: taxonomyResult.taxonomies,
-        diff: {
-          generatedAt: previous.fetchedAt,
-          previousFetchedAt: previous.fetchedAt,
-          added: [],
-          removed: [],
-          changed: [],
-        },
-        source: 'cache',
-        warnings,
-      };
-    }
-    log.error('[studies] no records from network, fixture, or previous snapshot');
-    return {
-      snapshot: { fetchedAt: options.now, totalFromHeader: 0, studies: [] },
-      taxonomies: taxonomyResult.taxonomies,
-      diff: { generatedAt: options.now, previousFetchedAt: null, added: [], removed: [], changed: [] },
-      source: 'empty',
-      warnings,
-    };
-  }
+  warnings.push(...studiesResult.warnings, ...taxonomyResult.warnings, ...clinicalResult.warnings);
 
   const { studies: deduped, dropped, groups, failures } = normalizeAndDedupe(studiesResult.studies, {
     taxonomies: taxonomyResult.taxonomies,
@@ -147,11 +121,115 @@ export async function ingestStudies(options: StudiesIngestOptions): Promise<Stud
     warnings.push(`skipped malformed record ${String(failure.id)}`);
   }
 
-  const studies = [...deduped].sort(byId);
+  const clinicalNormalized = normalizeClinicalTrials(clinicalResult.studies, { now });
+  for (const failure of clinicalNormalized.failures) {
+    log.error(`[studies] skipped malformed ClinicalTrials.gov record ${String(failure.id)}: ${failure.error}`);
+    warnings.push(`skipped malformed ClinicalTrials.gov record ${String(failure.id)}`);
+  }
+
+  const previousStudies = (previous?.studies ?? []).map(hydrateStudyRecord);
+  const previousArv = previousStudies.filter((study) => studyHasSource(study, 'aggie-research-volunteers'));
+  const previousClinical = previousStudies.filter((study) => studyHasSource(study, 'clinicaltrials-gov'));
+
+  const arvTrusted = studiesResult.source === 'network'
+    && studiesResult.complete
+    && failures.length === 0
+    && deduped.length > 0;
+  const clinicalTrusted = clinicalResult.source === 'network'
+    && clinicalResult.complete
+    && clinicalNormalized.failures.length === 0;
+
+  const arvReason = arvTrusted
+    ? null
+    : studiesResult.source !== 'network'
+      ? `source=${studiesResult.source}`
+      : !studiesResult.complete
+        ? 'the WordPress read was incomplete'
+        : `${failures.length} normalization failure(s)`;
+  const clinicalReason = clinicalTrusted
+    ? null
+    : clinicalResult.source !== 'network'
+      ? `source=${clinicalResult.source}`
+      : !clinicalResult.complete
+        ? 'one or more registry queries were incomplete'
+        : `${clinicalNormalized.failures.length} normalization failure(s)`;
+
+  let retainedArv = false;
+  let retainedClinical = false;
+  const arvRecords = arvTrusted || previousArv.length === 0
+    ? deduped
+    : (retainedArv = true, previousArv);
+
+  let clinicalRecords = clinicalNormalized.studies;
+  if (!clinicalTrusted && previousClinical.length > 0) {
+    retainedClinical = true;
+    const currentIds = new Set(clinicalNormalized.studies.flatMap((study) =>
+      study.sources.filter((source) => source.source === 'clinicaltrials-gov').map((source) => source.externalId)));
+    clinicalRecords = [
+      ...clinicalNormalized.studies,
+      ...previousClinical.filter((study) => !study.sources.some((source) =>
+        source.source === 'clinicaltrials-gov' && currentIds.has(source.externalId))),
+    ];
+  }
+
+  if (!arvTrusted) {
+    if (retainedArv) warnings.push(`Aggie Research Volunteers: kept ${previousArv.length} prior record(s) because ${arvReason}`);
+    else warnings.push(`Aggie Research Volunteers: publishing available fallback data because ${arvReason}`);
+  }
+  if (!clinicalTrusted) {
+    if (retainedClinical) warnings.push(`ClinicalTrials.gov: kept ${previousClinical.length} prior record(s) because ${clinicalReason}`);
+    else warnings.push(`ClinicalTrials.gov: no prior records were available while ${clinicalReason}`);
+  }
+
+  const merged = mergeClinicalTrialRecords(arvRecords, clinicalRecords);
+  const studies = stabilizeClinicalTrialIdentities(merged, previousStudies).sort(byId);
+  const arvCount = studies.filter((study) => studyHasSource(study, 'aggie-research-volunteers')).length;
+  const clinicalCount = studies.filter((study) => studyHasSource(study, 'clinicaltrials-gov')).length;
+  const sourceReports: NonNullable<Snapshot['sourceReports']> = [
+    {
+      id: 'aggie-research-volunteers',
+      label: 'Aggie Research Volunteers',
+      vertical: 'studies',
+      status: arvTrusted ? 'ok' : arvCount > 0 ? 'degraded' : 'failed',
+      itemCount: arvCount,
+      fetchSource: retainedArv ? 'cache' : studiesResult.source,
+      durationMs: studiesResult.durationMs,
+      failedRequests: studiesResult.source === 'network' && studiesResult.complete ? 0 : 1,
+      complete: arvTrusted,
+      note: arvReason,
+      docsUrl: 'https://research.tamu.edu/resources/aggie-research-volunteers/',
+    },
+    {
+      id: 'clinicaltrials-gov',
+      label: 'ClinicalTrials.gov',
+      vertical: 'studies',
+      status: clinicalTrusted ? 'ok' : clinicalCount > 0 ? 'degraded' : 'failed',
+      itemCount: clinicalCount,
+      fetchSource: retainedClinical ? 'cache' : clinicalResult.source,
+      durationMs: clinicalResult.durationMs,
+      failedRequests: clinicalResult.failedRequests,
+      complete: clinicalTrusted,
+      note: clinicalReason,
+      docsUrl: 'https://clinicaltrials.gov/data-api/api',
+    },
+  ];
+
+  if (studies.length === 0) {
+    log.error('[studies] no records from either registry or the previous snapshot');
+    return {
+      snapshot: { fetchedAt: options.now, totalFromHeader: 0, studies: [], sourceReports },
+      taxonomies: taxonomyResult.taxonomies,
+      diff: { generatedAt: options.now, previousFetchedAt: null, added: [], removed: [], changed: [] },
+      source: 'empty',
+      warnings,
+    };
+  }
+
   const snapshot: Snapshot = {
-    fetchedAt: studiesResult.fetchedAt,
-    totalFromHeader: studiesResult.totalFromHeader,
+    fetchedAt: arvTrusted || clinicalTrusted ? options.now : previous?.fetchedAt ?? studiesResult.fetchedAt,
+    totalFromHeader: arvTrusted ? studiesResult.totalFromHeader : previous?.totalFromHeader ?? studiesResult.totalFromHeader,
     studies,
+    sourceReports,
   };
   const diff = diffSnapshots(previous, snapshot);
 
@@ -171,7 +249,11 @@ export async function ingestStudies(options: StudiesIngestOptions): Promise<Stud
       previousFetchedAt: previous?.fetchedAt ?? null,
       ...diff,
     },
-    source: studiesResult.source,
+    source: retainedArv || retainedClinical
+      ? 'cache'
+      : arvTrusted || clinicalTrusted
+        ? 'network'
+        : studiesResult.source,
     warnings,
   };
 }

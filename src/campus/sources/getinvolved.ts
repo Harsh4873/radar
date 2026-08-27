@@ -23,8 +23,8 @@ import { calendarDaysUntil, collapse, htmlToText } from '@/core/text.ts';
 import { classify, extractCompanies } from '@/campus/classify.ts';
 
 const ENDPOINT = 'https://getinvolved.tamu.edu/events';
-const PAGE_SIZE = 100;
-const MAX_PAGES = 3;
+export const GET_INVOLVED_PAGE_SIZE = 250;
+export const GET_INVOLVED_MAX_PAGES = 10;
 const CENTRAL = 'America/Chicago';
 
 const MONTHS: Readonly<Record<string, number>> = {
@@ -206,6 +206,11 @@ export function parseGetInvolvedHtml(html: string, referenceNow: string): Parsed
   return events;
 }
 
+/** Number of rendered event cards before field parsing drops malformed cards. */
+export function countGetInvolvedCards(html: string): number {
+  return [...html.matchAll(/<a\b[^>]*href="https:\/\/getinvolved\.tamu\.edu\/org\/[^"/]+\/events\/\d+(?:\/\d+)?"[^>]*title="[^"]+"[^>]*>/gi)].length;
+}
+
 function mapEvent(event: ParsedGetInvolvedEvent): RawItem {
   const category = classify({
     title: event.title,
@@ -268,28 +273,48 @@ export interface GetInvolvedOptions extends RequestOptions {
 export async function fetchGetInvolved(options: GetInvolvedOptions): Promise<SourceResult<RawItem>> {
   const log = options.log ?? consoleLogger;
   const days = options.days ?? 45;
-  const maxPages = Math.max(1, Math.min(options.maxPages ?? MAX_PAGES, MAX_PAGES));
+  const maxPages = Math.max(1, Math.min(options.maxPages ?? GET_INVOLVED_MAX_PAGES, GET_INVOLVED_MAX_PAGES));
   const startedAt = Date.now();
   const warnings: string[] = [];
   const parsed: ParsedGetInvolvedEvent[] = [];
+  const seen = new Set<string>();
   let failures = 0;
 
   for (let page = 1; page <= maxPages; page += 1) {
     try {
-      const url = buildUrl(ENDPOINT, { limit: PAGE_SIZE, page });
+      const url = buildUrl(ENDPOINT, { limit: GET_INVOLVED_PAGE_SIZE, page });
       const html = await getText(url, { ...options, headers: { accept: 'text/html,application/xhtml+xml' } });
       const events = parseGetInvolvedHtml(html, options.now);
+      const cardCount = countGetInvolvedCards(html);
 
       // A successful 200 containing no event anchors is much more likely to be
       // a markup/login/maintenance response than an empty campus. Fail loudly
       // so retention keeps yesterday's student-org events.
-      if (page === 1 && events.length === 0) {
+      if (cardCount === 0) {
         throw new Error('Get Involved returned no parseable event cards');
       }
+      if (cardCount > 0 && events.length === 0) {
+        throw new Error(`Get Involved page ${page} contained cards but none could be parsed`);
+      }
 
-      parsed.push(...events);
-      log.info(`[getinvolved] page ${page}: ${events.length} event(s)`);
-      if (events.length < PAGE_SIZE) break;
+      if (cardCount > events.length) {
+        warnings.push(`page ${page}: dropped ${cardCount - events.length} malformed event card(s)`);
+      }
+
+      let novel = 0;
+      for (const event of events) {
+        const key = `${event.eventId}:${event.occurrenceId ?? 'primary'}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        parsed.push(event);
+        novel += 1;
+      }
+
+      log.info(`[getinvolved] page ${page}: ${events.length} parsed, ${novel} new event(s)`);
+      // Featured cards repeat on every page. Stop on a repeated page even if a
+      // future upstream response reports a misleading full-page count.
+      if (novel === 0 || cardCount < GET_INVOLVED_PAGE_SIZE) break;
+      if (page === maxPages) warnings.push(`reached the ${maxPages}-page safety cap while more events may remain`);
     } catch (err) {
       failures += 1;
       const message = describeError(err);
@@ -299,13 +324,8 @@ export async function fetchGetInvolved(options: GetInvolvedOptions): Promise<Sou
     }
   }
 
-  const seen = new Set<string>();
   const records = parsed
     .filter((event) => {
-      const key = `${event.eventId}:${event.occurrenceId ?? 'primary'}`;
-      if (seen.has(key)) return false;
-      seen.add(key);
-
       const startsIn = calendarDaysUntil(event.startsAt, options.now);
       const endsIn = calendarDaysUntil(event.endsAt, options.now);
       const stillHappening = endsIn !== null && endsIn >= 0;

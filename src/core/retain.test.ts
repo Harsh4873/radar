@@ -4,7 +4,7 @@ import { retainUnfetched } from '@/core/retain.ts';
 
 const NOW = '2026-08-11T00:00:00.000Z';
 
-function item(id: string, sources: SourceId[]): RadarItem {
+function item(id: string, sources: (SourceId | { source: SourceId; channel: string | null })[]): RadarItem {
   return {
     id,
     vertical: 'research',
@@ -12,11 +12,11 @@ function item(id: string, sources: SourceId[]): RadarItem {
     summary: '',
     url: 'https://example.test/1',
     identity: [],
-    sources: sources.map((source, index) => ({
-      source,
+    sources: sources.map((input, index) => ({
+      source: typeof input === 'string' ? input : input.source,
       externalId: `${id}-${index}`,
       url: '',
-      channel: null,
+      channel: typeof input === 'string' ? null : input.channel,
       firstSeen: '2026-01-01T00:00:00.000Z',
       lastModified: null,
     })),
@@ -90,6 +90,22 @@ describe('retainUnfetched', () => {
     const previous = [item('a', ['arxiv', 'europepmc'])];
     const result = retainUnfetched(previous, [], [report('arxiv', 1), report('europepmc', 0)]);
     expect(result.retained).toHaveLength(0);
+  });
+
+  it('retains only the failed channel of a partially healthy source', () => {
+    const prior = [
+      item('main', [{ source: 'tamu-calendar', channel: 'Main University Calendar' }]),
+      item('career', [{ source: 'tamu-calendar', channel: 'Career Center' }]),
+    ];
+    const calendar = {
+      ...report('tamu-calendar', 1, 'degraded'),
+      failedChannels: ['Career Center'],
+    };
+
+    const result = retainUnfetched(prior, [], [calendar]);
+
+    expect(result.retained.map((entry) => entry.id)).toEqual(['career']);
+    expect(result.items.map((entry) => entry.id)).toEqual(['career']);
   });
 
   it('prefers the fresh copy when a source did answer', () => {

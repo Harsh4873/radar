@@ -468,6 +468,7 @@ export function normalizeStudy(raw: RawStudy, options: NormalizeOptions = {}): D
 
   const postedDate = toIso(raw.date_gmt) ?? toIso(raw.date) ?? new Date(0).toISOString();
   const modifiedDate = toIso(raw.modified_gmt) ?? toIso(raw.modified) ?? postedDate;
+  const irbNumber = asNullableString(meta.aux_study_item_irb_number);
 
   const record: DedupedStudyRecord = {
     id: String(raw.id),
@@ -475,11 +476,20 @@ export function normalizeStudy(raw: RawStudy, options: NormalizeOptions = {}): D
     title,
     summary,
     url: asString(raw.link),
+    sources: [{
+      source: 'aggie-research-volunteers',
+      externalId: String(raw.id),
+      url: asString(raw.link),
+      status: isExpired ? 'expired' : 'unknown',
+      verifiedAt: modifiedDate,
+      protocolIds: irbNumber === null ? [] : [irbNumber],
+      titleAliases: [title],
+    }],
     piName: asNullableString(meta.aux_study_item_pi_name),
     contactName: asNullableString(meta.aux_study_item_contact_name),
     contactEmail: asNullableString(meta.aux_study_item_contact_email),
     contactPhone: asNullableString(meta.aux_study_item_contact_phone_number),
-    irbNumber: asNullableString(meta.aux_study_item_irb_number),
+    irbNumber,
     irbApprovalDate: toIso(meta.aux_study_item_irb_approval_date),
     expirationDate,
     recruitmentStartDate: toIso(meta.aux_study_item_recruitment_start_date),
@@ -491,6 +501,7 @@ export function normalizeStudy(raw: RawStudy, options: NormalizeOptions = {}): D
     locationIds: asNumberArray(raw.aux_study_location),
     sessionTypeIds: asNumberArray(raw.aux_study_session_type),
     topicIds: asNumberArray(raw.aux_study_topic),
+    locationLabels: [],
 
     compensation,
     duration,
@@ -512,6 +523,8 @@ export function normalizeStudy(raw: RawStudy, options: NormalizeOptions = {}): D
   const outcome = stalenessFor(record, raw, now, isExpired);
   record.isExpired = outcome.isExpired;
   record.staleness = outcome.staleness;
+  const primarySource = record.sources[0];
+  if (primarySource !== undefined) primarySource.status = record.isExpired ? 'expired' : 'unknown';
 
   return record;
 }

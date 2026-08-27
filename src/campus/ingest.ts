@@ -16,7 +16,7 @@ import { consoleLogger, type RequestOptions } from '@/core/http.ts';
 import { dedupe } from '@/core/dedupe.ts';
 import { normalizeAll } from '@/core/normalize.ts';
 import { INGEST_THRESHOLD, byRelevance } from '@/core/rank.ts';
-import { fetchTamuCalendar } from '@/campus/sources/tamu-calendar.ts';
+import { DEFAULT_CAMPUS_DAYS, fetchTamuCalendar } from '@/campus/sources/tamu-calendar.ts';
 import { fetchGetInvolved } from '@/campus/sources/getinvolved.ts';
 import { fetchImleaguesSchedule } from '@/campus/sources/imleagues.ts';
 import { collapseCoMarketedEvents, collapseSeries } from '@/campus/series.ts';
@@ -35,18 +35,30 @@ const DOCS: Record<string, string> = {
 };
 
 function reportFor(result: SourceResult<unknown>): SourceReport {
+  const emptyGroupNotes = result.source === 'tamu-calendar'
+    ? result.warnings.filter((warning) => warning.includes(': 0 events - group is not posting'))
+    : [];
+  const healthWarnings = result.warnings.filter((warning) => !emptyGroupNotes.includes(warning));
   return {
     id: result.source,
     label: LABELS[result.source] ?? result.source,
     vertical: 'campus',
-    status: result.error !== null ? 'failed' : result.warnings.length > 0 ? 'degraded' : 'ok',
+    status: result.error !== null
+      ? 'failed'
+      : result.failedRequests > 0 || healthWarnings.length > 0
+        ? 'degraded'
+        : 'ok',
     itemCount: result.records.length,
     fetchSource: result.fetchSource,
     durationMs: result.durationMs,
     failedRequests: result.failedRequests,
-    note: result.error ?? (result.warnings[0] ?? (result.source === 'imleagues'
-      ? 'Reviewed public Fall 2026 snapshot: 29 sports and all 106 published divisions; no private SPA calls.'
-      : null)),
+    ...(result.failedChannels === undefined ? {} : { failedChannels: result.failedChannels }),
+    note: result.error ?? (healthWarnings[0]
+      ?? (emptyGroupNotes.length > 0
+        ? `${emptyGroupNotes.length} optional group feed(s) had no events in this window; site-wide date shards were still complete.`
+        : result.source === 'imleagues'
+          ? 'Reviewed public Fall 2026 snapshot: 29 sports and all 106 published divisions; no private SPA calls.'
+          : null)),
     docsUrl: DOCS[result.source] ?? '',
   };
 }
@@ -96,7 +108,7 @@ export function isParticipantResearchStudy(item: RawItem): boolean {
 
 export async function ingestCampus(options: CampusIngestOptions): Promise<CampusIngestResult> {
   const log = options.log ?? consoleLogger;
-  const days = options.days ?? 45;
+  const days = options.days ?? DEFAULT_CAMPUS_DAYS;
   const reports: SourceReport[] = [];
   const warnings: string[] = [];
 

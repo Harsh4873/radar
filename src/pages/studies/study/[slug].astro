@@ -19,6 +19,11 @@ import { checkEligibility } from '@/studies/parse-eligibility.ts';
 import { rateBucket, type RateBucket } from '@/studies/effective-rate.ts';
 import { EMPTY_PROFILE } from '@/studies/profile.ts';
 import { scrubEmails } from '@/studies/mailto.ts';
+import {
+  combinedStudyLocations,
+  studySourceLabel,
+  studySourceReferences,
+} from '@/studies/source-display.ts';
 import ScreeningStatus from '@/components/studies/ScreeningStatus.astro';
 import ContactButton from '@/components/studies/ContactButton.astro';
 import snapshotJson from '@/data/studies.json';
@@ -79,9 +84,10 @@ const terms = (kind: string, ids: number[]): string[] => {
 };
 
 const categories = terms('category', study.categoryIds);
-const locations = terms('location', study.locationIds);
+const locations = combinedStudyLocations(study, terms('location', study.locationIds));
 const sessionTypes = terms('sessionType', study.sessionTypeIds);
 const topics = terms('topic', study.topicIds);
+const officialSources = studySourceReferences(study);
 
 // ---------------------------------------------------------------------------
 // Derived display values
@@ -157,12 +163,12 @@ const STALENESS_COPY: Record<
   stale: {
     label: 'This listing looks stale',
     tone: 'border-orange-400 bg-orange-50 text-orange-900',
-    text: 'There is no expiration date and the IRB approval is old enough that this posting may simply have been left up. Confirm it is still recruiting before you plan around it.',
+    text: 'The official record is old enough that it may have been left up. Confirm it is still recruiting before you plan around it.',
   },
   aging: {
     label: 'This listing is getting on',
     tone: 'border-amber-300 bg-amber-50 text-amber-900',
-    text: 'It has been a while since this posting was approved or updated. Worth confirming enrolment is still open.',
+    text: 'It has been a while since an official source updated this record. Worth confirming enrolment is still open.',
   },
   fresh: null,
 };
@@ -209,7 +215,7 @@ const VERDICT_LABEL: Record<string, string> = {
   unknown: 'Cannot tell from your details',
 };
 
-const pageTitle = `${study.title} — TAMU Paid Research Studies`;
+const pageTitle = `${study.title} — Research Studies`;
 const description = scrubEmails(study.summary).slice(0, 180);
 ---
 
@@ -264,19 +270,27 @@ const description = scrubEmails(study.summary).slice(0, 180);
         )
       }
 
-      <!-- The canonical page, high on the page and hard to miss. Everything
-           below it is our reading of that page; that page is the real thing. -->
+      <!-- Official records, high on the page and hard to miss. -->
       <div class="mt-6 rounded-lg border-2 border-brand-700 bg-white p-4">
         <p class="text-sm text-gray-700">
-          This is an unofficial, parsed copy. The official listing is authoritative:
+          This is an unofficial, parsed index. The official {officialSources.length === 1 ? 'record is' : 'records are'} authoritative:
         </p>
-        <a
-          class="mt-2 inline-block rounded-md bg-brand-700 px-4 py-2 font-semibold text-white hover:bg-brand-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
-          href={study.url}
-          rel="noopener external"
-        >
-          Open on research.tamu.edu
-        </a>
+        <div class="mt-2 flex flex-wrap gap-2">
+          {officialSources.map((source, index) => (
+            <a
+              class:list={[
+                'inline-block rounded-md px-4 py-2 font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700',
+                index === 0
+                  ? 'bg-brand-700 text-white hover:bg-brand-500'
+                  : 'border border-brand-700 bg-white text-brand-700 hover:bg-brand-50',
+              ]}
+              href={source.url}
+              rel="noopener external"
+            >
+              Open on {studySourceLabel(source.source)}
+            </a>
+          ))}
+        </div>
       </div>
 
       <!-- ---------------------------------------------------------------- -->
@@ -401,9 +415,10 @@ const description = scrubEmails(study.summary).slice(0, 180);
           </summary>
           <div class="border-t border-gray-200 px-4 py-4 text-sm">
             <p class="text-gray-700">
-              Below is the compensation and duration text exactly as the university publishes it,
-              markup and all. Everything above is derived from these two strings. If they disagree
-              with our numbers, believe these.
+              Below is the compensation and duration text supplied by the official source. ARV
+              publishes both as free text; ClinicalTrials.gov publishes neither, so registry-only
+              records correctly show blank fields. If source text disagrees with our numbers,
+              believe the source.
             </p>
 
             <h3 class="mt-4 font-semibold">Compensation, verbatim</h3>
@@ -503,9 +518,9 @@ const description = scrubEmails(study.summary).slice(0, 180);
       <section class="mt-8" aria-labelledby="contact-heading">
         <h2 id="contact-heading" class="text-lg font-bold">Get in touch</h2>
         <p class="mt-1 text-sm text-gray-700">
-          Many of these postings are out of date, so the first thing to ask is whether the study is
-          still recruiting. The draft below does that for you, and states anything from your
-          details that the listing screens for — it will not leave that out to improve your odds.
+          The first thing to confirm is whether the study is still recruiting. When ARV supplies a
+          coordinator address, the draft below asks that and states anything from your details that
+          the listing screens for. Registry-only studies link to their official page instead.
         </p>
         <ContactButton study={study} phone={study.contactPhone} class="mt-3" />
       </section>
@@ -514,6 +529,12 @@ const description = scrubEmails(study.summary).slice(0, 180);
       <section class="mt-8" aria-labelledby="admin-heading">
         <h2 id="admin-heading" class="text-lg font-bold">Study record</h2>
         <dl class="mt-3 grid gap-x-6 gap-y-2 text-sm sm:grid-cols-2">
+          {officialSources.map((source) => (
+            <div>
+              <dt class="inline font-semibold">{studySourceLabel(source.source)}:</dt>
+              <dd class="inline"> {source.externalId} · {source.status}</dd>
+            </div>
+          ))}
           <div><dt class="inline font-semibold">IRB number:</dt><dd class="inline"> {study.irbNumber ?? 'not stated'}</dd></div>
           <div><dt class="inline font-semibold">IRB approval:</dt><dd class="inline"> {day(study.irbApprovalDate)}</dd></div>
           <div><dt class="inline font-semibold">Principal investigator:</dt><dd class="inline"> {scrubEmails(study.piName) || 'not stated'}</dd></div>

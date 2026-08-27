@@ -392,7 +392,7 @@ export function buildInquiryEmail(study: InquiryStudy, profile: UserProfile): In
   lines.push(
     `I am a graduate student at Texas A&M University interested in volunteering for your study, "${title}"${
       irb ? ` (${irb})` : ''
-    }, which I found on the Aggie Research Volunteers listings.`,
+    }, which I found through an official participant-study listing.`,
   );
   lines.push('');
   lines.push(recruitmentQuestion(study));

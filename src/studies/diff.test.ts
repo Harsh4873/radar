@@ -50,6 +50,15 @@ function study(id: string, overrides: Partial<StudyRecord> = {}): StudyRecord {
     title: `Study ${id}`,
     summary: '',
     url: `https://research.tamu.edu/study/study-${id}/`,
+    sources: [{
+      source: 'aggie-research-volunteers',
+      externalId: id,
+      url: `https://research.tamu.edu/study/study-${id}/`,
+      status: 'unknown',
+      verifiedAt: '2026-01-01T00:00:00.000Z',
+      protocolIds: [`STUDY2026-${id}`],
+      titleAliases: [`Study ${id}`],
+    }],
     piName: null,
     contactName: null,
     contactEmail: null,
@@ -65,6 +74,7 @@ function study(id: string, overrides: Partial<StudyRecord> = {}): StudyRecord {
     locationIds: [],
     sessionTypeIds: [],
     topicIds: [],
+    locationLabels: [],
     compensation: {
       guaranteedMin: 20,
       guaranteedMax: 20,

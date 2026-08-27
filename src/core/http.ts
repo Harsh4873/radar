@@ -55,6 +55,7 @@ const HOST_MIN_INTERVAL_MS: Record<string, number> = {
   'calendar.tamu.edu': 200,
   'getinvolved.tamu.edu': 300,
   'research.tamu.edu': 250,
+  'clinicaltrials.gov': 250,
 };
 
 const DEFAULT_MIN_INTERVAL_MS = 250;

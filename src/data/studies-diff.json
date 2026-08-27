@@ -1,7 +1,50 @@
 {
-  "generatedAt": "2026-08-27T04:34:32.647Z",
-  "previousFetchedAt": "2026-08-26T17:30:45.126Z",
-  "added": [],
+  "generatedAt": "2026-08-27T15:07:58.162Z",
+  "previousFetchedAt": "2026-08-27T04:34:32.647Z",
+  "added": [
+    "ctgov:NCT03646214",
+    "ctgov:NCT05005026",
+    "ctgov:NCT05867433",
+    "ctgov:NCT05964699",
+    "ctgov:NCT06219720",
+    "ctgov:NCT06330181",
+    "ctgov:NCT06480201",
+    "ctgov:NCT06726590",
+    "ctgov:NCT06766071",
+    "ctgov:NCT06826014",
+    "ctgov:NCT06950775",
+    "ctgov:NCT07079995",
+    "ctgov:NCT07254364",
+    "ctgov:NCT07659821",
+    "ctgov:NCT07757529",
+    "ctgov:NCT07766720",
+    "ctgov:NCT07780188"
+  ],
   "removed": [],
-  "changed": []
+  "changed": [
+    {
+      "id": "4593",
+      "fields": [
+        "expirationDate"
+      ]
+    },
+    {
+      "id": "4611",
+      "fields": [
+        "expirationDate"
+      ]
+    },
+    {
+      "id": "4613",
+      "fields": [
+        "expirationDate"
+      ]
+    },
+    {
+      "id": "4642",
+      "fields": [
+        "expirationDate"
+      ]
+    }
+  ]
 }

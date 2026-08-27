@@ -12,6 +12,7 @@ import StudyCard from '@/components/studies/StudyCard.astro';
 import { campus, fetchedAt, now, research, studies, studyTaxonomies } from '@/lib/data.ts';
 import { byBand, byCampusDate, forYou, recentlyAdded, url } from '@/lib/view.ts';
 import { isKnownRate, sortStudies } from '@/studies/effective-rate.ts';
+import { combinedStudyLocations } from '@/studies/source-display.ts';
 import type { TaxonomyTerm } from '@/studies/types.ts';
 
 const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
@@ -57,7 +58,7 @@ function namesFor(ids: number[], lookup: Map<number, string>): string[] {
 
 <Base
   title="Radar"
-  description="Literature, Texas A&M campus, and paid research studies — ranked, with the reasons shown."
+  description="Literature, Texas A&M campus, and participant research studies — ranked, with the reasons shown."
   fetchedAt={fetchedAt}
   current="home"
   layout="wide"
@@ -70,7 +71,7 @@ function namesFor(ids: number[], lookup: Map<number, string>): string[] {
         Three ranked feeds over one pipeline. {research.scanned + campus.scanned} campus and
         literature candidates were scanned in the last run;
         {research.items.length + campus.items.length} papers and events cleared the bar, plus
-        {liveStudies.length} live paid studies.
+        {liveStudies.length} live study opportunities.
       </p>
     </div>
     <ul class="home-metrics" aria-label="Radar summary">
@@ -84,7 +85,7 @@ function namesFor(ids: number[], lookup: Map<number, string>): string[] {
       </li>
       <li>
         <strong>{liveStudies.length}</strong>
-        <span>live paid studies</span>
+        <span>live study opportunities</span>
       </li>
       <li>
         <strong>
@@ -116,7 +117,7 @@ function namesFor(ids: number[], lookup: Map<number, string>): string[] {
       <span class="engine engine-studies">Studies</span>
       <h2>Paid studies, ranked by rate</h2>
       <p>
-        {liveStudies.length} live postings from Aggie Research Volunteers.
+        {liveStudies.length} live postings across Aggie Research Volunteers and ClinicalTrials.gov.
         {rankedStudies.length} have a guaranteed hourly rate. Raffles are never counted as pay.
       </p>
       <p class="engine-card-meta">
@@ -155,7 +156,7 @@ function namesFor(ids: number[], lookup: Map<number, string>): string[] {
           {topStudies.map((study) => (
             <StudyCard
               study={study}
-              locations={namesFor(study.locationIds, locationNames)}
+              locations={combinedStudyLocations(study, namesFor(study.locationIds, locationNames))}
               sessionTypes={namesFor(study.sessionTypeIds, sessionTypeNames)}
               actions={false}
             />

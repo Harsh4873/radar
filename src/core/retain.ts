@@ -46,9 +46,9 @@ export function retainUnfetched(
   next: readonly RadarItem[],
   reports: readonly SourceReport[],
 ): RetainResult {
-  const impaired = new Set<SourceId>(
-    reports.filter((report) => report.failedRequests > 0).map((report) => report.id),
-  );
+  const impairedReports = reports.filter((report) => report.failedRequests > 0);
+  const impaired = new Set<SourceId>(impairedReports.map((report) => report.id));
+  const bySource = new Map(impairedReports.map((report) => [report.id, report]));
 
   if (previous === null || previous.length === 0 || impaired.size === 0) {
     return { items: [...next], retained: [], impaired: [...impaired] };
@@ -62,9 +62,18 @@ export function retainUnfetched(
 
     // Only retain when EVERY source that knows this item was impaired. If any
     // healthy source could have returned it and did not, its absence is real.
-    const sources = item.sources.map((source) => source.source);
+    const sources = item.sources;
     if (sources.length === 0) continue;
-    if (!sources.every((source) => impaired.has(source))) continue;
+    if (!sources.every((source) => {
+      const report = bySource.get(source.source);
+      if (report === undefined) return false;
+
+      // Connectors that do not provide channel detail retain source-wide, which
+      // preserves the historical behavior. A connector that does provide it
+      // retains only records whose actual feed/query failed.
+      if (report.failedChannels === undefined) return true;
+      return source.channel !== null && report.failedChannels.includes(source.channel);
+    })) continue;
 
     // Carried forward untouched apart from the status. It is not 'new', it did
     // not 'update' - Radar simply could not check on it this run.

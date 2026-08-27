@@ -24,31 +24,37 @@
  *      Verified across the whole feed. Parsing both defensively is the only
  *      safe read.
  *
- *   4. THE MAIN FEED CAPS AT 1000 RECORDS. A `?days=60` pull returns exactly
- *      1000, which is a ceiling, not a coincidence. Group feeds are therefore
- *      not an optimization but a correctness requirement: without them, busy
- *      windows silently drop events off the end.
+ *   4. THE MAIN FEED CAPS AT 1000 RECORDS, AND QUERY-STRING DATE ARGUMENTS ARE
+ *      IGNORED. In August 2026, `?days=1` and `?days=180` returned the same
+ *      1000 records. LiveWhale's documented path arguments do work, so Radar
+ *      walks non-overlapping seven-day ranges and bisects any range that still
+ *      reaches the cap. That covers the site-wide calendar without pulling all
+ *      165 group feeds.
  *
  * Feed index: https://calendar.tamu.edu/feeds/
  */
 
 import type { Logger, RawItem, SourceResult } from '@/types.ts';
-import { buildUrl, consoleLogger, describeError, getJson, type RequestOptions } from '@/core/http.ts';
+import { consoleLogger, describeError, getJson, type RequestOptions } from '@/core/http.ts';
 import { collapse, htmlToText, toIso } from '@/core/text.ts';
 import { classify, extractCompanies } from '@/campus/classify.ts';
 import { detectFreebies } from '@/campus/freebies.ts';
 
 const MAIN_FEED = 'https://calendar.tamu.edu/live/json/events';
 const GROUP_FEED = 'https://calendar.tamu.edu/live/json/events/group';
+export const DEFAULT_CAMPUS_DAYS = 90;
+export const CALENDAR_WINDOW_DAYS = 7;
+export const CALENDAR_FEED_CAP = 1000;
+const MAX_LOOKAHEAD_DAYS = 180;
+const CENTRAL = 'America/Chicago';
 
 /**
- * Group feeds worth pulling, selected from the ~165 published.
+ * Group feeds worth pulling in addition to the complete site-wide windows.
  *
- * Chosen for signal density against this user's interests rather than
- * completeness: the CS/engineering/data-science units, the two research
- * offices, the career center, athletics, and the student-life groups that
- * actually post events. Pulling all 165 would be ~165 requests per run against
- * a university server for a large amount of content nobody will read.
+ * LiveWhale lets a group opt out of site-wide results, so these focused feeds
+ * remain useful even after the main feed is date-sharded. Pulling all 165 would
+ * be ~165 requests per run and still would not solve groups that independently
+ * hit LiveWhale's 1000-record cap.
  *
  * The names must match LiveWhale's group titles EXACTLY - a near-miss returns
  * HTTP 200 with an empty array rather than an error, so a typo here is silent.
@@ -262,11 +268,73 @@ export function mapEvent(event: LiveWhaleEvent, channel: string): RawItem | null
 }
 
 export interface TamuCalendarOptions extends RequestOptions {
+  /** Ingest timestamp; used to create America/Chicago date windows. */
+  now?: string;
   /** How far ahead to look. */
   days?: number;
   /** Group titles to pull in addition to the main feed. */
   groups?: readonly string[];
   log?: Logger;
+}
+
+export interface CalendarWindow {
+  start: string;
+  end: string;
+}
+
+function centralDate(value: string): string {
+  const date = new Date(value);
+  const safe = Number.isNaN(date.getTime()) ? new Date() : date;
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: CENTRAL,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(safe);
+  const field = (type: Intl.DateTimeFormatPartTypes): string =>
+    parts.find((part) => part.type === type)?.value ?? '00';
+  return `${field('year')}-${field('month')}-${field('day')}`;
+}
+
+function shiftDate(value: string, days: number): string {
+  const [year, month, day] = value.split('-').map((part) => Number.parseInt(part, 10));
+  if (year === undefined || month === undefined || day === undefined) return value;
+  return new Date(Date.UTC(year, month - 1, day + days)).toISOString().slice(0, 10);
+}
+
+function daysBetween(start: string, end: string): number {
+  return Math.round((Date.parse(`${end}T00:00:00Z`) - Date.parse(`${start}T00:00:00Z`)) / 86_400_000);
+}
+
+/** Inclusive, non-overlapping date shards for LiveWhale's path API. */
+export function buildCalendarWindows(
+  now: string,
+  days: number,
+  windowDays = CALENDAR_WINDOW_DAYS,
+): CalendarWindow[] {
+  const first = centralDate(now);
+  const last = shiftDate(first, Math.max(0, Math.trunc(days)));
+  const width = Math.max(1, Math.trunc(windowDays));
+  const windows: CalendarWindow[] = [];
+
+  for (let start = first; start <= last; start = shiftDate(start, width)) {
+    const candidateEnd = shiftDate(start, width - 1);
+    windows.push({ start, end: candidateEnd <= last ? candidateEnd : last });
+  }
+  return windows;
+}
+
+/** LiveWhale API arguments are path segments, not query parameters. */
+export function calendarRangeUrl(root: string, range: CalendarWindow): string {
+  return `${root}/start_date/${encodeURIComponent(range.start)}/end_date/${encodeURIComponent(range.end)}/max/${CALENDAR_FEED_CAP}`;
+}
+
+function splitWindow(range: CalendarWindow): [CalendarWindow, CalendarWindow] | null {
+  const span = daysBetween(range.start, range.end);
+  if (span <= 0) return null;
+  const firstSpan = Math.floor(span / 2);
+  const first = { start: range.start, end: shiftDate(range.start, firstSpan) };
+  return [first, { start: shiftDate(first.end, 1), end: range.end }];
 }
 
 /**
@@ -277,74 +345,109 @@ export interface TamuCalendarOptions extends RequestOptions {
  */
 export async function fetchTamuCalendar(options: TamuCalendarOptions = {}): Promise<SourceResult<RawItem>> {
   const log = options.log ?? consoleLogger;
-  const days = options.days ?? 45;
+  const requestedDays = options.days ?? DEFAULT_CAMPUS_DAYS;
+  const finiteDays = Number.isFinite(requestedDays) ? requestedDays : DEFAULT_CAMPUS_DAYS;
+  const days = Math.max(0, Math.min(Math.trunc(finiteDays), MAX_LOOKAHEAD_DAYS));
   const groups = options.groups ?? GROUP_FEEDS;
   const startedAt = Date.now();
   const warnings: string[] = [];
   const records: RawItem[] = [];
+  const failedChannels = new Set<string>();
+  const succeededChannels = new Set<string>();
   let failures = 0;
-  let attempts = 0;
+  const now = options.now ?? new Date().toISOString();
+  const mainWindows = buildCalendarWindows(now, days);
+  const fullRange = { start: mainWindows[0]?.start ?? centralDate(now), end: mainWindows.at(-1)?.end ?? centralDate(now) };
 
-  const feeds: { url: string; channel: string }[] = [
-    { url: buildUrl(MAIN_FEED, { days }), channel: 'Main University Calendar' },
-    ...groups.map((group) => ({
-      url: buildUrl(`${GROUP_FEED}/${encodeURIComponent(group)}`, { days }),
-      channel: group,
-    })),
-  ];
+  if (!Number.isFinite(requestedDays)) {
+    warnings.push(`requested an invalid calendar horizon; using ${DEFAULT_CAMPUS_DAYS} days`);
+  } else if (requestedDays !== days) {
+    warnings.push(`requested ${requestedDays} days; capped the calendar horizon at ${MAX_LOOKAHEAD_DAYS}`);
+  }
 
-  for (const feed of feeds) {
-    attempts += 1;
+  const readRange = async (root: string, channel: string, range: CalendarWindow): Promise<void> => {
+    const url = calendarRangeUrl(root, range);
     try {
-      const { data } = await getJson<unknown>(feed.url, options);
+      const { data } = await getJson<unknown>(url, options);
       if (!Array.isArray(data)) {
-        warnings.push(`${feed.channel}: response was not an array`);
-        continue;
+        failures += 1;
+        failedChannels.add(channel);
+        warnings.push(`${channel} ${range.start}..${range.end}: response was not an array`);
+        return;
+      }
+
+      const structurallyValid = data.some((event) => {
+        if (typeof event !== 'object' || event === null) return false;
+        const value = event as LiveWhaleEvent;
+        return value.id !== undefined && htmlToText(value.title).length > 0;
+      });
+      if (data.length > 0 && !structurallyValid) {
+        failures += 1;
+        failedChannels.add(channel);
+        warnings.push(`${channel} ${range.start}..${range.end}: records no longer match the event schema`);
+        return;
+      }
+
+      // A range at the cap is incomplete. Split it until every successful leaf
+      // is below the ceiling; a one-day leaf cannot be split any further.
+      if (data.length >= CALENDAR_FEED_CAP) {
+        const halves = splitWindow(range);
+        if (halves !== null) {
+          log.info(`[tamu-calendar] ${channel}: splitting capped ${range.start}..${range.end}`);
+          await readRange(root, channel, halves[0]);
+          await readRange(root, channel, halves[1]);
+          return;
+        }
+        failures += 1;
+        failedChannels.add(channel);
+        warnings.push(`${channel} ${range.start}: hit the ${CALENDAR_FEED_CAP}-record cap on a single day`);
       }
 
       let mapped = 0;
       for (const event of data) {
-        const item = mapEvent(event as LiveWhaleEvent, feed.channel);
+        const item = mapEvent(event as LiveWhaleEvent, channel);
         if (item !== null) {
           records.push(item);
           mapped += 1;
         }
       }
 
-      // The main feed's 1000-record ceiling. If a pull comes back exactly at
-      // the cap, coverage is incomplete and the group feeds are carrying it.
-      if (data.length >= 1000) {
-        warnings.push(`${feed.channel}: hit the 1000-record feed cap - coverage relies on group feeds`);
-      }
-      // An empty feed is ambiguous and both readings are common: a group that
-      // is listed but not posting (verified - several return 0 even at
-      // days=365), or a group title that does not match LiveWhale exactly,
-      // which soft-200s with `[]` rather than 404ing. Report the fact, not a
-      // guess at the cause.
-      if (data.length === 0 && feed.channel !== 'Main University Calendar') {
+      if (data.length === 0 && channel !== 'Main University Calendar') {
         warnings.push(
-          `${feed.channel}: 0 events - group is not posting, or the title no longer matches calendar.tamu.edu/feeds/`,
+          `${channel}: 0 events - group is not posting, or the title no longer matches calendar.tamu.edu/feeds/`,
         );
       }
 
-      log.info(`[tamu-calendar] ${feed.channel}: ${mapped} event(s)`);
+      succeededChannels.add(channel);
+      log.info(`[tamu-calendar] ${channel} ${range.start}..${range.end}: ${mapped} event(s)`);
     } catch (err) {
       failures += 1;
+      failedChannels.add(channel);
       const message = describeError(err);
-      warnings.push(`${feed.channel}: ${message}`);
-      log.warn(`[tamu-calendar] ${feed.channel} FAILED: ${message}`);
+      warnings.push(`${channel} ${range.start}..${range.end}: ${message}`);
+      log.warn(`[tamu-calendar] ${channel} ${range.start}..${range.end} FAILED: ${message}`);
     }
+  };
+
+  for (const range of mainWindows) {
+    await readRange(MAIN_FEED, 'Main University Calendar', range);
   }
 
-  const allFailed = failures === attempts;
+  for (const group of groups) {
+    const root = `${GROUP_FEED}/${encodeURIComponent(group)}`;
+    await readRange(root, group, fullRange);
+  }
+
+  const allFailed = succeededChannels.size === 0;
 
   return {
     source: 'tamu-calendar',
     records,
     fetchSource: allFailed ? 'empty' : 'network',
     warnings,
-    error: allFailed ? `all ${failures} feed(s) failed` : null,
+    error: allFailed ? `all ${groups.length + 1} calendar channel(s) failed` : null,
     durationMs: Date.now() - startedAt,
     failedRequests: failures,
+    failedChannels: [...failedChannels].sort(),
   };
 }
