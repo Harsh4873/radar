@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-28T06:57:18.774Z",
+  "fetchedAt": "2026-08-28T21:27:18.618Z",
   "totalFromHeader": 89,
   "studies": [
     {
@@ -361,21 +361,6 @@
           "titleAliases": [
             "Evaluation of biomarkers for predicting macronutrient intake"
           ]
-        },
-        {
-          "source": "clinicaltrials-gov",
-          "externalId": "NCT06582381",
-          "url": "https://clinicaltrials.gov/study/NCT06582381",
-          "status": "recruiting",
-          "verifiedAt": "2025-07-01T00:00:00.000Z",
-          "protocolIds": [
-            "NCT06582381",
-            "91-Micro2",
-            "R01DK136414"
-          ],
-          "titleAliases": [
-            "Evaluation of Biomarkers for Predicting Macronutrient Intake"
-          ]
         }
       ],
       "piName": "PI: Nicolaas Deutz, MD, PhD",
@@ -384,11 +369,11 @@
       "contactPhone": "979-422-1789",
       "irbNumber": "IRB2023-0400F",
       "irbApprovalDate": "2024-04-24T21:10:40.000Z",
-      "expirationDate": null,
+      "expirationDate": "2025-10-02T00:00:00.000Z",
       "recruitmentStartDate": "2024-10-02T21:10:51.000Z",
       "lifecycleMonths": 12,
       "postedDate": "2024-12-19T03:12:03.000Z",
-      "modifiedDate": "2025-07-20T00:00:00.000Z",
+      "modifiedDate": "2024-12-19T03:12:03.000Z",
       "categoryIds": [
         42,
         44,
@@ -404,9 +389,7 @@
         34,
         36
       ],
-      "locationLabels": [
-        "Center for Translational Research in Aging & Longevity — College Station, Texas, United States"
-      ],
+      "locationLabels": [],
       "compensation": {
         "guaranteedMin": null,
         "guaranteedMax": 820,
@@ -455,16 +438,13 @@
         ]
       },
       "effectiveHourly": 14.14,
-      "isExpired": false,
-      "staleness": "aging",
+      "isExpired": true,
+      "staleness": "expired",
       "tags": [
         "in-person",
-        "clinical",
-        "hci"
+        "clinical"
       ],
-      "duplicateIds": [
-        "ctgov:NCT06582381"
-      ],
+      "duplicateIds": [],
       "duplicateOf": null
     },
     {
@@ -2079,7 +2059,7 @@
       },
       "effectiveHourly": 25,
       "isExpired": false,
-      "staleness": "aging",
+      "staleness": "stale",
       "tags": [
         "in-person",
         "vr-ar",
@@ -9638,7 +9618,7 @@
           "externalId": "NCT07254364",
           "url": "https://clinicaltrials.gov/study/NCT07254364",
           "status": "recruiting",
-          "verifiedAt": "2025-11-01T00:00:00.000Z",
+          "verifiedAt": "2026-08-01T00:00:00.000Z",
           "protocolIds": [
             "NCT07254364",
             "105-Sweat"
@@ -9658,7 +9638,7 @@
       "recruitmentStartDate": null,
       "lifecycleMonths": null,
       "postedDate": "2025-11-28T00:00:00.000Z",
-      "modifiedDate": "2025-11-28T00:00:00.000Z",
+      "modifiedDate": "2026-08-28T00:00:00.000Z",
       "categoryIds": [],
       "locationIds": [],
       "sessionTypeIds": [],
@@ -9708,7 +9688,7 @@
         "requiresParentOrChild": false,
         "sexRestriction": null,
         "flags": [
-          "BMI 22-35 required",
+          "BMI 18-35 required",
           "study text mentions fasting only to say it is NOT required",
           "pregnancy is mentioned but not clearly a criterion - confirm with the study team",
           "must be able to walk unaided",
@@ -9718,7 +9698,7 @@
       },
       "effectiveHourly": null,
       "isExpired": false,
-      "staleness": "aging",
+      "staleness": "fresh",
       "tags": [
         "survey",
         "clinical",
@@ -10134,7 +10114,7 @@
       "status": "ok",
       "itemCount": 80,
       "fetchSource": "network",
-      "durationMs": 3480,
+      "durationMs": 5072,
       "failedRequests": 0,
       "complete": true,
       "note": null,
@@ -10145,9 +10125,9 @@
       "label": "ClinicalTrials.gov",
       "vertical": "studies",
       "status": "ok",
-      "itemCount": 24,
+      "itemCount": 23,
       "fetchSource": "network",
-      "durationMs": 558,
+      "durationMs": 1013,
       "failedRequests": 0,
       "complete": true,
       "note": null,

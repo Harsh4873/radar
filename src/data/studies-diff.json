@@ -1,7 +1,14 @@
 {
-  "generatedAt": "2026-08-28T06:57:18.774Z",
-  "previousFetchedAt": "2026-08-27T21:03:32.713Z",
+  "generatedAt": "2026-08-28T21:27:18.618Z",
+  "previousFetchedAt": "2026-08-28T06:57:18.774Z",
   "added": [],
   "removed": [],
-  "changed": []
+  "changed": [
+    {
+      "id": "4611",
+      "fields": [
+        "expirationDate"
+      ]
+    }
+  ]
 }

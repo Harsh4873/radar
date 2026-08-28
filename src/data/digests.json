@@ -2,12 +2,12 @@
   {
     "weekOf": "2026-08-24",
     "vertical": "campus",
-    "scanned": 5760,
-    "candidates": 585,
+    "scanned": 6082,
+    "candidates": 611,
     "recommended": [
       "campus-f26e4e8afcf9",
       "campus-8063cc9cf7d9",
-      "campus-cffb1d8ae983",
+      "campus-2089079cc165",
       "campus-9bea7aa35026",
       "campus-eb3aa28af94e",
       "campus-708d37a33792"
@@ -20,145 +20,32 @@
       "company recruiting · graduate opportunities · workshop / training",
       "company recruiting · this week · free food: food"
     ],
-    "changes": [
-      {
-        "itemId": "campus-708d30a33792",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-27T05:00:00.000Z",
-        "after": "2026-08-28T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7090baa33795",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-27T05:00:00.000Z",
-        "after": "2026-08-28T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7090bea33795",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-27T05:00:00.000Z",
-        "after": "2026-08-28T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-70a53ca337a7",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-27T05:00:00.000Z",
-        "after": "2026-08-28T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-709e32a337a1",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-27T05:00:00.000Z",
-        "after": "2026-08-28T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11b6c47a28bf",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-27T05:00:00.000Z",
-        "after": "2026-08-28T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-bcb8bd46078b",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-27T05:00:00.000Z",
-        "after": "2026-08-28T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-c721d3a3689a",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-24T05:00:00.000Z",
-        "after": "2026-09-23T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ac42edb40039",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-27T05:00:00.000Z",
-        "after": "2026-08-28T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11bdd47a28c5",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-27T05:00:00.000Z",
-        "after": "2026-08-28T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-2b92ddab2ae1",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-27T05:00:00.000Z",
-        "after": "2026-08-28T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-4c9b1f45c82e",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-27T05:00:00.000Z",
-        "after": "2026-08-28T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-77e70445e0b3",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-27T05:00:00.000Z",
-        "after": "2026-08-28T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ab499b4a0920",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-27T05:00:00.000Z",
-        "after": "2026-08-28T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11afd07a28b9",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-10T05:00:00.000Z",
-        "after": "2026-09-09T13:00:00.000Z"
-      },
-      {
-        "itemId": "campus-d608c84ea27f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-10T05:00:00.000Z",
-        "after": "2026-09-09T13:00:00.000Z"
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-08-24",
     "vertical": "research",
-    "scanned": 454,
-    "candidates": 98,
+    "scanned": 1072,
+    "candidates": 136,
     "recommended": [
+      "research-43f7e56e3f7c",
       "research-09796749a40e",
       "research-6f9bab9f70aa",
       "research-1b5faed67c1a",
-      "research-0714a5a5bf3b",
-      "research-b81af9a35296",
-      "research-735d7e9a0bf6"
+      "research-8ad8fbc192a0",
+      "research-7f3f8ac39cda"
     ],
     "headlines": [
+      "M. tuberculosis · comparative genomics · phylogenetics",
       "positive selection · codon-model analysis · PAML / codeml",
       "positive selection · codon-model analysis · comparative genomics",
       "positive selection · codon-model analysis · HyPhy / selection tests",
-      "M. tuberculosis · positive selection · host-pathogen interaction",
-      "positive selection · codon-model analysis · phylogenetics",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
     "changes": [],
-    "estimatedMinutes": 100
+    "estimatedMinutes": 99
   },
   {
     "weekOf": "2026-08-17",
