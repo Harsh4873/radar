@@ -2,59 +2,136 @@
   {
     "weekOf": "2026-08-24",
     "vertical": "campus",
-    "scanned": 5458,
-    "candidates": 594,
+    "scanned": 5760,
+    "candidates": 585,
     "recommended": [
       "campus-f26e4e8afcf9",
-      "campus-d8f2bf8aeeae",
-      "campus-cffb1d8ae983",
-      "campus-df29754ea7cc",
       "campus-8063cc9cf7d9",
-      "campus-9bea77a35026"
+      "campus-cffb1d8ae983",
+      "campus-9bea7aa35026",
+      "campus-eb3aa28af94e",
+      "campus-708d37a33792"
     ],
     "headlines": [
       "computer science · data science · company recruiting",
-      "computer science · company recruiting · free food: food",
+      "computer science · employer: qualcomm, texas instruments · this week",
       "biotech · graduate opportunities · workshop / training",
-      "research opportunity · company recruiting · food provided",
-      "computer science · employer: qualcomm, texas instruments · workshop / training",
-      "company recruiting · graduate opportunities · today"
+      "company recruiting · graduate opportunities · today",
+      "company recruiting · graduate opportunities · workshop / training",
+      "company recruiting · this week · free food: food"
     ],
     "changes": [
       {
-        "itemId": "campus-11bdd57a28c5",
+        "itemId": "campus-708d30a33792",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-08-31T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
+        "before": "2026-08-27T05:00:00.000Z",
+        "after": "2026-08-28T05:00:00.000Z"
       },
       {
-        "itemId": "campus-d8f2c58aeeae",
-        "kind": "title",
-        "field": "Title",
-        "before": "‘Art & Film/Film As Art’ Exhibition and Film Series",
-        "after": "Opening Reception: ‘Art & Film/Film As Art’ Exhibition and Film Series"
+        "itemId": "campus-7090baa33795",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-27T05:00:00.000Z",
+        "after": "2026-08-28T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7090bea33795",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-27T05:00:00.000Z",
+        "after": "2026-08-28T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-70a53ca337a7",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-27T05:00:00.000Z",
+        "after": "2026-08-28T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-709e32a337a1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-27T05:00:00.000Z",
+        "after": "2026-08-28T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-11b6c47a28bf",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-27T05:00:00.000Z",
+        "after": "2026-08-28T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bcb8bd46078b",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-27T05:00:00.000Z",
+        "after": "2026-08-28T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-c721d3a3689a",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-24T05:00:00.000Z",
+        "after": "2026-09-23T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ac42edb40039",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-27T05:00:00.000Z",
+        "after": "2026-08-28T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-11bdd47a28c5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-27T05:00:00.000Z",
+        "after": "2026-08-28T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-2b92ddab2ae1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-27T05:00:00.000Z",
+        "after": "2026-08-28T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-4c9b1f45c82e",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-27T05:00:00.000Z",
+        "after": "2026-08-28T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-77e70445e0b3",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-27T05:00:00.000Z",
+        "after": "2026-08-28T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ab499b4a0920",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-27T05:00:00.000Z",
+        "after": "2026-08-28T05:00:00.000Z"
       },
       {
         "itemId": "campus-11afd07a28b9",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-08-27T05:00:00.000Z",
-        "after": "2026-09-10T05:00:00.000Z"
+        "before": "2026-09-10T05:00:00.000Z",
+        "after": "2026-09-09T13:00:00.000Z"
       },
       {
-        "itemId": "campus-edd57894183b",
-        "kind": "title",
-        "field": "Title",
-        "before": "College to Career Series: Food, Animal & Human Health Employer Panel",
-        "after": "College to Career Series: Food, Animal & Human Health Panel"
-      },
-      {
-        "itemId": "campus-ac117d6985f5",
+        "itemId": "campus-d608c84ea27f",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-08-31T13:00:00.000Z",
-        "after": "2026-09-14T13:00:00.000Z"
+        "before": "2026-09-10T05:00:00.000Z",
+        "after": "2026-09-09T13:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -62,8 +139,8 @@
   {
     "weekOf": "2026-08-24",
     "vertical": "research",
-    "scanned": 1057,
-    "candidates": 135,
+    "scanned": 454,
+    "candidates": 98,
     "recommended": [
       "research-09796749a40e",
       "research-6f9bab9f70aa",
@@ -80,22 +157,7 @@
       "positive selection · codon-model analysis · phylogenetics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
-    "changes": [
-      {
-        "itemId": "research-b75c44e82c64",
-        "kind": "title",
-        "field": "Title",
-        "before": "Domestication-Driven Expansion and Structural Convergence of the Porcine Antiviral Interferon Repertoire",
-        "after": "Domestication-Driven Expansion and Structural Convergence of the Porcine Antiviral Interferon Repertoire."
-      },
-      {
-        "itemId": "research-b81af9a35296",
-        "kind": "title",
-        "field": "Title",
-        "before": "Temperature-Associated Variation in Evolutionary Rates of FADS1 and FADS2 in Rodents",
-        "after": "Temperature-Associated Variation in Evolutionary Rates of FADS1 and FADS2 in Rodents."
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 100
   },
   {
