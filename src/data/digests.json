@@ -2,31 +2,38 @@
   {
     "weekOf": "2026-08-24",
     "vertical": "campus",
-    "scanned": 6189,
-    "candidates": 589,
+    "scanned": 6291,
+    "candidates": 612,
     "recommended": [
-      "campus-f26e4e8afcf9",
+      "campus-f26e4f8afcf9",
+      "campus-d8f2bf8aeeae",
       "campus-8063cc9cf7d9",
       "campus-2089079cc165",
-      "campus-9bea7aa35026",
-      "campus-eb3aa28af94e",
-      "campus-708d37a33792"
+      "campus-df29754ea7cc",
+      "campus-eb3aa28af94e"
     ],
     "headlines": [
       "computer science · data science · company recruiting",
+      "computer science · company recruiting · free food: food",
       "computer science · employer: qualcomm, texas instruments · this week",
       "biotech · graduate opportunities · workshop / training",
-      "company recruiting · graduate opportunities · today",
-      "company recruiting · graduate opportunities · workshop / training",
-      "company recruiting · this week · free food: food"
+      "research opportunity · company recruiting · food provided",
+      "company recruiting · graduate opportunities · workshop / training"
     ],
     "changes": [
       {
-        "itemId": "campus-e205768af3ef",
-        "kind": "location",
-        "field": "Location",
-        "before": "Texas A&M - Fort Worth Law & Education Building, 1600 Jones Street, Fort Worth, TX 76102",
-        "after": "Texas A&M - Fort Worth Law & Education Building"
+        "itemId": "campus-d8f2c58aeeae",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-28T23:00:00.000Z",
+        "after": "2026-08-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7761b79cf2a6",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-28T22:00:00.000Z",
+        "after": "2026-08-29T05:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -34,15 +41,15 @@
   {
     "weekOf": "2026-08-24",
     "vertical": "research",
-    "scanned": 211,
-    "candidates": 78,
+    "scanned": 913,
+    "candidates": 94,
     "recommended": [
       "research-43f7e56e3f7c",
       "research-09796749a40e",
       "research-6f9bab9f70aa",
       "research-1b5faed67c1a",
-      "research-8ad8fbc192a0",
-      "research-7f3f8ac39cda"
+      "research-7f3f8ac39cda",
+      "research-b81af9a35296"
     ],
     "headlines": [
       "M. tuberculosis · comparative genomics · phylogenetics",
@@ -50,10 +57,10 @@
       "positive selection · codon-model analysis · comparative genomics",
       "positive selection · codon-model analysis · HyPhy / selection tests",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
+      "positive selection · codon-model analysis · phylogenetics"
     ],
     "changes": [],
-    "estimatedMinutes": 99
+    "estimatedMinutes": 98
   },
   {
     "weekOf": "2026-08-17",
