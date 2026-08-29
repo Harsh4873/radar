@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-08-24",
     "vertical": "campus",
-    "scanned": 6082,
-    "candidates": 611,
+    "scanned": 6189,
+    "candidates": 589,
     "recommended": [
       "campus-f26e4e8afcf9",
       "campus-8063cc9cf7d9",
@@ -20,14 +20,22 @@
       "company recruiting · graduate opportunities · workshop / training",
       "company recruiting · this week · free food: food"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-e205768af3ef",
+        "kind": "location",
+        "field": "Location",
+        "before": "Texas A&M - Fort Worth Law & Education Building, 1600 Jones Street, Fort Worth, TX 76102",
+        "after": "Texas A&M - Fort Worth Law & Education Building"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-08-24",
     "vertical": "research",
-    "scanned": 1072,
-    "candidates": 136,
+    "scanned": 211,
+    "candidates": 78,
     "recommended": [
       "research-43f7e56e3f7c",
       "research-09796749a40e",
