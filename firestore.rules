@@ -3,7 +3,7 @@ rules_version = '2';
 // Complete Firestore ruleset for every private harsh.bet app in the shared
 // `pickledgerpro` Firebase project. Deploying one rules file replaces the
 // project rules, so this file must stay identical in Gym, Daymark, Slate,
-// Fare, Notes, Research, Degree, Radar, Goals, and Recipes. The retired Studies
+// Fare, Notes, Research, Degree, Radar, Goals, Recipes, and Simplfy. The retired Studies
 // namespace remains here for recovery. Approved verified Google
 // identities resolve through a private membership document to one shared
 // owner vault. Legacy UID roots remain readable recovery archives; migration
@@ -828,6 +828,54 @@ service cloud.firestore {
         && isValidDegreePlan()
         && request.resource.data.updatedAtMs >= resource.data.updatedAtMs;
     }
+
+    // Simplfy (local-first study workspace) ------------------------
+    function ownsSimplfyData(userId) {
+      return canWritePrivateData(userId);
+    }
+
+    function isValidSimplfyStore(store) {
+      return store in ['library', 'recall', 'studios', 'collections', 'prefs'];
+    }
+
+    function isValidSimplfyRecord() {
+      return request.resource.data.keys().hasAll([
+          'schemaVersion', 'id', 'updatedAtMs', 'clientId', 'deleted'
+        ])
+        && request.resource.data.keys().hasOnly([
+          'schemaVersion', 'id', 'updatedAtMs', 'clientId', 'deleted', 'data'
+        ])
+        && request.resource.data.schemaVersion == 1
+        && request.resource.data.id is string
+        && request.resource.data.id.size() > 0
+        && request.resource.data.id.size() <= 800
+        && request.resource.data.updatedAtMs is int
+        && request.resource.data.updatedAtMs >= 0
+        && request.resource.data.clientId is string
+        && request.resource.data.clientId.size() >= 8
+        && request.resource.data.clientId.size() <= 128
+        && request.resource.data.clientId.matches('^[A-Za-z0-9_-]+$')
+        && request.resource.data.deleted is bool
+        && (
+          (request.resource.data.deleted == true && !('data' in request.resource.data))
+          || (request.resource.data.deleted == false && request.resource.data.data is map)
+        );
+    }
+
+    match /simplfy_users/{userId}/{store}/{recordId} {
+      allow read: if canReadPrivateData(userId) && isValidSimplfyStore(store);
+      allow create: if ownsSimplfyData(userId)
+        && isValidSimplfyStore(store)
+        && isValidSimplfyRecord();
+      allow update: if ownsSimplfyData(userId)
+        && isValidSimplfyStore(store)
+        && isValidSimplfyRecord()
+        && request.resource.data.updatedAtMs >= resource.data.updatedAtMs;
+      // Deletions are tombstones so an offline device cannot resurrect a
+      // removed source, class, canvas, preference, or recall card.
+      allow delete: if false;
+    }
+
 
     // Studies (paid participant-study preferences) ----------------
     function isValidStudiesVault() {
