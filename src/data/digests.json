@@ -2,15 +2,15 @@
   {
     "weekOf": "2026-08-24",
     "vertical": "campus",
-    "scanned": 6290,
-    "candidates": 594,
+    "scanned": 6502,
+    "candidates": 666,
     "recommended": [
-      "campus-f26e4f8afcf9",
+      "campus-f26e4e8afcf9",
       "campus-d8f2bf8aeeae",
       "campus-8063cc9cf7d9",
       "campus-2089079cc165",
       "campus-df29754ea7cc",
-      "campus-eb3aa28af94e"
+      "campus-9bea79a35026"
     ],
     "headlines": [
       "computer science · data science · company recruiting",
@@ -18,30 +18,38 @@
       "computer science · employer: qualcomm, texas instruments · this week",
       "biotech · graduate opportunities · workshop / training",
       "research opportunity · company recruiting · food provided",
-      "company recruiting · graduate opportunities · workshop / training"
+      "company recruiting · graduate opportunities · tomorrow"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-438ef845c2f2",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-19T05:00:00.000Z",
+        "after": "2026-09-20T05:00:00.000Z"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-08-24",
     "vertical": "research",
-    "scanned": 1082,
-    "candidates": 141,
+    "scanned": 1084,
+    "candidates": 142,
     "recommended": [
-      "research-43f7e56e3f7c",
       "research-09796749a40e",
+      "research-43f7e56e3f7c",
       "research-6f9bab9f70aa",
+      "research-adb4a5d7e304",
       "research-1b5faed67c1a",
-      "research-7f3f8ac39cda",
-      "research-b81af9a35296"
+      "research-680ca8eb5674"
     ],
     "headlines": [
-      "M. tuberculosis · comparative genomics · phylogenetics",
       "positive selection · codon-model analysis · PAML / codeml",
+      "M. tuberculosis · comparative genomics · phylogenetics",
       "positive selection · codon-model analysis · comparative genomics",
+      "positive selection · codon-model analysis · PAML / codeml",
       "positive selection · codon-model analysis · HyPhy / selection tests",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "positive selection · codon-model analysis · phylogenetics"
     ],
     "changes": [],
