@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-08-24",
     "vertical": "campus",
-    "scanned": 6291,
-    "candidates": 612,
+    "scanned": 6290,
+    "candidates": 594,
     "recommended": [
       "campus-f26e4f8afcf9",
       "campus-d8f2bf8aeeae",
@@ -20,29 +20,14 @@
       "research opportunity · company recruiting · food provided",
       "company recruiting · graduate opportunities · workshop / training"
     ],
-    "changes": [
-      {
-        "itemId": "campus-d8f2c58aeeae",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-28T23:00:00.000Z",
-        "after": "2026-08-29T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7761b79cf2a6",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-28T22:00:00.000Z",
-        "after": "2026-08-29T05:00:00.000Z"
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-08-24",
     "vertical": "research",
-    "scanned": 913,
-    "candidates": 94,
+    "scanned": 1082,
+    "candidates": 141,
     "recommended": [
       "research-43f7e56e3f7c",
       "research-09796749a40e",
