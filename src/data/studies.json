@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-31T01:23:54.084Z",
+  "fetchedAt": "2026-08-31T18:02:12.968Z",
   "totalFromHeader": 89,
   "studies": [
     {
@@ -8729,101 +8729,6 @@
       "duplicateOf": null
     },
     {
-      "id": "ctgov:NCT05964699",
-      "slug": "clinicaltrials-gov-nct05964699",
-      "title": "The Use of a Non-Incised Minimally Invasive Flap Procedure in Conjunction With Emdogain® MI Compared to Traditional SRCP",
-      "summary": "This study is designed to evaluate the use of Emdogain® MI in a procedure where a significant portion of the lining of the sulcus is removed by curettage (similar to the traditional clinical procedure described as \"gingival curettage\") to the point of tissue…",
-      "url": "https://clinicaltrials.gov/study/NCT05964699",
-      "sources": [
-        {
-          "source": "clinicaltrials-gov",
-          "externalId": "NCT05964699",
-          "url": "https://clinicaltrials.gov/study/NCT05964699",
-          "status": "recruiting",
-          "verifiedAt": "2024-08-01T00:00:00.000Z",
-          "protocolIds": [
-            "NCT05964699",
-            "IRB2022-1175-CD-DCR"
-          ],
-          "titleAliases": [
-            "The Use of a Non-Incised Minimally Invasive Flap Procedure in Conjunction With Emdogain® MI Compared to Traditional SRCP"
-          ]
-        }
-      ],
-      "piName": null,
-      "contactName": null,
-      "contactEmail": null,
-      "contactPhone": null,
-      "irbNumber": null,
-      "irbApprovalDate": null,
-      "expirationDate": null,
-      "recruitmentStartDate": null,
-      "lifecycleMonths": null,
-      "postedDate": "2023-07-28T00:00:00.000Z",
-      "modifiedDate": "2024-08-21T00:00:00.000Z",
-      "categoryIds": [],
-      "locationIds": [],
-      "sessionTypeIds": [],
-      "topicIds": [],
-      "locationLabels": [
-        "Texas A&M School of Dentistry — Dallas, Texas, United States"
-      ],
-      "compensation": {
-        "guaranteedMin": null,
-        "guaranteedMax": null,
-        "raffleMax": null,
-        "raffleOnly": false,
-        "isHourlyRate": false,
-        "hourlyMin": null,
-        "hourlyMax": null,
-        "currencyKind": "unknown",
-        "perVisit": null,
-        "visitCount": null,
-        "completionBonus": null,
-        "hasNonCashPerk": false,
-        "sonaCreditOption": false,
-        "raw": "",
-        "confidence": "low",
-        "notes": [
-          "no compensation stated in the listing"
-        ]
-      },
-      "duration": {
-        "totalHoursMin": null,
-        "totalHoursMax": null,
-        "sessionCount": null,
-        "spanWeeks": null,
-        "raw": "",
-        "confidence": "low"
-      },
-      "eligibility": {
-        "minAge": 30,
-        "maxAge": 75,
-        "requiresRightHanded": false,
-        "requiresMriSafe": false,
-        "requiresFasting": false,
-        "excludesCardiovascular": false,
-        "excludesPregnancy": true,
-        "excludesSeizure": false,
-        "excludesNeurological": false,
-        "requiresSpecificCondition": null,
-        "requiresParentOrChild": false,
-        "sexRestriction": null,
-        "flags": [
-          "excludes pregnancy / lactation"
-        ]
-      },
-      "effectiveHourly": null,
-      "isExpired": false,
-      "staleness": "stale",
-      "tags": [
-        "clinical",
-        "in-person"
-      ],
-      "duplicateIds": [],
-      "duplicateOf": null
-    },
-    {
       "id": "ctgov:NCT06219720",
       "slug": "clinicaltrials-gov-nct06219720",
       "title": "The Texas Interprofessional Pharmacogenomics (IPGx) PILOT Cohort",
@@ -10114,7 +10019,7 @@
       "status": "ok",
       "itemCount": 80,
       "fetchSource": "network",
-      "durationMs": 3411,
+      "durationMs": 4215,
       "failedRequests": 0,
       "complete": true,
       "note": null,
@@ -10125,9 +10030,9 @@
       "label": "ClinicalTrials.gov",
       "vertical": "studies",
       "status": "ok",
-      "itemCount": 23,
+      "itemCount": 22,
       "fetchSource": "network",
-      "durationMs": 549,
+      "durationMs": 538,
       "failedRequests": 0,
       "complete": true,
       "note": null,

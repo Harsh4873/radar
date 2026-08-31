@@ -2,32 +2,68 @@
   {
     "weekOf": "2026-08-31",
     "vertical": "campus",
-    "scanned": 6570,
-    "candidates": 667,
+    "scanned": 6180,
+    "candidates": 729,
     "recommended": [
+      "campus-eb3aa28af94e",
+      "campus-2c88b5732b5f",
       "campus-3583e173308d",
-      "campus-35805b73308a",
-      "campus-358ad4733093",
-      "campus-35805d73308a",
-      "campus-35805e73308a",
-      "campus-35805f73308a"
+      "campus-708d30a33792",
+      "campus-7090baa33795",
+      "campus-7090bea33795"
     ],
     "headlines": [
+      "company recruiting · graduate opportunities · workshop / training",
+      "biotech · today · workshop / training",
       "computer science · workshop / training · food provided",
-      "employer: hp · workshop / training · food provided",
-      "employer: intel · workshop / training · food provided",
-      "employer: amazon · workshop / training · food provided",
-      "employer: emerson · workshop / training · food provided",
-      "employer: burns mcdonnell · workshop / training · food provided"
+      "company recruiting · today · workshop / training",
+      "company recruiting · today · workshop / training",
+      "company recruiting · today · workshop / training"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-64ba1da22d8d",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-30T22:00:00.000Z",
+        "after": "2026-08-31T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-708d38a33792",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-02T16:00:00.000Z",
+        "after": "2026-09-02T16:10:00.000Z"
+      },
+      {
+        "itemId": "campus-38b5808b250e",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-06T05:00:00.000Z",
+        "after": "2026-09-07T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-fb956f8b024b",
+        "kind": "location",
+        "field": "Location",
+        "before": "TBD",
+        "after": "Blocker Building"
+      },
+      {
+        "itemId": "campus-438ef845c2f2",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-20T05:00:00.000Z",
+        "after": "2026-09-19T05:00:00.000Z"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-08-31",
     "vertical": "research",
-    "scanned": 1089,
-    "candidates": 143,
+    "scanned": 1088,
+    "candidates": 141,
     "recommended": [
       "research-469b9823097d"
     ],
