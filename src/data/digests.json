@@ -2,31 +2,73 @@
   {
     "weekOf": "2026-08-31",
     "vertical": "campus",
-    "scanned": 6264,
-    "candidates": 752,
+    "scanned": 5955,
+    "candidates": 740,
     "recommended": [
+      "campus-236b86732615",
+      "campus-9bea7ca35026",
+      "campus-236f10732618",
       "campus-eb3aa28af94e",
-      "campus-2c88b5732b5f",
-      "campus-236b8e732615",
-      "campus-3583e173308d",
-      "campus-2c88b8732b5f",
-      "campus-2c88b9732b5f"
+      "campus-236f0d732618",
+      "campus-236b90732615"
     ],
     "headlines": [
+      "computer science · employer: qualcomm, texas instruments · this week",
+      "company recruiting · graduate opportunities · today",
+      "computer science · today · workshop / training",
       "company recruiting · graduate opportunities · workshop / training",
-      "biotech · today · workshop / training",
       "computer science · this week · workshop / training",
-      "computer science · workshop / training · food provided",
-      "research opportunity · workshop / training · in the next 3 weeks",
-      "biotech · workshop / training · in the next 3 weeks"
+      "computer science · this week · workshop / training"
     ],
     "changes": [
       {
-        "itemId": "campus-cffb198ae983",
-        "kind": "title",
-        "field": "Title",
-        "before": "ASTR Seminar",
-        "after": "Formation Histories of Stellar Populations in Massive Elliptical Galaxies"
+        "itemId": "campus-e208fa8af3f2",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-05T13:00:00.000Z",
+        "after": "2026-10-06T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-11bdd57a28c5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-14T05:00:00.000Z",
+        "after": "2026-09-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-83a3188a4c35",
+        "kind": "location",
+        "field": "Location",
+        "before": "Memorial Student Center",
+        "after": "Rudder Exhibit Hall First Floor - Table A1/RTC 1-019"
+      },
+      {
+        "itemId": "campus-272677a20a68",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-31T15:00:00.000Z",
+        "after": "2026-09-01T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-38b5808b250e",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-07T05:00:00.000Z",
+        "after": "2026-09-06T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-272679a20a68",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-31T11:00:00.000Z",
+        "after": "2026-09-01T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ac117d6985f5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-14T13:00:00.000Z",
+        "after": "2026-09-15T05:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -34,26 +76,34 @@
   {
     "weekOf": "2026-08-31",
     "vertical": "research",
-    "scanned": 1104,
-    "candidates": 145,
+    "scanned": 219,
+    "candidates": 81,
     "recommended": [
+      "research-726d462e2d83",
       "research-0714a5a5bf3b",
       "research-8ad8fbc192a0",
-      "research-43625b6ca4df",
-      "research-469b9823097d",
       "research-651655b667d5",
-      "research-326fbc05da79"
+      "research-43625b6ca4df",
+      "research-469b9823097d"
     ],
     "headlines": [
+      "positive selection · codon-model analysis · comparative genomics",
       "M. tuberculosis · positive selection · host-pathogen interaction",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "codon-model analysis · phylogenetics · MCMC / Bayesian inference",
-      "M. tuberculosis · positive selection · recent",
       "M. tuberculosis · comparative genomics · just posted",
-      "M. tuberculosis · very recent · host-pathogen interaction"
+      "codon-model analysis · phylogenetics · MCMC / Bayesian inference",
+      "M. tuberculosis · positive selection · recent"
     ],
-    "changes": [],
-    "estimatedMinutes": 97
+    "changes": [
+      {
+        "itemId": "research-e08a3c6c15b8",
+        "kind": "preprint-revised",
+        "field": "Preprint version",
+        "before": "v2",
+        "after": "v3"
+      }
+    ],
+    "estimatedMinutes": 98
   },
   {
     "weekOf": "2026-08-24",
