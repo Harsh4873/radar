@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-31T18:02:12.968Z",
+  "fetchedAt": "2026-09-01T01:51:35.145Z",
   "totalFromHeader": 89,
   "studies": [
     {
@@ -9408,7 +9408,7 @@
       },
       "effectiveHourly": null,
       "isExpired": false,
-      "staleness": "fresh",
+      "staleness": "aging",
       "tags": [
         "in-person"
       ],
@@ -10019,7 +10019,7 @@
       "status": "ok",
       "itemCount": 80,
       "fetchSource": "network",
-      "durationMs": 4215,
+      "durationMs": 4036,
       "failedRequests": 0,
       "complete": true,
       "note": null,
@@ -10032,7 +10032,7 @@
       "status": "ok",
       "itemCount": 22,
       "fetchSource": "network",
-      "durationMs": 538,
+      "durationMs": 914,
       "failedRequests": 0,
       "complete": true,
       "note": null,

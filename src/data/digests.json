@@ -2,59 +2,31 @@
   {
     "weekOf": "2026-08-31",
     "vertical": "campus",
-    "scanned": 6180,
-    "candidates": 729,
+    "scanned": 6264,
+    "candidates": 752,
     "recommended": [
       "campus-eb3aa28af94e",
       "campus-2c88b5732b5f",
+      "campus-236b8e732615",
       "campus-3583e173308d",
-      "campus-708d30a33792",
-      "campus-7090baa33795",
-      "campus-7090bea33795"
+      "campus-2c88b8732b5f",
+      "campus-2c88b9732b5f"
     ],
     "headlines": [
       "company recruiting · graduate opportunities · workshop / training",
       "biotech · today · workshop / training",
+      "computer science · this week · workshop / training",
       "computer science · workshop / training · food provided",
-      "company recruiting · today · workshop / training",
-      "company recruiting · today · workshop / training",
-      "company recruiting · today · workshop / training"
+      "research opportunity · workshop / training · in the next 3 weeks",
+      "biotech · workshop / training · in the next 3 weeks"
     ],
     "changes": [
       {
-        "itemId": "campus-64ba1da22d8d",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-08-30T22:00:00.000Z",
-        "after": "2026-08-31T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-708d38a33792",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-02T16:00:00.000Z",
-        "after": "2026-09-02T16:10:00.000Z"
-      },
-      {
-        "itemId": "campus-38b5808b250e",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-06T05:00:00.000Z",
-        "after": "2026-09-07T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-fb956f8b024b",
-        "kind": "location",
-        "field": "Location",
-        "before": "TBD",
-        "after": "Blocker Building"
-      },
-      {
-        "itemId": "campus-438ef845c2f2",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-20T05:00:00.000Z",
-        "after": "2026-09-19T05:00:00.000Z"
+        "itemId": "campus-cffb198ae983",
+        "kind": "title",
+        "field": "Title",
+        "before": "ASTR Seminar",
+        "after": "Formation Histories of Stellar Populations in Massive Elliptical Galaxies"
       }
     ],
     "estimatedMinutes": 0
@@ -62,16 +34,26 @@
   {
     "weekOf": "2026-08-31",
     "vertical": "research",
-    "scanned": 1088,
-    "candidates": 141,
+    "scanned": 1104,
+    "candidates": 145,
     "recommended": [
-      "research-469b9823097d"
+      "research-0714a5a5bf3b",
+      "research-8ad8fbc192a0",
+      "research-43625b6ca4df",
+      "research-469b9823097d",
+      "research-651655b667d5",
+      "research-326fbc05da79"
     ],
     "headlines": [
-      "M. tuberculosis · positive selection · recent"
+      "M. tuberculosis · positive selection · host-pathogen interaction",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "codon-model analysis · phylogenetics · MCMC / Bayesian inference",
+      "M. tuberculosis · positive selection · recent",
+      "M. tuberculosis · comparative genomics · just posted",
+      "M. tuberculosis · very recent · host-pathogen interaction"
     ],
     "changes": [],
-    "estimatedMinutes": 16
+    "estimatedMinutes": 97
   },
   {
     "weekOf": "2026-08-24",
