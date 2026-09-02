@@ -2,38 +2,59 @@
   {
     "weekOf": "2026-08-31",
     "vertical": "campus",
-    "scanned": 9518,
-    "candidates": 732,
+    "scanned": 6112,
+    "candidates": 739,
     "recommended": [
       "campus-d8f2bf8aeeae",
       "campus-236b86732615",
-      "campus-9bea7ca35026",
-      "campus-236f10732618",
-      "campus-eb3aa28af94e",
-      "campus-236f0d732618"
+      "campus-9bea7ba35026",
+      "campus-236f0d732618",
+      "campus-6b8b2593ce55",
+      "campus-eb3aa28af94e"
     ],
     "headlines": [
       "computer science · company recruiting · free food: food",
       "computer science · employer: qualcomm, texas instruments · this week",
       "company recruiting · graduate opportunities · today",
-      "computer science · today · workshop / training",
-      "company recruiting · graduate opportunities · workshop / training",
-      "computer science · this week · workshop / training"
+      "computer science · tomorrow · workshop / training",
+      "biotech · company recruiting · in the next 3 weeks",
+      "company recruiting · graduate opportunities · workshop / training"
     ],
     "changes": [
       {
-        "itemId": "campus-cfeda48ae978",
+        "itemId": "campus-e208fa8af3f2",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-13T15:00:00.000Z",
-        "after": "2026-09-12T00:00:00.000Z"
+        "before": "2026-10-06T05:00:00.000Z",
+        "after": "2026-10-05T13:00:00.000Z"
       },
       {
-        "itemId": "campus-9fe00b93ec13",
-        "kind": "title",
-        "field": "Title",
-        "before": "Bexar County Master Gardener General Meeting",
-        "after": "Tomatoes vs. Texas Heat: The Science Behind Solution"
+        "itemId": "campus-11bdd57a28c5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-15T05:00:00.000Z",
+        "after": "2026-09-14T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-272677a20a68",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-01T05:00:00.000Z",
+        "after": "2026-09-02T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-c576dcb40e46",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-01T15:00:00.000Z",
+        "after": "2026-09-02T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ac117d6985f5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-15T05:00:00.000Z",
+        "after": "2026-09-14T13:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -41,8 +62,8 @@
   {
     "weekOf": "2026-08-31",
     "vertical": "research",
-    "scanned": 1054,
-    "candidates": 131,
+    "scanned": 513,
+    "candidates": 103,
     "recommended": [
       "research-726d462e2d83",
       "research-0714a5a5bf3b",
@@ -56,18 +77,10 @@
       "M. tuberculosis · positive selection · host-pathogen interaction",
       "M. tuberculosis · comparative genomics · just posted",
       "codon-model analysis · phylogenetics · MCMC / Bayesian inference",
-      "M. tuberculosis · positive selection · recent",
+      "M. tuberculosis · positive selection · computational biology",
       "positive selection · comparative genomics · recent"
     ],
-    "changes": [
-      {
-        "itemId": "research-c4fc41d226c6",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v1",
-        "after": "v3"
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 98
   },
   {
