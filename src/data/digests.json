@@ -2,164 +2,73 @@
   {
     "weekOf": "2026-08-31",
     "vertical": "campus",
-    "scanned": 6199,
-    "candidates": 738,
+    "scanned": 5604,
+    "candidates": 704,
     "recommended": [
       "campus-d8f2bf8aeeae",
       "campus-236b86732615",
-      "campus-9bea7ba35026",
+      "campus-9bea7ea35026",
       "campus-236f0d732618",
-      "campus-6b8b2593ce55",
-      "campus-eb3aa28af94e"
+      "campus-236b90732615",
+      "campus-6b8b2593ce55"
     ],
     "headlines": [
       "computer science · company recruiting · free food: food",
-      "computer science · employer: qualcomm, texas instruments · this week",
+      "computer science · tomorrow · employer: qualcomm, texas instruments",
       "company recruiting · graduate opportunities · today",
+      "computer science · today · workshop / training",
       "computer science · tomorrow · workshop / training",
-      "biotech · company recruiting · in the next 3 weeks",
-      "company recruiting · graduate opportunities · workshop / training"
+      "biotech · company recruiting · in the next 3 weeks"
     ],
     "changes": [
       {
-        "itemId": "campus-6b9c2193ce63",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-02T22:30:00.000Z",
-        "after": "2026-09-03T21:00:00.000Z"
-      },
-      {
-        "itemId": "campus-77e07a45e0ae",
-        "kind": "title",
-        "field": "Title",
-        "before": "Why Grad School?",
-        "after": "Grad School Workshop Series: Why Grad School?"
-      },
-      {
-        "itemId": "campus-273773a20a77",
+        "itemId": "campus-00cbce7ab52a",
         "kind": "location",
         "field": "Location",
-        "before": "College Station, TX",
-        "after": "ILCB 205"
+        "before": "Rudder Plaza",
+        "after": null
       },
       {
-        "itemId": "campus-5ec3f145d2b3",
-        "kind": "title",
-        "field": "Title",
-        "before": "Writing a Personal Statement & Statement of Purpose",
-        "after": "Grad School Workshop Series: Writing a Personal Statement & Statement of Purpose"
-      },
-      {
-        "itemId": "campus-2c852e732b5c",
+        "itemId": "campus-c721d3a3689a",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-21T21:00:00.000Z",
-        "after": "2026-09-21T20:30:00.000Z"
+        "before": "2026-09-23T05:00:00.000Z",
+        "after": "2026-09-24T05:00:00.000Z"
       },
       {
-        "itemId": "campus-2c8537732b5c",
+        "itemId": "campus-272677a20a68",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-28T21:00:00.000Z",
-        "after": "2026-09-28T20:30:00.000Z"
+        "before": "2026-09-02T05:00:00.000Z",
+        "after": "2026-09-03T05:00:00.000Z"
       },
       {
-        "itemId": "campus-2c822c732b5a",
+        "itemId": "campus-11afd07a28b9",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-05T21:00:00.000Z",
-        "after": "2026-10-05T20:30:00.000Z"
+        "before": "2026-09-09T13:00:00.000Z",
+        "after": "2026-09-10T05:00:00.000Z"
       },
       {
-        "itemId": "campus-77dcf245e0aa",
+        "itemId": "campus-d608c84ea27f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-09T13:00:00.000Z",
+        "after": "2026-09-10T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-3e527c733594",
         "kind": "title",
         "field": "Title",
-        "before": "Grad School: Gap Year or Not?",
-        "after": "Grad School Workshop Series: Grad School - Gap Year or Not?"
+        "before": "De-stress with Farm Friends",
+        "after": "CANCELED: De-stress with Farm Friends"
       },
       {
-        "itemId": "campus-5ec77945d2b7",
-        "kind": "title",
-        "field": "Title",
-        "before": "30-60-90 Day Grad School Research Plan",
-        "after": "Grad School Workshop Series: 30-60-90 Day Grad School Research Plan"
-      },
-      {
-        "itemId": "campus-20a7999cc17f",
-        "kind": "title",
-        "field": "Title",
-        "before": "ECCB Friday Seminar Series",
-        "after": "Ecology and Conservation Biology Friday Seminar Series"
-      },
-      {
-        "itemId": "campus-20a7989cc17f",
-        "kind": "title",
-        "field": "Title",
-        "before": "ECCB Friday Seminar Series",
-        "after": "Ecology and Conservation Biology Friday Seminar Series"
-      },
-      {
-        "itemId": "campus-20a7979cc17f",
-        "kind": "title",
-        "field": "Title",
-        "before": "ECCB Friday Seminar Series",
-        "after": "Ecology and Conservation Biology Friday Seminar Series"
-      },
-      {
-        "itemId": "campus-41dcb38b2a61",
-        "kind": "location",
-        "field": "Location",
-        "before": "Historical Pressroom, University Libraries",
-        "after": "Historical Press Room, University Libraries"
-      },
-      {
-        "itemId": "campus-4bdf569cd9f3",
-        "kind": "title",
-        "field": "Title",
-        "before": "Excel: Data Manipulation",
-        "after": "Excel - Cleaning and Preparing Data"
-      },
-      {
-        "itemId": "campus-20a7969cc17f",
-        "kind": "title",
-        "field": "Title",
-        "before": "ECCB Friday Seminar Series",
-        "after": "Ecology and Conservation Biology Friday Seminar Series"
-      },
-      {
-        "itemId": "campus-20a79d9cc17f",
-        "kind": "title",
-        "field": "Title",
-        "before": "ECCB Friday Seminar Series",
-        "after": "Ecology and Conservation Biology Friday Seminar Series"
-      },
-      {
-        "itemId": "campus-20a79c9cc17f",
-        "kind": "title",
-        "field": "Title",
-        "before": "ECCB Friday Seminar Series",
-        "after": "Ecology and Conservation Biology Friday Seminar Series"
-      },
-      {
-        "itemId": "campus-20a79b9cc17f",
-        "kind": "title",
-        "field": "Title",
-        "before": "ECCB Friday Seminar Series",
-        "after": "Ecology and Conservation Biology Friday Seminar Series"
-      },
-      {
-        "itemId": "campus-20a79a9cc17f",
-        "kind": "title",
-        "field": "Title",
-        "before": "ECCB Friday Seminar Series",
-        "after": "Ecology and Conservation Biology Friday Seminar Series"
-      },
-      {
-        "itemId": "campus-20a7919cc17e",
-        "kind": "title",
-        "field": "Title",
-        "before": "ECCB Friday Seminar Series",
-        "after": "Ecology and Conservation Biology Friday Seminar Series"
+        "itemId": "campus-3e527c733594",
+        "kind": "cancelled",
+        "field": "Status",
+        "before": "scheduled",
+        "after": "cancelled"
       }
     ],
     "estimatedMinutes": 0
@@ -167,26 +76,34 @@
   {
     "weekOf": "2026-08-31",
     "vertical": "research",
-    "scanned": 333,
-    "candidates": 60,
+    "scanned": 1108,
+    "candidates": 126,
     "recommended": [
       "research-726d462e2d83",
       "research-d83c7baba031",
-      "research-0714a5a5bf3b",
       "research-651655b667d5",
-      "research-43625b6ca4df",
-      "research-86e98a093986"
+      "research-23ac650f58f5",
+      "research-86e98a093986",
+      "research-f1e92db2345b"
     ],
     "headlines": [
       "positive selection · codon-model analysis · comparative genomics",
       "positive selection · codon-model analysis · phylogenetics",
-      "M. tuberculosis · positive selection · host-pathogen interaction",
       "M. tuberculosis · comparative genomics · just posted",
-      "codon-model analysis · phylogenetics · MCMC / Bayesian inference",
+      "positive selection · codon-model analysis · very recent",
+      "positive selection · codon-model analysis · very recent",
       "positive selection · codon-model analysis · very recent"
     ],
-    "changes": [],
-    "estimatedMinutes": 99
+    "changes": [
+      {
+        "itemId": "research-a6c86fbe9283",
+        "kind": "preprint-revised",
+        "field": "Preprint version",
+        "before": "v1",
+        "after": "v2"
+      }
+    ],
+    "estimatedMinutes": 96
   },
   {
     "weekOf": "2026-08-24",
