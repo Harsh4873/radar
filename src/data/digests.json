@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-08-31",
     "vertical": "campus",
-    "scanned": 5604,
-    "candidates": 704,
+    "scanned": 5591,
+    "candidates": 698,
     "recommended": [
       "campus-d8f2bf8aeeae",
       "campus-236b86732615",
@@ -22,53 +22,11 @@
     ],
     "changes": [
       {
-        "itemId": "campus-00cbce7ab52a",
+        "itemId": "campus-8703937dda5c",
         "kind": "location",
         "field": "Location",
-        "before": "Rudder Plaza",
+        "before": "Hullabaloo Residence Hall",
         "after": null
-      },
-      {
-        "itemId": "campus-c721d3a3689a",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-23T05:00:00.000Z",
-        "after": "2026-09-24T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-272677a20a68",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-02T05:00:00.000Z",
-        "after": "2026-09-03T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11afd07a28b9",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-09T13:00:00.000Z",
-        "after": "2026-09-10T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-d608c84ea27f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-09T13:00:00.000Z",
-        "after": "2026-09-10T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-3e527c733594",
-        "kind": "title",
-        "field": "Title",
-        "before": "De-stress with Farm Friends",
-        "after": "CANCELED: De-stress with Farm Friends"
-      },
-      {
-        "itemId": "campus-3e527c733594",
-        "kind": "cancelled",
-        "field": "Status",
-        "before": "scheduled",
-        "after": "cancelled"
       }
     ],
     "estimatedMinutes": 0
@@ -76,8 +34,8 @@
   {
     "weekOf": "2026-08-31",
     "vertical": "research",
-    "scanned": 1108,
-    "candidates": 126,
+    "scanned": 371,
+    "candidates": 55,
     "recommended": [
       "research-726d462e2d83",
       "research-d83c7baba031",
@@ -94,15 +52,7 @@
       "positive selection · codon-model analysis · very recent",
       "positive selection · codon-model analysis · very recent"
     ],
-    "changes": [
-      {
-        "itemId": "research-a6c86fbe9283",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v1",
-        "after": "v2"
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 96
   },
   {
