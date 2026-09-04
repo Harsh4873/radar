@@ -2,31 +2,73 @@
   {
     "weekOf": "2026-08-31",
     "vertical": "campus",
-    "scanned": 5591,
-    "candidates": 698,
+    "scanned": 5856,
+    "candidates": 710,
     "recommended": [
-      "campus-d8f2bf8aeeae",
+      "campus-87b6026a4124",
       "campus-236b86732615",
-      "campus-9bea7ea35026",
-      "campus-236f0d732618",
+      "campus-9bea7da35026",
       "campus-236b90732615",
-      "campus-6b8b2593ce55"
+      "campus-6b8b2593ce55",
+      "campus-eb3aa28af94e"
     ],
     "headlines": [
-      "computer science · company recruiting · free food: food",
-      "computer science · tomorrow · employer: qualcomm, texas instruments",
+      "computer science · data science · company recruiting",
+      "computer science · today · employer: qualcomm, texas instruments",
       "company recruiting · graduate opportunities · today",
       "computer science · today · workshop / training",
-      "computer science · tomorrow · workshop / training",
-      "biotech · company recruiting · in the next 3 weeks"
+      "biotech · company recruiting · in the next 3 weeks",
+      "company recruiting · graduate opportunities · workshop / training"
     ],
     "changes": [
       {
-        "itemId": "campus-8703937dda5c",
+        "itemId": "campus-a6d8fb993564",
         "kind": "location",
         "field": "Location",
-        "before": "Hullabaloo Residence Hall",
-        "after": null
+        "before": "TBD",
+        "after": "Veterinary Medicine Administration"
+      },
+      {
+        "itemId": "campus-f826b8730d96",
+        "kind": "title",
+        "field": "Title",
+        "before": "Intro to Career Center and Career Fair Prep",
+        "after": "PVFA: Intro to Career Center and Career Fair Prep"
+      },
+      {
+        "itemId": "campus-c721d3a3689a",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-24T05:00:00.000Z",
+        "after": "2026-09-23T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-272677a20a68",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-03T05:00:00.000Z",
+        "after": "2026-09-04T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-11afd07a28b9",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-10T05:00:00.000Z",
+        "after": "2026-09-09T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-d608c84ea27f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-10T05:00:00.000Z",
+        "after": "2026-09-09T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ddd6f7829832",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-24T05:00:00.000Z",
+        "after": "2026-09-25T05:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -34,26 +76,26 @@
   {
     "weekOf": "2026-08-31",
     "vertical": "research",
-    "scanned": 371,
-    "candidates": 55,
+    "scanned": 492,
+    "candidates": 101,
     "recommended": [
       "research-726d462e2d83",
       "research-d83c7baba031",
       "research-651655b667d5",
+      "research-4241823659d5",
       "research-23ac650f58f5",
-      "research-86e98a093986",
       "research-f1e92db2345b"
     ],
     "headlines": [
       "positive selection · codon-model analysis · comparative genomics",
       "positive selection · codon-model analysis · phylogenetics",
       "M. tuberculosis · comparative genomics · just posted",
-      "positive selection · codon-model analysis · very recent",
+      "M. tuberculosis · comparative genomics · very recent",
       "positive selection · codon-model analysis · very recent",
       "positive selection · codon-model analysis · very recent"
     ],
     "changes": [],
-    "estimatedMinutes": 96
+    "estimatedMinutes": 100
   },
   {
     "weekOf": "2026-08-24",
