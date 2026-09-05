@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-08-31",
     "vertical": "campus",
-    "scanned": 5856,
-    "candidates": 710,
+    "scanned": 6078,
+    "candidates": 715,
     "recommended": [
       "campus-87b6026a4124",
       "campus-236b86732615",
@@ -22,53 +22,11 @@
     ],
     "changes": [
       {
-        "itemId": "campus-a6d8fb993564",
+        "itemId": "campus-c5b8048d32f7",
         "kind": "location",
         "field": "Location",
-        "before": "TBD",
-        "after": "Veterinary Medicine Administration"
-      },
-      {
-        "itemId": "campus-f826b8730d96",
-        "kind": "title",
-        "field": "Title",
-        "before": "Intro to Career Center and Career Fair Prep",
-        "after": "PVFA: Intro to Career Center and Career Fair Prep"
-      },
-      {
-        "itemId": "campus-c721d3a3689a",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-24T05:00:00.000Z",
-        "after": "2026-09-23T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-272677a20a68",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-03T05:00:00.000Z",
-        "after": "2026-09-04T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11afd07a28b9",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-10T05:00:00.000Z",
-        "after": "2026-09-09T13:00:00.000Z"
-      },
-      {
-        "itemId": "campus-d608c84ea27f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-10T05:00:00.000Z",
-        "after": "2026-09-09T13:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ddd6f7829832",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-24T05:00:00.000Z",
-        "after": "2026-09-25T05:00:00.000Z"
+        "before": "All Faiths Chapel",
+        "after": null
       }
     ],
     "estimatedMinutes": 0
@@ -76,26 +34,26 @@
   {
     "weekOf": "2026-08-31",
     "vertical": "research",
-    "scanned": 492,
-    "candidates": 101,
+    "scanned": 912,
+    "candidates": 77,
     "recommended": [
+      "research-a77dda64edd0",
       "research-726d462e2d83",
       "research-d83c7baba031",
       "research-651655b667d5",
       "research-4241823659d5",
-      "research-23ac650f58f5",
-      "research-f1e92db2345b"
+      "research-8ad8fbc192a0"
     ],
     "headlines": [
+      "M. tuberculosis · comparative genomics · phylogenetics",
       "positive selection · codon-model analysis · comparative genomics",
       "positive selection · codon-model analysis · phylogenetics",
       "M. tuberculosis · comparative genomics · just posted",
       "M. tuberculosis · comparative genomics · very recent",
-      "positive selection · codon-model analysis · very recent",
-      "positive selection · codon-model analysis · very recent"
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
     "changes": [],
-    "estimatedMinutes": 100
+    "estimatedMinutes": 103
   },
   {
     "weekOf": "2026-08-24",
