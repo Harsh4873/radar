@@ -2,50 +2,72 @@
   {
     "weekOf": "2026-08-31",
     "vertical": "campus",
-    "scanned": 6279,
-    "candidates": 699,
+    "scanned": 6516,
+    "candidates": 780,
     "recommended": [
       "campus-87b6026a4124",
-      "campus-f26e4f8afcf9",
+      "campus-f26e4e8afcf9",
       "campus-d8f2bf8aeeae",
       "campus-df29754ea7cc",
-      "campus-6b8b2593ce55",
-      "campus-eb3aa28af94e"
+      "campus-9be710a35023",
+      "campus-6b8b2593ce55"
     ],
     "headlines": [
       "computer science · data science · company recruiting",
       "computer science · data science · company recruiting",
       "computer science · company recruiting · free food: food",
       "research opportunity · company recruiting · food provided",
-      "biotech · company recruiting · in the next 3 weeks",
-      "company recruiting · graduate opportunities · workshop / training"
+      "company recruiting · graduate opportunities · tomorrow",
+      "biotech · company recruiting · in the next 3 weeks"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-2b92e3ab2ae1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-05T13:30:00.000Z",
+        "after": "2026-09-06T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-438ef845c2f2",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-19T05:00:00.000Z",
+        "after": "2026-09-20T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-49b12da21df1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-26T05:00:00.000Z",
+        "after": "2026-09-27T05:00:00.000Z"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-08-31",
     "vertical": "research",
-    "scanned": 333,
-    "candidates": 89,
+    "scanned": 1060,
+    "candidates": 124,
     "recommended": [
       "research-d32dff37e3f5",
       "research-a77dda64edd0",
       "research-726d462e2d83",
+      "research-5e430f832229",
       "research-d83c7baba031",
-      "research-651655b667d5",
-      "research-471c9d5e270e"
+      "research-651655b667d5"
     ],
     "headlines": [
       "positive selection · codon-model analysis · comparative genomics",
       "M. tuberculosis · comparative genomics · phylogenetics",
       "positive selection · codon-model analysis · comparative genomics",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "positive selection · codon-model analysis · phylogenetics",
-      "M. tuberculosis · comparative genomics · just posted",
-      "M. tuberculosis · very recent · antimicrobial resistance"
+      "M. tuberculosis · comparative genomics · just posted"
     ],
     "changes": [],
-    "estimatedMinutes": 102
+    "estimatedMinutes": 100
   },
   {
     "weekOf": "2026-08-24",
