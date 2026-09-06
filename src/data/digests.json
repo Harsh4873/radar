@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-08-31",
     "vertical": "campus",
-    "scanned": 6281,
-    "candidates": 715,
+    "scanned": 6279,
+    "candidates": 699,
     "recommended": [
       "campus-87b6026a4124",
       "campus-f26e4f8afcf9",
@@ -20,36 +20,21 @@
       "biotech · company recruiting · in the next 3 weeks",
       "company recruiting · graduate opportunities · workshop / training"
     ],
-    "changes": [
-      {
-        "itemId": "campus-abbdb86a55f0",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-06T06:00:00.000Z",
-        "after": "2026-11-05T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ddd6f7829832",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-25T05:00:00.000Z",
-        "after": "2026-09-24T05:00:00.000Z"
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-08-31",
     "vertical": "research",
-    "scanned": 1083,
-    "candidates": 124,
+    "scanned": 333,
+    "candidates": 89,
     "recommended": [
       "research-d32dff37e3f5",
       "research-a77dda64edd0",
       "research-726d462e2d83",
       "research-d83c7baba031",
       "research-651655b667d5",
-      "research-8ad8fbc192a0"
+      "research-471c9d5e270e"
     ],
     "headlines": [
       "positive selection · codon-model analysis · comparative genomics",
@@ -57,18 +42,10 @@
       "positive selection · codon-model analysis · comparative genomics",
       "positive selection · codon-model analysis · phylogenetics",
       "M. tuberculosis · comparative genomics · just posted",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
+      "M. tuberculosis · very recent · antimicrobial resistance"
     ],
-    "changes": [
-      {
-        "itemId": "research-471c9d5e270e",
-        "kind": "title",
-        "field": "Title",
-        "before": "Isotopic tracing in Mycobacterium tuberculosis -infected alveolar epithelial cells indicates metabolic specificity to their virulence and drug-resistance status.",
-        "after": "Isotopic tracing in Mycobacterium tuberculosis-infected alveolar epithelial cells indicates metabolic specificity to their virulence and drug-resistance status."
-      }
-    ],
-    "estimatedMinutes": 103
+    "changes": [],
+    "estimatedMinutes": 102
   },
   {
     "weekOf": "2026-08-24",
