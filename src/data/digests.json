@@ -2,32 +2,72 @@
   {
     "weekOf": "2026-09-07",
     "vertical": "campus",
-    "scanned": 6531,
-    "candidates": 764,
+    "scanned": 6335,
+    "candidates": 824,
     "recommended": [
-      "campus-abc4346a55f6",
-      "campus-abc4276a55f6"
+      "campus-eb3aa28af94e",
+      "campus-708d30a33792",
+      "campus-7090baa33795",
+      "campus-7090bea33795",
+      "campus-abbdb76a55f0",
+      "campus-0315098176fa"
     ],
     "headlines": [
-      "this week · social",
-      "workshop / training · in the next 3 weeks"
+      "company recruiting · graduate opportunities · workshop / training",
+      "company recruiting · today · workshop / training",
+      "company recruiting · today · workshop / training",
+      "company recruiting · today · workshop / training",
+      "biotech · football",
+      "research opportunity · workshop / training · later this term"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-abbdbc6a55f1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-01T05:00:00.000Z",
+        "after": "2026-11-02T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-438ef845c2f2",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-20T05:00:00.000Z",
+        "after": "2026-09-19T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-49b12da21df1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-27T05:00:00.000Z",
+        "after": "2026-09-26T05:00:00.000Z"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-09-07",
     "vertical": "research",
-    "scanned": 108,
-    "candidates": 35,
+    "scanned": 459,
+    "candidates": 107,
     "recommended": [
-      "research-ee5b4a6777df"
+      "research-ee5b4a6777df",
+      "research-8ad8fbc192a0",
+      "research-db34f4beb055",
+      "research-aff6b3be97dc",
+      "research-2b9ea1e8c3c6",
+      "research-6ac1be9c05a2"
     ],
     "headlines": [
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "comparative genomics · antimicrobial resistance · host-pathogen interaction",
+      "M. tuberculosis · antimicrobial resistance · recent",
+      "comparative genomics · host-pathogen interaction · recent"
     ],
     "changes": [],
-    "estimatedMinutes": 21
+    "estimatedMinutes": 103
   },
   {
     "weekOf": "2026-08-31",
