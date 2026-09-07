@@ -1,5 +1,35 @@
 [
   {
+    "weekOf": "2026-09-07",
+    "vertical": "campus",
+    "scanned": 6531,
+    "candidates": 764,
+    "recommended": [
+      "campus-abc4346a55f6",
+      "campus-abc4276a55f6"
+    ],
+    "headlines": [
+      "this week · social",
+      "workshop / training · in the next 3 weeks"
+    ],
+    "changes": [],
+    "estimatedMinutes": 0
+  },
+  {
+    "weekOf": "2026-09-07",
+    "vertical": "research",
+    "scanned": 108,
+    "candidates": 35,
+    "recommended": [
+      "research-ee5b4a6777df"
+    ],
+    "headlines": [
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
+    ],
+    "changes": [],
+    "estimatedMinutes": 21
+  },
+  {
     "weekOf": "2026-08-31",
     "vertical": "campus",
     "scanned": 6516,
