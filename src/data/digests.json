@@ -2,31 +2,80 @@
   {
     "weekOf": "2026-09-07",
     "vertical": "campus",
-    "scanned": 6336,
-    "candidates": 804,
+    "scanned": 6035,
+    "candidates": 815,
     "recommended": [
+      "campus-9be711a35023",
       "campus-eb3aa28af94e",
-      "campus-abbdb76a55f0",
-      "campus-0315098176fa",
-      "campus-f26e478afcf8",
-      "campus-a9e9630bee73",
-      "campus-e205768af3ef"
+      "campus-708d30a33792",
+      "campus-7090baa33795",
+      "campus-7090bea33795",
+      "campus-abbdb76a55f0"
     ],
     "headlines": [
+      "company recruiting · graduate opportunities · today",
       "company recruiting · graduate opportunities · workshop / training",
-      "biotech · football",
-      "research opportunity · workshop / training · later this term",
-      "free food: wings · workshop / training · in the next 3 weeks",
-      "student organization events · this week",
-      "football · in the next 3 weeks"
+      "company recruiting · today · workshop / training",
+      "company recruiting · today · workshop / training",
+      "company recruiting · today · workshop / training",
+      "biotech · football"
     ],
     "changes": [
       {
-        "itemId": "campus-394c5da214ec",
-        "kind": "title",
-        "field": "Title",
-        "before": "ASTR Seminar",
-        "after": "Sharing is Caring: AGB Mass Transfer in Binary Stars"
+        "itemId": "campus-11bdd57a28c5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-14T05:00:00.000Z",
+        "after": "2026-09-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-e208fa8af3f2",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-05T13:00:00.000Z",
+        "after": "2026-10-06T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abbdbc6a55f1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-02T06:00:00.000Z",
+        "after": "2026-11-01T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-90c5ad6a4663",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-14T05:00:00.000Z",
+        "after": "2026-09-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ac117d6985f5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-14T13:00:00.000Z",
+        "after": "2026-09-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-43850245c2ea",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-07T13:00:00.000Z",
+        "after": "2026-09-08T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abc42c6a55f6",
+        "kind": "location",
+        "field": "Location",
+        "before": "1615 Sherman Street San Antonio, TX 78202",
+        "after": "Bexar County Greenies Urban Farm"
+      },
+      {
+        "itemId": "campus-e4c9569412ff",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-02T14:30:00.000Z",
+        "after": "2026-11-03T06:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -34,26 +83,26 @@
   {
     "weekOf": "2026-09-07",
     "vertical": "research",
-    "scanned": 949,
-    "candidates": 84,
+    "scanned": 1098,
+    "candidates": 133,
     "recommended": [
+      "research-752fa39eec07",
       "research-ee5b4a6777df",
-      "research-567614522807",
+      "research-4f824c6b9f19",
+      "research-00068a60d17a",
       "research-6482b7a663dc",
-      "research-02e1d742e923",
-      "research-769ba4e68d88",
-      "research-bc58bf481aed"
+      "research-02e1d742e923"
     ],
     "headlines": [
+      "positive selection · codon-model analysis · comparative genomics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "positive selection · comparative genomics · recent",
+      "positive selection · codon-model analysis · phylogenetics",
+      "positive selection · host-pathogen interaction · pathogen evolution",
       "positive selection · phylogenetics · pathogen evolution",
-      "M. tuberculosis · antimicrobial resistance · host-pathogen interaction",
-      "comparative genomics · phylogenetics · pathogen evolution",
-      "M. tuberculosis · antimicrobial resistance · recent"
+      "M. tuberculosis · antimicrobial resistance · host-pathogen interaction"
     ],
     "changes": [],
-    "estimatedMinutes": 101
+    "estimatedMinutes": 99
   },
   {
     "weekOf": "2026-08-31",
