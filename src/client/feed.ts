@@ -120,6 +120,7 @@ function matchesTab(card: CardData, state: RadarState, tab: string): boolean {
   if (tab === 'all') return true;
   if (tab === 'interested') return state.saved.includes(card.id);
   if (tab === 'going') return state.attending.includes(card.id);
+  if (tab === 'tracked') return state.tracked.includes(card.id);
   if (tab === 'for-you') return card.tabs.includes(tab) || matchesProfile(card, state);
   return card.tabs.includes(tab);
 }
@@ -137,11 +138,13 @@ function applyView(
   tab: string,
   showDismissed: boolean,
   query: string,
+  facets: string[] = [],
 ): void {
   const visible: CardData[] = [];
 
   for (const card of cards) {
     const hidden = !matchesTab(card, state, tab)
+      || !facets.every((facet) => matchesTab(card, state, facet))
       || !matchesSearch(card, query)
       || (!showDismissed && state.dismissed.includes(card.id));
     card.element.hidden = hidden;
@@ -196,7 +199,6 @@ export function initFeed(): void {
   if (root === null) return;
 
   const cards = readCards(root);
-  if (cards.length === 0) return;
   // Some overview pages show a second, smaller card section outside the main
   // filterable feed. Its actions should still work even though it is not
   // subject to the first feed's tabs or sorting.
@@ -212,10 +214,11 @@ export function initFeed(): void {
   let tab = root.dataset['defaultTab'] ?? 'for-you';
   let showDismissed = false;
   let query = '';
+  const filterSelects = [...document.querySelectorAll<HTMLSelectElement>('[data-feed-filter]')];
 
   const repaint = (): void => {
     for (const card of interactiveCards) paintCard(card, state, previous);
-    applyView(root, cards, state, tab, showDismissed, query);
+    applyView(root, cards, state, tab, showDismissed, query, filterSelects.map((select) => select.value));
   };
 
   subscribeRadarState((next) => {
@@ -238,13 +241,35 @@ export function initFeed(): void {
     });
   }
 
-  const requested = new URL(window.location.href).searchParams.get('tab');
+  const params = new URL(window.location.href).searchParams;
+  for (const select of filterSelects) {
+    const key = select.dataset['feedFilter']!;
+    const value = params.get(key);
+    if (value !== null && [...select.options].some((option) => option.value === value)) select.value = value;
+    select.addEventListener('change', () => {
+      const nextUrl = new URL(window.location.href);
+      if (select.value === 'all') nextUrl.searchParams.delete(key);
+      else nextUrl.searchParams.set(key, select.value);
+      window.history.replaceState({}, '', nextUrl);
+      repaint();
+    });
+  }
+  const requested = params.get('tab');
   if (requested !== null) {
-    const target = document.querySelector<HTMLElement>(`[data-tab="${CSS.escape(requested)}"]`);
-    if (target !== null) {
+    const target = [...document.querySelectorAll<HTMLElement>('[data-tab]')]
+      .find((button) => button.dataset['tab'] === requested);
+    if (target !== undefined) {
       tab = requested;
-      for (const other of document.querySelectorAll<HTMLElement>('[data-tab]')) {
-        other.setAttribute('aria-pressed', other === target ? 'true' : 'false');
+      for (const other of document.querySelectorAll<HTMLElement>('[data-tab]')) setPressed(other, other === target);
+    } else {
+      // Preserve bookmarked filters from the earlier single-row controls.
+      const select = filterSelects.find((entry) => [...entry.options].some((option) => option.value === requested));
+      if (select !== undefined) {
+        select.value = requested;
+        const migrated = new URL(window.location.href);
+        migrated.searchParams.delete('tab');
+        migrated.searchParams.set(select.dataset['feedFilter']!, requested);
+        window.history.replaceState({}, '', migrated);
       }
     }
   }
@@ -335,11 +360,12 @@ export function initFeed(): void {
   }
 
 
-  const reset = document.querySelector<HTMLButtonElement>('[data-reset-filters]');
-  reset?.addEventListener('click', () => {
+  for (const reset of document.querySelectorAll<HTMLButtonElement>('[data-reset-filters]')) reset.addEventListener('click', () => {
     tab = root.dataset['defaultTab'] ?? 'all';
     showDismissed = false;
     query = '';
+    for (const select of filterSelects) select.value = 'all';
+    if (dismissedToggle !== null) setPressed(dismissedToggle, false);
     if (search !== null) search.value = '';
     clearSearch?.setAttribute('hidden', '');
     for (const button of document.querySelectorAll<HTMLElement>('[data-tab]')) {
@@ -348,8 +374,10 @@ export function initFeed(): void {
     const nextUrl = new URL(window.location.href);
     nextUrl.searchParams.delete('q');
     nextUrl.searchParams.delete('tab');
+    for (const select of filterSelects) nextUrl.searchParams.delete(select.dataset['feedFilter']!);
     window.history.replaceState({}, '', nextUrl);
     repaint();
+    search?.focus();
   });
 
   repaint();

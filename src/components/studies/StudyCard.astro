@@ -330,8 +330,8 @@ const searchText = scrubEmails(
   {
     actions && (
       <div class="study-state-actions" aria-label="Personal study actions">
-        <button class="btn" type="button" data-study-action="save" aria-pressed="false">Save</button>
-        <button class="btn" type="button" data-study-action="dismiss" aria-pressed="false">Dismiss</button>
+        <button class="btn" type="button" data-study-action="save" aria-pressed="false" aria-label={`Save ${study.title}`}>Save</button>
+        <button class="btn" type="button" data-study-action="dismiss" aria-pressed="false" aria-label={`Dismiss ${study.title}`}>Dismiss</button>
       </div>
     )
   }

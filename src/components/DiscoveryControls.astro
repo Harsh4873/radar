@@ -21,6 +21,7 @@ interface Props {
   tabs: readonly TabDef[];
   activeTab?: string;
   dismissedLabel?: string;
+  campusFilters?: boolean;
 }
 
 const {
@@ -36,9 +37,10 @@ const {
   tabs,
   activeTab = 'all',
   dismissedLabel = 'Show dismissed',
+  campusFilters = false,
 } = Astro.props;
 
-const plural = `${noun}s`;
+const plural = noun === 'study' ? 'studies' : `${noun}s`;
 ---
 
 <div class="discovery-controls">
@@ -66,7 +68,26 @@ const plural = `${noun}s`;
       <span data-count-for="visible">{shown}</span> of {total} shown
     </p>
   </div>
-  <TabBar tabs={tabs} active={activeTab} />
+  {tabs.length > 0 && <TabBar tabs={tabs} active={activeTab} />}
+  {campusFilters && (
+    <div class="campus-filter-grid">
+      <label class="field"><span class="field-label">When</span>
+        <select class="control" data-feed-filter="when">
+          <option value="all">Any date</option><option value="today">Today</option><option value="this-week">Next 7 days</option>
+        </select>
+      </label>
+      <label class="field"><span class="field-label">My events</span>
+        <select class="control" data-feed-filter="personal">
+          <option value="all">All events</option><option value="for-you">For you</option><option value="interested">Saved</option><option value="going">Going</option>
+        </select>
+      </label>
+      <label class="field"><span class="field-label">Preferences</span>
+        <select class="control" data-feed-filter="extra">
+          <option value="all">Any event</option><option value="free">Food provided</option><option value="online">Online option</option><option value="deadlines">Has a deadline</option>
+        </select>
+      </label>
+    </div>
+  )}
   <slot />
   <div class="filter-utility">
     <p data-search-summary data-search-noun={noun} role="status" aria-live="polite">
@@ -75,5 +96,6 @@ const plural = `${noun}s`;
     <button class="text-button" type="button" data-show-dismissed aria-pressed="false">
       {dismissedLabel}
     </button>
+    {campusFilters && <button class="text-button" type="button" data-reset-filters>Reset filters</button>}
   </div>
 </div>

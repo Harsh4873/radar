@@ -149,7 +149,7 @@ const authors = research === undefined || research.authors.length === 0
         <a href={detailHref}>{item.title}</a>
       </h3>
     </div>
-    <div class:list={['score', scoreClass]}>
+    <div class:list={['score', scoreClass, campus !== undefined && !detailed && 'sr-only']}>
       <b data-score>{item.relevance}</b>
       <span>match</span>
     </div>
@@ -206,8 +206,8 @@ const authors = research === undefined || research.authors.length === 0
 
   {
     reasons.length > 0 && (
-      <>
-        <p class="sr-only">Why Radar picked this:</p>
+      <details class="ranking-details" open={detailed}>
+        <summary>Why this is on Radar</summary>
         <ul class="reasons">
           {reasons.map((entry) => (
             <li class:list={['reason', { 'is-negative': entry.points < 0 }]}>
@@ -219,7 +219,7 @@ const authors = research === undefined || research.authors.length === 0
             </li>
           ))}
         </ul>
-      </>
+      </details>
     )
   }
 
@@ -252,17 +252,17 @@ const authors = research === undefined || research.authors.length === 0
         </a>
       )
     }
-    <button class="action" type="button" data-action="save" aria-pressed="false">
-      {campus !== undefined ? 'Interested' : 'Save'}
+    <button class="action" type="button" data-action="save" aria-pressed="false" aria-label={`Save ${item.title}`}>
+      Save
     </button>
     {
       campus !== undefined && (
-        <button class="action" type="button" data-action="attend" aria-pressed="false">Going</button>
+        <button class="action" type="button" data-action="attend" aria-pressed="false" aria-label={`Going to ${item.title}`}>Going</button>
       )
     }
-    <a class="action action-quiet" href={detailHref}>Details</a>
+    <a class="action action-quiet" href={detailHref} aria-label={`Details for ${item.title}`}>Details</a>
     <details class="card-menu">
-      <summary class="action action-quiet">More</summary>
+      <summary class="action action-quiet" aria-label={`More actions for ${item.title}`}>More</summary>
       <div class="card-menu-popover">
         <button class="action" type="button" data-action="track" aria-pressed="false">Track changes</button>
         <button class="action" type="button" data-action="more">More like this</button>

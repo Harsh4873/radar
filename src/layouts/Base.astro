@@ -6,6 +6,7 @@
  * is served from https://harsh.bet/radar/ - a root-relative "/" would 404.
  */
 import '@/styles/global.css';
+import '@/styles/discovery.css';
 import VaultControl from '@/components/VaultControl.astro';
 import { url } from '@/lib/view.ts';
 
@@ -45,6 +46,13 @@ const nav = [
 const tools = [
   { id: 'profile', label: 'Profile', href: url(base, 'profile/') },
 ];
+const campusLinks = [
+  { label: 'All events', path: 'campus/' },
+  { label: 'Clubs & socials', path: 'campus/clubs/' },
+  { label: 'Sports & recreation', path: 'campus/sports/' },
+  { label: 'Careers', path: 'campus/companies/' },
+  { label: 'Talks & research', path: 'campus/research/' },
+];
 ---
 
 <!doctype html>
@@ -74,7 +82,7 @@ const tools = [
             {engine === 'campus' && <span class="engine engine-campus">Campus</span>}
             {engine === 'studies' && <span class="engine engine-studies">Studies</span>}
           </div>
-          <p>Literature, campus, and participant studies — one feed.</p>
+          <p>Find something worth your time.</p>
         </div>
         <div class="header-navs">
           <nav class="nav" aria-label="Radar sections">
@@ -97,15 +105,27 @@ const tools = [
           </nav>
         </div>
       </div>
+      <nav class="section-nav" aria-label="Explore campus">
+        <p class="rail-label">Campus</p>
+        {campusLinks.map((entry) => (
+          <a href={url(base, entry.path)} aria-current={Astro.url.pathname.replace(/\/?$/, '/') === url(base, entry.path) ? 'page' : undefined}>
+            {entry.label}
+          </a>
+        ))}
+      </nav>
     </header>
 
-    <VaultControl />
-
-    <main id="main" class="page-main">
+    <div class="content-frame">
+    <main id="main" class="page-main" tabindex="-1">
       <div class:list={['wrap', layout === 'wide' && 'wrap-wide']}>
         <slot />
       </div>
     </main>
+
+    <details class="sync-settings wrap wrap-wide">
+      <summary>Private sync &amp; account</summary>
+      <VaultControl />
+    </details>
 
     <footer class="site-footer">
       <div class="wrap wrap-wide">
@@ -138,5 +158,6 @@ const tools = [
         }
       </div>
     </footer>
+    </div>
   </body>
 </html>

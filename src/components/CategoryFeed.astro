@@ -8,6 +8,7 @@
  * shared body rather than four near-identical pages.
  */
 import CampusAgenda from '@/components/CampusAgenda.astro';
+import DiscoveryControls from '@/components/DiscoveryControls.astro';
 import type { RadarItem } from '@/types.ts';
 
 interface Props {
@@ -39,10 +40,11 @@ const { heading, lede, items, now, emptyMessage, tally = [] } = Astro.props;
   }
 </section>
 
-{
-  items.length > 0 ? (
-    <CampusAgenda items={items} now={now} />
-  ) : (
-    <p class="empty">{emptyMessage}</p>
-  )
-}
+<DiscoveryControls searchId="category-search" searchLabel="Search these events" searchPlaceholder="Event, topic, club, or place"
+  heading="Upcoming events" shown={items.length} total={items.length} noun="event" tabs={[]} campusFilters />
+
+<CampusAgenda items={items} now={now} />
+<div class="empty" data-empty-state hidden={items.length > 0}>
+  <h2>No matching events</h2><p>{items.length === 0 ? emptyMessage : 'Try another date or a broader search.'}</p>
+  <button class="action" type="button" data-reset-filters>Reset filters</button>
+</div>

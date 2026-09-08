@@ -4,31 +4,15 @@ import Base from '@/layouts/Base.astro';
 import CampusAgenda from '@/components/CampusAgenda.astro';
 import DiscoveryControls from '@/components/DiscoveryControls.astro';
 import { campus, fetchedAt, now } from '@/lib/data.ts';
-import { calendarDaysUntil } from '@/core/text.ts';
-import { isIntramuralListing } from '@/campus/classify.ts';
 import {
   CAMPUS_TABS,
   byCampusDate,
   forYou,
-  formatDateTime,
-  recentlyAdded,
-  url,
 } from '@/lib/view.ts';
 
-const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
 const items = [...campus.items].sort(byCampusDate);
 const top = forYou(items);
 const forYouIds = new Set(top.map((item) => item.id));
-const fresh = recentlyAdded(items, now, 7);
-const today = items.filter((item) => calendarDaysUntil(item.campus?.startsAt ?? null, now) === 0);
-const thisWeek = items.filter((item) => {
-  const days = calendarDaysUntil(item.campus?.startsAt ?? null, now);
-  return days !== null && days >= 0 && days <= 7;
-});
-const intramurals = items.filter((item) =>
-  isIntramuralListing(item.title, item.summary, item.campus?.organizer ?? null, item.tags));
-const cancelled = items.filter((item) => item.campus?.isCancelled === true);
-const nextEvent = items.find((item) => item.campus?.isCancelled !== true) ?? null;
 ---
 
 <Base
@@ -39,43 +23,11 @@ const nextEvent = items.find((item) => item.campus?.isCancelled !== true) ?? nul
   current="campus"
   layout="wide"
 >
-  <section class="campus-hero">
-    <div class="campus-hero-copy">
-      <p class="eyebrow">Texas A&amp;M · Campus Radar</p>
-      <h1>Find what’s happening next.</h1>
-      <p class="campus-hero-lede">
-        One searchable, date-first agenda for campus events, clubs, sports, intramurals, research,
-        and recruiting—without the calendar chaos.
-      </p>
-      <div class="hero-actions">
-        <a class="action action-primary" href="#events">Browse the agenda</a>
-        <a class="action action-on-dark" href={url(base, 'profile/')}>Set up your profile</a>
-      </div>
-    </div>
-
-    <div class="next-event-card">
-      <p class="eyebrow">Next on Radar</p>
-      {
-        nextEvent !== null ? (
-          <>
-            <p class="next-event-time">{formatDateTime(nextEvent.campus?.startsAt ?? null)}</p>
-            <h2>{nextEvent.title}</h2>
-            <p>{nextEvent.campus?.location ?? nextEvent.campus?.organizer ?? 'Details at the source'}</p>
-            <a href={url(base, `campus/event/${nextEvent.id}/`)}>View event details →</a>
-          </>
-        ) : (
-          <p>No upcoming events are currently available.</p>
-        )
-      }
-    </div>
-  </section>
-
-  <ul class="campus-metrics" aria-label="Campus event summary">
-    <li><strong>{today.length}</strong><span>happening today</span></li>
-    <li><strong>{thisWeek.length}</strong><span>in the next 7 days</span></li>
-    <li><strong>{intramurals.length}</strong><span>scheduled intramural events</span></li>
-    <li><strong>{fresh.length}</strong><span>added this week</span></li>
-  </ul>
+  <header class="browse-heading">
+    <p class="eyebrow">Texas A&amp;M · Campus</p>
+    <h1>Find your next thing.</h1>
+    <p>Explore events by interest, then narrow by date. Save anything you want to come back to.</p>
+  </header>
 
   <div class="campus-layout campus-layout-feed">
     <section class="campus-discovery" id="events" aria-labelledby="agenda-heading">
@@ -88,9 +40,9 @@ const nextEvent = items.find((item) => item.campus?.isCancelled !== true) ?? nul
         shown={items.length}
         total={items.length}
         noun="event"
-        tabs={CAMPUS_TABS}
+        tabs={CAMPUS_TABS.filter((tab) => ['all', 'clubs', 'sports', 'intramurals', 'companies', 'research-events', 'campus', 'bcs'].includes(tab.id))}
+        campusFilters
         activeTab="all"
-        dismissedLabel={cancelled.length > 0 ? `Show dismissed · ${cancelled.length} cancelled` : 'Show dismissed'}
       />
 
       <CampusAgenda items={items} now={now} defaultTab="all" forYouIds={forYouIds} />
