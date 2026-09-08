@@ -2,45 +2,31 @@
   {
     "weekOf": "2026-09-07",
     "vertical": "campus",
-    "scanned": 6335,
-    "candidates": 824,
+    "scanned": 6336,
+    "candidates": 804,
     "recommended": [
       "campus-eb3aa28af94e",
-      "campus-708d30a33792",
-      "campus-7090baa33795",
-      "campus-7090bea33795",
       "campus-abbdb76a55f0",
-      "campus-0315098176fa"
+      "campus-0315098176fa",
+      "campus-f26e478afcf8",
+      "campus-a9e9630bee73",
+      "campus-e205768af3ef"
     ],
     "headlines": [
       "company recruiting · graduate opportunities · workshop / training",
-      "company recruiting · today · workshop / training",
-      "company recruiting · today · workshop / training",
-      "company recruiting · today · workshop / training",
       "biotech · football",
-      "research opportunity · workshop / training · later this term"
+      "research opportunity · workshop / training · later this term",
+      "free food: wings · workshop / training · in the next 3 weeks",
+      "student organization events · this week",
+      "football · in the next 3 weeks"
     ],
     "changes": [
       {
-        "itemId": "campus-abbdbc6a55f1",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-01T05:00:00.000Z",
-        "after": "2026-11-02T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-438ef845c2f2",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-20T05:00:00.000Z",
-        "after": "2026-09-19T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-49b12da21df1",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-27T05:00:00.000Z",
-        "after": "2026-09-26T05:00:00.000Z"
+        "itemId": "campus-394c5da214ec",
+        "kind": "title",
+        "field": "Title",
+        "before": "ASTR Seminar",
+        "after": "Sharing is Caring: AGB Mass Transfer in Binary Stars"
       }
     ],
     "estimatedMinutes": 0
@@ -48,26 +34,26 @@
   {
     "weekOf": "2026-09-07",
     "vertical": "research",
-    "scanned": 459,
-    "candidates": 107,
+    "scanned": 949,
+    "candidates": 84,
     "recommended": [
       "research-ee5b4a6777df",
-      "research-8ad8fbc192a0",
-      "research-db34f4beb055",
-      "research-aff6b3be97dc",
-      "research-2b9ea1e8c3c6",
-      "research-6ac1be9c05a2"
+      "research-567614522807",
+      "research-6482b7a663dc",
+      "research-02e1d742e923",
+      "research-769ba4e68d88",
+      "research-bc58bf481aed"
     ],
     "headlines": [
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "comparative genomics · antimicrobial resistance · host-pathogen interaction",
-      "M. tuberculosis · antimicrobial resistance · recent",
-      "comparative genomics · host-pathogen interaction · recent"
+      "positive selection · comparative genomics · recent",
+      "positive selection · phylogenetics · pathogen evolution",
+      "M. tuberculosis · antimicrobial resistance · host-pathogen interaction",
+      "comparative genomics · phylogenetics · pathogen evolution",
+      "M. tuberculosis · antimicrobial resistance · recent"
     ],
     "changes": [],
-    "estimatedMinutes": 103
+    "estimatedMinutes": 101
   },
   {
     "weekOf": "2026-08-31",
