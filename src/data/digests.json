@@ -2,80 +2,66 @@
   {
     "weekOf": "2026-09-07",
     "vertical": "campus",
-    "scanned": 6035,
-    "candidates": 815,
+    "scanned": 6039,
+    "candidates": 813,
     "recommended": [
       "campus-9be711a35023",
       "campus-eb3aa28af94e",
-      "campus-708d30a33792",
-      "campus-7090baa33795",
-      "campus-7090bea33795",
+      "campus-b308ce6a59ae",
+      "campus-b308d16a59af",
+      "campus-b308d46a59af",
       "campus-abbdb76a55f0"
     ],
     "headlines": [
       "company recruiting · graduate opportunities · today",
       "company recruiting · graduate opportunities · workshop / training",
-      "company recruiting · today · workshop / training",
-      "company recruiting · today · workshop / training",
-      "company recruiting · today · workshop / training",
+      "graduate opportunities · career development · this week",
+      "company recruiting · employer: ey, shell · workshop / training",
+      "graduate opportunities · career development · workshop / training",
       "biotech · football"
     ],
     "changes": [
       {
-        "itemId": "campus-11bdd57a28c5",
+        "itemId": "campus-2c7b3f732b54",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-14T05:00:00.000Z",
-        "after": "2026-09-15T05:00:00.000Z"
+        "before": "2026-09-11T13:30:00.000Z",
+        "after": "2026-09-11T14:40:00.000Z"
       },
       {
-        "itemId": "campus-e208fa8af3f2",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-05T13:00:00.000Z",
-        "after": "2026-10-06T05:00:00.000Z"
+        "itemId": "campus-55aa4b45cd6c",
+        "kind": "title",
+        "field": "Title",
+        "before": "ASTR Seminar",
+        "after": "Measuring Magnetic Fields Across Cosmic Time Using Strongly Gravitationally Lensed Dusty Star-forming Galaxies"
       },
       {
-        "itemId": "campus-abbdbc6a55f1",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-02T06:00:00.000Z",
-        "after": "2026-11-01T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-90c5ad6a4663",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-14T05:00:00.000Z",
-        "after": "2026-09-15T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ac117d6985f5",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-14T13:00:00.000Z",
-        "after": "2026-09-15T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-43850245c2ea",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-07T13:00:00.000Z",
-        "after": "2026-09-08T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-abc42c6a55f6",
+        "itemId": "campus-d8f2c38aeeae",
         "kind": "location",
         "field": "Location",
-        "before": "1615 Sherman Street San Antonio, TX 78202",
-        "after": "Bexar County Greenies Urban Farm"
+        "before": "LEB: Classroom 226",
+        "after": "LEB: Courtroom (102)"
       },
       {
-        "itemId": "campus-e4c9569412ff",
+        "itemId": "campus-2c7b3c732b54",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-11-02T14:30:00.000Z",
-        "after": "2026-11-03T06:00:00.000Z"
+        "before": "2026-09-18T13:30:00.000Z",
+        "after": "2026-09-18T14:40:00.000Z"
+      },
+      {
+        "itemId": "campus-11b6c47a28bf",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-08T05:00:00.000Z",
+        "after": "2026-09-25T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-2c7b3d732b54",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-25T13:30:00.000Z",
+        "after": "2026-09-25T14:40:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -83,23 +69,23 @@
   {
     "weekOf": "2026-09-07",
     "vertical": "research",
-    "scanned": 1098,
-    "candidates": 133,
+    "scanned": 490,
+    "candidates": 106,
     "recommended": [
       "research-752fa39eec07",
       "research-ee5b4a6777df",
+      "research-8ad8fbc192a0",
       "research-4f824c6b9f19",
-      "research-00068a60d17a",
-      "research-6482b7a663dc",
-      "research-02e1d742e923"
+      "research-db34f4beb055",
+      "research-00068a60d17a"
     ],
     "headlines": [
       "positive selection · codon-model analysis · comparative genomics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "positive selection · codon-model analysis · phylogenetics",
-      "positive selection · host-pathogen interaction · pathogen evolution",
-      "positive selection · phylogenetics · pathogen evolution",
-      "M. tuberculosis · antimicrobial resistance · host-pathogen interaction"
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "positive selection · host-pathogen interaction · pathogen evolution"
     ],
     "changes": [],
     "estimatedMinutes": 99
