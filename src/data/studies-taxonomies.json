@@ -2,7 +2,7 @@
   "category": {
     "37": {
       "id": 37,
-      "count": 52,
+      "count": 53,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=behavioral-sciences",
       "name": "Behavioral Sciences",
@@ -102,7 +102,7 @@
     },
     "39": {
       "id": 39,
-      "count": 66,
+      "count": 69,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=psychology-cognitive",
       "name": "Psychology / Cognitive",
@@ -779,7 +779,7 @@
     },
     "52": {
       "id": 52,
-      "count": 10,
+      "count": 11,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=adult",
       "name": "Adult",
@@ -834,7 +834,7 @@
   "location": {
     "53": {
       "id": 53,
-      "count": 11,
+      "count": 12,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_location&term=bryan-college-station-off-campus",
       "name": "Bryan-College Station – off-campus",
@@ -881,7 +881,7 @@
     },
     "54": {
       "id": 54,
-      "count": 66,
+      "count": 69,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_location&term=bryan-college-station-on-campus",
       "name": "Bryan-College Station – on-campus",
@@ -1306,7 +1306,7 @@
   "sessionType": {
     "60": {
       "id": 60,
-      "count": 44,
+      "count": 46,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_session_type&term=multiple-visits",
       "name": "Multiple Visits",
@@ -1400,7 +1400,7 @@
     },
     "62": {
       "id": 62,
-      "count": 31,
+      "count": 33,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_session_type&term=online-survey",
       "name": "Online Survey",
@@ -1447,7 +1447,7 @@
     },
     "63": {
       "id": 63,
-      "count": 2,
+      "count": 3,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_session_type&term=other",
       "name": "Other",
@@ -1541,7 +1541,7 @@
     },
     "65": {
       "id": 65,
-      "count": 28,
+      "count": 30,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_session_type&term=single-visit",
       "name": "Single Visit",
@@ -1590,7 +1590,7 @@
   "topic": {
     "31": {
       "id": 31,
-      "count": 11,
+      "count": 12,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_topic&term=childhood-development",
       "name": "Childhood Development",
@@ -1637,7 +1637,7 @@
     },
     "32": {
       "id": 32,
-      "count": 7,
+      "count": 8,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_topic&term=cultural",
       "name": "Cultural",
@@ -1731,7 +1731,7 @@
     },
     "34": {
       "id": 34,
-      "count": 44,
+      "count": 47,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_topic&term=health",
       "name": "Health",
@@ -1778,7 +1778,7 @@
     },
     "35": {
       "id": 35,
-      "count": 19,
+      "count": 20,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_topic&term=technology",
       "name": "Technology",
@@ -1825,7 +1825,7 @@
     },
     "36": {
       "id": 36,
-      "count": 36,
+      "count": 39,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_topic&term=other",
       "name": "Other",

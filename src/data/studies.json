@@ -1,6 +1,6 @@
 {
-  "fetchedAt": "2026-09-09T01:17:11.542Z",
-  "totalFromHeader": 89,
+  "fetchedAt": "2026-09-09T15:09:36.493Z",
+  "totalFromHeader": 93,
   "studies": [
     {
       "id": "4591",
@@ -8436,6 +8436,439 @@
       "duplicateOf": null
     },
     {
+      "id": "14017",
+      "slug": "the-effects-of-representations-of-virtual-humans-on-human-behavior-in-human-artificial-intelligence-interactions-haiis",
+      "title": "The Effects of Representations of Virtual Humans on Human Behavior in Human-Artificial Intelligence Interactions (HAIIs)",
+      "summary": "The purpose of this study is to examine how participants interact with virtual humans in immersive and non-immersive virtual environments, and how variations in the virtual human’s form, size, visual style, behavior, and gender presentation influence social…",
+      "url": "https://research.tamu.edu/study/the-effects-of-representations-of-virtual-humans-on-human-behavior-in-human-artificial-intelligence-interactions-haiis/",
+      "sources": [
+        {
+          "source": "aggie-research-volunteers",
+          "externalId": "14017",
+          "url": "https://research.tamu.edu/study/the-effects-of-representations-of-virtual-humans-on-human-behavior-in-human-artificial-intelligence-interactions-haiis/",
+          "status": "unknown",
+          "verifiedAt": "2026-09-09T13:57:34.000Z",
+          "protocolIds": [
+            "STUDY2026-0772"
+          ],
+          "titleAliases": [
+            "The Effects of Representations of Virtual Humans on Human Behavior in Human-Artificial Intelligence Interactions (HAIIs)"
+          ]
+        }
+      ],
+      "piName": "PI: Uğur Önal",
+      "contactName": null,
+      "contactEmail": "uguronal@tamu.edu",
+      "contactPhone": "979-575-1772",
+      "irbNumber": "STUDY2026-0772",
+      "irbApprovalDate": "2026-07-30T08:56:37.000Z",
+      "expirationDate": null,
+      "recruitmentStartDate": null,
+      "lifecycleMonths": 12,
+      "postedDate": "2026-09-09T13:57:34.000Z",
+      "modifiedDate": "2026-09-09T13:57:34.000Z",
+      "categoryIds": [
+        37,
+        39
+      ],
+      "locationIds": [
+        54
+      ],
+      "sessionTypeIds": [
+        62,
+        65
+      ],
+      "topicIds": [
+        36,
+        35
+      ],
+      "locationLabels": [],
+      "compensation": {
+        "guaranteedMin": 20,
+        "guaranteedMax": 20,
+        "raffleMax": null,
+        "raffleOnly": false,
+        "isHourlyRate": false,
+        "hourlyMin": null,
+        "hourlyMax": null,
+        "currencyKind": "giftcard",
+        "perVisit": null,
+        "visitCount": null,
+        "completionBonus": null,
+        "hasNonCashPerk": false,
+        "sonaCreditOption": false,
+        "raw": "$20 digital gift cards (Amazon gift cards, etc.)",
+        "confidence": "high",
+        "notes": []
+      },
+      "duration": {
+        "totalHoursMin": 1,
+        "totalHoursMax": 1.5,
+        "sessionCount": null,
+        "spanWeeks": null,
+        "raw": "60-90 mins",
+        "confidence": "high"
+      },
+      "eligibility": {
+        "minAge": 18,
+        "maxAge": null,
+        "requiresRightHanded": false,
+        "requiresMriSafe": false,
+        "requiresFasting": false,
+        "excludesCardiovascular": false,
+        "excludesPregnancy": false,
+        "excludesSeizure": true,
+        "excludesNeurological": false,
+        "requiresSpecificCondition": null,
+        "requiresParentOrChild": false,
+        "sexRestriction": null,
+        "flags": [
+          "implanted medical device screening required (no MRI mentioned)",
+          "excludes seizure or epilepsy history",
+          "pregnancy is mentioned but not clearly a criterion - confirm with the study team",
+          "normal or corrected-to-normal vision required"
+        ]
+      },
+      "effectiveHourly": 13.33,
+      "isExpired": false,
+      "staleness": "fresh",
+      "tags": [
+        "online",
+        "in-person",
+        "vr-ar",
+        "survey",
+        "interview",
+        "hci"
+      ],
+      "duplicateIds": [],
+      "duplicateOf": null
+    },
+    {
+      "id": "14020",
+      "slug": "from-fear-to-reinforcement-a-neurobiological-test-of-an-operant-model-of-worry",
+      "title": "From Fear to Reinforcement: A Neurobiological Test of an Operant Model of Worry",
+      "summary": "To investigate reward processing and how ultrasound stimulation affects the brain and behavior.",
+      "url": "https://research.tamu.edu/study/from-fear-to-reinforcement-a-neurobiological-test-of-an-operant-model-of-worry/",
+      "sources": [
+        {
+          "source": "aggie-research-volunteers",
+          "externalId": "14020",
+          "url": "https://research.tamu.edu/study/from-fear-to-reinforcement-a-neurobiological-test-of-an-operant-model-of-worry/",
+          "status": "unknown",
+          "verifiedAt": "2026-09-09T14:05:44.000Z",
+          "protocolIds": [
+            "STUDY2026-0852"
+          ],
+          "titleAliases": [
+            "From Fear to Reinforcement: A Neurobiological Test of an Operant Model of Worry"
+          ]
+        }
+      ],
+      "piName": "PI: Dr. Annmarie MacNamara, PhD",
+      "contactName": null,
+      "contactEmail": "amacnamara@tamu.edu",
+      "contactPhone": "(979) 845-3069",
+      "irbNumber": "STUDY2026-0852",
+      "irbApprovalDate": "2026-08-17T09:05:00.000Z",
+      "expirationDate": null,
+      "recruitmentStartDate": null,
+      "lifecycleMonths": 12,
+      "postedDate": "2026-09-09T14:05:44.000Z",
+      "modifiedDate": "2026-09-09T14:05:44.000Z",
+      "categoryIds": [
+        52,
+        39
+      ],
+      "locationIds": [
+        54
+      ],
+      "sessionTypeIds": [
+        60
+      ],
+      "topicIds": [
+        34,
+        36
+      ],
+      "locationLabels": [],
+      "compensation": {
+        "guaranteedMin": null,
+        "guaranteedMax": null,
+        "raffleMax": null,
+        "raffleOnly": false,
+        "isHourlyRate": true,
+        "hourlyMin": 19,
+        "hourlyMax": 33.25,
+        "currencyKind": "mixed",
+        "perVisit": null,
+        "visitCount": null,
+        "completionBonus": null,
+        "hasNonCashPerk": false,
+        "sonaCreditOption": true,
+        "raw": "Participants will be paid an average of $20 per hour, with the hourly rate beginning at $19 per hour and increasing across visits to $28.50 and then $33.25 per hour. Payment will be provided via cash and/or check. Alternatively, participants may choose to receive SONA credits to fulfill course requirements for their time spent on study visits and the follow-up assessment. SONA credits will be awarded at a rate of 1 credit per 30 minutes. Participants may also choose to be compensated via a combination of financial compensation and SONA credit.",
+        "confidence": "low",
+        "notes": [
+          "hourly rate given as a range: $19-$33.25/hr",
+          "3 different hourly rates stated; rate depends on group/visit",
+          "hourly rate only; study total depends on session length",
+          "1 non-hourly amount(s) present but not summed into a total",
+          "course credit (SONA) offered as an option",
+          "long free-text description; parsed values may miss clauses"
+        ]
+      },
+      "duration": {
+        "totalHoursMin": 8,
+        "totalHoursMax": 8,
+        "sessionCount": null,
+        "spanWeeks": null,
+        "raw": "Overall, participants will be engaged in the research for approximately 8 hours total.",
+        "confidence": "high"
+      },
+      "eligibility": {
+        "minAge": 18,
+        "maxAge": null,
+        "requiresRightHanded": true,
+        "requiresMriSafe": true,
+        "requiresFasting": false,
+        "excludesCardiovascular": false,
+        "excludesPregnancy": true,
+        "excludesSeizure": false,
+        "excludesNeurological": true,
+        "requiresSpecificCondition": null,
+        "requiresParentOrChild": false,
+        "sexRestriction": null,
+        "flags": [
+          "must be right-handed",
+          "MRI / magnet safety screening",
+          "excludes pregnancy / lactation",
+          "excludes neurological conditions",
+          "SONA / subject-pool participation offered"
+        ]
+      },
+      "effectiveHourly": 33.25,
+      "isExpired": false,
+      "staleness": "fresh",
+      "tags": [
+        "in-person",
+        "mri",
+        "eeg",
+        "survey"
+      ],
+      "duplicateIds": [],
+      "duplicateOf": null
+    },
+    {
+      "id": "14024",
+      "slug": "study2024-0290-changes-in-ovarian-function-during-adolescence-cora",
+      "title": "STUDY2024-0290: Changes in OvaRian Function during Adolescence (CORA)",
+      "summary": "More and more adolescents are developing irregular menstrual cycles and reproductive dysfunction later in life, but we know little about how menstrual cycles, and the underlying ovarian maturation driving menstrual cyclicity, evolve from puberty through…",
+      "url": "https://research.tamu.edu/study/study2024-0290-changes-in-ovarian-function-during-adolescence-cora/",
+      "sources": [
+        {
+          "source": "aggie-research-volunteers",
+          "externalId": "14024",
+          "url": "https://research.tamu.edu/study/study2024-0290-changes-in-ovarian-function-during-adolescence-cora/",
+          "status": "unknown",
+          "verifiedAt": "2026-09-09T14:16:17.000Z",
+          "protocolIds": [
+            "STUDY2024-0290"
+          ],
+          "titleAliases": [
+            "STUDY2024-0290: Changes in OvaRian Function during Adolescence (CORA)"
+          ]
+        }
+      ],
+      "piName": "PI: Heidi Vanden Brink, PhD, MSc, ARDMS",
+      "contactName": "Heidi Vanden Brink; Erlinda Pena",
+      "contactEmail": "teenhealthresearch@ag.tamu.edu",
+      "contactPhone": "979-321-7073; 979-321-7022",
+      "irbNumber": "STUDY2024-0290",
+      "irbApprovalDate": "2024-08-01T09:15:40.000Z",
+      "expirationDate": null,
+      "recruitmentStartDate": null,
+      "lifecycleMonths": 12,
+      "postedDate": "2026-09-09T14:16:17.000Z",
+      "modifiedDate": "2026-09-09T14:16:17.000Z",
+      "categoryIds": [],
+      "locationIds": [
+        54
+      ],
+      "sessionTypeIds": [
+        60,
+        62
+      ],
+      "topicIds": [
+        31,
+        34
+      ],
+      "locationLabels": [],
+      "compensation": {
+        "guaranteedMin": null,
+        "guaranteedMax": 680,
+        "raffleMax": null,
+        "raffleOnly": false,
+        "isHourlyRate": false,
+        "hourlyMin": null,
+        "hourlyMax": null,
+        "currencyKind": "unknown",
+        "perVisit": null,
+        "visitCount": null,
+        "completionBonus": null,
+        "hasNonCashPerk": false,
+        "sonaCreditOption": false,
+        "raw": "Participants will receive up to approximately $680 over 6 weeks. The parent/legal guardian will receive up to approximately $240 over 6 weeks. Compensation is dependent on the number of completed ultrasound visits, diet recalls, and optional collection of stool samples.",
+        "confidence": "medium",
+        "notes": [
+          "amount is phrased as a ceiling (\"up to\"); guaranteed floor unknown",
+          "stated total taken from a long prose description; other amounts were ignored"
+        ]
+      },
+      "duration": {
+        "totalHoursMin": 1.75,
+        "totalHoursMax": 1.8333,
+        "sessionCount": null,
+        "spanWeeks": 6,
+        "raw": "Participation in this study is expected to last approximately 4-6 weeks. The first enrollment visit takes approximately 90 minutes and then approximately 15-20 minutes at each subsequent visit.",
+        "confidence": "low"
+      },
+      "eligibility": {
+        "minAge": 9,
+        "maxAge": 17,
+        "requiresRightHanded": false,
+        "requiresMriSafe": false,
+        "requiresFasting": false,
+        "excludesCardiovascular": false,
+        "excludesPregnancy": false,
+        "excludesSeizure": false,
+        "excludesNeurological": false,
+        "requiresSpecificCondition": null,
+        "requiresParentOrChild": true,
+        "sexRestriction": "female",
+        "flags": [
+          "pregnancy is mentioned but not clearly a criterion - confirm with the study team",
+          "seizure or epilepsy history is mentioned but not clearly a criterion - confirm with the study team",
+          "enrols children only - a parent or guardian must consent",
+          "open to female participants only",
+          "English fluency required",
+          "involves blood draws"
+        ]
+      },
+      "effectiveHourly": null,
+      "isExpired": false,
+      "staleness": "stale",
+      "tags": [
+        "online",
+        "in-person",
+        "survey",
+        "interview",
+        "clinical"
+      ],
+      "duplicateIds": [],
+      "duplicateOf": null
+    },
+    {
+      "id": "14027",
+      "slug": "investigating-cultural-narratives-as-social-determinants-of-pain-and-potential-targets-for-community-level-pain-intervention",
+      "title": "Investigating cultural narratives as social determinants of pain and potential targets for community-level pain intervention",
+      "summary": "Texas A&M researchers are conducting a qualitative study to understand community members’ and leaders’ perspectives on chronic pain, health experiences, and barriers or facilitators to care in Brazos County. Participation involves a 90-minute in-person…",
+      "url": "https://research.tamu.edu/study/investigating-cultural-narratives-as-social-determinants-of-pain-and-potential-targets-for-community-level-pain-intervention/",
+      "sources": [
+        {
+          "source": "aggie-research-volunteers",
+          "externalId": "14027",
+          "url": "https://research.tamu.edu/study/investigating-cultural-narratives-as-social-determinants-of-pain-and-potential-targets-for-community-level-pain-intervention/",
+          "status": "unknown",
+          "verifiedAt": "2026-09-09T14:31:15.000Z",
+          "protocolIds": [
+            "STUDY2025-1597"
+          ],
+          "titleAliases": [
+            "Investigating cultural narratives as social determinants of pain and potential targets for community-level pain intervention"
+          ]
+        }
+      ],
+      "piName": "PI: Dr. Vani Dawson Mathur",
+      "contactName": "Diya Dharmendran and Klarissa Lopez",
+      "contactEmail": "dxd@tamu.edu ; klarissa.lopez@tamu.edu",
+      "contactPhone": null,
+      "irbNumber": "STUDY2025-1597",
+      "irbApprovalDate": "2026-03-20T09:26:37.000Z",
+      "expirationDate": null,
+      "recruitmentStartDate": null,
+      "lifecycleMonths": 12,
+      "postedDate": "2026-09-09T14:27:25.000Z",
+      "modifiedDate": "2026-09-09T14:31:15.000Z",
+      "categoryIds": [
+        39
+      ],
+      "locationIds": [
+        53
+      ],
+      "sessionTypeIds": [
+        63,
+        65
+      ],
+      "topicIds": [
+        32,
+        34,
+        36
+      ],
+      "locationLabels": [],
+      "compensation": {
+        "guaranteedMin": 50,
+        "guaranteedMax": 50,
+        "raffleMax": null,
+        "raffleOnly": false,
+        "isHourlyRate": false,
+        "hourlyMin": null,
+        "hourlyMax": null,
+        "currencyKind": "unknown",
+        "perVisit": null,
+        "visitCount": null,
+        "completionBonus": null,
+        "hasNonCashPerk": false,
+        "sonaCreditOption": false,
+        "raw": "$50",
+        "confidence": "high",
+        "notes": []
+      },
+      "duration": {
+        "totalHoursMin": 1.8333,
+        "totalHoursMax": 2.1667,
+        "sessionCount": null,
+        "spanWeeks": null,
+        "raw": "110-130 minutes",
+        "confidence": "high"
+      },
+      "eligibility": {
+        "minAge": 18,
+        "maxAge": 65,
+        "requiresRightHanded": false,
+        "requiresMriSafe": false,
+        "requiresFasting": false,
+        "excludesCardiovascular": false,
+        "excludesPregnancy": false,
+        "excludesSeizure": false,
+        "excludesNeurological": false,
+        "requiresSpecificCondition": "chronic pain",
+        "requiresParentOrChild": false,
+        "sexRestriction": null,
+        "flags": [
+          "condition-gated: chronic pain"
+        ]
+      },
+      "effectiveHourly": 23.08,
+      "isExpired": false,
+      "staleness": "fresh",
+      "tags": [
+        "in-person",
+        "focus-group",
+        "survey",
+        "interview"
+      ],
+      "duplicateIds": [],
+      "duplicateOf": null
+    },
+    {
       "id": "ctgov:NCT03646214",
       "slug": "clinicaltrials-gov-nct03646214",
       "title": "Oral Appliance Therapy for Improving Sleep Quality During Pregnancy: A Controlled Clinical Trial",
@@ -10017,9 +10450,9 @@
       "label": "Aggie Research Volunteers",
       "vertical": "studies",
       "status": "ok",
-      "itemCount": 80,
+      "itemCount": 84,
       "fetchSource": "network",
-      "durationMs": 3680,
+      "durationMs": 4592,
       "failedRequests": 0,
       "complete": true,
       "note": null,
@@ -10032,7 +10465,7 @@
       "status": "ok",
       "itemCount": 22,
       "fetchSource": "network",
-      "durationMs": 580,
+      "durationMs": 529,
       "failedRequests": 0,
       "complete": true,
       "note": null,

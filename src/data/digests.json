@@ -2,66 +2,66 @@
   {
     "weekOf": "2026-09-07",
     "vertical": "campus",
-    "scanned": 6039,
-    "candidates": 813,
+    "scanned": 6055,
+    "candidates": 833,
     "recommended": [
-      "campus-9be711a35023",
+      "campus-9be70ea35023",
+      "campus-6b8b2593ce55",
       "campus-eb3aa28af94e",
-      "campus-b308ce6a59ae",
       "campus-b308d16a59af",
-      "campus-b308d46a59af",
-      "campus-abbdb76a55f0"
+      "campus-7090bca33795",
+      "campus-7090c0a33795"
     ],
     "headlines": [
       "company recruiting · graduate opportunities · today",
+      "biotech · company recruiting · in the next 3 weeks",
       "company recruiting · graduate opportunities · workshop / training",
-      "graduate opportunities · career development · this week",
       "company recruiting · employer: ey, shell · workshop / training",
-      "graduate opportunities · career development · workshop / training",
-      "biotech · football"
+      "company recruiting · today · workshop / training",
+      "company recruiting · today · workshop / training"
     ],
     "changes": [
       {
-        "itemId": "campus-2c7b3f732b54",
+        "itemId": "campus-11bdd57a28c5",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-11T13:30:00.000Z",
-        "after": "2026-09-11T14:40:00.000Z"
+        "before": "2026-09-15T05:00:00.000Z",
+        "after": "2026-09-14T05:00:00.000Z"
       },
       {
-        "itemId": "campus-55aa4b45cd6c",
-        "kind": "title",
-        "field": "Title",
-        "before": "ASTR Seminar",
-        "after": "Measuring Magnetic Fields Across Cosmic Time Using Strongly Gravitationally Lensed Dusty Star-forming Galaxies"
-      },
-      {
-        "itemId": "campus-d8f2c38aeeae",
-        "kind": "location",
-        "field": "Location",
-        "before": "LEB: Classroom 226",
-        "after": "LEB: Courtroom (102)"
-      },
-      {
-        "itemId": "campus-2c7b3c732b54",
+        "itemId": "campus-e208fa8af3f2",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-18T13:30:00.000Z",
-        "after": "2026-09-18T14:40:00.000Z"
+        "before": "2026-10-06T05:00:00.000Z",
+        "after": "2026-10-05T13:00:00.000Z"
       },
       {
-        "itemId": "campus-11b6c47a28bf",
+        "itemId": "campus-90c5ad6a4663",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-08T05:00:00.000Z",
-        "after": "2026-09-25T13:00:00.000Z"
+        "before": "2026-09-15T05:00:00.000Z",
+        "after": "2026-09-14T05:00:00.000Z"
       },
       {
-        "itemId": "campus-2c7b3d732b54",
+        "itemId": "campus-ac117d6985f5",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-25T13:30:00.000Z",
-        "after": "2026-09-25T14:40:00.000Z"
+        "before": "2026-09-15T05:00:00.000Z",
+        "after": "2026-09-14T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b319d16a59bd",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-22T05:00:00.000Z",
+        "after": "2026-09-21T15:00:00.000Z"
+      },
+      {
+        "itemId": "campus-e4c9569412ff",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-03T06:00:00.000Z",
+        "after": "2026-11-02T14:30:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -69,23 +69,23 @@
   {
     "weekOf": "2026-09-07",
     "vertical": "research",
-    "scanned": 490,
-    "candidates": 106,
+    "scanned": 1093,
+    "candidates": 128,
     "recommended": [
       "research-752fa39eec07",
       "research-ee5b4a6777df",
+      "research-5e430f832229",
       "research-8ad8fbc192a0",
       "research-4f824c6b9f19",
-      "research-db34f4beb055",
-      "research-00068a60d17a"
+      "research-db34f4beb055"
     ],
     "headlines": [
       "positive selection · codon-model analysis · comparative genomics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "positive selection · codon-model analysis · phylogenetics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "positive selection · host-pathogen interaction · pathogen evolution"
+      "positive selection · codon-model analysis · phylogenetics",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
     "changes": [],
     "estimatedMinutes": 99
