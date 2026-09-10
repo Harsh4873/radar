@@ -2,31 +2,45 @@
   {
     "weekOf": "2026-09-07",
     "vertical": "campus",
-    "scanned": 6120,
-    "candidates": 828,
+    "scanned": 5669,
+    "candidates": 769,
     "recommended": [
-      "campus-9be70ea35023",
+      "campus-9be70fa35023",
       "campus-bc448e6a5f13",
       "campus-6b8b2593ce55",
+      "campus-38cd0c8b2522",
       "campus-eb3aa28af94e",
-      "campus-bc448a6a5f13",
-      "campus-b308d16a59af"
+      "campus-b308ce6a59ae"
     ],
     "headlines": [
       "company recruiting · graduate opportunities · today",
-      "computer science · tomorrow · workshop / training",
+      "computer science · today · workshop / training",
+      "biotech · company recruiting · in the next 3 weeks",
       "biotech · company recruiting · in the next 3 weeks",
       "company recruiting · graduate opportunities · workshop / training",
-      "data science · employer: sandia · workshop / training",
-      "company recruiting · employer: ey, shell · workshop / training"
+      "graduate opportunities · career development · this week"
     ],
     "changes": [
       {
-        "itemId": "campus-20bc1f9cc190",
+        "itemId": "campus-c721d3a3689a",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-16T15:00:00.000Z",
-        "after": "2026-09-17T15:00:00.000Z"
+        "before": "2026-09-23T05:00:00.000Z",
+        "after": "2026-09-24T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-d608c84ea27f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-09T13:00:00.000Z",
+        "after": "2026-09-10T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-41ad2d8b2a38",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-09T20:00:00.000Z",
+        "after": "2026-09-10T05:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -34,26 +48,34 @@
   {
     "weekOf": "2026-09-07",
     "vertical": "research",
-    "scanned": 1100,
-    "candidates": 124,
+    "scanned": 236,
+    "candidates": 89,
     "recommended": [
       "research-752fa39eec07",
       "research-ee5b4a6777df",
       "research-5e430f832229",
       "research-4f824c6b9f19",
-      "research-926a8fdbc069",
-      "research-00068a60d17a"
+      "research-20097fa6776b",
+      "research-e86039b097fc"
     ],
     "headlines": [
       "positive selection · codon-model analysis · comparative genomics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "positive selection · codon-model analysis · phylogenetics",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "positive selection · host-pathogen interaction · pathogen evolution"
+      "positive selection · PAML / codeml · phylogenetics",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
-    "changes": [],
-    "estimatedMinutes": 92
+    "changes": [
+      {
+        "itemId": "research-8c7761b554d1",
+        "kind": "title",
+        "field": "Title",
+        "before": "Computational small molecule drug discovery for multidrug-resistant tuberculosis: emerging targets and recent medicinal chemistry advances",
+        "after": "Computational small molecule drug discovery for multidrug-resistant tuberculosis: emerging targets and recent medicinal chemistry advances."
+      }
+    ],
+    "estimatedMinutes": 97
   },
   {
     "weekOf": "2026-08-31",
