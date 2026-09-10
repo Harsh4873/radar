@@ -2,66 +2,31 @@
   {
     "weekOf": "2026-09-07",
     "vertical": "campus",
-    "scanned": 6055,
-    "candidates": 833,
+    "scanned": 6120,
+    "candidates": 828,
     "recommended": [
       "campus-9be70ea35023",
+      "campus-bc448e6a5f13",
       "campus-6b8b2593ce55",
       "campus-eb3aa28af94e",
-      "campus-b308d16a59af",
-      "campus-7090bca33795",
-      "campus-7090c0a33795"
+      "campus-bc448a6a5f13",
+      "campus-b308d16a59af"
     ],
     "headlines": [
       "company recruiting · graduate opportunities · today",
+      "computer science · tomorrow · workshop / training",
       "biotech · company recruiting · in the next 3 weeks",
       "company recruiting · graduate opportunities · workshop / training",
-      "company recruiting · employer: ey, shell · workshop / training",
-      "company recruiting · today · workshop / training",
-      "company recruiting · today · workshop / training"
+      "data science · employer: sandia · workshop / training",
+      "company recruiting · employer: ey, shell · workshop / training"
     ],
     "changes": [
       {
-        "itemId": "campus-11bdd57a28c5",
+        "itemId": "campus-20bc1f9cc190",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-15T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-e208fa8af3f2",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-06T05:00:00.000Z",
-        "after": "2026-10-05T13:00:00.000Z"
-      },
-      {
-        "itemId": "campus-90c5ad6a4663",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-15T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ac117d6985f5",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-15T05:00:00.000Z",
-        "after": "2026-09-14T13:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b319d16a59bd",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-22T05:00:00.000Z",
-        "after": "2026-09-21T15:00:00.000Z"
-      },
-      {
-        "itemId": "campus-e4c9569412ff",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-03T06:00:00.000Z",
-        "after": "2026-11-02T14:30:00.000Z"
+        "before": "2026-09-16T15:00:00.000Z",
+        "after": "2026-09-17T15:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -69,26 +34,26 @@
   {
     "weekOf": "2026-09-07",
     "vertical": "research",
-    "scanned": 1093,
-    "candidates": 128,
+    "scanned": 1100,
+    "candidates": 124,
     "recommended": [
       "research-752fa39eec07",
       "research-ee5b4a6777df",
       "research-5e430f832229",
-      "research-8ad8fbc192a0",
       "research-4f824c6b9f19",
-      "research-db34f4beb055"
+      "research-926a8fdbc069",
+      "research-00068a60d17a"
     ],
     "headlines": [
       "positive selection · codon-model analysis · comparative genomics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "positive selection · codon-model analysis · phylogenetics",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "positive selection · host-pathogen interaction · pathogen evolution"
     ],
     "changes": [],
-    "estimatedMinutes": 99
+    "estimatedMinutes": 92
   },
   {
     "weekOf": "2026-08-31",
