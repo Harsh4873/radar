@@ -2,136 +2,108 @@
   {
     "weekOf": "2026-09-07",
     "vertical": "campus",
-    "scanned": 5628,
-    "candidates": 753,
+    "scanned": 5878,
+    "candidates": 757,
     "recommended": [
-      "campus-9be70fa35023",
-      "campus-bc448e6a5f13",
+      "campus-9be70ca35023",
       "campus-6b8b2593ce55",
       "campus-38cd0c8b2522",
       "campus-eb3aa28af94e",
-      "campus-b308ce6a59ae"
+      "campus-2b81dfab2ad2",
+      "campus-d6135b4ea288"
     ],
     "headlines": [
       "company recruiting · graduate opportunities · today",
-      "computer science · today · workshop / training",
       "biotech · company recruiting · in the next 3 weeks",
       "biotech · company recruiting · in the next 3 weeks",
       "company recruiting · graduate opportunities · workshop / training",
-      "graduate opportunities · career development · this week"
+      "company recruiting · career development · this week",
+      "data science · this week · workshop / training"
     ],
     "changes": [
       {
-        "itemId": "campus-2c742b732b4e",
-        "kind": "title",
-        "field": "Title",
-        "before": "Singing Cadets Friday Football Weekend Concert",
-        "after": "Singing Cadets Friday Football Weekend Choir Concert"
-      },
-      {
-        "itemId": "campus-edd87c94183d",
-        "kind": "title",
-        "field": "Title",
-        "before": "Graduate Students: Resumes that don’t suck | Crafting an Excellent Resume",
-        "after": "Graduate Students: Crafting an Excellent Resume"
-      },
-      {
-        "itemId": "campus-8707167dda5f",
-        "kind": "location",
-        "field": "Location",
-        "before": "Hullabaloo Residence Hall",
-        "after": null
-      },
-      {
-        "itemId": "campus-edd88a94183d",
-        "kind": "title",
-        "field": "Title",
-        "before": "Graduate Students: Resumes that don’t suck | Crafting an Excellent Cover Letter",
-        "after": "Graduate Students: Crafting an Excellent Cover Letter"
-      },
-      {
-        "itemId": "campus-2c8c3c732b62",
-        "kind": "title",
-        "field": "Title",
-        "before": "Singing Cadet Friday Football Weekend Concert",
-        "after": "Singing Cadet Friday Football Weekend Choir Concert"
-      },
-      {
-        "itemId": "campus-2c852a732b5c",
-        "kind": "title",
-        "field": "Title",
-        "before": "Singing Cadets Friday Football Weekend Concert",
-        "after": "Singing Cadets Friday Football Weekend Choir Concert"
-      },
-      {
-        "itemId": "campus-ac117d6985f5",
-        "kind": "title",
-        "field": "Title",
-        "before": "Taste 360 2025-2026",
-        "after": "Taste 360 2025-2027"
-      },
-      {
-        "itemId": "campus-7761b89cf2a6",
-        "kind": "title",
-        "field": "Title",
-        "before": "HEPEC Seminar",
-        "after": "Cosmic Ray–Dark Matter Scattering Explanation of the Galactic Center Excess"
-      },
-      {
-        "itemId": "campus-df116e4ea7b8",
-        "kind": "title",
-        "field": "Title",
-        "before": "Global Gateway: A Faculty and Staff Introduction to Global Engagement",
-        "after": "Global Gateway (POSTPONED)"
-      },
-      {
-        "itemId": "campus-df116e4ea7b8",
-        "kind": "location",
-        "field": "Location",
-        "before": "Memorial Student Center",
-        "after": null
-      },
-      {
-        "itemId": "campus-df116e4ea7b8",
+        "itemId": "campus-2874e66921f9",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-22T13:30:00.000Z",
-        "after": "2026-09-22T05:00:00.000Z"
+        "before": "2026-09-30T21:30:00.000Z",
+        "after": "2026-10-14T21:30:00.000Z"
+      },
+      {
+        "itemId": "campus-abbdb86a55f0",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-05T06:00:00.000Z",
+        "after": "2026-11-06T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-c721d3a3689a",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-24T05:00:00.000Z",
+        "after": "2026-09-23T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-cff12a8ae97b",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-10T22:30:00.000Z",
+        "after": "2026-09-11T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ddd6f7829832",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-24T05:00:00.000Z",
+        "after": "2026-09-25T05:00:00.000Z"
       },
       {
         "itemId": "campus-11b6c47a28bf",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-25T13:00:00.000Z",
-        "after": "2026-09-24T05:00:00.000Z"
+        "before": "2026-09-24T05:00:00.000Z",
+        "after": "2026-09-25T13:00:00.000Z"
       },
       {
         "itemId": "campus-2c7b3d732b54",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-25T14:40:00.000Z",
-        "after": "2026-09-25T13:30:00.000Z"
-      },
-      {
-        "itemId": "campus-77ea6b45e0b6",
-        "kind": "location",
-        "field": "Location",
-        "before": "Chemistry Building, Room 2104",
-        "after": "CHEM 2104"
+        "before": "2026-09-25T13:30:00.000Z",
+        "after": "2026-09-25T14:40:00.000Z"
       },
       {
         "itemId": "campus-bc3a796a5f0a",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-28T13:00:00.000Z",
-        "after": "2026-10-01T05:00:00.000Z"
+        "before": "2026-10-01T05:00:00.000Z",
+        "after": "2026-09-28T13:00:00.000Z"
       },
       {
         "itemId": "campus-bc3a7a6a5f0a",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-28T13:00:00.000Z",
-        "after": "2026-10-01T05:00:00.000Z"
+        "before": "2026-10-01T05:00:00.000Z",
+        "after": "2026-09-28T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-77ea6b45e0b6",
+        "kind": "location",
+        "field": "Location",
+        "before": "CHEM 2104",
+        "after": "Chemistry Building, Room 2104"
+      },
+      {
+        "itemId": "campus-55aa4c45cd6c",
+        "kind": "title",
+        "field": "Title",
+        "before": "ASTR Seminar",
+        "after": "Better Together: Combining the Strengths of Rubin, Euclid, and Roman for Time-domain Science and Cosmology"
+      },
+      {
+        "itemId": "campus-42ffd16a1a63",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-08T05:00:00.000Z",
+        "after": "2026-10-07T21:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -139,13 +111,13 @@
   {
     "weekOf": "2026-09-07",
     "vertical": "research",
-    "scanned": 241,
-    "candidates": 91,
+    "scanned": 537,
+    "candidates": 113,
     "recommended": [
       "research-752fa39eec07",
-      "research-ee5b4a6777df",
       "research-5e430f832229",
-      "research-4f824c6b9f19",
+      "research-ee5b4a6777df",
+      "research-8ad8fbc192a0",
       "research-20097fa6776b",
       "research-e86039b097fc"
     ],
@@ -153,12 +125,12 @@
       "positive selection · codon-model analysis · comparative genomics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "positive selection · codon-model analysis · phylogenetics",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "positive selection · PAML / codeml · phylogenetics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
     "changes": [],
-    "estimatedMinutes": 97
+    "estimatedMinutes": 98
   },
   {
     "weekOf": "2026-08-31",
