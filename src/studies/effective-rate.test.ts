@@ -45,7 +45,7 @@ import {
 } from '@/studies/effective-rate.ts';
 import type { RankableStudy } from '@/studies/effective-rate.ts';
 import { parseCompensation } from '@/studies/parse-compensation.ts';
-import { parseDuration } from '@/studies/parse-duration.ts';
+import { parseDuration, parseDurationWithCompensation } from '@/studies/parse-duration.ts';
 import { normalizeAndDedupe } from '@/studies/normalize.ts';
 import type { ParsedCompensation, ParsedDuration, RawStudy, StudyRecord } from '@/studies/types.ts';
 
@@ -97,7 +97,7 @@ function rateForStudy(id: number): { rate: number | null; compensation: ParsedCo
   const study = fixture.find((s) => s.id === id);
   if (study === undefined) throw new Error(`fixture record ${id} is missing`);
   const compensation = parseCompensation(study.meta.aux_study_item_compensation);
-  const duration = parseDuration(study.meta.aux_study_item_duration);
+  const duration = parseDurationWithCompensation(study.meta.aux_study_item_duration, compensation);
   return { rate: computeEffectiveHourly(compensation, duration), compensation, duration };
 }
 
@@ -381,12 +381,20 @@ describe('THE CONVERSE: stated contact hours produce a real rate', () => {
     expect(rate).toBe(20.74);
   });
 
-  it('study 8331 - a 40-50 minute survey for $80 - $96.00/hr', () => {
-    // Short and well paid is a real and important result, not an outlier to
-    // be smoothed away.
-    const { rate } = rateForStudy(8331);
-    expect(rate).toBe(96);
+  it('study 8331 - $80 across two 40-50 minute sessions is $48.00/hr, not $96', () => {
+    // Audit F9. Compensation itemises $30 + $50 = $80 for two sessions;
+    // duration is a bare "40-50 minutes". Per-session reading: 80-100 minutes
+    // total, conservative rate $80 / 100 min = $48/hr (the advertised ceiling
+    // hours). The $60/hr end of the honest band is 80 / 80 min.
+    const { rate, duration, compensation } = rateForStudy(8331);
+    expect(compensation.guaranteedMax).toBe(80);
+    expect(compensation.visitCount).toBe(2);
+    expect(duration.sessionCount).toBe(2);
+    expect(duration.totalHoursMax).toBe(1.6666);
+    expect(rate).toBe(48);
     expect(rateBucket(rate)).toBe('great');
+    expect(80 / (50 / 60 * 2)).toBe(48);
+    expect(80 / (40 / 60 * 2)).toBe(60);
   });
 
   it('study 6980 - "12.5 hours over a 3-week period" for $175 - $14.00/hr', () => {
@@ -794,18 +802,19 @@ describe('KNOWN ISSUES (pinned, not endorsed)', () => {
     }
   });
 
-  it('(F9): 8331 is ranked #2 live on a duration that is probably per-session', () => {
+  it('(F9): 8331 is two 40-50 minute sessions, $48.00/hr, not $96.00/hr at rank 2', () => {
     // "40-50 minutes" against a compensation string describing two sessions
     // ($30 + $50 = $80); content.rendered confirms "Each participant will
-    // complete two sessions." If the 40-50 minutes is per session the rate is
-    // $80 / 1.5 h = $53.33/hr, not $96.00. Nothing reconciles a
-    // compensation-side session count against a duration-side one, so this
-    // holds rank 2 of the live board on an unexamined assumption.
+    // complete two sessions." Per-session reading: $80 / 1.5 h ceiling =
+    // $48.00/hr using the site's ceiling-over-ceiling convention. The
+    // optimistic 80-minute end of the band is $60/hr. Rank drops from 2 to 4.
     const { rate, compensation, duration } = rateForStudy(8331);
-    expect(duration.sessionCount).toBeNull(); // the duration side found no count
-    expect(compensation.guaranteedMax).toBe(80); // the pay side describes two
-    expect(rate).toBe(96); // pinned, probably ~1.8x high
-    expect(80 / 1.5).toBeCloseTo(53.33, 2);
+    expect(compensation.visitCount).toBe(2);
+    expect(duration.sessionCount).toBe(2);
+    expect(compensation.guaranteedMax).toBe(80);
+    expect(rate).toBe(48);
+    expect(80 / 1.5).toBeCloseTo(53.33, 2); // midpoint; we publish the conservative end
+    expect(80 / (50 / 60 * 2)).toBe(48);
   });
 
   it('REGRESSION (audit F16): rounding hours to 4dp no longer shifts the rate by a cent', () => {
@@ -1214,26 +1223,9 @@ describe('GOLDEN: the live top 10, in order', () => {
    */
   const EXPECTED_LIVE_TOP_10: [string, number][] = [
     ['9821', 137.5], // $550 ceiling / 4 h across three visits. Audited correct; floor is $112.50/hr.
-    ['8331', 96.0], // SUSPECT - audit F9 says "40-50 minutes" is per session and the real rate is ~$53.33. UNFIXED.
     ['11315', 60.0], // $20 / 20 min. Was $60.01 before the F16 rounding fix.
-    // ------------------------------------------------------------------
-    // WHY THIS LIST CHANGED (round 3, audit F2 - scope reconciliation).
-    //
-    //   before: 9821, 8331, 11315, 9957, 10126, 12766, 8399, 8408, 6960, 8338
-    //   after:  9821, 8331, 11315, 12766, 9957, 10126, 8399, 8408, 6960, 8338
-    //
-    // ONE row moved, and only because its rate did: 12766 went 35.00 -> 60.00
-    // when `reconcileEffectiveHourly` stopped dividing ONE laboratory visit's
-    // $50 (plus $20 of one-off questionnaires) by BOTH visits' hours. The
-    // honest figure is 2 x $50 + $20 = $120 over 2 h. That lifted it from rank
-    // 6 to rank 4, where it ties 11315 at $60.00 and takes the lower-id half
-    // of the tie. Membership is unchanged; no other row's rate moved.
-    //
-    // This was the audit's single biggest UNDERSTATEMENT, and understating is
-    // not the safe direction - it buried the study below ones it beats, which
-    // is exactly the failure the ranked board exists to prevent.
-    // ------------------------------------------------------------------
     ['12766', 60.0],
+    ['8331', 48.0], // F9 FIXED: 40-50 min is per session × 2 = 80-100 min; $80 / 100 min = $48.00. Honest band $48–$60.
     ['9957', 45.0], // $45 / 1 h. Audited correct.
     ['10126', 40.0], // $20 / 30 min. Audited correct.
     ['8399', 33.33], // $50 / 1.5 h. Audited correct. Tied with 8408; lower id first.

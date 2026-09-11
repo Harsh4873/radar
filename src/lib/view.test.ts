@@ -3,9 +3,13 @@ import { mapEvent } from '@/campus/sources/tamu-calendar.ts';
 import { normalizeItem } from '@/core/normalize.ts';
 import {
   CAMPUS_TABS,
+  ENDED_AGENDA_SUFFIX,
+  IN_PROGRESS_AGENDA_SUFFIX,
   STUDIES_TABS,
   byCampusDate,
+  campusAgendaGroup,
   campusDayKey,
+  compareCampusAgenda,
   tabsFor,
 } from '@/lib/view.ts';
 import type { RadarItem } from '@/types.ts';
@@ -57,5 +61,50 @@ describe('campus agenda view', () => {
     item.sources = [{ ...firstSource, source: 'getinvolved', channel: 'TAMU Badminton Club' }];
     expect(item.campus?.category).toBe('sports');
     expect(tabsFor(item, false, NOW)).toEqual(expect.arrayContaining(['sports', 'clubs']));
+  });
+
+  it('buckets a mid-season intramural as in-progress instead of its stale start date', () => {
+    const now = '2026-09-11T17:00:00.000Z';
+    const indoor = event('indoor', 'Indoor Soccer League (7v7)', '2026-08-30T00:00:00-05:00');
+    indoor.campus = {
+      ...indoor.campus!,
+      startsAt: '2026-08-30T05:00:00.000Z',
+      endsAt: '2026-10-12T04:59:59.000Z',
+    };
+    indoor.occurredAt = '2026-08-30T05:00:00.000Z';
+    indoor.endsAt = '2026-10-12T04:59:59.000Z';
+
+    const group = campusAgendaGroup(indoor, now);
+    expect(group.inProgress).toBe(true);
+    expect(group.key).toBe(`2026-09-11${IN_PROGRESS_AGENDA_SUFFIX}`);
+
+    const todayTalk = event('today', 'Today lecture', '2026-09-11T18:00:00-05:00');
+    const tomorrowTalk = event('tomorrow', 'Tomorrow lecture', '2026-09-12T09:00:00-05:00');
+    const yesterdayTalk = event('yesterday', 'Yesterday leftover', '2026-09-10T18:00:00-05:00');
+    yesterdayTalk.campus = {
+      ...yesterdayTalk.campus!,
+      startsAt: '2026-09-10T23:00:00.000Z',
+      endsAt: '2026-09-11T23:00:00.000Z',
+    };
+
+    const kickball = event('kickball', 'Kickball League', '2026-09-01T00:00:00-05:00');
+    kickball.campus = {
+      ...kickball.campus!,
+      startsAt: '2026-09-01T05:00:00.000Z',
+      endsAt: '2026-09-11T04:59:59.000Z',
+    };
+    kickball.occurredAt = '2026-09-01T05:00:00.000Z';
+    kickball.endsAt = '2026-09-11T04:59:59.000Z';
+
+    const ended = campusAgendaGroup(kickball, now);
+    expect(ended.inProgress).toBe(false);
+    expect(ended.ended).toBe(true);
+    expect(ended.key).toBe(`2026-09-11${ENDED_AGENDA_SUFFIX}`);
+
+    const ordered = [indoor, kickball, tomorrowTalk, todayTalk].sort((a, b) => compareCampusAgenda(a, b, now));
+    expect(ordered.map((item) => item.id)).toEqual([todayTalk.id, indoor.id, kickball.id, tomorrowTalk.id]);
+    expect(campusAgendaGroup(yesterdayTalk, now).inProgress).toBe(false);
+    expect(campusAgendaGroup(yesterdayTalk, now).ended).toBe(false);
+    expect(campusAgendaGroup(yesterdayTalk, now).key).toBe('2026-09-10');
   });
 });

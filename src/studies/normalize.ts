@@ -21,7 +21,7 @@
 
 import { stripHtml, collapseWhitespace, truncate } from '@/studies/html.ts';
 import { parseCompensation } from '@/studies/parse-compensation.ts';
-import { parseDuration } from '@/studies/parse-duration.ts';
+import { parseDuration, parseDurationWithCompensation } from '@/studies/parse-duration.ts';
 import { reconcileEffectiveHourly } from '@/studies/effective-rate.ts';
 import { applyContentFallbacks } from '@/studies/extract-from-content.ts';
 import { parseEligibility } from '@/studies/parse-eligibility.ts';
@@ -416,7 +416,7 @@ export function normalizeStudy(raw: RawStudy, options: NormalizeOptions = {}): D
   const compensationField = asString(meta.aux_study_item_compensation);
   const durationField = asString(meta.aux_study_item_duration);
 
-  const duration = parseDuration(durationField);
+  const durationFieldParsed = parseDuration(durationField);
 
   /**
    * The compensation meta field is the source of truth and always wins.
@@ -430,10 +430,15 @@ export function normalizeStudy(raw: RawStudy, options: NormalizeOptions = {}): D
    */
   const compensation = applyContentFallbacks({
     compensation: parseCompensation(compensationField),
-    duration,
+    duration: durationFieldParsed,
     durationField,
     contentHtml: rendered(raw.content),
   });
+
+  // Audit F9: a bare "40-50 minutes" is per session when compensation already
+  // names two sessions. parseDuration stays a pure function of the duration
+  // string; the cross-field multiply lives here.
+  const duration = parseDurationWithCompensation(durationField, compensation);
 
   const eligibility = eligibilityFor(raw, searchText);
 

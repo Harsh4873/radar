@@ -14,12 +14,13 @@
 import snapshotJson from '@/data/studies.json';
 import Base from '@/layouts/Base.astro';
 import { url } from '@/lib/view.ts';
+import { hydrateStudiesSnapshot } from '@/studies/hydrate.ts';
 import { studyHasDisplaySource } from '@/studies/source-display.ts';
 import { CLINICAL_TRIALS_API_URL } from '@/studies/sources/clinicaltrials.ts';
 import type { Snapshot } from '@/studies/types.ts';
 import { STUDY_API_URL } from '@/studies/types.ts';
 
-const snapshot = snapshotJson as unknown as Snapshot;
+const snapshot = hydrateStudiesSnapshot(snapshotJson as unknown as Snapshot);
 
 const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
 

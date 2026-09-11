@@ -10,8 +10,8 @@ import ItemCard from '@/components/ItemCard.astro';
 import type { RadarItem } from '@/types.ts';
 import {
   agendaDayContext,
-  byCampusDate,
-  campusDayKey,
+  campusAgendaGroup,
+  compareCampusAgenda,
   formatAgendaDate,
 } from '@/lib/view.ts';
 
@@ -25,21 +25,40 @@ interface Props {
 interface AgendaGroup {
   key: string;
   startsAt: string | null;
+  inProgress: boolean;
+  ended: boolean;
   items: RadarItem[];
 }
 
 const { items, now, defaultTab = 'all', forYouIds = new Set<string>() } = Astro.props;
 const groupsByKey = new Map<string, AgendaGroup>();
 
-for (const item of [...items].sort(byCampusDate)) {
-  const startsAt = item.campus?.startsAt ?? null;
-  const key = campusDayKey(startsAt);
-  const existing = groupsByKey.get(key);
+for (const item of [...items].sort((a, b) => compareCampusAgenda(a, b, now))) {
+  const bucket = campusAgendaGroup(item, now);
+  const existing = groupsByKey.get(bucket.key);
   if (existing !== undefined) existing.items.push(item);
-  else groupsByKey.set(key, { key, startsAt, items: [item] });
+  else groupsByKey.set(bucket.key, {
+    key: bucket.key,
+    startsAt: bucket.startsAt,
+    inProgress: bucket.inProgress,
+    ended: bucket.ended,
+    items: [item],
+  });
 }
 
-const groups = [...groupsByKey.values()];
+const groups = [...groupsByKey.values()].map((group) => ({
+  ...group,
+  context: group.inProgress
+    ? 'Started earlier, still on'
+    : group.ended
+      ? 'Already happened'
+      : agendaDayContext(group.startsAt, now),
+  title: group.inProgress
+    ? 'In progress'
+    : group.ended
+      ? 'Ended recently'
+      : formatAgendaDate(group.startsAt),
+}));
 ---
 
 <div class="agenda" data-feed data-default-tab={defaultTab} data-sort="chronological">
@@ -48,8 +67,8 @@ const groups = [...groupsByKey.values()];
       <section class="agenda-group" data-date-group data-date-key={group.key}>
         <header class="agenda-date">
           <div>
-            <p>{agendaDayContext(group.startsAt, now)}</p>
-            <h2>{formatAgendaDate(group.startsAt)}</h2>
+            <p>{group.context}</p>
+            <h2>{group.title}</h2>
           </div>
           <span class="agenda-count">
             <span data-date-count>{group.items.length}</span>{' '}

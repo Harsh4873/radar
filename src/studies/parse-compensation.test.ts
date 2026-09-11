@@ -734,6 +734,7 @@ const CASES: Case[] = [
       guaranteedMin: 80,
       guaranteedMax: 80,
       raffleMax: 200,
+      visitCount: 2,
       currencyKind: 'giftcard',
       confidence: 'low',
     },
@@ -1528,13 +1529,24 @@ describe('REGRESSION F15: a listing that contradicts itself says so', () => {
     //   8458 - "$50 for the screening visit and $125 for each study visit (3).
     //           Total $425" - two component amounts against a visit count of 3,
     //           and a per-visit rate, so the components are not an itemisation.
-    //   8331 - components sum to $110 against a stated $80, but no visit count
-    //           parses, so there is nothing to check the itemisation against.
+    //   8331 - components include a withdraw-path $30 against a stated $80.
+    //           visitCount now parses as 2 from "two-session", but the
+    //           itemised tokens are not exactly two one-off amounts (the
+    //           referral bonus and withdraw path sit alongside), so this
+    //           still stays silent — the right call.
     for (const id of [8458, 8331]) {
       expect(
         parseCompensation(rawComp(id)).notes.filter((n) => /contradict/i.test(n)),
         `record ${id}`,
       ).toEqual([]);
     }
+  });
+});
+
+describe('REGRESSION F9: 8331 names two sessions in compensation', () => {
+  it('reads visitCount 2 from "two-session" / first+second session', () => {
+    const r = parseCompensation(rawComp(8331));
+    expect(r.guaranteedMax).toBe(80);
+    expect(r.visitCount).toBe(2);
   });
 });

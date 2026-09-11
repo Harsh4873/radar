@@ -429,10 +429,16 @@ const VISIT_COUNT_RES: RegExp[] = [
   /\b(?:for|over|across)\s+(\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\s+(?:\w+\s+){0,2}?(?:visits|sessions|appointments|days)\b/i,
   /\ball\s+(\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\s+(?:\w+\s+){0,2}?(?:visits|sessions|appointments|days)\b/i,
   /\beach\s+(?:\w+\s+){0,2}?(?:visit|session|appointment)\s*\((\d+)\)/i,
+  // "the entire two-session participation" (#8331). Hyphenated compound, not a
+  // "N sessions" noun phrase, so the patterns above cannot see it.
+  /\b(\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)-sessions?\b/i,
 ];
 
 /** "completing both sessions" / "both visits" -> a count of 2. */
 const BOTH_RE = /\bboth\s+(?:\w+\s+){0,2}?(?:visits|sessions|appointments)\b/i;
+
+/** "first session ... second session" itemises two visits without saying "two". */
+const FIRST_THEN_SECOND_SESSION_RE = /\bfirst\s+session\b[\s\S]*\bsecond\s+session\b/i;
 
 /**
  * Money paid only for finishing everything.
@@ -668,6 +674,7 @@ export function parseCompensation(raw: string): ParsedCompensation {
     }
   }
   if (result.visitCount === null && BOTH_RE.test(text)) result.visitCount = 2;
+  if (result.visitCount === null && FIRST_THEN_SECOND_SESSION_RE.test(text)) result.visitCount = 2;
 
   const bonuses = COMPLETION_BONUS_RES.flatMap((re) => collectAmounts(re, text, isExcludedIndex));
   if (bonuses.length > 0) result.completionBonus = round2(Math.max(...bonuses));

@@ -58,10 +58,11 @@ import type { APIRoute } from 'astro';
 
 import snapshotJson from '@/data/studies.json';
 import taxonomiesJson from '@/data/studies-taxonomies.json';
+import { hydrateStudiesSnapshot } from '@/studies/hydrate.ts';
 import { studyHasDisplaySource } from '@/studies/source-display.ts';
 import type { Snapshot, StudyRecord, TaxonomyTerm } from '@/studies/types.ts';
 
-const snapshot = snapshotJson as unknown as Snapshot;
+const snapshot = hydrateStudiesSnapshot(snapshotJson as unknown as Snapshot);
 
 /** Written as a keyed map by the current fetcher, as an array historically. */
 type TaxonomyFile = Record<string, Record<string, TaxonomyTerm> | TaxonomyTerm[]>;

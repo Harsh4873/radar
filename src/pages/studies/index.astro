@@ -25,6 +25,7 @@ import snapshotJson from '@/data/studies.json';
 import taxonomiesJson from '@/data/studies-taxonomies.json';
 import Base from '@/layouts/Base.astro';
 import { isKnownRate, sortStudies, sortUnrated } from '@/studies/effective-rate.ts';
+import { hydrateStudiesSnapshot } from '@/studies/hydrate.ts';
 import { combinedStudyLocations } from '@/studies/source-display.ts';
 import { STUDIES_TABS } from '@/lib/view.ts';
 import type { Snapshot, StudyRecord, TaxonomyTerm } from '@/studies/types.ts';
@@ -39,7 +40,7 @@ import type { Snapshot, StudyRecord, TaxonomyTerm } from '@/studies/types.ts';
 // publishing an empty index.
 // ---------------------------------------------------------------------------
 
-const snapshot = snapshotJson as unknown as Snapshot;
+const snapshot = hydrateStudiesSnapshot(snapshotJson as unknown as Snapshot);
 
 type TaxonomyFile = Record<string, Record<string, TaxonomyTerm> | TaxonomyTerm[]>;
 const taxonomies = taxonomiesJson as unknown as TaxonomyFile;

@@ -18,6 +18,7 @@
 
 import type { Digest, RadarSnapshot, RadarItem } from '@/types.ts';
 import type { Snapshot as StudiesSnapshot, TaxonomyMaps } from '@/studies/types.ts';
+import { hydrateStudiesSnapshot } from '@/studies/hydrate.ts';
 import snapshotJson from '@/data/radar.json';
 import studiesJson from '@/data/studies.json';
 import studiesTaxonomiesJson from '@/data/studies-taxonomies.json';
@@ -27,7 +28,7 @@ export const snapshot = snapshotJson as unknown as RadarSnapshot;
 export const research = snapshot.research;
 export const campus = snapshot.campus;
 export const digests: Digest[] = snapshot.digests ?? [];
-export const studies = studiesJson as unknown as StudiesSnapshot;
+export const studies = hydrateStudiesSnapshot(studiesJson as unknown as StudiesSnapshot);
 export const studyTaxonomies = studiesTaxonomiesJson as unknown as TaxonomyMaps;
 
 /** Every item across both ranked verticals, for detail-page routing. */

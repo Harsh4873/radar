@@ -104,6 +104,8 @@ export function mapEntry(entry: string, query: string): RawItem | null {
 export interface ArxivOptions extends RequestOptions {
   queries?: readonly string[];
   maxPerQuery?: number;
+  /** Drop entries first submitted before this `YYYY-MM-DD`. */
+  fromDate?: string;
   log?: Logger;
 }
 
@@ -130,7 +132,12 @@ export async function fetchArxiv(options: ArxivOptions = {}): Promise<SourceResu
 
       for (const entry of entries) {
         const mapped = mapEntry(entry, query);
-        if (mapped !== null) records.push(mapped);
+        if (mapped === null) continue;
+        if (options.fromDate !== undefined) {
+          const published = mapped.research?.publishedDate ?? mapped.occurredAt;
+          if (published === null || published.slice(0, 10) < options.fromDate) continue;
+        }
+        records.push(mapped);
       }
 
       log.info(`[arxiv] "${query.slice(0, 48)}" -> ${entries.length} entr(ies)`);

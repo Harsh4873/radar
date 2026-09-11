@@ -13,6 +13,7 @@
 
 import type { Logger, RawItem, SourceResult } from '@/types.ts';
 import { consoleLogger } from '@/core/http.ts';
+import { civilDate } from '@/core/text.ts';
 
 const YEAR = 2026;
 const VERIFIED_AT = '2026-08-16T00:00:00.000Z';
@@ -298,9 +299,9 @@ function centralOffset(month: number, day: number, hour: number): '-05:00' | '-0
   return '-05:00';
 }
 
-function iso(month: number, day: number, hour: number, minute: number): string {
+function iso(month: number, day: number, hour: number, minute: number, year: number = YEAR): string {
   const offset = centralOffset(month, day, hour);
-  return new Date(`${YEAR}-${pad(month)}-${pad(day)}T${pad(hour)}:${pad(minute)}:00${offset}`).toISOString();
+  return new Date(`${year}-${pad(month)}-${pad(day)}T${pad(hour)}:${pad(minute)}:00${offset}`).toISOString();
 }
 
 function dateParts(value: string): { month: number; day: number } {
@@ -347,9 +348,62 @@ function registrationEnd(value: string): string {
   return iso(end.month, end.day, end.hour, end.minute);
 }
 
+function joinUntil(value: string): string | null {
+  const trimmed = value.trim();
+  if (trimmed === '' || trimmed.toLowerCase() === 'anytime') return null;
+  const match = trimmed.match(/^Until:\s+(\d{1,2})\/(\d{1,2})\/(\d{2})\s+(.+)$/i);
+  if (match === null) return null;
+  const month = Number.parseInt(match[1] ?? '', 10);
+  const day = Number.parseInt(match[2] ?? '', 10);
+  let year = Number.parseInt(match[3] ?? '', 10);
+  if (!Number.isFinite(month) || !Number.isFinite(day) || !Number.isFinite(year)) return null;
+  if (year < 100) year += 2000;
+  const clock = match[4] ?? '';
+  if (clock.toLowerCase() === 'midnight') return iso(month, day, 0, 0, year);
+  const time = clock.match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+  if (time === null) return null;
+  let hour = Number.parseInt(time[1] ?? '', 10) % 12;
+  if ((time[3] ?? '').toUpperCase() === 'PM') hour += 12;
+  return iso(month, day, hour, Number.parseInt(time[2] ?? '', 10), year);
+}
+
+function startOfCivilDay(now: string): string {
+  const day = civilDate(now);
+  if (day === null) return now;
+  const [yearText, monthText, dayText] = day.split('-');
+  const year = Number.parseInt(yearText ?? '', 10);
+  const month = Number.parseInt(monthText ?? '', 10);
+  const date = Number.parseInt(dayText ?? '', 10);
+  if (!Number.isFinite(year) || !Number.isFinite(month) || !Number.isFinite(date)) return now;
+  return iso(month, date, 0, 0, year);
+}
+
 function nextDeadline(schedules: readonly Schedule[], now: string): string | null {
-  const deadlines = schedules.map((entry) => registrationEnd(entry.registration)).sort();
-  return deadlines.find((deadline) => Date.parse(deadline) >= Date.parse(now)) ?? deadlines.at(-1) ?? null;
+  const nowMs = Date.parse(now);
+  const deadlines = schedules.flatMap((entry) => {
+    const times = [registrationEnd(entry.registration)];
+    const join = joinUntil(entry.join);
+    if (join !== null) times.push(join);
+    return times;
+  }).sort();
+  return deadlines.find((deadline) => Date.parse(deadline) >= nowMs) ?? null;
+}
+
+function remainingSchedules(sport: Sport, now: string): { start: string; end: string }[] {
+  const nowMs = Date.parse(now);
+  return sport.schedules
+    .map((entry) => seasonRange(entry.season))
+    .filter((range) => Date.parse(range.end) >= nowMs);
+}
+
+function relevantStartsAt(remaining: readonly { start: string; end: string }[], now: string): string | null {
+  if (remaining.length === 0) return null;
+  const today = startOfCivilDay(now);
+  const todayMs = Date.parse(today);
+  const upcoming = remaining.map((range) => range.start).filter((start) => Date.parse(start) >= todayMs).sort();
+  // Ongoing seasons whose published start is already past must not lead the
+  // chronological agenda as August leftovers. Group them under today instead.
+  return upcoming[0] ?? today;
 }
 
 function readableCost(payment: string): string {
@@ -365,10 +419,12 @@ function summaryOf(sport: Sport): string {
   }).join(' ');
 }
 
-function mapSport(sport: Sport, now: string): RawItem {
-  const ranges = sport.schedules.map((entry) => seasonRange(entry.season));
-  const startsAt = ranges.map((range) => range.start).sort()[0] ?? null;
-  const endsAt = ranges.map((range) => range.end).sort().at(-1) ?? null;
+function mapSport(sport: Sport, now: string): RawItem | null {
+  const remaining = remainingSchedules(sport, now);
+  if (remaining.length === 0) return null;
+
+  const startsAt = relevantStartsAt(remaining, now);
+  const endsAt = remaining.map((range) => range.end).sort().at(-1) ?? null;
   const divisions = sport.schedules.flatMap((entry) => entry.divisions);
   const payments = [...new Set(
     sport.schedules.map((entry) => entry.payment).filter((payment): payment is string => payment !== null),
@@ -426,10 +482,15 @@ export interface ImleaguesOptions {
 /** Return the reviewed snapshot without making any live or authenticated request. */
 export function fetchImleaguesSchedule(options: ImleaguesOptions): SourceResult<RawItem> {
   const startedAt = Date.now();
-  const records = IMLEAGUES_FALL_2026.map((sport) => mapSport(sport, options.now));
+  const records = IMLEAGUES_FALL_2026
+    .map((sport) => mapSport(sport, options.now))
+    .filter((item): item is RawItem => item !== null);
+  const omitted = IMLEAGUES_FALL_2026.length - records.length;
   const log = options.log ?? consoleLogger;
   log.info(
-    `[imleagues] ${records.length} Fall 2026 sport(s), ${IMLEAGUES_FALL_2026_DIVISION_COUNT} division(s) from reviewed public schedule`,
+    `[imleagues] ${records.length} Fall 2026 sport(s) still on the slate` +
+      `${omitted > 0 ? `, ${omitted} season(s) already ended` : ''}` +
+      `; ${IMLEAGUES_FALL_2026_DIVISION_COUNT} division(s) in the reviewed public schedule`,
   );
   return {
     source: 'imleagues',

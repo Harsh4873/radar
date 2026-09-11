@@ -168,33 +168,54 @@ export async function fetchPreprints(options: BiorxivOptions = {}): Promise<Sour
   try {
     let cursor = 0;
     let total = Number.POSITIVE_INFINITY;
+    let pagingFailures = 0;
 
     while (records.length < maxRecords && cursor < total) {
       const url = `https://api.biorxiv.org/details/${server}/${interval}/${cursor}`;
-      const { data } = await getJson<BiorxivResponse>(url, options);
+      try {
+        const { data } = await getJson<BiorxivResponse>(url, options);
 
-      const message = data.messages?.[0];
-      if (message?.status !== undefined && message.status !== 'ok') {
-        warnings.push(`${server} reported status "${message.status}" for ${interval}`);
+        const message = data.messages?.[0];
+        if (message?.status !== undefined && message.status !== 'ok') {
+          warnings.push(`${server} reported status "${message.status}" for ${interval}`);
+          break;
+        }
+
+        // `total` is a string in live responses. Parse, do not trust the type.
+        const reportedTotal = Number.parseInt(String(message?.total ?? '0'), 10);
+        if (Number.isFinite(reportedTotal) && reportedTotal > 0) total = reportedTotal;
+
+        const page = data.collection ?? [];
+        if (page.length === 0) break;
+
+        for (const record of page) {
+          const mapped = mapRecord(record, server);
+          if (mapped !== null) records.push(mapped);
+        }
+
+        cursor += PAGE_STEP;
+      } catch (pageErr) {
+        pagingFailures += 1;
+        const message = describeError(pageErr);
+        warnings.push(`paging stopped at cursor ${cursor}: ${message}`);
+        log.warn(`[${server}] paging FAILED at cursor ${cursor}: ${message}`);
         break;
       }
-
-      // `total` is a string in live responses. Parse, do not trust the type.
-      const reportedTotal = Number.parseInt(String(message?.total ?? '0'), 10);
-      if (Number.isFinite(reportedTotal) && reportedTotal > 0) total = reportedTotal;
-
-      const page = data.collection ?? [];
-      if (page.length === 0) break;
-
-      for (const record of page) {
-        const mapped = mapRecord(record, server);
-        if (mapped !== null) records.push(mapped);
-      }
-
-      cursor += PAGE_STEP;
     }
 
     log.info(`[${server}] ${interval} -> ${records.length} preprint(s)`);
+
+    if (records.length === 0 && pagingFailures > 0) {
+      return {
+        source: server,
+        records: [],
+        fetchSource: 'empty',
+        warnings,
+        error: warnings[0] ?? 'preprint dump failed',
+        durationMs: Date.now() - startedAt,
+        failedRequests: pagingFailures,
+      };
+    }
 
     return {
       source: server,
@@ -203,7 +224,7 @@ export async function fetchPreprints(options: BiorxivOptions = {}): Promise<Sour
       warnings,
       error: null,
       durationMs: Date.now() - startedAt,
-      failedRequests: 0,
+      failedRequests: pagingFailures,
     };
   } catch (err) {
     const message = describeError(err);

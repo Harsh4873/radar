@@ -27,7 +27,8 @@
 
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { parseDuration } from '@/studies/parse-duration.ts';
+import { parseCompensation } from '@/studies/parse-compensation.ts';
+import { parseDuration, parseDurationWithCompensation } from '@/studies/parse-duration.ts';
 import type { Confidence, ParsedDuration, RawStudy } from '@/studies/types.ts';
 
 const fixture = JSON.parse(
@@ -1353,6 +1354,12 @@ function rawDuration(id: number): string {
   return study.meta.aux_study_item_duration;
 }
 
+function rawCompensation(id: number): string {
+  const study = fixture.find((s) => s.id === id);
+  if (study === undefined) throw new Error(`fixture record ${id} is missing`);
+  return study.meta.aux_study_item_compensation;
+}
+
 describe('REGRESSION F1: a visit count juxtaposed with a per-visit duration multiplies', () => {
   // The shared failure: the COMPENSATION side of each listing is priced for all
   // the visits, while the DURATION side quoted one visit's hours. Dividing the
@@ -1464,5 +1471,35 @@ describe('REGRESSION F5: an unquantified ongoing component makes the total unkno
     // how long it takes keeps its number even if it also mentions daily tasks.
     expect(parseDuration(rawDuration(6745)).totalHoursMax).toBe(12);
     expect(parseDuration(rawDuration(4626)).totalHoursMax).toBe(17.5);
+  });
+});
+
+describe('REGRESSION F9: parseDurationWithCompensation scales a bare per-session duration', () => {
+  it('8331: "40-50 minutes" against a two-session $80 total is 80-100 minutes', () => {
+    // parseDuration alone must stay a one-session read — the table above
+    // locks that. The multiply is a second witness from compensation.
+    expect(parseDuration(rawDuration(8331))).toMatchObject({
+      totalHoursMin: 0.6667,
+      totalHoursMax: 0.8333,
+      sessionCount: null,
+    });
+
+    const parsed = parseDurationWithCompensation(
+      rawDuration(8331),
+      parseCompensation(rawCompensation(8331)),
+    );
+    expect(parsed.sessionCount).toBe(2);
+    expect(parsed.totalHoursMin).toBe(1.3334);
+    expect(parsed.totalHoursMax).toBe(1.6666);
+  });
+
+  it('4618: a visit-noun duration is not multiplied here (F2 still owns it)', () => {
+    const parsed = parseDurationWithCompensation(
+      rawDuration(4618),
+      parseCompensation(rawCompensation(4618)),
+    );
+    expect(parsed.totalHoursMin).toBe(3);
+    expect(parsed.totalHoursMax).toBe(3.5);
+    expect(parsed.sessionCount).toBeNull();
   });
 });

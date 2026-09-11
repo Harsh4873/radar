@@ -48,6 +48,7 @@ import type { APIRoute } from 'astro';
 
 import diffJson from '@/data/studies-diff.json';
 import snapshotJson from '@/data/studies.json';
+import { hydrateStudiesSnapshot } from '@/studies/hydrate.ts';
 import { scrubEmails } from '@/studies/mailto.ts';
 import { studySourceLabel, studySourceReferences } from '@/studies/source-display.ts';
 import type { ParsedCompensation, Snapshot, StudyRecord } from '@/studies/types.ts';
@@ -74,7 +75,7 @@ const DISCLAIMER =
 // Data
 // ---------------------------------------------------------------------------
 
-const snapshot = snapshotJson as unknown as Snapshot;
+const snapshot = hydrateStudiesSnapshot(snapshotJson as unknown as Snapshot);
 
 /** Shape of `src/data/diff.json` (a `SnapshotDiff` plus two timestamps). */
 interface DiffFile {
