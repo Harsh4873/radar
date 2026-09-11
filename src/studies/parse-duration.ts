@@ -46,6 +46,12 @@
  * ("$20 + 6 x $100 = $620" only closes at six study days). That cross-field
  * check is opt-in via `parseDurationWithCompensation`; `parseDuration` stays a
  * pure function of the duration string.
+ *
+ * One narrow exception (audit F9): a BARE contact-time string with no visit
+ * noun ("40-50 minutes") is almost certainly per-session when the compensation
+ * text independently names two or more sessions. Multiplying there is the
+ * only honest rate; leaving it unmultiplied advertised #8331 at $96/hr for
+ * two 40–50 minute sessions that pay $80 total ($48–$60/hr).
  */
 
 import { stripHtml } from '@/studies/html.ts';
@@ -1015,20 +1021,73 @@ export function impliedVisitCount(comp: CompensationEvidence | null | undefined)
   return n >= 1 && n <= MAX_PLAUSIBLE_SESSIONS ? n : null;
 }
 
+function raiseConfidence(current: Confidence): Confidence {
+  return current === 'low' ? 'medium' : 'high';
+}
+
+/**
+ * True when the duration string is a contact-time figure with no visit noun
+ * and no whole-study total language — "40-50 minutes", not "Visits last
+ * around 3.5 hours" and not "2 hours total".
+ *
+ * The F9 multiplier is only legal on this shape. A visit noun means F2
+ * (scope reconciliation) owns the row; a total cue means the hours already
+ * cover every session.
+ */
+const BARE_SESSION_VISIT_NOUN_RE =
+  /\b(?:visits?|sessions?|appointments?|meetings?|scans?|interviews?|study days?)\b/i;
+const BARE_SESSION_TOTAL_RE =
+  /\btotals?\b|\btotall?ing\b|\baltogether\b|\bcombined\b|\boverall\b|\bin all\b|\bacross\b|\bcumulative\b|\ball (?:visits|sessions|appointments)\b|\bentire\b/i;
+
+function isBarePerSessionHours(
+  raw: string,
+  duration: ParsedDuration,
+  appliedCounts: readonly number[],
+): boolean {
+  if (duration.sessionCount !== null) return false;
+  if (duration.totalHoursMax === null || duration.totalHoursMin === null) return false;
+  if (appliedCounts.length > 0) return false;
+  const text = normalize(raw);
+  if (text === '') return false;
+  if (BARE_SESSION_VISIT_NOUN_RE.test(text)) return false;
+  if (BARE_SESSION_TOTAL_RE.test(text)) return false;
+  return true;
+}
+
+function scaleBarePerSessionHours(duration: ParsedDuration, count: number): ParsedDuration {
+  const min = duration.totalHoursMin;
+  const max = duration.totalHoursMax;
+  if (min === null || max === null) return duration;
+  const totalMin = roundTo(min * count, 4);
+  const totalMax = roundTo(max * count, 4);
+  if (totalMax <= 0 || totalMax > MAX_PLAUSIBLE_HOURS) return duration;
+  return {
+    ...duration,
+    totalHoursMin: totalMin,
+    totalHoursMax: totalMax,
+    sessionCount: count,
+    confidence: duration.confidence === 'low' ? 'low' : 'medium',
+  };
+}
+
 /**
  * `parseDuration`, with the compensation field as a second witness.
  *
- * The duration text is still the only source of hours. Compensation can do
- * exactly two things, both of them narrow:
+ * The duration text is still the primary source of hours. Compensation can:
  *
  *   - LICENSE a multiplication this parser already found in the duration text
  *     and declined for want of clear linking words.
  *   - MOVE CONFIDENCE, up when the two fields agree on the visit count and
  *     down when an inferred multiplication contradicts a count the
  *     compensation text states outright.
- *
- * It can never invent a count that the duration string does not contain, so a
- * bad compensation parse cannot manufacture hours out of nothing.
+ *   - SCALE a BARE per-session duration (no visit noun, no stated total)
+ *     when compensation independently names two or more sessions. That is
+ *     the #8331 / audit F9 case: "40-50 minutes" against a two-session
+ *     $80 total. It does not invent hours from nothing — it only repeats a
+ *     duration the listing already stated, once per session the listing
+ *     already counted. Visit-noun strings ("Visits last around 3.5 hours")
+ *     stay unscaled here so F2 reconciliation remains the owner of that
+ *     shape.
  *
  * @example
  * // "1 screening visit (~3 hours) 3 study visit (~6 hours)" with
@@ -1055,6 +1114,10 @@ export function parseDurationWithCompensation(
     return { ...first.duration, confidence: raiseConfidence(first.duration.confidence) };
   }
 
+  if (isBarePerSessionHours(raw, first.duration, first.appliedCounts)) {
+    return scaleBarePerSessionHours(first.duration, implied);
+  }
+
   // The compensation states a visit count outright and it is not the count the
   // duration text was multiplied by. One of the two fields is wrong; say so.
   const statedCount = comp?.visitCount;
@@ -1063,9 +1126,4 @@ export function parseDurationWithCompensation(
   }
 
   return first.duration;
-}
-
-/** One step up the ladder. 'high' is the ceiling. */
-function raiseConfidence(current: Confidence): Confidence {
-  return current === 'low' ? 'medium' : 'high';
 }

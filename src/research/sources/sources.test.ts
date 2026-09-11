@@ -11,12 +11,14 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 
 import { mapRecord as mapEpmc } from '@/research/sources/europepmc.ts';
-import { mapRecord as mapPreprint } from '@/research/sources/biorxiv.ts';
-import { mapEntry as mapArxiv } from '@/research/sources/arxiv.ts';
+import { fetchPreprints, mapRecord as mapPreprint } from '@/research/sources/biorxiv.ts';
+import { fetchArxiv, mapEntry as mapArxiv } from '@/research/sources/arxiv.ts';
 import { mapWork as mapOpenAlex, reconstructAbstract } from '@/research/sources/openalex.ts';
 import { mapArticle as mapPubmed } from '@/research/sources/pubmed.ts';
 import { assertPlausibleDate, mapItem as mapCrossref } from '@/research/sources/crossref.ts';
 import { extractAll } from '@/core/xml.ts';
+import { HOST_TIMEOUT_MS, resetThrottle, silentLogger } from '@/core/http.ts';
+import { ARXIV_LOOKBACK_DAYS } from '@/research/ingest.ts';
 
 const NOW = '2026-08-10T00:00:00.000Z';
 
@@ -148,6 +150,29 @@ describe('arXiv', () => {
     expect(item.research?.arxivId).not.toContain('v');
     expect(item.research?.lifecycle.preprintVersion).toBeGreaterThanOrEqual(1);
   });
+
+  it('drops entries first submitted before fromDate', async () => {
+    resetThrottle();
+    const fetchImpl: typeof fetch = async () => new Response(xml, { status: 200 });
+    const recent = await fetchArxiv({
+      queries: ['abs:"codon model"'],
+      fromDate: '2026-01-01',
+      fetchImpl,
+      attempts: 1,
+      log: silentLogger,
+    });
+    expect(recent.records.length).toBeGreaterThan(0);
+    expect(recent.records.every((item) => (item.research?.publishedDate ?? item.occurredAt ?? '').slice(0, 10) >= '2026-01-01')).toBe(true);
+
+    resetThrottle();
+    const unfiltered = await fetchArxiv({
+      queries: ['abs:"codon model"'],
+      fetchImpl,
+      attempts: 1,
+      log: silentLogger,
+    });
+    expect(unfiltered.records.length).toBeGreaterThan(recent.records.length);
+  });
 });
 
 describe('OpenAlex', () => {
@@ -258,5 +283,46 @@ describe('Crossref', () => {
 
   it('drops records whose DOI is not validly shaped', () => {
     expect(mapCrossref({ DOI: 'not-a-doi' }, NOW)).toBeNull();
+  });
+});
+
+describe('host patience and date windows', () => {
+  it('gives api.biorxiv.org longer than the default 20s timeout', () => {
+    expect(HOST_TIMEOUT_MS['api.biorxiv.org']).toBeGreaterThanOrEqual(90_000);
+  });
+
+  it('keeps arXiv methods papers on a one-year lookback, not the 14-day research window', () => {
+    expect(ARXIV_LOOKBACK_DAYS).toBe(365);
+  });
+});
+
+describe('bioRxiv paging', () => {
+  it('keeps records already fetched when a later page times out', async () => {
+    resetThrottle();
+    const sample = json<{ collection: Record<string, unknown>[] }>('biorxiv.json').collection[0]!;
+    const fetchImpl: typeof fetch = async (input) => {
+      const url = String(input);
+      if (url.endsWith('/0')) {
+        return new Response(JSON.stringify({
+          messages: [{ status: 'ok', total: '200', count: 1, cursor: 0 }],
+          collection: [sample],
+        }), { status: 200 });
+      }
+      throw new Error('timeout after 20000ms');
+    };
+
+    const result = await fetchPreprints({
+      server: 'biorxiv',
+      now: '2026-08-05T00:00:00.000Z',
+      days: 4,
+      fetchImpl,
+      attempts: 1,
+      log: silentLogger,
+    });
+
+    expect(result.records.length).toBeGreaterThan(0);
+    expect(result.failedRequests).toBeGreaterThan(0);
+    expect(result.error).toBeNull();
+    expect(result.warnings.some((warning) => /paging stopped/.test(warning))).toBe(true);
   });
 });

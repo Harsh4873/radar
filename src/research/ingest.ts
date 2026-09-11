@@ -41,6 +41,9 @@ import { hasProfileMatch, linkPreprintLifecycles, scoreResearch, type ResearchCo
  */
 const ADJACENT_THRESHOLD = 30;
 
+/** arXiv methods queries use a longer lookback than the 14-day research window. */
+export const ARXIV_LOOKBACK_DAYS = 365;
+
 /** Public documentation for each source, linked from the Sources page. */
 const DOCS: Record<string, string> = {
   europepmc: 'https://europepmc.org/RestfulWebService',
@@ -119,7 +122,10 @@ export async function ingestResearch(options: ResearchIngestOptions): Promise<Re
   results.push(await fetchPreprints({ ...options, server: 'biorxiv', days }));
   results.push(await fetchPreprints({ ...options, server: 'medrxiv', days }));
   results.push(await fetchOpenAlex({ ...options, queries: RESEARCH_QUERIES, fromDate }));
-  results.push(await fetchArxiv({ ...options, queries: ARXIV_QUERIES }));
+  const arxivFromDate = new Date(Date.parse(options.now) - ARXIV_LOOKBACK_DAYS * 86_400_000)
+    .toISOString()
+    .slice(0, 10);
+  results.push(await fetchArxiv({ ...options, queries: ARXIV_QUERIES, fromDate: arxivFromDate }));
 
   for (const result of results) {
     reports.push(reportFor(result));

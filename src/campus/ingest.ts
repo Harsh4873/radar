@@ -57,7 +57,7 @@ function reportFor(result: SourceResult<unknown>): SourceReport {
       ?? (emptyGroupNotes.length > 0
         ? `${emptyGroupNotes.length} optional group feed(s) had no events in this window; site-wide date shards were still complete.`
         : result.source === 'imleagues'
-          ? 'Reviewed public Fall 2026 snapshot: 29 sports and all 106 published divisions; no private SPA calls.'
+          ? 'Reviewed public Fall 2026 snapshot. Sports whose season has ended are omitted; remaining rows use the next upcoming start (or today if a season is already underway) so the agenda does not open on a past registration weekend. No live IMLeagues fetch.'
           : null)),
     docsUrl: DOCS[result.source] ?? '',
   };
@@ -186,10 +186,10 @@ export async function ingestCampus(options: CampusIngestOptions): Promise<Campus
     // Cancelled events are kept below the floor on purpose: the user may have
     // been planning to go, and "this got cancelled" is the single most useful
     // thing Radar can tell them that week.
-    // The IMLeagues import is intentionally complete, not relevance-gated:
-    // every published division must remain available to every Radar visitor,
-    // including far-out sports that would otherwise sit below the discovery
-    // floor until their season drew closer.
+    // Far-out IMLeagues sports can sit below the discovery floor until their
+    // season draws closer. They still belong on the Intramurals tab, so the
+    // official schedule bypasses the score cut — but only for sports that
+    // still have a remaining season. Ended rows are dropped above via endsAt.
     const officialIntramuralSchedule = item.sources.some((source) => source.source === 'imleagues');
     return item.relevance >= INGEST_THRESHOLD || campus.isCancelled || officialIntramuralSchedule;
   });

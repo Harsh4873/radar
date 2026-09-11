@@ -30,13 +30,14 @@ import snapshotJson from '@/data/studies.json';
 import taxonomiesJson from '@/data/studies-taxonomies.json';
 import Base from '@/layouts/Base.astro';
 import { url } from '@/lib/view.ts';
+import { hydrateStudiesSnapshot } from '@/studies/hydrate.ts';
 import type { Snapshot, StudyRecord, TaxonomyTerm } from '@/studies/types.ts';
 
-const snapshot = snapshotJson as unknown as Snapshot;
+const snapshot = hydrateStudiesSnapshot(snapshotJson as unknown as Snapshot);
 const taxonomies = taxonomiesJson as unknown as Record<string, Record<string, TaxonomyTerm>>;
 
 export function getStaticPaths() {
-  const snap = snapshotJson as unknown as Snapshot;
+  const snap = hydrateStudiesSnapshot(snapshotJson as unknown as Snapshot);
   return snap.studies.map((study) => ({
     params: { slug: study.slug },
     props: { study },

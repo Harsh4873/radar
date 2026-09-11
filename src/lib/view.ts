@@ -100,6 +100,61 @@ export function byCampusDate(a: RadarItem, b: RadarItem): number {
   return a.id.localeCompare(b.id);
 }
 
+export const IN_PROGRESS_AGENDA_SUFFIX = '-in-progress';
+/** Sorts after in-progress (`-in-progress` < `-wrapped-up`) and before tomorrow. */
+export const ENDED_AGENDA_SUFFIX = '-wrapped-up';
+
+/**
+ * Agenda grouping instant for one campus item.
+ *
+ * Chronological "All" is the first screen of CampusRadar. A multi-week
+ * intramural whose published start is already past (season Aug 30–Oct 11,
+ * read on Sep 11) must not open that screen on the stale start date. Items
+ * that started before yesterday are re-bucketed:
+ *   still going  -> in-progress, after today and before tomorrow
+ *   already over -> ended recently, after in-progress (KEEP_FINISHED leftovers
+ *                   whose start is older than yesterday, e.g. Kickball Sep 1–10)
+ * Yesterday's leftovers keep their real date.
+ */
+export function campusAgendaGroup(item: RadarItem, now: string): {
+  key: string;
+  startsAt: string | null;
+  inProgress: boolean;
+  ended: boolean;
+} {
+  const startsAt = item.campus?.startsAt ?? item.occurredAt;
+  const endsAt = item.campus?.endsAt ?? null;
+  const daysUntilStart = calendarDaysUntil(startsAt, now);
+  const stillGoing = endsAt !== null && Number.isFinite(Date.parse(endsAt)) && Date.parse(endsAt) >= Date.parse(now);
+
+  if (daysUntilStart !== null && daysUntilStart < -1) {
+    const today = campusDayKey(now);
+    if (stillGoing) {
+      return {
+        key: `${today}${IN_PROGRESS_AGENDA_SUFFIX}`,
+        startsAt: now,
+        inProgress: true,
+        ended: false,
+      };
+    }
+    return {
+      key: `${today}${ENDED_AGENDA_SUFFIX}`,
+      startsAt,
+      inProgress: false,
+      ended: true,
+    };
+  }
+
+  return { key: campusDayKey(startsAt), startsAt, inProgress: false, ended: false };
+}
+
+export function compareCampusAgenda(a: RadarItem, b: RadarItem, now: string): number {
+  const aGroup = campusAgendaGroup(a, now);
+  const bGroup = campusAgendaGroup(b, now);
+  if (aGroup.key !== bGroup.key) return aGroup.key.localeCompare(bGroup.key);
+  return byCampusDate(a, b);
+}
+
 /** A date range for a collapsed series: "Aug 23 – Aug 27". */
 export function formatRange(startIso: string | null, endIso: string | null): string {
   if (startIso === null) return 'Date TBD';

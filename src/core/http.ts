@@ -49,7 +49,9 @@ const HOST_MIN_INTERVAL_MS: Record<string, number> = {
   'eutils.ncbi.nlm.nih.gov': 400,
   'api.biorxiv.org': 250,
   'api.crossref.org': 200,
-  'api.openalex.org': 150,
+  // OpenAlex's anonymous pool 429s at ~6 req/s. 1s is polite without a mailto
+  // and still fine in the polite pool when RADAR_CONTACT_EMAIL is set.
+  'api.openalex.org': 1_000,
   'export.arxiv.org': 3_000, // arXiv's own manual asks for one request per 3s.
   'www.ebi.ac.uk': 200,
   'calendar.tamu.edu': 200,
@@ -69,11 +71,21 @@ const DEFAULT_MIN_INTERVAL_MS = 250;
  * 60-result query, so the fix is patience rather than retries - and the 3s
  * per-host interval already keeps the request rate polite.
  */
-const HOST_TIMEOUT_MS: Record<string, number> = {
+export const HOST_TIMEOUT_MS: Record<string, number> = {
   'export.arxiv.org': 60_000,
   // NCBI's efetch can be slow on a 100-PMID batch.
   'eutils.ncbi.nlm.nih.gov': 40_000,
+  // medRxiv on this host has taken ~86s of paging. bioRxiv timed out at the
+  // 20s default and returned 0 records; retention then had to carry papers
+  // forward. Give the dump the same patience as arXiv, plus a little more.
+  'api.biorxiv.org': 90_000,
 };
+
+const HOST_RETRY_AFTER_CAP_S: Record<string, number> = {
+  'api.openalex.org': 60,
+};
+
+const DEFAULT_RETRY_AFTER_CAP_S = 30;
 
 export const consoleLogger: Logger = {
   info: (msg) => console.log(msg),
@@ -223,7 +235,8 @@ async function request(url: string, accept: string, options: ResolvedOptions): P
         // our backoff curve does. Capped so a hostile value cannot stall a build.
         const retryAfter = Number.parseInt(res.headers.get('retry-after') ?? '', 10);
         if (Number.isFinite(retryAfter) && retryAfter > 0) {
-          const wait = Math.min(retryAfter, 30) * 1000;
+          const cap = HOST_RETRY_AFTER_CAP_S[hostOf(url)] ?? DEFAULT_RETRY_AFTER_CAP_S;
+          const wait = Math.min(retryAfter, cap) * 1000;
           log.warn(`[http] ${res.status} from ${hostOf(url)}; honouring Retry-After ${wait}ms`);
           await sleep(wait);
         }
