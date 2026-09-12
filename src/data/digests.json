@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-09-07",
     "vertical": "campus",
-    "scanned": 5878,
-    "candidates": 757,
+    "scanned": 5956,
+    "candidates": 758,
     "recommended": [
       "campus-9be70ca35023",
       "campus-6b8b2593ce55",
@@ -22,88 +22,60 @@
     ],
     "changes": [
       {
-        "itemId": "campus-2874e66921f9",
+        "itemId": "campus-b314811cb984",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-30T21:30:00.000Z",
-        "after": "2026-10-14T21:30:00.000Z"
-      },
-      {
-        "itemId": "campus-abbdb86a55f0",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-05T06:00:00.000Z",
-        "after": "2026-11-06T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-c721d3a3689a",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-24T05:00:00.000Z",
-        "after": "2026-09-23T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-cff12a8ae97b",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-10T22:30:00.000Z",
+        "before": "2026-09-09T05:00:00.000Z",
         "after": "2026-09-11T05:00:00.000Z"
       },
       {
-        "itemId": "campus-ddd6f7829832",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-24T05:00:00.000Z",
-        "after": "2026-09-25T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11b6c47a28bf",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-24T05:00:00.000Z",
-        "after": "2026-09-25T13:00:00.000Z"
-      },
-      {
-        "itemId": "campus-2c7b3d732b54",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-25T13:30:00.000Z",
-        "after": "2026-09-25T14:40:00.000Z"
-      },
-      {
-        "itemId": "campus-bc3a796a5f0a",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-01T05:00:00.000Z",
-        "after": "2026-09-28T13:00:00.000Z"
-      },
-      {
-        "itemId": "campus-bc3a7a6a5f0a",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-01T05:00:00.000Z",
-        "after": "2026-09-28T13:00:00.000Z"
-      },
-      {
-        "itemId": "campus-77ea6b45e0b6",
-        "kind": "location",
-        "field": "Location",
-        "before": "CHEM 2104",
-        "after": "Chemistry Building, Room 2104"
-      },
-      {
-        "itemId": "campus-55aa4c45cd6c",
+        "itemId": "campus-04678a8b0756",
         "kind": "title",
         "field": "Title",
-        "before": "ASTR Seminar",
-        "after": "Better Together: Combining the Strengths of Rubin, Euclid, and Roman for Time-domain Science and Cosmology"
+        "before": "Career Center presents: Graduate Students: Resumes that don’t suck | Crafting an Excellent Resume",
+        "after": "Career Center presents: Graduate Students: Crafting an Excellent Resume"
       },
       {
-        "itemId": "campus-42ffd16a1a63",
+        "itemId": "campus-7a4374781142",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-08T05:00:00.000Z",
-        "after": "2026-10-07T21:00:00.000Z"
+        "before": "2026-08-30T05:00:00.000Z",
+        "after": "2026-09-11T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b33b4d630365",
+        "kind": "location",
+        "field": "Location",
+        "before": "Rudder",
+        "after": null
+      },
+      {
+        "itemId": "campus-c5b8138d32f7",
+        "kind": "location",
+        "field": "Location",
+        "before": "All Faiths Chapel",
+        "after": null
+      },
+      {
+        "itemId": "campus-320b4a0f44cf",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-08-30T05:00:00.000Z",
+        "after": "2026-09-11T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-3cd3ac55d19d",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-08T05:00:00.000Z",
+        "after": "2026-09-11T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-8c4903b49385",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-04T05:00:00.000Z",
+        "after": "2026-10-16T05:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -111,26 +83,26 @@
   {
     "weekOf": "2026-09-07",
     "vertical": "research",
-    "scanned": 537,
-    "candidates": 113,
+    "scanned": 979,
+    "candidates": 84,
     "recommended": [
       "research-752fa39eec07",
-      "research-5e430f832229",
-      "research-ee5b4a6777df",
-      "research-8ad8fbc192a0",
+      "research-4f824c6b9f19",
       "research-20097fa6776b",
-      "research-e86039b097fc"
+      "research-e86039b097fc",
+      "research-926a8fdbc069",
+      "research-c9c7d5aa8ead"
     ],
     "headlines": [
       "positive selection · codon-model analysis · comparative genomics",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "positive selection · codon-model analysis · phylogenetics",
       "positive selection · PAML / codeml · phylogenetics",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "comparative genomics · phylogenetics · antimicrobial resistance"
     ],
     "changes": [],
-    "estimatedMinutes": 98
+    "estimatedMinutes": 90
   },
   {
     "weekOf": "2026-08-31",

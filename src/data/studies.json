@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-11T15:04:24.714Z",
+  "fetchedAt": "2026-09-12T01:12:14.789Z",
   "totalFromHeader": 93,
   "studies": [
     {
@@ -536,7 +536,7 @@
         "sessionCount": 5,
         "spanWeeks": null,
         "raw": "This study will include 1 screening visit (~3 hours) and a maximum of 4 study visits (~6 hours).",
-        "confidence": "medium"
+        "confidence": "high"
       },
       "eligibility": {
         "minAge": 50,
@@ -3704,7 +3704,7 @@
         "sessionCount": 2,
         "spanWeeks": 1,
         "raw": "Two separate two-hour sessions conducted on separate days within one week",
-        "confidence": "medium"
+        "confidence": "high"
       },
       "eligibility": {
         "minAge": 18,
@@ -4203,7 +4203,7 @@
         "hourlyMax": null,
         "currencyKind": "giftcard",
         "perVisit": null,
-        "visitCount": null,
+        "visitCount": 2,
         "completionBonus": null,
         "hasNonCashPerk": false,
         "sonaCreditOption": false,
@@ -4217,12 +4217,12 @@
         ]
       },
       "duration": {
-        "totalHoursMin": 0.6667,
-        "totalHoursMax": 0.8333,
-        "sessionCount": null,
+        "totalHoursMin": 1.3334,
+        "totalHoursMax": 1.6666,
+        "sessionCount": 2,
         "spanWeeks": null,
         "raw": "40-50 minutes",
-        "confidence": "high"
+        "confidence": "medium"
       },
       "eligibility": {
         "minAge": 55,
@@ -4244,7 +4244,7 @@
           "must be able to walk unaided"
         ]
       },
-      "effectiveHourly": 96,
+      "effectiveHourly": 48,
       "isExpired": false,
       "staleness": "stale",
       "tags": [
@@ -4438,7 +4438,7 @@
         "sessionCount": 4,
         "spanWeeks": 6.52,
         "raw": "This study will be conducted over four separate sessions on different days, spanning approximately a month and a half. Participation for each session is expected to last around 60 minutes, except for session four, which will take approximately 75 minutes.",
-        "confidence": "medium"
+        "confidence": "high"
       },
       "eligibility": {
         "minAge": 18,
@@ -5264,7 +5264,7 @@
         "sessionCount": 4,
         "spanWeeks": 6,
         "raw": "This study will include 1 screening visit (~3 hours) 3 study visit (~6 hours). Participants are anticipated to finish all study visits within a 6 week timeframe.",
-        "confidence": "medium"
+        "confidence": "high"
       },
       "eligibility": {
         "minAge": 55,
@@ -6035,7 +6035,7 @@
         "sessionCount": 7,
         "spanWeeks": 4,
         "raw": "The study involves 1 screening visit lasting up to 2 hours followed by 6 study days lasting up to 7 hours that can be completed within 4 weeks.",
-        "confidence": "medium"
+        "confidence": "high"
       },
       "eligibility": {
         "minAge": 60,
@@ -10452,7 +10452,7 @@
       "status": "ok",
       "itemCount": 84,
       "fetchSource": "network",
-      "durationMs": 6968,
+      "durationMs": 4381,
       "failedRequests": 0,
       "complete": true,
       "note": null,
@@ -10465,7 +10465,7 @@
       "status": "ok",
       "itemCount": 22,
       "fetchSource": "network",
-      "durationMs": 539,
+      "durationMs": 1344,
       "failedRequests": 0,
       "complete": true,
       "note": null,
