@@ -2,80 +2,122 @@
   {
     "weekOf": "2026-09-07",
     "vertical": "campus",
-    "scanned": 5956,
-    "candidates": 758,
+    "scanned": 6115,
+    "candidates": 748,
     "recommended": [
-      "campus-9be70ca35023",
+      "campus-f26e4f8afcf9",
+      "campus-d8f2bf8aeeae",
+      "campus-df29754ea7cc",
       "campus-6b8b2593ce55",
       "campus-38cd0c8b2522",
-      "campus-eb3aa28af94e",
-      "campus-2b81dfab2ad2",
-      "campus-d6135b4ea288"
+      "campus-eb3aa28af94e"
     ],
     "headlines": [
-      "company recruiting · graduate opportunities · today",
+      "computer science · data science · company recruiting",
+      "computer science · company recruiting · free food: food",
+      "research opportunity · company recruiting · food provided",
       "biotech · company recruiting · in the next 3 weeks",
       "biotech · company recruiting · in the next 3 weeks",
-      "company recruiting · graduate opportunities · workshop / training",
-      "company recruiting · career development · this week",
-      "data science · this week · workshop / training"
+      "company recruiting · graduate opportunities · workshop / training"
     ],
     "changes": [
       {
         "itemId": "campus-b314811cb984",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-09T05:00:00.000Z",
-        "after": "2026-09-11T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-04678a8b0756",
-        "kind": "title",
-        "field": "Title",
-        "before": "Career Center presents: Graduate Students: Resumes that don’t suck | Crafting an Excellent Resume",
-        "after": "Career Center presents: Graduate Students: Crafting an Excellent Resume"
+        "before": "2026-09-11T05:00:00.000Z",
+        "after": "2026-09-12T05:00:00.000Z"
       },
       {
         "itemId": "campus-7a4374781142",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-08-30T05:00:00.000Z",
-        "after": "2026-09-11T05:00:00.000Z"
+        "before": "2026-09-11T05:00:00.000Z",
+        "after": "2026-09-12T05:00:00.000Z"
       },
       {
-        "itemId": "campus-b33b4d630365",
-        "kind": "location",
-        "field": "Location",
-        "before": "Rudder",
-        "after": null
-      },
-      {
-        "itemId": "campus-c5b8138d32f7",
-        "kind": "location",
-        "field": "Location",
-        "before": "All Faiths Chapel",
-        "after": null
+        "itemId": "campus-abbdb86a55f0",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-06T06:00:00.000Z",
+        "after": "2026-11-05T06:00:00.000Z"
       },
       {
         "itemId": "campus-320b4a0f44cf",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-08-30T05:00:00.000Z",
-        "after": "2026-09-11T05:00:00.000Z"
+        "before": "2026-09-11T05:00:00.000Z",
+        "after": "2026-09-12T05:00:00.000Z"
       },
       {
         "itemId": "campus-3cd3ac55d19d",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-08T05:00:00.000Z",
-        "after": "2026-09-11T05:00:00.000Z"
+        "before": "2026-09-11T05:00:00.000Z",
+        "after": "2026-09-12T05:00:00.000Z"
       },
       {
-        "itemId": "campus-8c4903b49385",
+        "itemId": "campus-11a5c67a28b0",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-04T05:00:00.000Z",
-        "after": "2026-10-16T05:00:00.000Z"
+        "before": "2026-09-11T13:00:00.000Z",
+        "after": "2026-09-12T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-20bc149cc190",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-11T18:00:00.000Z",
+        "after": "2026-09-12T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ac0161a358ea",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-11T14:00:00.000Z",
+        "after": "2026-09-12T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-d605cc4ea27d",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-11T13:00:00.000Z",
+        "after": "2026-09-12T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-d4e0a46e5039",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-11T05:00:00.000Z",
+        "after": "2026-09-25T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ddd6f7829832",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-25T05:00:00.000Z",
+        "after": "2026-09-24T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-11b6c47a28bf",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-25T13:00:00.000Z",
+        "after": "2026-09-26T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bc44906a5f13",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-23T21:00:00.000Z",
+        "after": "2026-10-24T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bc44896a5f13",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-06T22:00:00.000Z",
+        "after": "2026-11-07T06:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -83,8 +125,8 @@
   {
     "weekOf": "2026-09-07",
     "vertical": "research",
-    "scanned": 979,
-    "candidates": 84,
+    "scanned": 1012,
+    "candidates": 88,
     "recommended": [
       "research-752fa39eec07",
       "research-4f824c6b9f19",
