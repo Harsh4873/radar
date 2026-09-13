@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-09-07",
     "vertical": "campus",
-    "scanned": 6115,
-    "candidates": 748,
+    "scanned": 6114,
+    "candidates": 728,
     "recommended": [
       "campus-f26e4f8afcf9",
       "campus-d8f2bf8aeeae",
@@ -20,120 +20,21 @@
       "biotech · company recruiting · in the next 3 weeks",
       "company recruiting · graduate opportunities · workshop / training"
     ],
-    "changes": [
-      {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-11T05:00:00.000Z",
-        "after": "2026-09-12T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7a4374781142",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-11T05:00:00.000Z",
-        "after": "2026-09-12T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-abbdb86a55f0",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-06T06:00:00.000Z",
-        "after": "2026-11-05T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-320b4a0f44cf",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-11T05:00:00.000Z",
-        "after": "2026-09-12T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-3cd3ac55d19d",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-11T05:00:00.000Z",
-        "after": "2026-09-12T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11a5c67a28b0",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-11T13:00:00.000Z",
-        "after": "2026-09-12T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-20bc149cc190",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-11T18:00:00.000Z",
-        "after": "2026-09-12T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ac0161a358ea",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-11T14:00:00.000Z",
-        "after": "2026-09-12T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-d605cc4ea27d",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-11T13:00:00.000Z",
-        "after": "2026-09-12T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-d4e0a46e5039",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-11T05:00:00.000Z",
-        "after": "2026-09-25T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ddd6f7829832",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-25T05:00:00.000Z",
-        "after": "2026-09-24T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11b6c47a28bf",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-25T13:00:00.000Z",
-        "after": "2026-09-26T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-bc44906a5f13",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-23T21:00:00.000Z",
-        "after": "2026-10-24T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-bc44896a5f13",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-06T22:00:00.000Z",
-        "after": "2026-11-07T06:00:00.000Z"
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-09-07",
     "vertical": "research",
-    "scanned": 1012,
-    "candidates": 88,
+    "scanned": 985,
+    "candidates": 83,
     "recommended": [
       "research-752fa39eec07",
       "research-4f824c6b9f19",
       "research-20097fa6776b",
       "research-e86039b097fc",
       "research-926a8fdbc069",
-      "research-c9c7d5aa8ead"
+      "research-f54c6f5f6f08"
     ],
     "headlines": [
       "positive selection · codon-model analysis · comparative genomics",
@@ -141,10 +42,18 @@
       "positive selection · PAML / codeml · phylogenetics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "comparative genomics · phylogenetics · antimicrobial resistance"
+      "positive selection · comparative genomics · recent"
     ],
-    "changes": [],
-    "estimatedMinutes": 90
+    "changes": [
+      {
+        "itemId": "research-79b9bd2b6c9c",
+        "kind": "preprint-revised",
+        "field": "Preprint version",
+        "before": "v1",
+        "after": "v2"
+      }
+    ],
+    "estimatedMinutes": 89
   },
   {
     "weekOf": "2026-08-31",
