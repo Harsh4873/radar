@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-13T14:56:39.267Z",
+  "fetchedAt": "2026-09-14T16:59:08.205Z",
   "totalFromHeader": 93,
   "studies": [
     {
@@ -10449,13 +10449,13 @@
       "id": "aggie-research-volunteers",
       "label": "Aggie Research Volunteers",
       "vertical": "studies",
-      "status": "degraded",
+      "status": "ok",
       "itemCount": 84,
-      "fetchSource": "cache",
-      "durationMs": 46577,
-      "failedRequests": 1,
-      "complete": false,
-      "note": "source=fixture",
+      "fetchSource": "network",
+      "durationMs": 3865,
+      "failedRequests": 0,
+      "complete": true,
+      "note": null,
       "docsUrl": "https://research.tamu.edu/resources/aggie-research-volunteers/"
     },
     {
@@ -10465,7 +10465,7 @@
       "status": "ok",
       "itemCount": 22,
       "fetchSource": "network",
-      "durationMs": 520,
+      "durationMs": 552,
       "failedRequests": 0,
       "complete": true,
       "note": null,
