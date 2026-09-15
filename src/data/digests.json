@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-09-14",
     "vertical": "campus",
-    "scanned": 6148,
-    "candidates": 885,
+    "scanned": 6335,
+    "candidates": 865,
     "recommended": [
       "campus-eb3aa28af94e",
       "campus-9eb4f579b4c2",
@@ -22,200 +22,11 @@
     ],
     "changes": [
       {
-        "itemId": "campus-6b8b2593ce55",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-21T14:00:00.000Z",
-        "after": "2026-09-21T15:00:00.000Z"
-      },
-      {
-        "itemId": "campus-708d30a33792",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-13T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7090baa33795",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-13T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-bc2d086a5eff",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-13T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-13T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ce40ae77f7fb",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-13T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-34b66f39f2e3",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-13T05:00:00.000Z",
-        "after": "2026-09-21T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-1336d8c465ad",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-13T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7a4374781142",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-13T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b5af17ad553f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-13T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-22dd475be2f2",
-        "kind": "location",
-        "field": "Location",
-        "before": "Rudder Plaza",
-        "after": null
-      },
-      {
-        "itemId": "campus-abbdbc6a55f1",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-01T05:00:00.000Z",
-        "after": "2026-11-02T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11bdd57a28c5",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-14T05:00:00.000Z",
-        "after": "2026-09-28T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-320b4a0f44cf",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-13T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-3cd3ac55d19d",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-13T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-64ba1da22d8d",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-13T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-d608c84ea27f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-13T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-d8f2c58aeeae",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-13T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ac42edb40039",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-13T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-438ef845c2f2",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-20T05:00:00.000Z",
-        "after": "2026-09-19T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-273774a20a77",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-13T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-2b92ddab2ae1",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-13T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-43850245c2ea",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-13T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-4c9b1f45c82e",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-13T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7761b79cf2a6",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-13T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ab68174a093a",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-13T05:00:00.000Z",
-        "after": "2026-09-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-49b12da21df1",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-27T05:00:00.000Z",
-        "after": "2026-09-26T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ac117d6985f5",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-14T13:00:00.000Z",
-        "after": "2026-09-28T13:00:00.000Z"
+        "itemId": "campus-b308ce6a59ae",
+        "kind": "title",
+        "field": "Title",
+        "before": "Graduate Student Workshop Series - How to Write Like an Academic",
+        "after": "How to Write Like an Academic"
       }
     ],
     "estimatedMinutes": 0
@@ -223,26 +34,34 @@
   {
     "weekOf": "2026-09-14",
     "vertical": "research",
-    "scanned": 1086,
-    "candidates": 126,
+    "scanned": 1019,
+    "candidates": 118,
     "recommended": [
       "research-76f991fe39b5",
-      "research-e18240f28bab",
-      "research-ca979ba11a8c",
       "research-93730fe009d7",
-      "research-e7e8817c8a01",
-      "research-82e1e79f8674"
+      "research-ddb676a6a87d",
+      "research-e18240f28bab",
+      "research-286d73921900",
+      "research-ca979ba11a8c"
     ],
     "headlines": [
       "M. tuberculosis · comparative genomics · phylogenetics",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "positive selection · comparative genomics · phylogenetics",
-      "M. tuberculosis · comparative genomics · pathogen evolution",
-      "positive selection · comparative genomics · host-pathogen interaction"
+      "positive selection · comparative genomics · phylogenetics",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "positive selection · codon-model analysis · phylogenetics",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
-    "changes": [],
-    "estimatedMinutes": 100
+    "changes": [
+      {
+        "itemId": "research-93730fe009d7",
+        "kind": "preprint-revised",
+        "field": "Preprint version",
+        "before": "v1",
+        "after": "v2"
+      }
+    ],
+    "estimatedMinutes": 108
   },
   {
     "weekOf": "2026-09-07",
