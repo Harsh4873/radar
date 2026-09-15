@@ -2,31 +2,143 @@
   {
     "weekOf": "2026-09-14",
     "vertical": "campus",
-    "scanned": 6335,
-    "candidates": 865,
+    "scanned": 5964,
+    "candidates": 829,
     "recommended": [
       "campus-eb3aa28af94e",
+      "campus-708d30a33792",
+      "campus-7090baa33795",
+      "campus-bc2d086a5eff",
       "campus-9eb4f579b4c2",
-      "campus-a60e2879b88c",
-      "campus-42f5be6a1a5a",
-      "campus-9eb17579b4bf",
-      "campus-abbdb76a55f0"
+      "campus-a60e2879b88c"
     ],
     "headlines": [
       "company recruiting · graduate opportunities · workshop / training",
+      "company recruiting · today · workshop / training",
+      "company recruiting · today · workshop / training",
+      "company recruiting · today · workshop / training",
       "biotech · employer: citadel · food provided",
-      "computer science · workshop / training · in the next 3 weeks",
-      "biotech · workshop / training · in the next 3 weeks",
-      "computer science · this week",
-      "biotech · football"
+      "computer science · workshop / training · in the next 3 weeks"
     ],
     "changes": [
       {
-        "itemId": "campus-b308ce6a59ae",
-        "kind": "title",
-        "field": "Title",
-        "before": "Graduate Student Workshop Series - How to Write Like an Academic",
-        "after": "How to Write Like an Academic"
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-14T05:00:00.000Z",
+        "after": "2026-09-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ce40ae77f7fb",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-14T05:00:00.000Z",
+        "after": "2026-09-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-e208fa8af3f2",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-05T13:00:00.000Z",
+        "after": "2026-10-06T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1336d8c465ad",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-14T05:00:00.000Z",
+        "after": "2026-09-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-13d5f5749443",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-14T05:00:00.000Z",
+        "after": "2026-09-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7a4374781142",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-14T05:00:00.000Z",
+        "after": "2026-09-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b5af17ad553f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-14T05:00:00.000Z",
+        "after": "2026-09-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abbdbc6a55f1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-02T06:00:00.000Z",
+        "after": "2026-11-01T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-11bdd57a28c5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-28T05:00:00.000Z",
+        "after": "2026-09-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1830c1912645",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-14T05:00:00.000Z",
+        "after": "2026-09-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-320b4a0f44cf",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-14T05:00:00.000Z",
+        "after": "2026-09-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-3cd3ac55d19d",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-14T05:00:00.000Z",
+        "after": "2026-09-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-42f5c06a1a5a",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-21T15:00:00.000Z",
+        "after": "2026-09-22T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ac117d6985f5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-28T13:00:00.000Z",
+        "after": "2026-09-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bc3a796a5f0a",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-28T13:00:00.000Z",
+        "after": "2026-09-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bc3a7a6a5f0a",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-28T13:00:00.000Z",
+        "after": "2026-09-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-e4c9569412ff",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-02T14:30:00.000Z",
+        "after": "2026-11-03T06:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -34,34 +146,26 @@
   {
     "weekOf": "2026-09-14",
     "vertical": "research",
-    "scanned": 1019,
-    "candidates": 118,
+    "scanned": 1050,
+    "candidates": 122,
     "recommended": [
       "research-76f991fe39b5",
       "research-93730fe009d7",
-      "research-ddb676a6a87d",
       "research-e18240f28bab",
       "research-286d73921900",
-      "research-ca979ba11a8c"
+      "research-6a1119db9436",
+      "research-ddb676a6a87d"
     ],
     "headlines": [
       "M. tuberculosis · comparative genomics · phylogenetics",
       "positive selection · comparative genomics · phylogenetics",
-      "positive selection · comparative genomics · phylogenetics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "positive selection · codon-model analysis · phylogenetics",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "positive selection · comparative genomics · phylogenetics"
     ],
-    "changes": [
-      {
-        "itemId": "research-93730fe009d7",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v1",
-        "after": "v2"
-      }
-    ],
-    "estimatedMinutes": 108
+    "changes": [],
+    "estimatedMinutes": 110
   },
   {
     "weekOf": "2026-09-07",

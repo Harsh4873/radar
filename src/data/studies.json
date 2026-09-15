@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-15T01:33:02.576Z",
+  "fetchedAt": "2026-09-15T15:36:07.791Z",
   "totalFromHeader": 93,
   "studies": [
     {
@@ -9387,7 +9387,7 @@
       "recruitmentStartDate": null,
       "lifecycleMonths": null,
       "postedDate": "2024-06-28T00:00:00.000Z",
-      "modifiedDate": "2026-07-06T00:00:00.000Z",
+      "modifiedDate": "2026-09-15T00:00:00.000Z",
       "categoryIds": [],
       "locationIds": [],
       "sessionTypeIds": [],
@@ -10452,7 +10452,7 @@
       "status": "ok",
       "itemCount": 84,
       "fetchSource": "network",
-      "durationMs": 4756,
+      "durationMs": 4899,
       "failedRequests": 0,
       "complete": true,
       "note": null,
@@ -10465,7 +10465,7 @@
       "status": "ok",
       "itemCount": 22,
       "fetchSource": "network",
-      "durationMs": 894,
+      "durationMs": 547,
       "failedRequests": 0,
       "complete": true,
       "note": null,
