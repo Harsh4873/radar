@@ -2,143 +2,101 @@
   {
     "weekOf": "2026-09-14",
     "vertical": "campus",
-    "scanned": 5964,
-    "candidates": 829,
+    "scanned": 6109,
+    "candidates": 826,
     "recommended": [
+      "campus-7aadd4799ff6",
+      "campus-7aa353799fed",
+      "campus-7aa6d0799ff0",
       "campus-eb3aa28af94e",
-      "campus-708d30a33792",
-      "campus-7090baa33795",
-      "campus-bc2d086a5eff",
-      "campus-9eb4f579b4c2",
-      "campus-a60e2879b88c"
+      "campus-9be389a35020",
+      "campus-9eb4f579b4c2"
     ],
     "headlines": [
+      "biotech · company recruiting · workshop / training",
+      "biotech · company recruiting · workshop / training",
+      "biotech · company recruiting · workshop / training",
       "company recruiting · graduate opportunities · workshop / training",
-      "company recruiting · today · workshop / training",
-      "company recruiting · today · workshop / training",
-      "company recruiting · today · workshop / training",
-      "biotech · employer: citadel · food provided",
-      "computer science · workshop / training · in the next 3 weeks"
+      "company recruiting · graduate opportunities · this week",
+      "biotech · employer: citadel · food provided"
     ],
     "changes": [
       {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-14T05:00:00.000Z",
-        "after": "2026-09-15T05:00:00.000Z"
+        "itemId": "campus-b33e5a630367",
+        "kind": "title",
+        "field": "Title",
+        "before": "Informational and Weekly Session!",
+        "after": "Unwind, Recharge & Connect: Free Yoga, Food, Wellness & Community!"
       },
       {
-        "itemId": "campus-ce40ae77f7fb",
+        "itemId": "campus-b33e5a630367",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-14T05:00:00.000Z",
-        "after": "2026-09-15T05:00:00.000Z"
+        "before": "2026-09-18T23:00:00.000Z",
+        "after": "2026-09-18T22:45:00.000Z"
       },
       {
-        "itemId": "campus-e208fa8af3f2",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-05T13:00:00.000Z",
-        "after": "2026-10-06T05:00:00.000Z"
+        "itemId": "campus-b33e57630367",
+        "kind": "title",
+        "field": "Title",
+        "before": "Informational and Weekly Session!",
+        "after": "Unwind, Recharge & Connect: Free Yoga, Food, Wellness & Community!"
       },
       {
-        "itemId": "campus-1336d8c465ad",
+        "itemId": "campus-b33e57630367",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-14T05:00:00.000Z",
-        "after": "2026-09-15T05:00:00.000Z"
+        "before": "2026-09-25T23:00:00.000Z",
+        "after": "2026-09-25T22:45:00.000Z"
       },
       {
-        "itemId": "campus-13d5f5749443",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-14T05:00:00.000Z",
-        "after": "2026-09-15T05:00:00.000Z"
+        "itemId": "campus-b33e54630367",
+        "kind": "title",
+        "field": "Title",
+        "before": "Informational and Weekly Session!",
+        "after": "Unwind, Recharge & Connect: Free Yoga, Food, Wellness & Community!"
       },
       {
-        "itemId": "campus-7a4374781142",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-14T05:00:00.000Z",
-        "after": "2026-09-15T05:00:00.000Z"
+        "itemId": "campus-b341c163036a",
+        "kind": "title",
+        "field": "Title",
+        "before": "Informational and Weekly Session!",
+        "after": "Unwind, Recharge & Connect: Free Yoga, Food, Wellness & Community!"
       },
       {
-        "itemId": "campus-b5af17ad553f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-14T05:00:00.000Z",
-        "after": "2026-09-15T05:00:00.000Z"
+        "itemId": "campus-b341c063036a",
+        "kind": "title",
+        "field": "Title",
+        "before": "Informational and Weekly Session!",
+        "after": "Unwind, Recharge & Connect: Free Yoga, Food, Wellness & Community!"
       },
       {
-        "itemId": "campus-abbdbc6a55f1",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-02T06:00:00.000Z",
-        "after": "2026-11-01T05:00:00.000Z"
+        "itemId": "campus-b341c363036a",
+        "kind": "title",
+        "field": "Title",
+        "before": "Informational and Weekly Session!",
+        "after": "Unwind, Recharge & Connect: Free Yoga, Food, Wellness & Community!"
       },
       {
-        "itemId": "campus-11bdd57a28c5",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-28T05:00:00.000Z",
-        "after": "2026-09-29T05:00:00.000Z"
+        "itemId": "campus-b341ca63036a",
+        "kind": "title",
+        "field": "Title",
+        "before": "Informational and Weekly Session!",
+        "after": "Unwind, Recharge & Connect: Free Yoga, Food, Wellness & Community!"
       },
       {
-        "itemId": "campus-1830c1912645",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-14T05:00:00.000Z",
-        "after": "2026-09-15T05:00:00.000Z"
+        "itemId": "campus-b3454963036d",
+        "kind": "title",
+        "field": "Title",
+        "before": "Informational and Weekly Session!",
+        "after": "Unwind, Recharge & Connect: Free Yoga, Food, Wellness & Community!"
       },
       {
-        "itemId": "campus-320b4a0f44cf",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-14T05:00:00.000Z",
-        "after": "2026-09-15T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-3cd3ac55d19d",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-14T05:00:00.000Z",
-        "after": "2026-09-15T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-42f5c06a1a5a",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-21T15:00:00.000Z",
-        "after": "2026-09-22T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ac117d6985f5",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-28T13:00:00.000Z",
-        "after": "2026-09-29T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-bc3a796a5f0a",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-28T13:00:00.000Z",
-        "after": "2026-09-29T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-bc3a7a6a5f0a",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-28T13:00:00.000Z",
-        "after": "2026-09-29T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-e4c9569412ff",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-02T14:30:00.000Z",
-        "after": "2026-11-03T06:00:00.000Z"
+        "itemId": "campus-b3454263036d",
+        "kind": "title",
+        "field": "Title",
+        "before": "Informational and Weekly Session!",
+        "after": "Unwind, Recharge & Connect: Free Yoga, Food, Wellness & Community!"
       }
     ],
     "estimatedMinutes": 0
@@ -146,26 +104,26 @@
   {
     "weekOf": "2026-09-14",
     "vertical": "research",
-    "scanned": 1050,
-    "candidates": 122,
+    "scanned": 1025,
+    "candidates": 113,
     "recommended": [
-      "research-76f991fe39b5",
+      "research-4edb0dcc16cb",
       "research-93730fe009d7",
       "research-e18240f28bab",
       "research-286d73921900",
-      "research-6a1119db9436",
-      "research-ddb676a6a87d"
+      "research-e7e8817c8a01",
+      "research-ae65572cda8f"
     ],
     "headlines": [
-      "M. tuberculosis · comparative genomics · phylogenetics",
+      "positive selection · codon-model analysis · comparative genomics",
       "positive selection · comparative genomics · phylogenetics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "positive selection · codon-model analysis · phylogenetics",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "positive selection · comparative genomics · phylogenetics"
+      "M. tuberculosis · comparative genomics · pathogen evolution",
+      "positive selection · phylogenetics · pathogen evolution"
     ],
     "changes": [],
-    "estimatedMinutes": 110
+    "estimatedMinutes": 105
   },
   {
     "weekOf": "2026-09-07",
