@@ -2,31 +2,150 @@
   {
     "weekOf": "2026-09-14",
     "vertical": "campus",
-    "scanned": 5976,
-    "candidates": 821,
+    "scanned": 5536,
+    "candidates": 756,
     "recommended": [
+      "campus-9873ba7b8b64",
       "campus-6b8b2593ce55",
       "campus-7aadd4799ff6",
       "campus-7aa353799fed",
       "campus-7aa6d0799ff0",
-      "campus-eb3aa28af94e",
-      "campus-9be38aa35020"
+      "campus-38cd0c8b2522"
     ],
     "headlines": [
+      "bioinformatics / genomics · data science · this week",
       "biotech · company recruiting · this week",
       "biotech · company recruiting · workshop / training",
       "biotech · company recruiting · workshop / training",
       "biotech · company recruiting · workshop / training",
-      "company recruiting · graduate opportunities · workshop / training",
-      "company recruiting · graduate opportunities · this week"
+      "biotech · company recruiting · in the next 3 weeks"
     ],
     "changes": [
       {
-        "itemId": "campus-56296b7baa80",
+        "itemId": "campus-7aa6d7799ff0",
         "kind": "location",
         "field": "Location",
-        "before": "Memorial Student Center",
-        "after": null
+        "before": "Interdisciplinary Life Sciences Building",
+        "after": "Rudder Tower"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-16T05:00:00.000Z",
+        "after": "2026-09-17T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ce40ae77f7fb",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-16T05:00:00.000Z",
+        "after": "2026-09-17T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1336d8c465ad",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-16T05:00:00.000Z",
+        "after": "2026-09-17T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-13d5f5749443",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-16T05:00:00.000Z",
+        "after": "2026-09-17T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7a4374781142",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-16T05:00:00.000Z",
+        "after": "2026-09-17T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b5af17ad553f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-16T05:00:00.000Z",
+        "after": "2026-09-17T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-c721d3a3689a",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-23T05:00:00.000Z",
+        "after": "2026-09-24T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-11bdd57a28c5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-28T05:00:00.000Z",
+        "after": "2026-10-05T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1830c1912645",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-16T05:00:00.000Z",
+        "after": "2026-09-17T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-320b4a0f44cf",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-16T05:00:00.000Z",
+        "after": "2026-09-17T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-3cd3ac55d19d",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-16T05:00:00.000Z",
+        "after": "2026-09-17T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-6b882593ce52",
+        "kind": "title",
+        "field": "Title",
+        "before": "HEPEC Seminar",
+        "after": "From Entangled Top Quarks to Quantum Tomography in HEP"
+      },
+      {
+        "itemId": "campus-42ffd16a1a63",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-07T21:00:00.000Z",
+        "after": "2026-10-08T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-fd85a0996680",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-16T21:00:00.000Z",
+        "after": "2026-09-17T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-fd85a2996680",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-16T21:00:00.000Z",
+        "after": "2026-09-17T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ac117d6985f5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-28T13:00:00.000Z",
+        "after": "2026-10-05T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-77bdde789b0a",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-07T05:00:00.000Z",
+        "after": "2026-10-08T05:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -34,22 +153,22 @@
   {
     "weekOf": "2026-09-14",
     "vertical": "research",
-    "scanned": 126,
-    "candidates": 61,
+    "scanned": 138,
+    "candidates": 68,
     "recommended": [
+      "research-665931ac93a2",
       "research-4edb0dcc16cb",
       "research-3477179b66ba",
       "research-93730fe009d7",
       "research-286d73921900",
-      "research-e18240f28bab",
-      "research-7c3dc649a851"
+      "research-f3558474becb"
     ],
     "headlines": [
+      "M. tuberculosis · positive selection · comparative genomics",
       "positive selection · codon-model analysis · comparative genomics",
       "positive selection · codon-model analysis · phylogenetics",
       "positive selection · comparative genomics · phylogenetics",
       "positive selection · codon-model analysis · phylogenetics",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
     "changes": [],
