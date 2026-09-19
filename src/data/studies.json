@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-19T01:15:31.050Z",
+  "fetchedAt": "2026-09-19T14:30:41.267Z",
   "totalFromHeader": 93,
   "studies": [
     {
@@ -3414,7 +3414,7 @@
       },
       "effectiveHourly": 14,
       "isExpired": false,
-      "staleness": "aging",
+      "staleness": "stale",
       "tags": [
         "online",
         "in-person",
@@ -3732,7 +3732,7 @@
       },
       "effectiveHourly": 15,
       "isExpired": false,
-      "staleness": "aging",
+      "staleness": "stale",
       "tags": [
         "in-person",
         "vr-ar",
@@ -4764,7 +4764,7 @@
       },
       "effectiveHourly": null,
       "isExpired": false,
-      "staleness": "aging",
+      "staleness": "stale",
       "tags": [
         "in-person",
         "clinical"
@@ -10452,7 +10452,7 @@
       "status": "ok",
       "itemCount": 84,
       "fetchSource": "network",
-      "durationMs": 4135,
+      "durationMs": 3677,
       "failedRequests": 0,
       "complete": true,
       "note": null,
@@ -10465,7 +10465,7 @@
       "status": "ok",
       "itemCount": 22,
       "fetchSource": "network",
-      "durationMs": 583,
+      "durationMs": 555,
       "failedRequests": 0,
       "complete": true,
       "note": null,
