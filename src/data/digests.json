@@ -2,129 +2,52 @@
   {
     "weekOf": "2026-09-14",
     "vertical": "campus",
-    "scanned": 5829,
-    "candidates": 745,
+    "scanned": 5898,
+    "candidates": 752,
     "recommended": [
       "campus-9873ba7b8b64",
       "campus-f0e12d38beba",
-      "campus-6b8b2593ce55",
-      "campus-7aadd4799ff6",
-      "campus-7aa353799fed",
-      "campus-7aa6d0799ff0"
+      "campus-8646fd7b80db",
+      "campus-02bf8938c901",
+      "campus-f9a5d038c3b9",
+      "campus-6b8b2593ce55"
     ],
     "headlines": [
       "bioinformatics / genomics · data science · this week",
       "computer science · research opportunity · this week",
-      "biotech · company recruiting · this week",
-      "biotech · company recruiting · workshop / training",
-      "biotech · company recruiting · workshop / training",
-      "biotech · company recruiting · workshop / training"
+      "research opportunity · company recruiting · workshop / training",
+      "research opportunity · company recruiting · workshop / training",
+      "research opportunity · graduate opportunities · workshop / training",
+      "biotech · company recruiting · this week"
     ],
     "changes": [
       {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-17T05:00:00.000Z",
-        "after": "2026-09-18T05:00:00.000Z"
+        "itemId": "campus-b33e5a630367",
+        "kind": "location",
+        "field": "Location",
+        "before": "Rudder",
+        "after": null
       },
       {
-        "itemId": "campus-ce40ae77f7fb",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-17T05:00:00.000Z",
-        "after": "2026-09-18T05:00:00.000Z"
+        "itemId": "campus-5a3878158a43",
+        "kind": "location",
+        "field": "Location",
+        "before": "Memorial Student Center",
+        "after": null
       },
       {
-        "itemId": "campus-1336d8c465ad",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-17T05:00:00.000Z",
-        "after": "2026-09-18T05:00:00.000Z"
+        "itemId": "campus-f368ad554d32",
+        "kind": "location",
+        "field": "Location",
+        "before": "All Faiths Chapel",
+        "after": null
       },
       {
-        "itemId": "campus-13d5f5749443",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-17T05:00:00.000Z",
-        "after": "2026-09-18T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7a4374781142",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-17T05:00:00.000Z",
-        "after": "2026-09-18T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b5af17ad553f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-17T05:00:00.000Z",
-        "after": "2026-09-18T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-c721d3a3689a",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-24T05:00:00.000Z",
-        "after": "2026-09-23T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-abbdb86a55f0",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-05T06:00:00.000Z",
-        "after": "2026-11-06T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-1830c1912645",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-17T05:00:00.000Z",
-        "after": "2026-09-18T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-320b4a0f44cf",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-17T05:00:00.000Z",
-        "after": "2026-09-18T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-3cd3ac55d19d",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-17T05:00:00.000Z",
-        "after": "2026-09-18T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-0a1ba838cccd",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-24T05:00:00.000Z",
-        "after": "2026-09-23T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ddd6f7829832",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-24T05:00:00.000Z",
-        "after": "2026-09-25T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-42ffd16a1a63",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-08T05:00:00.000Z",
-        "after": "2026-10-07T21:00:00.000Z"
-      },
-      {
-        "itemId": "campus-77bdde789b0a",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-08T05:00:00.000Z",
-        "after": "2026-10-07T05:00:00.000Z"
+        "itemId": "campus-7229fc7bc6dd",
+        "kind": "location",
+        "field": "Location",
+        "before": "Commons",
+        "after": null
       }
     ],
     "estimatedMinutes": 0
@@ -132,15 +55,15 @@
   {
     "weekOf": "2026-09-14",
     "vertical": "research",
-    "scanned": 1029,
+    "scanned": 1013,
     "candidates": 124,
     "recommended": [
       "research-665931ac93a2",
       "research-3477179b66ba",
       "research-4cd2e054bee3",
+      "research-83d5d435b5fb",
       "research-e18240f28bab",
-      "research-f3558474becb",
-      "research-ca979ba11a8c"
+      "research-f3558474becb"
     ],
     "headlines": [
       "M. tuberculosis · positive selection · comparative genomics",
@@ -150,7 +73,15 @@
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "research-471c9d5e270e",
+        "kind": "title",
+        "field": "Title",
+        "before": "Isotopic tracing in Mycobacterium tuberculosis-infected alveolar epithelial cells indicates metabolic specificity to their virulence and drug-resistance status.",
+        "after": "Isotopic tracing in Mycobacterium tuberculosis -infected alveolar epithelial cells indicates metabolic specificity to their virulence and drug-resistance status."
+      }
+    ],
     "estimatedMinutes": 107
   },
   {
