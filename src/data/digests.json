@@ -3,7 +3,7 @@
     "weekOf": "2026-09-14",
     "vertical": "campus",
     "scanned": 6015,
-    "candidates": 721,
+    "candidates": 709,
     "recommended": [
       "campus-9873ba7b8b64",
       "campus-f0e12d38beba",
@@ -20,187 +20,32 @@
       "research opportunity · company recruiting · workshop / training",
       "research opportunity · company recruiting · food provided"
     ],
-    "changes": [
-      {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-18T05:00:00.000Z",
-        "after": "2026-09-19T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ce40ae77f7fb",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-18T05:00:00.000Z",
-        "after": "2026-09-19T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-1336d8c465ad",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-18T05:00:00.000Z",
-        "after": "2026-09-19T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-13d5f5749443",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-18T05:00:00.000Z",
-        "after": "2026-09-19T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7a4374781142",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-18T05:00:00.000Z",
-        "after": "2026-09-19T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b5af17ad553f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-18T05:00:00.000Z",
-        "after": "2026-09-19T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-abbdb86a55f0",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-06T06:00:00.000Z",
-        "after": "2026-11-05T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-1830c1912645",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-18T05:00:00.000Z",
-        "after": "2026-09-19T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-320b4a0f44cf",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-18T05:00:00.000Z",
-        "after": "2026-09-19T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-3cd3ac55d19d",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-18T05:00:00.000Z",
-        "after": "2026-09-19T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-abc1266a55f3",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-11T06:00:00.000Z",
-        "after": "2026-12-12T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-8f71a47b8630",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-25T05:00:00.000Z",
-        "after": "2026-09-26T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-1c418138d751",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-18T14:00:00.000Z",
-        "after": "2026-09-19T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-c8ab4ee3f5b4",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-18T05:00:00.000Z",
-        "after": "2026-11-13T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ddd6f7829832",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-25T05:00:00.000Z",
-        "after": "2026-09-24T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-0a1b9d38cccd",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-25T14:00:00.000Z",
-        "after": "2026-09-26T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11b6c47a28bf",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-25T13:00:00.000Z",
-        "after": "2026-09-26T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-eef88c73083d",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-18T22:00:00.000Z",
-        "after": "2026-09-19T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-426600a21a33",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-09T13:00:00.000Z",
-        "after": "2026-10-10T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-eb0b128af926",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-09T05:00:00.000Z",
-        "after": "2026-10-10T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-bc44906a5f13",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-23T21:00:00.000Z",
-        "after": "2026-10-24T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-bc44896a5f13",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-06T22:00:00.000Z",
-        "after": "2026-11-07T06:00:00.000Z"
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-09-14",
     "vertical": "research",
-    "scanned": 1008,
-    "candidates": 123,
+    "scanned": 1004,
+    "candidates": 111,
     "recommended": [
       "research-665931ac93a2",
       "research-83d5d435b5fb",
       "research-4cd2e054bee3",
       "research-3477179b66ba",
-      "research-e18240f28bab",
-      "research-f3558474becb"
+      "research-c570b05c68e8",
+      "research-e18240f28bab"
     ],
     "headlines": [
       "M. tuberculosis · positive selection · comparative genomics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · positive selection · very recent",
       "positive selection · codon-model analysis · phylogenetics",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "positive selection · comparative genomics · antimicrobial resistance",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
     "changes": [],
-    "estimatedMinutes": 107
+    "estimatedMinutes": 100
   },
   {
     "weekOf": "2026-09-07",
