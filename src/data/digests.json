@@ -2,30 +2,142 @@
   {
     "weekOf": "2026-09-21",
     "vertical": "campus",
-    "scanned": 6244,
-    "candidates": 794,
+    "scanned": 6110,
+    "candidates": 859,
     "recommended": [
-      "campus-99fb1a388d6e"
+      "campus-eb3aa28af94e",
+      "campus-bc2d086a5eff",
+      "campus-9eb4f579b4c2",
+      "campus-abbdb76a55f0",
+      "campus-0315098176fa",
+      "campus-b308d56a59af"
     ],
     "headlines": [
-      "tomorrow"
+      "company recruiting · graduate opportunities · workshop / training",
+      "company recruiting · today · workshop / training",
+      "biotech · employer: citadel · food provided",
+      "biotech · football · later this term",
+      "research opportunity · workshop / training · later this term",
+      "company recruiting · workshop / training · in the next 3 weeks"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-ac0ed6a358f5",
+        "kind": "title",
+        "field": "Title",
+        "before": "Education Grand Rounds: Assessments",
+        "after": "Education Grand Rounds: AI in Assessment Item Creation"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-20T05:00:00.000Z",
+        "after": "2026-09-21T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ce40ae77f7fb",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-20T05:00:00.000Z",
+        "after": "2026-09-21T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1336d8c465ad",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-20T05:00:00.000Z",
+        "after": "2026-09-21T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-13d5f5749443",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-20T05:00:00.000Z",
+        "after": "2026-09-21T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7a4374781142",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-20T05:00:00.000Z",
+        "after": "2026-09-21T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b5af17ad553f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-20T05:00:00.000Z",
+        "after": "2026-09-21T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abbdbc6a55f1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-01T05:00:00.000Z",
+        "after": "2026-11-02T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1830c1912645",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-20T05:00:00.000Z",
+        "after": "2026-09-21T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-320b4a0f44cf",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-20T05:00:00.000Z",
+        "after": "2026-09-21T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-3cd3ac55d19d",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-20T05:00:00.000Z",
+        "after": "2026-09-21T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ac1260a358f8",
+        "kind": "title",
+        "field": "Title",
+        "before": "IAMSE Fall 2026: Fostering Critical Thinking in Medical Education",
+        "after": "IAMSE Webinar: Fostering Critical Thinking in Medical Education"
+      },
+      {
+        "itemId": "campus-49b12da21df1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-27T05:00:00.000Z",
+        "after": "2026-09-26T05:00:00.000Z"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-09-21",
     "vertical": "research",
-    "scanned": 141,
-    "candidates": 71,
+    "scanned": 974,
+    "candidates": 96,
     "recommended": [
-      "research-d10b45cfca09"
+      "research-4edb0dcc16cb",
+      "research-286d73921900",
+      "research-a91f6b38b7ef",
+      "research-ca979ba11a8c",
+      "research-1f781dd85842",
+      "research-b45a566f19d4"
     ],
     "headlines": [
-      "positive selection · phylogenetics · pathogen evolution"
+      "positive selection · codon-model analysis · comparative genomics",
+      "positive selection · codon-model analysis · phylogenetics",
+      "M. tuberculosis · positive selection · very recent",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "M. tuberculosis · antimicrobial resistance · host-pathogen interaction",
+      "comparative genomics · phylogenetics · antimicrobial resistance"
     ],
     "changes": [],
-    "estimatedMinutes": 17
+    "estimatedMinutes": 103
   },
   {
     "weekOf": "2026-09-14",
