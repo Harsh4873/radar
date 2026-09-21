@@ -1,5 +1,33 @@
 [
   {
+    "weekOf": "2026-09-21",
+    "vertical": "campus",
+    "scanned": 6244,
+    "candidates": 794,
+    "recommended": [
+      "campus-99fb1a388d6e"
+    ],
+    "headlines": [
+      "tomorrow"
+    ],
+    "changes": [],
+    "estimatedMinutes": 0
+  },
+  {
+    "weekOf": "2026-09-21",
+    "vertical": "research",
+    "scanned": 141,
+    "candidates": 71,
+    "recommended": [
+      "research-d10b45cfca09"
+    ],
+    "headlines": [
+      "positive selection · phylogenetics · pathogen evolution"
+    ],
+    "changes": [],
+    "estimatedMinutes": 17
+  },
+  {
     "weekOf": "2026-09-14",
     "vertical": "campus",
     "scanned": 6236,
