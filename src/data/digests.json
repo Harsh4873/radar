@@ -2,59 +2,150 @@
   {
     "weekOf": "2026-09-21",
     "vertical": "campus",
-    "scanned": 6145,
-    "candidates": 855,
+    "scanned": 5791,
+    "candidates": 822,
     "recommended": [
       "campus-eb3aa28af94e",
-      "campus-9be38da35020",
-      "campus-9eb4f579b4c2",
+      "campus-a60e2879b88c",
       "campus-9be38ca35020",
-      "campus-abbdb76a55f0",
+      "campus-bc2d086a5eff",
+      "campus-9eb4f579b4c2",
       "campus-2103432fbc31"
     ],
     "headlines": [
       "company recruiting · graduate opportunities · workshop / training",
+      "computer science · this week · workshop / training",
       "company recruiting · graduate opportunities · this week",
+      "company recruiting · today · workshop / training",
       "biotech · employer: citadel · food provided",
-      "company recruiting · graduate opportunities · in the next 3 weeks",
-      "biotech · football · later this term",
-      "computer science · this week"
+      "computer science · tomorrow"
     ],
     "changes": [
       {
-        "itemId": "campus-23688e732613",
+        "itemId": "campus-34b66f39f2e3",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-22T13:00:00.000Z",
-        "after": "2026-09-22T14:45:00.000Z"
+        "before": "2026-09-21T05:00:00.000Z",
+        "after": "2026-09-22T05:00:00.000Z"
       },
       {
-        "itemId": "campus-b308d36a59af",
-        "kind": "title",
-        "field": "Title",
-        "before": "Graduate Student Workshop Series - Academic Integrity",
-        "after": "Academic Integrity"
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-21T05:00:00.000Z",
+        "after": "2026-09-22T05:00:00.000Z"
       },
       {
-        "itemId": "campus-3948d7a214e8",
-        "kind": "title",
-        "field": "Title",
-        "before": "HET Seminar",
-        "after": "The Stability Problem for Extremal Black Holes"
+        "itemId": "campus-ce40ae77f7fb",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-21T05:00:00.000Z",
+        "after": "2026-09-22T05:00:00.000Z"
       },
       {
-        "itemId": "campus-359160733098",
-        "kind": "title",
-        "field": "Title",
-        "before": "Glow Party",
-        "after": "CANCELLED: Glow Party"
+        "itemId": "campus-e208fa8af3f2",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-05T13:00:00.000Z",
+        "after": "2026-10-06T05:00:00.000Z"
       },
       {
-        "itemId": "campus-a60e2979b88c",
-        "kind": "title",
-        "field": "Title",
-        "before": "San Marcos WatershED 101 Workshop",
-        "after": "WatershED Teacher Workshop: Wimberley"
+        "itemId": "campus-1336d8c465ad",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-21T05:00:00.000Z",
+        "after": "2026-09-22T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7a4374781142",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-21T05:00:00.000Z",
+        "after": "2026-09-22T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b5af17ad553f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-21T05:00:00.000Z",
+        "after": "2026-09-22T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-42f5c06a1a5a",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-21T15:00:00.000Z",
+        "after": "2026-09-22T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abbdbc6a55f1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-02T06:00:00.000Z",
+        "after": "2026-11-01T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-11bdd57a28c5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-05T05:00:00.000Z",
+        "after": "2026-10-06T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a31bb7b3fae6",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-14T06:00:00.000Z",
+        "after": "2026-12-15T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-3cd3ac55d19d",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-21T05:00:00.000Z",
+        "after": "2026-09-22T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-45fb48786564",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-21T05:00:00.000Z",
+        "after": "2026-09-22T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1c418738d751",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-28T13:00:00.000Z",
+        "after": "2026-09-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bc3a796a5f0a",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-28T13:00:00.000Z",
+        "after": "2026-09-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-fd5292996654",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-21T13:30:00.000Z",
+        "after": "2026-09-22T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ac117d6985f5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-05T13:00:00.000Z",
+        "after": "2026-10-06T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-e4c9569412ff",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-02T14:30:00.000Z",
+        "after": "2026-11-03T06:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -62,26 +153,26 @@
   {
     "weekOf": "2026-09-21",
     "vertical": "research",
-    "scanned": 993,
-    "candidates": 119,
+    "scanned": 972,
+    "candidates": 110,
     "recommended": [
       "research-4edb0dcc16cb",
       "research-3477179b66ba",
-      "research-ec7c2d98657d",
-      "research-2b0afeb006e2",
+      "research-a91f6b38b7ef",
       "research-286d73921900",
-      "research-a91f6b38b7ef"
+      "research-ca979ba11a8c",
+      "research-64a790703481"
     ],
     "headlines": [
       "positive selection · codon-model analysis · comparative genomics",
       "positive selection · codon-model analysis · phylogenetics",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · diabetes / host metabolic · just posted",
+      "M. tuberculosis · positive selection · very recent",
       "positive selection · codon-model analysis · phylogenetics",
-      "M. tuberculosis · positive selection · very recent"
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "M. tuberculosis · comparative genomics · pathogen evolution"
     ],
     "changes": [],
-    "estimatedMinutes": 110
+    "estimatedMinutes": 104
   },
   {
     "weekOf": "2026-09-14",
