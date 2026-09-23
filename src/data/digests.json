@@ -2,50 +2,163 @@
   {
     "weekOf": "2026-09-21",
     "vertical": "campus",
-    "scanned": 5835,
-    "candidates": 818,
+    "scanned": 5712,
+    "candidates": 833,
     "recommended": [
       "campus-eb3aa28af94e",
+      "campus-2a04db2fc164",
       "campus-20fc3a2fbc2b",
-      "campus-a60e2879b88c",
-      "campus-9be38ca35020",
-      "campus-20f8b32fbc28",
-      "campus-20f5462fbc25"
+      "campus-9be38da35020",
+      "campus-7aa6d7799ff0",
+      "campus-9be38ba35020"
     ],
     "headlines": [
       "company recruiting · graduate opportunities · workshop / training",
+      "computer science · tomorrow · workshop / training",
       "computer science · workshop / training · food provided",
-      "computer science · this week · workshop / training",
       "company recruiting · graduate opportunities · this week",
-      "biotech · company recruiting · later this term",
-      "biotech · company recruiting · later this term"
+      "computer science · this week · workshop / training",
+      "company recruiting · graduate opportunities · this week"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-34b66f39f2e3",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-22T05:00:00.000Z",
+        "after": "2026-09-23T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-22T05:00:00.000Z",
+        "after": "2026-09-23T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ce40ae77f7fb",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-22T05:00:00.000Z",
+        "after": "2026-09-23T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-e208fa8af3f2",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-06T05:00:00.000Z",
+        "after": "2026-10-05T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1336d8c465ad",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-22T05:00:00.000Z",
+        "after": "2026-09-23T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7a4374781142",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-22T05:00:00.000Z",
+        "after": "2026-09-23T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b5af17ad553f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-22T05:00:00.000Z",
+        "after": "2026-09-23T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-11bdd57a28c5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-06T05:00:00.000Z",
+        "after": "2026-10-05T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a31bb7b3fae6",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-15T06:00:00.000Z",
+        "after": "2026-12-14T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-3cd3ac55d19d",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-22T05:00:00.000Z",
+        "after": "2026-09-23T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-45fb48786564",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-22T05:00:00.000Z",
+        "after": "2026-09-23T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1c418738d751",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-29T05:00:00.000Z",
+        "after": "2026-09-28T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bc3a796a5f0a",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-29T05:00:00.000Z",
+        "after": "2026-09-28T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a314b93892b5",
+        "kind": "title",
+        "field": "Title",
+        "before": "Sbisa Star Party",
+        "after": "CANCELED Star Party due to heavy cloud cover"
+      },
+      {
+        "itemId": "campus-ac117d6985f5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-06T05:00:00.000Z",
+        "after": "2026-10-05T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-e4c9569412ff",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-03T06:00:00.000Z",
+        "after": "2026-11-02T14:30:00.000Z"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-09-21",
     "vertical": "research",
-    "scanned": 979,
-    "candidates": 102,
+    "scanned": 1006,
+    "candidates": 111,
     "recommended": [
       "research-bc72fd3916fc",
+      "research-3477179b66ba",
       "research-490314729427",
       "research-ec7c2d98657d",
       "research-2b0afeb006e2",
-      "research-a91f6b38b7ef",
       "research-dde8e86be972"
     ],
     "headlines": [
       "positive selection · codon-model analysis · phylogenetics",
+      "positive selection · codon-model analysis · phylogenetics",
       "M. tuberculosis · phylogenetics · selection methods applied to Mtb",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · diabetes / host metabolic · just posted",
-      "M. tuberculosis · positive selection · very recent",
       "positive selection · comparative genomics · phylogenetics"
     ],
     "changes": [],
-    "estimatedMinutes": 105
+    "estimatedMinutes": 108
   },
   {
     "weekOf": "2026-09-14",
