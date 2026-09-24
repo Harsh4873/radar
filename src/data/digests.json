@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-09-21",
     "vertical": "campus",
-    "scanned": 5712,
-    "candidates": 833,
+    "scanned": 5990,
+    "candidates": 826,
     "recommended": [
       "campus-eb3aa28af94e",
       "campus-2a04db2fc164",
@@ -22,116 +22,25 @@
     ],
     "changes": [
       {
-        "itemId": "campus-34b66f39f2e3",
+        "itemId": "campus-7aa352799fed",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-22T05:00:00.000Z",
-        "after": "2026-09-23T05:00:00.000Z"
+        "before": "2026-10-12T23:00:00.000Z",
+        "after": "2026-10-12T22:30:00.000Z"
       },
       {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-22T05:00:00.000Z",
-        "after": "2026-09-23T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ce40ae77f7fb",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-22T05:00:00.000Z",
-        "after": "2026-09-23T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-e208fa8af3f2",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-06T05:00:00.000Z",
-        "after": "2026-10-05T13:00:00.000Z"
-      },
-      {
-        "itemId": "campus-1336d8c465ad",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-22T05:00:00.000Z",
-        "after": "2026-09-23T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7a4374781142",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-22T05:00:00.000Z",
-        "after": "2026-09-23T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b5af17ad553f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-22T05:00:00.000Z",
-        "after": "2026-09-23T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11bdd57a28c5",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-06T05:00:00.000Z",
-        "after": "2026-10-05T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a31bb7b3fae6",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-15T06:00:00.000Z",
-        "after": "2026-12-14T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-3cd3ac55d19d",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-22T05:00:00.000Z",
-        "after": "2026-09-23T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-45fb48786564",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-22T05:00:00.000Z",
-        "after": "2026-09-23T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-1c418738d751",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-29T05:00:00.000Z",
-        "after": "2026-09-28T13:00:00.000Z"
-      },
-      {
-        "itemId": "campus-bc3a796a5f0a",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-29T05:00:00.000Z",
-        "after": "2026-09-28T13:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a314b93892b5",
+        "itemId": "campus-6e9150179c37",
         "kind": "title",
         "field": "Title",
-        "before": "Sbisa Star Party",
-        "after": "CANCELED Star Party due to heavy cloud cover"
+        "before": "SOLE Meeting: What Is Marriage, According to the Church?",
+        "after": "SOLE Meeting: The Sacrament of Marriage"
       },
       {
-        "itemId": "campus-ac117d6985f5",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-06T05:00:00.000Z",
-        "after": "2026-10-05T13:00:00.000Z"
-      },
-      {
-        "itemId": "campus-e4c9569412ff",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-03T06:00:00.000Z",
-        "after": "2026-11-02T14:30:00.000Z"
+        "itemId": "campus-7206de92cef6",
+        "kind": "title",
+        "field": "Title",
+        "before": "University Writing Center CRLA Class",
+        "after": "University Writing Center CRLA III Class"
       }
     ],
     "estimatedMinutes": 0
@@ -139,8 +48,8 @@
   {
     "weekOf": "2026-09-21",
     "vertical": "research",
-    "scanned": 1006,
-    "candidates": 111,
+    "scanned": 123,
+    "candidates": 58,
     "recommended": [
       "research-bc72fd3916fc",
       "research-3477179b66ba",
