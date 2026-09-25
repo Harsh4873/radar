@@ -2,241 +2,213 @@
   {
     "weekOf": "2026-09-21",
     "vertical": "campus",
-    "scanned": 5445,
-    "candidates": 683,
+    "scanned": 5664,
+    "candidates": 727,
     "recommended": [
       "campus-38cd0c8b2522",
+      "campus-9be387a35020",
       "campus-2a04db2fc164",
       "campus-eb3aa28af94e",
-      "campus-2a085d2fc167",
-      "campus-a60e2879b88c",
-      "campus-2a085f2fc167"
+      "campus-9be38ea35020",
+      "campus-20fc3a2fbc2b"
     ],
     "headlines": [
       "biotech · company recruiting · this week",
+      "company recruiting · graduate opportunities · today",
       "computer science · today · workshop / training",
       "company recruiting · graduate opportunities · workshop / training",
-      "computer science · workshop / training · food provided",
-      "computer science · this week · workshop / training",
-      "computer science · this week · workshop / training"
+      "company recruiting · graduate opportunities · tomorrow",
+      "computer science · workshop / training · food provided"
     ],
     "changes": [
       {
         "itemId": "campus-ac0ed6a358f5",
         "kind": "title",
         "field": "Title",
-        "before": "Education Grand Rounds: AI in Assessment Item Creation",
-        "after": "Education Grand Rounds: Assessments"
-      },
-      {
-        "itemId": "campus-34b66f39f2e3",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-23T05:00:00.000Z",
-        "after": "2026-09-24T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-23T05:00:00.000Z",
-        "after": "2026-09-24T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ce40ae77f7fb",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-23T05:00:00.000Z",
-        "after": "2026-09-24T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11bdd57a28c5",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-05T05:00:00.000Z",
-        "after": "2026-09-24T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-1336d8c465ad",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-23T05:00:00.000Z",
-        "after": "2026-09-24T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7a4374781142",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-23T05:00:00.000Z",
-        "after": "2026-09-24T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b5af17ad553f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-23T05:00:00.000Z",
-        "after": "2026-09-24T05:00:00.000Z"
+        "before": "Education Grand Rounds: Assessments",
+        "after": "Education Grand Rounds: AI in Assessment Item Creation"
       },
       {
         "itemId": "campus-38ae968b2508",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-26T23:00:00.000Z",
-        "after": "2026-09-26T19:00:00.000Z"
+        "before": "2026-09-26T19:00:00.000Z",
+        "after": "2026-09-26T23:00:00.000Z"
+      },
+      {
+        "itemId": "campus-42dcffc33a1e",
+        "kind": "location",
+        "field": "Location",
+        "before": "Rudder",
+        "after": null
       },
       {
         "itemId": "campus-ac1260a358f8",
         "kind": "title",
         "field": "Title",
-        "before": "IAMSE Webinar: Fostering Critical Thinking in Medical Education",
-        "after": "IAMSE Fall 2026: Fostering Critical Thinking in Medical Education"
+        "before": "IAMSE Fall 2026: Fostering Critical Thinking in Medical Education",
+        "after": "IAMSE Webinar: Fostering Critical Thinking in Medical Education"
       },
       {
-        "itemId": "campus-3cd3ac55d19d",
+        "itemId": "campus-11bdd57a28c5",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-23T05:00:00.000Z",
-        "after": "2026-09-24T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-45fb48786564",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-23T05:00:00.000Z",
-        "after": "2026-09-24T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11afd07a28b9",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-14T13:00:00.000Z",
-        "after": "2026-09-24T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11b6c47a28bf",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-25T13:00:00.000Z",
-        "after": "2026-09-24T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ac117d6985f5",
-        "kind": "title",
-        "field": "Title",
-        "before": "Taste 360 2025-2027",
-        "after": "Taste 360 2025-2026"
-      },
-      {
-        "itemId": "campus-ac117d6985f5",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-05T13:00:00.000Z",
-        "after": "2026-09-24T05:00:00.000Z"
+        "before": "2026-09-24T05:00:00.000Z",
+        "after": "2026-10-05T05:00:00.000Z"
       },
       {
         "itemId": "campus-6b882593ce52",
         "kind": "title",
         "field": "Title",
-        "before": "From Entangled Top Quarks to Quantum Tomography in HEP",
-        "after": "HEPEC Seminar"
+        "before": "HEPEC Seminar",
+        "after": "From Entangled Top Quarks to Quantum Tomography in HEP"
+      },
+      {
+        "itemId": "campus-8f71a47b8630",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-08T05:00:00.000Z",
+        "after": "2026-09-25T05:00:00.000Z"
       },
       {
         "itemId": "campus-2c7b3d732b54",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-25T14:40:00.000Z",
-        "after": "2026-09-25T13:30:00.000Z"
+        "before": "2026-09-25T13:30:00.000Z",
+        "after": "2026-09-25T14:40:00.000Z"
+      },
+      {
+        "itemId": "campus-680bfe866038",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-03T16:00:00.000Z",
+        "after": "2026-10-03T21:00:00.000Z"
       },
       {
         "itemId": "campus-fe609d2fa894",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-05T16:33:00.000Z",
-        "after": "2026-10-08T05:00:00.000Z"
+        "before": "2026-10-08T05:00:00.000Z",
+        "after": "2026-10-05T16:33:00.000Z"
       },
       {
         "itemId": "campus-3948d7a214e8",
         "kind": "title",
         "field": "Title",
-        "before": "The Stability Problem for Extremal Black Holes",
-        "after": "HET Seminar"
+        "before": "HET Seminar",
+        "after": "The Stability Problem for Extremal Black Holes"
       },
       {
-        "itemId": "campus-42ffd16a1a63",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-07T21:00:00.000Z",
-        "after": "2026-10-08T05:00:00.000Z"
+        "itemId": "campus-77ea6b45e0b6",
+        "kind": "location",
+        "field": "Location",
+        "before": "CHEM 2104",
+        "after": "Chemistry Building, Room 2104"
+      },
+      {
+        "itemId": "campus-55aa4c45cd6c",
+        "kind": "title",
+        "field": "Title",
+        "before": "ASTR Seminar",
+        "after": "Better Together: Combining the Strengths of Rubin, Euclid, and Roman for Time-domain Science and Cosmology"
       },
       {
         "itemId": "campus-57b3037343c8",
         "kind": "title",
         "field": "Title",
-        "before": "HIST 232 Guided Group Study",
-        "after": "HIST 105 Guided Group Study"
+        "before": "HIST 105 Guided Group Study",
+        "after": "HIST 232 Guided Group Study"
       },
       {
         "itemId": "campus-4ecf53733eae",
-        "kind": "title",
-        "field": "Title",
-        "before": "CHEM 107 Course Support",
-        "after": "CHEM 258 Course Support"
-      },
-      {
-        "itemId": "campus-896f779cfd14",
-        "kind": "location",
-        "field": "Location",
-        "before": "Galveston",
-        "after": "121A, Galveston"
-      },
-      {
-        "itemId": "campus-896f779cfd14",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-25T01:30:00.000Z",
-        "after": "2026-09-25T01:00:00.000Z"
-      },
-      {
-        "itemId": "campus-8973049cfd18",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-25T02:30:00.000Z",
-        "after": "2026-09-25T02:00:00.000Z"
-      },
-      {
-        "itemId": "campus-8973059cfd18",
         "kind": "title",
         "field": "Title",
         "before": "CHEM 258 Course Support",
         "after": "CHEM 107 Course Support"
       },
       {
+        "itemId": "campus-896f779cfd14",
+        "kind": "location",
+        "field": "Location",
+        "before": "121A, Galveston",
+        "after": "Galveston"
+      },
+      {
+        "itemId": "campus-896f779cfd14",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-25T01:00:00.000Z",
+        "after": "2026-09-25T01:30:00.000Z"
+      },
+      {
+        "itemId": "campus-8973059cfd18",
+        "kind": "title",
+        "field": "Title",
+        "before": "CHEM 107 Course Support",
+        "after": "CHEM 258 Course Support"
+      },
+      {
+        "itemId": "campus-8973049cfd18",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-25T02:00:00.000Z",
+        "after": "2026-09-25T02:30:00.000Z"
+      },
+      {
         "itemId": "campus-c721cba36899",
         "kind": "title",
         "field": "Title",
-        "before": "Graduate Students: Facilitating an Excellent Interview",
-        "after": "Graduate Students: Interviews that don’t suck | Facilitating an Excellent Interview"
+        "before": "Graduate Students: Interviews that don’t suck | Facilitating an Excellent Interview",
+        "after": "Graduate Students: Facilitating an Excellent Interview"
       },
       {
-        "itemId": "campus-8f71a47b8630",
+        "itemId": "campus-3e3e7a733583",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-25T05:00:00.000Z",
-        "after": "2026-10-08T05:00:00.000Z"
+        "before": "2026-09-25T17:00:00.000Z",
+        "after": "2026-09-25T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-4cb2a745c842",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-28T18:00:00.000Z",
+        "after": "2026-09-28T17:00:00.000Z"
       },
       {
         "itemId": "campus-2c7b3a732b54",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-02T14:40:00.000Z",
-        "after": "2026-10-02T13:30:00.000Z"
+        "before": "2026-10-02T13:30:00.000Z",
+        "after": "2026-10-02T14:40:00.000Z"
       },
       {
-        "itemId": "campus-77bdde789b0a",
+        "itemId": "campus-ac117d6985f5",
+        "kind": "title",
+        "field": "Title",
+        "before": "Taste 360 2025-2026",
+        "after": "Taste 360 2025-2027"
+      },
+      {
+        "itemId": "campus-ac117d6985f5",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-07T05:00:00.000Z",
+        "before": "2026-09-24T05:00:00.000Z",
+        "after": "2026-10-05T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-11b6c47a28bf",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-24T05:00:00.000Z",
         "after": "2026-10-08T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-11afd07a28b9",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-24T05:00:00.000Z",
+        "after": "2026-10-15T05:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -244,8 +216,8 @@
   {
     "weekOf": "2026-09-21",
     "vertical": "research",
-    "scanned": 116,
-    "candidates": 53,
+    "scanned": 113,
+    "candidates": 57,
     "recommended": [
       "research-bc72fd3916fc",
       "research-616715b292a5",
@@ -262,7 +234,15 @@
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · diabetes / host metabolic · just posted"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "research-a91f6b38b7ef",
+        "kind": "title",
+        "field": "Title",
+        "before": "Variation in multiple classes of simple sequence repeats can alter drug susceptibility in Mycobacterium tuberculosis",
+        "after": "Variation in multiple classes of simple sequence repeats can alter drug susceptibility in Mycobacterium tuberculosis."
+      }
+    ],
     "estimatedMinutes": 110
   },
   {
