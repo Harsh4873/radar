@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-09-21",
     "vertical": "campus",
-    "scanned": 5757,
-    "candidates": 714,
+    "scanned": 5773,
+    "candidates": 699,
     "recommended": [
       "campus-38cd0c8b2522",
       "campus-20fc3a2fbc2b",
@@ -22,95 +22,25 @@
     ],
     "changes": [
       {
-        "itemId": "campus-34b66f39f2e3",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-24T05:00:00.000Z",
-        "after": "2026-09-25T05:00:00.000Z"
+        "itemId": "campus-b33e57630367",
+        "kind": "location",
+        "field": "Location",
+        "before": "Rudder",
+        "after": null
       },
       {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-24T05:00:00.000Z",
-        "after": "2026-09-25T05:00:00.000Z"
+        "itemId": "campus-f3689e554d32",
+        "kind": "location",
+        "field": "Location",
+        "before": "All Faiths Chapel",
+        "after": null
       },
       {
-        "itemId": "campus-ce40ae77f7fb",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-24T05:00:00.000Z",
-        "after": "2026-09-25T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-1336d8c465ad",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-24T05:00:00.000Z",
-        "after": "2026-09-25T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7a4374781142",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-24T05:00:00.000Z",
-        "after": "2026-09-25T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b5af17ad553f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-24T05:00:00.000Z",
-        "after": "2026-09-25T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-abbdb86a55f0",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-05T06:00:00.000Z",
-        "after": "2026-11-06T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-45fb48786564",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-24T05:00:00.000Z",
-        "after": "2026-09-25T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-20fc392fbc2b",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-25T00:30:00.000Z",
-        "after": "2026-09-25T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-42ffd16a1a63",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-08T05:00:00.000Z",
-        "after": "2026-10-07T21:00:00.000Z"
-      },
-      {
-        "itemId": "campus-77bdde789b0a",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-08T05:00:00.000Z",
-        "after": "2026-10-07T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11b6c47a28bf",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-08T05:00:00.000Z",
-        "after": "2026-10-07T13:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11afd07a28b9",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-15T05:00:00.000Z",
-        "after": "2026-10-14T13:00:00.000Z"
+        "itemId": "campus-3c395d45bf2b",
+        "kind": "title",
+        "field": "Title",
+        "before": "Education Law Program: School Finance in Texas",
+        "after": "Education Law Program: School Finance in Texas, RSVP"
       }
     ],
     "estimatedMinutes": 0
@@ -118,34 +48,34 @@
   {
     "weekOf": "2026-09-21",
     "vertical": "research",
-    "scanned": 110,
+    "scanned": 105,
     "candidates": 57,
     "recommended": [
       "research-bc72fd3916fc",
+      "research-b42fcc3671c3",
       "research-616715b292a5",
       "research-3477179b66ba",
       "research-490314729427",
-      "research-ec7c2d98657d",
-      "research-2b0afeb006e2"
+      "research-ec7c2d98657d"
     ],
     "headlines": [
+      "positive selection · codon-model analysis · phylogenetics",
       "positive selection · codon-model analysis · phylogenetics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "positive selection · codon-model analysis · phylogenetics",
       "M. tuberculosis · phylogenetics · selection methods applied to Mtb",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · diabetes / host metabolic · just posted"
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
     "changes": [
       {
-        "itemId": "research-4cd2e054bee3",
+        "itemId": "research-616715b292a5",
         "kind": "title",
         "field": "Title",
-        "before": "Can Diagnostic Delay Amplify Drug Resistance in Tuberculosis? A Critical Integrative Reflection on Bacterial Adaptation, Persistence, Within-Host Evolution, and Heteroresistance",
-        "after": "Can Diagnostic Delay Amplify Drug Resistance in Tuberculosis? A Critical Integrative Reflection on Bacterial Adaptation, Persistence, Within-Host Evolution, and Heteroresistance."
+        "before": "Drug resistance in patients with tuberculosis: a study from a tertiary care center in northern India",
+        "after": "Drug resistance in patients with tuberculosis: a study from a tertiary care center in northern India."
       }
     ],
-    "estimatedMinutes": 110
+    "estimatedMinutes": 108
   },
   {
     "weekOf": "2026-09-14",
