@@ -2,45 +2,157 @@
   {
     "weekOf": "2026-09-21",
     "vertical": "campus",
-    "scanned": 5773,
-    "candidates": 699,
+    "scanned": 5759,
+    "candidates": 584,
     "recommended": [
+      "campus-d8f2bf8aeeae",
+      "campus-df29754ea7cc",
       "campus-38cd0c8b2522",
-      "campus-20fc3a2fbc2b",
-      "campus-9be38ea35020",
+      "campus-2a085d2fc167",
       "campus-eb3aa28af94e",
-      "campus-9be38da35020",
-      "campus-7aa6d7799ff0"
+      "campus-9be38da35020"
     ],
     "headlines": [
+      "computer science · company recruiting · free food: food",
+      "research opportunity · company recruiting · this week",
       "biotech · company recruiting · this week",
       "computer science · this week · workshop / training",
-      "company recruiting · graduate opportunities · today",
       "company recruiting · graduate opportunities · workshop / training",
-      "company recruiting · graduate opportunities · this week",
-      "computer science · this week · workshop / training"
+      "company recruiting · graduate opportunities · this week"
     ],
     "changes": [
       {
-        "itemId": "campus-b33e57630367",
-        "kind": "location",
-        "field": "Location",
-        "before": "Rudder",
-        "after": null
+        "itemId": "campus-34b66f39f2e3",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-25T05:00:00.000Z",
+        "after": "2026-09-26T05:00:00.000Z"
       },
       {
-        "itemId": "campus-f3689e554d32",
-        "kind": "location",
-        "field": "Location",
-        "before": "All Faiths Chapel",
-        "after": null
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-25T05:00:00.000Z",
+        "after": "2026-09-26T05:00:00.000Z"
       },
       {
-        "itemId": "campus-3c395d45bf2b",
-        "kind": "title",
-        "field": "Title",
-        "before": "Education Law Program: School Finance in Texas",
-        "after": "Education Law Program: School Finance in Texas, RSVP"
+        "itemId": "campus-ce40ae77f7fb",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-25T05:00:00.000Z",
+        "after": "2026-09-26T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1336d8c465ad",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-25T05:00:00.000Z",
+        "after": "2026-09-26T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7a4374781142",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-25T05:00:00.000Z",
+        "after": "2026-09-26T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b5af17ad553f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-25T05:00:00.000Z",
+        "after": "2026-09-26T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abbdb86a55f0",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-06T06:00:00.000Z",
+        "after": "2026-11-05T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-45fb48786564",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-25T05:00:00.000Z",
+        "after": "2026-09-26T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abc1266a55f3",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-11T06:00:00.000Z",
+        "after": "2026-12-12T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-3e3e7a733583",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-25T13:00:00.000Z",
+        "after": "2026-09-26T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-9ebc0079b4c8",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-25T19:00:00.000Z",
+        "after": "2026-09-26T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bc41006a5f10",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-25T21:00:00.000Z",
+        "after": "2026-09-26T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-cffea28ae987",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-25T13:00:00.000Z",
+        "after": "2026-09-26T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-426600a21a33",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-09T13:00:00.000Z",
+        "after": "2026-10-10T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-eb0b128af926",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-09T05:00:00.000Z",
+        "after": "2026-10-10T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bc44906a5f13",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-23T21:00:00.000Z",
+        "after": "2026-10-24T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bc44896a5f13",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-06T22:00:00.000Z",
+        "after": "2026-11-07T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bc448b6a5f13",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-20T22:00:00.000Z",
+        "after": "2026-11-21T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-d4e0a46e5039",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-25T05:00:00.000Z",
+        "after": "2026-11-06T06:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -48,15 +160,15 @@
   {
     "weekOf": "2026-09-21",
     "vertical": "research",
-    "scanned": 105,
+    "scanned": 107,
     "candidates": 57,
     "recommended": [
-      "research-bc72fd3916fc",
       "research-b42fcc3671c3",
+      "research-bc72fd3916fc",
       "research-616715b292a5",
       "research-3477179b66ba",
       "research-490314729427",
-      "research-ec7c2d98657d"
+      "research-a91f6b38b7ef"
     ],
     "headlines": [
       "positive selection · codon-model analysis · phylogenetics",
@@ -64,18 +176,10 @@
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "positive selection · codon-model analysis · phylogenetics",
       "M. tuberculosis · phylogenetics · selection methods applied to Mtb",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
+      "M. tuberculosis · positive selection · antimicrobial resistance"
     ],
-    "changes": [
-      {
-        "itemId": "research-616715b292a5",
-        "kind": "title",
-        "field": "Title",
-        "before": "Drug resistance in patients with tuberculosis: a study from a tertiary care center in northern India",
-        "after": "Drug resistance in patients with tuberculosis: a study from a tertiary care center in northern India."
-      }
-    ],
-    "estimatedMinutes": 108
+    "changes": [],
+    "estimatedMinutes": 107
   },
   {
     "weekOf": "2026-09-14",
