@@ -2,44 +2,128 @@
   {
     "weekOf": "2026-09-28",
     "vertical": "campus",
-    "scanned": 6111,
-    "candidates": 726,
-    "recommended": [],
-    "headlines": [],
-    "changes": [],
+    "scanned": 6000,
+    "candidates": 807,
+    "recommended": [
+      "campus-eb3aa28af94e",
+      "campus-076fcf2fadd2",
+      "campus-0787bd2fade6",
+      "campus-9be382a35020",
+      "campus-076fc52fadd2",
+      "campus-9be381a35020"
+    ],
+    "headlines": [
+      "company recruiting · graduate opportunities · workshop / training",
+      "computer science · tomorrow · workshop / training",
+      "company recruiting · graduate opportunities · this week",
+      "company recruiting · graduate opportunities · this week",
+      "computer science · this week · workshop / training",
+      "company recruiting · graduate opportunities · this week"
+    ],
+    "changes": [
+      {
+        "itemId": "campus-850a1993dca2",
+        "kind": "title",
+        "field": "Title",
+        "before": "Colloquium - Rady Craiu",
+        "after": "Colloquium - Radu Craiu"
+      },
+      {
+        "itemId": "campus-34b66f39f2e3",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-27T05:00:00.000Z",
+        "after": "2026-09-28T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-27T05:00:00.000Z",
+        "after": "2026-09-28T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ce40ae77f7fb",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-27T05:00:00.000Z",
+        "after": "2026-09-28T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1336d8c465ad",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-27T05:00:00.000Z",
+        "after": "2026-09-28T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7a4374781142",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-27T05:00:00.000Z",
+        "after": "2026-09-28T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-8d43833c1a67",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-27T05:00:00.000Z",
+        "after": "2026-09-28T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b5af17ad553f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-27T05:00:00.000Z",
+        "after": "2026-09-28T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abbdbc6a55f1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-01T05:00:00.000Z",
+        "after": "2026-11-02T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-45fb48786564",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-27T05:00:00.000Z",
+        "after": "2026-09-28T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-fe71a22fa8a2",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-11T05:00:00.000Z",
+        "after": "2026-10-10T15:00:00.000Z"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-09-28",
     "vertical": "research",
-    "scanned": 1162,
-    "candidates": 111,
+    "scanned": 1211,
+    "candidates": 120,
     "recommended": [
+      "research-ab8299d3bc84",
       "research-490314729427",
+      "research-1ea6d6fbbb6d",
       "research-43625b6ca4df",
-      "research-9160f297439b",
-      "research-c60ce45e616e",
-      "research-9134e5974376",
-      "research-f77b727dbd80"
+      "research-8d39f866c41b",
+      "research-9ca8cecfac3f"
     ],
     "headlines": [
+      "M. tuberculosis · comparative genomics · phylogenetics",
       "M. tuberculosis · phylogenetics · selection methods applied to Mtb",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "codon-model analysis · phylogenetics · MCMC / Bayesian inference",
-      "positive selection · comparative genomics · pathogen evolution",
-      "comparative genomics · diabetes / host metabolic · host-pathogen interaction",
-      "comparative genomics · phylogenetics · antimicrobial resistance",
-      "comparative genomics · diabetes / host metabolic · recent"
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "positive selection · comparative genomics · phylogenetics"
     ],
-    "changes": [
-      {
-        "itemId": "research-53e77b6b5673",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v0",
-        "after": "v1"
-      }
-    ],
-    "estimatedMinutes": 98
+    "changes": [],
+    "estimatedMinutes": 95
   },
   {
     "weekOf": "2026-09-21",
