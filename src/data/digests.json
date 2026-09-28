@@ -1,5 +1,47 @@
 [
   {
+    "weekOf": "2026-09-28",
+    "vertical": "campus",
+    "scanned": 6111,
+    "candidates": 726,
+    "recommended": [],
+    "headlines": [],
+    "changes": [],
+    "estimatedMinutes": 0
+  },
+  {
+    "weekOf": "2026-09-28",
+    "vertical": "research",
+    "scanned": 1162,
+    "candidates": 111,
+    "recommended": [
+      "research-490314729427",
+      "research-43625b6ca4df",
+      "research-9160f297439b",
+      "research-c60ce45e616e",
+      "research-9134e5974376",
+      "research-f77b727dbd80"
+    ],
+    "headlines": [
+      "M. tuberculosis · phylogenetics · selection methods applied to Mtb",
+      "codon-model analysis · phylogenetics · MCMC / Bayesian inference",
+      "positive selection · comparative genomics · pathogen evolution",
+      "comparative genomics · diabetes / host metabolic · host-pathogen interaction",
+      "comparative genomics · phylogenetics · antimicrobial resistance",
+      "comparative genomics · diabetes / host metabolic · recent"
+    ],
+    "changes": [
+      {
+        "itemId": "research-53e77b6b5673",
+        "kind": "preprint-revised",
+        "field": "Preprint version",
+        "before": "v0",
+        "after": "v1"
+      }
+    ],
+    "estimatedMinutes": 98
+  },
+  {
     "weekOf": "2026-09-21",
     "vertical": "campus",
     "scanned": 6111,
