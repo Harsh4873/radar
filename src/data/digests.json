@@ -2,31 +2,157 @@
   {
     "weekOf": "2026-09-28",
     "vertical": "campus",
-    "scanned": 6095,
-    "candidates": 807,
+    "scanned": 5735,
+    "candidates": 780,
     "recommended": [
-      "campus-eb3aa28af94e",
       "campus-076fcf2fadd2",
-      "campus-0787bd2fade6",
+      "campus-eb3aa28af94e",
       "campus-779add2fed3b",
       "campus-9be382a35020",
-      "campus-076fc52fadd2"
+      "campus-076fc52fadd2",
+      "campus-9be381a35020"
     ],
     "headlines": [
+      "computer science · today · workshop / training",
       "company recruiting · graduate opportunities · workshop / training",
-      "computer science · tomorrow · workshop / training",
-      "company recruiting · graduate opportunities · this week",
       "research opportunity · employer: target · workshop / training",
       "company recruiting · graduate opportunities · this week",
-      "computer science · this week · workshop / training"
+      "computer science · this week · workshop / training",
+      "company recruiting · graduate opportunities · this week"
     ],
     "changes": [
       {
-        "itemId": "campus-0a183238ccca",
+        "itemId": "campus-34b66f39f2e3",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-14T21:10:00.000Z",
-        "after": "2026-10-13T21:10:00.000Z"
+        "before": "2026-09-28T05:00:00.000Z",
+        "after": "2026-09-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-28T05:00:00.000Z",
+        "after": "2026-09-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ce40ae77f7fb",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-28T05:00:00.000Z",
+        "after": "2026-09-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7794522fed35",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-16T06:00:00.000Z",
+        "after": "2026-11-17T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-e208fa8af3f2",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-05T13:00:00.000Z",
+        "after": "2026-10-06T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1336d8c465ad",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-28T05:00:00.000Z",
+        "after": "2026-09-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7a4374781142",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-28T05:00:00.000Z",
+        "after": "2026-09-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-8d43833c1a67",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-28T05:00:00.000Z",
+        "after": "2026-09-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b5af17ad553f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-28T05:00:00.000Z",
+        "after": "2026-09-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-11bdd57a28c5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-05T05:00:00.000Z",
+        "after": "2026-10-06T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abbdbc6a55f1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-02T06:00:00.000Z",
+        "after": "2026-11-01T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a31bb7b3fae6",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-14T06:00:00.000Z",
+        "after": "2026-12-15T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-45fb48786564",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-28T05:00:00.000Z",
+        "after": "2026-09-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-fe609d2fa894",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-05T16:33:00.000Z",
+        "after": "2026-10-06T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1c418738d751",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-28T13:00:00.000Z",
+        "after": "2026-09-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bc3a796a5f0a",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-28T13:00:00.000Z",
+        "after": "2026-09-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ac117d6985f5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-05T13:00:00.000Z",
+        "after": "2026-10-06T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-fe641f2fa897",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-27T00:00:00.000Z",
+        "after": "2026-10-27T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-e4c9569412ff",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-02T14:30:00.000Z",
+        "after": "2026-11-03T06:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -34,8 +160,8 @@
   {
     "weekOf": "2026-09-28",
     "vertical": "research",
-    "scanned": 1131,
-    "candidates": 90,
+    "scanned": 1207,
+    "candidates": 116,
     "recommended": [
       "research-ab8299d3bc84",
       "research-1ea6d6fbbb6d",
@@ -52,36 +178,7 @@
       "M. tuberculosis · phylogenetics · selection methods applied to Mtb",
       "comparative genomics · phylogenetics · antimicrobial resistance"
     ],
-    "changes": [
-      {
-        "itemId": "research-f77b727dbd80",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v0",
-        "after": "v1"
-      },
-      {
-        "itemId": "research-cee103975b43",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v0",
-        "after": "v1"
-      },
-      {
-        "itemId": "research-3d434caed761",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v0",
-        "after": "v1"
-      },
-      {
-        "itemId": "research-16bf7e6bb461",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v0",
-        "after": "v4"
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 92
   },
   {
