@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-09-28",
     "vertical": "campus",
-    "scanned": 5735,
-    "candidates": 780,
+    "scanned": 5803,
+    "candidates": 771,
     "recommended": [
       "campus-076fcf2fadd2",
       "campus-eb3aa28af94e",
@@ -22,137 +22,39 @@
     ],
     "changes": [
       {
-        "itemId": "campus-34b66f39f2e3",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-28T05:00:00.000Z",
-        "after": "2026-09-29T05:00:00.000Z"
+        "itemId": "campus-7797e22fed38",
+        "kind": "title",
+        "field": "Title",
+        "before": "3MT Workshop Session: Developing Your Research Elevator Pitch",
+        "after": "3MT Workshop Session 1: Developing Your Research Elevator Pitch"
       },
       {
-        "itemId": "campus-b314811cb984",
+        "itemId": "campus-7797e22fed38",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-28T05:00:00.000Z",
-        "after": "2026-09-29T05:00:00.000Z"
+        "before": "2026-10-02T14:00:00.000Z",
+        "after": "2026-10-02T14:01:00.000Z"
       },
       {
-        "itemId": "campus-ce40ae77f7fb",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-28T05:00:00.000Z",
-        "after": "2026-09-29T05:00:00.000Z"
+        "itemId": "campus-7797e12fed38",
+        "kind": "title",
+        "field": "Title",
+        "before": "3MT Workshop Session #2: Tips for English Pronunciation & Delivery",
+        "after": "3MT Workshop Session 2: Tips for English Pronunciation & Delivery"
       },
       {
-        "itemId": "campus-7794522fed35",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-16T06:00:00.000Z",
-        "after": "2026-11-17T06:00:00.000Z"
+        "itemId": "campus-7797e02fed38",
+        "kind": "title",
+        "field": "Title",
+        "before": "3MT Virtual Workshop Session 3 - Fine Tuning Your Oral Presentation Skills",
+        "after": "3MT Workshop Session 3: Fine Tuning Your Oral Presentation Skills"
       },
       {
-        "itemId": "campus-e208fa8af3f2",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-05T13:00:00.000Z",
-        "after": "2026-10-06T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-1336d8c465ad",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-28T05:00:00.000Z",
-        "after": "2026-09-29T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7a4374781142",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-28T05:00:00.000Z",
-        "after": "2026-09-29T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-8d43833c1a67",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-28T05:00:00.000Z",
-        "after": "2026-09-29T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b5af17ad553f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-28T05:00:00.000Z",
-        "after": "2026-09-29T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11bdd57a28c5",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-05T05:00:00.000Z",
-        "after": "2026-10-06T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-abbdbc6a55f1",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-02T06:00:00.000Z",
-        "after": "2026-11-01T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a31bb7b3fae6",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-14T06:00:00.000Z",
-        "after": "2026-12-15T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-45fb48786564",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-28T05:00:00.000Z",
-        "after": "2026-09-29T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-fe609d2fa894",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-05T16:33:00.000Z",
-        "after": "2026-10-06T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-1c418738d751",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-28T13:00:00.000Z",
-        "after": "2026-09-29T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-bc3a796a5f0a",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-28T13:00:00.000Z",
-        "after": "2026-09-29T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ac117d6985f5",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-05T13:00:00.000Z",
-        "after": "2026-10-06T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-fe641f2fa897",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-27T00:00:00.000Z",
-        "after": "2026-10-27T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-e4c9569412ff",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-02T14:30:00.000Z",
-        "after": "2026-11-03T06:00:00.000Z"
+        "itemId": "campus-3c2bdc45bf1f",
+        "kind": "title",
+        "field": "Title",
+        "before": "HEPEC Seminar",
+        "after": "New Physics Versus Quenching Factors in Coherent Neutrino Scattering"
       }
     ],
     "estimatedMinutes": 0
@@ -160,26 +62,26 @@
   {
     "weekOf": "2026-09-28",
     "vertical": "research",
-    "scanned": 1207,
-    "candidates": 116,
+    "scanned": 1193,
+    "candidates": 123,
     "recommended": [
       "research-ab8299d3bc84",
+      "research-490314729427",
       "research-1ea6d6fbbb6d",
-      "research-8d39f866c41b",
-      "research-9ca8cecfac3f",
-      "research-49287428c1aa",
-      "research-f8bef36bf8e3"
+      "research-53eb036b5676",
+      "research-2868809f568d",
+      "research-8d39f866c41b"
     ],
     "headlines": [
       "M. tuberculosis · comparative genomics · phylogenetics",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "positive selection · comparative genomics · phylogenetics",
       "M. tuberculosis · phylogenetics · selection methods applied to Mtb",
-      "comparative genomics · phylogenetics · antimicrobial resistance"
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
     "changes": [],
-    "estimatedMinutes": 92
+    "estimatedMinutes": 101
   },
   {
     "weekOf": "2026-09-21",
