@@ -2,59 +2,143 @@
   {
     "weekOf": "2026-09-28",
     "vertical": "campus",
-    "scanned": 5803,
-    "candidates": 771,
+    "scanned": 5575,
+    "candidates": 799,
     "recommended": [
-      "campus-076fcf2fadd2",
       "campus-eb3aa28af94e",
-      "campus-779add2fed3b",
       "campus-9be382a35020",
       "campus-076fc52fadd2",
+      "campus-0787bd2fade6",
+      "campus-779add2fed3b",
       "campus-9be381a35020"
     ],
     "headlines": [
-      "computer science · today · workshop / training",
       "company recruiting · graduate opportunities · workshop / training",
-      "research opportunity · employer: target · workshop / training",
+      "company recruiting · graduate opportunities · tomorrow",
+      "computer science · tomorrow · workshop / training",
       "company recruiting · graduate opportunities · this week",
-      "computer science · this week · workshop / training",
+      "research opportunity · employer: target · workshop / training",
       "company recruiting · graduate opportunities · this week"
     ],
     "changes": [
       {
-        "itemId": "campus-7797e22fed38",
-        "kind": "title",
-        "field": "Title",
-        "before": "3MT Workshop Session: Developing Your Research Elevator Pitch",
-        "after": "3MT Workshop Session 1: Developing Your Research Elevator Pitch"
-      },
-      {
-        "itemId": "campus-7797e22fed38",
+        "itemId": "campus-34b66f39f2e3",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-02T14:00:00.000Z",
-        "after": "2026-10-02T14:01:00.000Z"
+        "before": "2026-09-29T05:00:00.000Z",
+        "after": "2026-09-30T05:00:00.000Z"
       },
       {
-        "itemId": "campus-7797e12fed38",
-        "kind": "title",
-        "field": "Title",
-        "before": "3MT Workshop Session #2: Tips for English Pronunciation & Delivery",
-        "after": "3MT Workshop Session 2: Tips for English Pronunciation & Delivery"
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-29T05:00:00.000Z",
+        "after": "2026-09-30T05:00:00.000Z"
       },
       {
-        "itemId": "campus-7797e02fed38",
-        "kind": "title",
-        "field": "Title",
-        "before": "3MT Virtual Workshop Session 3 - Fine Tuning Your Oral Presentation Skills",
-        "after": "3MT Workshop Session 3: Fine Tuning Your Oral Presentation Skills"
+        "itemId": "campus-ce40ae77f7fb",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-29T05:00:00.000Z",
+        "after": "2026-09-30T05:00:00.000Z"
       },
       {
-        "itemId": "campus-3c2bdc45bf1f",
-        "kind": "title",
-        "field": "Title",
-        "before": "HEPEC Seminar",
-        "after": "New Physics Versus Quenching Factors in Coherent Neutrino Scattering"
+        "itemId": "campus-7794522fed35",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-17T06:00:00.000Z",
+        "after": "2026-11-16T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-e208fa8af3f2",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-06T05:00:00.000Z",
+        "after": "2026-10-05T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1336d8c465ad",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-29T05:00:00.000Z",
+        "after": "2026-09-30T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7a4374781142",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-29T05:00:00.000Z",
+        "after": "2026-09-30T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-8d43833c1a67",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-29T05:00:00.000Z",
+        "after": "2026-09-30T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b5af17ad553f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-29T05:00:00.000Z",
+        "after": "2026-09-30T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-11bdd57a28c5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-06T05:00:00.000Z",
+        "after": "2026-10-05T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a31bb7b3fae6",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-15T06:00:00.000Z",
+        "after": "2026-12-14T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-45fb48786564",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-09-29T05:00:00.000Z",
+        "after": "2026-09-30T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-fe609d2fa894",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-06T05:00:00.000Z",
+        "after": "2026-10-05T16:33:00.000Z"
+      },
+      {
+        "itemId": "campus-ac117d6985f5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-06T05:00:00.000Z",
+        "after": "2026-10-05T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-41b73c8b2a41",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-20T13:00:00.000Z",
+        "after": "2026-10-21T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-fe641f2fa897",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-27T05:00:00.000Z",
+        "after": "2026-10-27T00:00:00.000Z"
+      },
+      {
+        "itemId": "campus-e4c9569412ff",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-03T06:00:00.000Z",
+        "after": "2026-11-02T14:30:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -62,15 +146,15 @@
   {
     "weekOf": "2026-09-28",
     "vertical": "research",
-    "scanned": 1193,
-    "candidates": 123,
+    "scanned": 1018,
+    "candidates": 115,
     "recommended": [
       "research-ab8299d3bc84",
       "research-490314729427",
       "research-1ea6d6fbbb6d",
       "research-53eb036b5676",
       "research-2868809f568d",
-      "research-8d39f866c41b"
+      "research-26965926e058"
     ],
     "headlines": [
       "M. tuberculosis · comparative genomics · phylogenetics",
@@ -80,8 +164,16 @@
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
-    "changes": [],
-    "estimatedMinutes": 101
+    "changes": [
+      {
+        "itemId": "research-2868809f568d",
+        "kind": "title",
+        "field": "Title",
+        "before": "ssrn-7460240 (4)",
+        "after": "Oxygen That Is Carried but Not Released: A Two-Axis Glycohypoxia Hypothesis for the Excess Mortality of Tuberculosis with Diabetes"
+      }
+    ],
+    "estimatedMinutes": 102
   },
   {
     "weekOf": "2026-09-21",
