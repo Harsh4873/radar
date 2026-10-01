@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-09-28",
     "vertical": "campus",
-    "scanned": 5575,
-    "candidates": 799,
+    "scanned": 5586,
+    "candidates": 778,
     "recommended": [
       "campus-eb3aa28af94e",
       "campus-9be382a35020",
@@ -22,123 +22,88 @@
     ],
     "changes": [
       {
-        "itemId": "campus-34b66f39f2e3",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-29T05:00:00.000Z",
-        "after": "2026-09-30T05:00:00.000Z"
+        "itemId": "campus-ba59eb60529e",
+        "kind": "location",
+        "field": "Location",
+        "before": "Zoom (Online)",
+        "after": "All Faiths Chapel"
       },
       {
-        "itemId": "campus-b314811cb984",
+        "itemId": "campus-ba59eb60529e",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-29T05:00:00.000Z",
-        "after": "2026-09-30T05:00:00.000Z"
+        "before": "2026-10-06T18:00:00.000Z",
+        "after": "2026-10-06T22:30:00.000Z"
       },
       {
-        "itemId": "campus-ce40ae77f7fb",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-29T05:00:00.000Z",
-        "after": "2026-09-30T05:00:00.000Z"
+        "itemId": "campus-c388176057f7",
+        "kind": "location",
+        "field": "Location",
+        "before": "Zoom (Online)",
+        "after": "All Faiths Chapel"
       },
       {
-        "itemId": "campus-7794522fed35",
+        "itemId": "campus-c388176057f7",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-11-17T06:00:00.000Z",
-        "after": "2026-11-16T06:00:00.000Z"
+        "before": "2026-10-13T18:00:00.000Z",
+        "after": "2026-10-13T22:30:00.000Z"
       },
       {
-        "itemId": "campus-e208fa8af3f2",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-06T05:00:00.000Z",
-        "after": "2026-10-05T13:00:00.000Z"
+        "itemId": "campus-c388146057f7",
+        "kind": "location",
+        "field": "Location",
+        "before": "Zoom (Online)",
+        "after": "All Faiths Chapel"
       },
       {
-        "itemId": "campus-1336d8c465ad",
+        "itemId": "campus-c388146057f7",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-29T05:00:00.000Z",
-        "after": "2026-09-30T05:00:00.000Z"
+        "before": "2026-10-20T18:00:00.000Z",
+        "after": "2026-10-20T22:30:00.000Z"
       },
       {
-        "itemId": "campus-7a4374781142",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-29T05:00:00.000Z",
-        "after": "2026-09-30T05:00:00.000Z"
+        "itemId": "campus-c388156057f7",
+        "kind": "location",
+        "field": "Location",
+        "before": "Zoom (Online)",
+        "after": "All Faiths Chapel"
       },
       {
-        "itemId": "campus-8d43833c1a67",
+        "itemId": "campus-c388156057f7",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-29T05:00:00.000Z",
-        "after": "2026-09-30T05:00:00.000Z"
+        "before": "2026-10-27T18:00:00.000Z",
+        "after": "2026-10-27T22:30:00.000Z"
       },
       {
-        "itemId": "campus-b5af17ad553f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-29T05:00:00.000Z",
-        "after": "2026-09-30T05:00:00.000Z"
+        "itemId": "campus-c384926057f4",
+        "kind": "location",
+        "field": "Location",
+        "before": "Zoom (Online)",
+        "after": "All Faiths Chapel"
       },
       {
-        "itemId": "campus-11bdd57a28c5",
+        "itemId": "campus-c384926057f4",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-06T05:00:00.000Z",
-        "after": "2026-10-05T05:00:00.000Z"
+        "before": "2026-11-03T19:00:00.000Z",
+        "after": "2026-11-03T23:30:00.000Z"
       },
       {
-        "itemId": "campus-a31bb7b3fae6",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-15T06:00:00.000Z",
-        "after": "2026-12-14T06:00:00.000Z"
+        "itemId": "campus-c384916057f4",
+        "kind": "location",
+        "field": "Location",
+        "before": "Zoom (Online)",
+        "after": "All Faiths Chapel"
       },
       {
-        "itemId": "campus-45fb48786564",
+        "itemId": "campus-c384916057f4",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-09-29T05:00:00.000Z",
-        "after": "2026-09-30T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-fe609d2fa894",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-06T05:00:00.000Z",
-        "after": "2026-10-05T16:33:00.000Z"
-      },
-      {
-        "itemId": "campus-ac117d6985f5",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-06T05:00:00.000Z",
-        "after": "2026-10-05T13:00:00.000Z"
-      },
-      {
-        "itemId": "campus-41b73c8b2a41",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-20T13:00:00.000Z",
-        "after": "2026-10-21T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-fe641f2fa897",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-27T05:00:00.000Z",
-        "after": "2026-10-27T00:00:00.000Z"
-      },
-      {
-        "itemId": "campus-e4c9569412ff",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-03T06:00:00.000Z",
-        "after": "2026-11-02T14:30:00.000Z"
+        "before": "2026-11-10T19:00:00.000Z",
+        "after": "2026-11-10T23:30:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -146,8 +111,8 @@
   {
     "weekOf": "2026-09-28",
     "vertical": "research",
-    "scanned": 1018,
-    "candidates": 115,
+    "scanned": 979,
+    "candidates": 119,
     "recommended": [
       "research-ab8299d3bc84",
       "research-490314729427",
@@ -164,15 +129,7 @@
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
-    "changes": [
-      {
-        "itemId": "research-2868809f568d",
-        "kind": "title",
-        "field": "Title",
-        "before": "ssrn-7460240 (4)",
-        "after": "Oxygen That Is Carried but Not Released: A Two-Axis Glycohypoxia Hypothesis for the Excess Mortality of Tuberculosis with Diabetes"
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 102
   },
   {
