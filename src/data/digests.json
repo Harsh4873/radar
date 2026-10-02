@@ -2,220 +2,164 @@
   {
     "weekOf": "2026-09-28",
     "vertical": "campus",
-    "scanned": 5190,
-    "candidates": 696,
+    "scanned": 5324,
+    "candidates": 749,
     "recommended": [
-      "campus-2a085d2fc167",
+      "campus-20fc3a2fbc2b",
+      "campus-9be382a35020",
       "campus-076fc52fadd2",
       "campus-eb3aa28af94e",
-      "campus-7797e22fed38",
-      "campus-779add2fed3b",
-      "campus-7783602fed27"
+      "campus-9be381a35020",
+      "campus-0787bd2fade6"
     ],
     "headlines": [
       "computer science · tomorrow · workshop / training",
+      "company recruiting · graduate opportunities · today",
       "computer science · today · workshop / training",
       "company recruiting · graduate opportunities · workshop / training",
-      "research opportunity · tomorrow · workshop / training",
-      "research opportunity · employer: target · workshop / training",
-      "computer science · this week · workshop / training"
+      "company recruiting · graduate opportunities · tomorrow",
+      "company recruiting · graduate opportunities · this week"
     ],
     "changes": [
       {
         "itemId": "campus-850a1993dca2",
         "kind": "title",
         "field": "Title",
-        "before": "Colloquium - Radu Craiu",
-        "after": "Colloquium - Rady Craiu"
+        "before": "Colloquium - Rady Craiu",
+        "after": "Colloquium - Radu Craiu"
       },
       {
-        "itemId": "campus-34b66f39f2e3",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-30T05:00:00.000Z",
-        "after": "2026-10-01T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-30T05:00:00.000Z",
-        "after": "2026-10-01T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ce40ae77f7fb",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-30T05:00:00.000Z",
-        "after": "2026-10-01T05:00:00.000Z"
+        "itemId": "campus-89c9b43041ec",
+        "kind": "location",
+        "field": "Location",
+        "before": "Clements Residence Hall",
+        "after": null
       },
       {
         "itemId": "campus-11bdd57a28c5",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-05T05:00:00.000Z",
-        "after": "2026-10-01T05:00:00.000Z"
+        "before": "2026-10-01T05:00:00.000Z",
+        "after": "2026-10-05T05:00:00.000Z"
       },
       {
-        "itemId": "campus-1336d8c465ad",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-30T05:00:00.000Z",
-        "after": "2026-10-01T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7a4374781142",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-30T05:00:00.000Z",
-        "after": "2026-10-01T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-8d43833c1a67",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-30T05:00:00.000Z",
-        "after": "2026-10-01T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b5af17ad553f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-30T05:00:00.000Z",
-        "after": "2026-10-01T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-45fb48786564",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-09-30T05:00:00.000Z",
-        "after": "2026-10-01T05:00:00.000Z"
+        "itemId": "campus-42cc06c33a10",
+        "kind": "location",
+        "field": "Location",
+        "before": "Rudder",
+        "after": null
       },
       {
         "itemId": "campus-fe609d2fa894",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-05T16:33:00.000Z",
-        "after": "2026-10-08T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11afd07a28b9",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-14T13:00:00.000Z",
-        "after": "2026-10-01T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11b6c47a28bf",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-07T13:00:00.000Z",
-        "after": "2026-10-01T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ac117d6985f5",
-        "kind": "title",
-        "field": "Title",
-        "before": "Taste 360 2025-2027",
-        "after": "Taste 360 2025-2026"
-      },
-      {
-        "itemId": "campus-ac117d6985f5",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-05T13:00:00.000Z",
-        "after": "2026-10-01T05:00:00.000Z"
+        "before": "2026-10-08T05:00:00.000Z",
+        "after": "2026-10-05T16:33:00.000Z"
       },
       {
         "itemId": "campus-c721cba36899",
         "kind": "title",
         "field": "Title",
-        "before": "Graduate Students: Facilitating an Excellent Interview",
-        "after": "Graduate Students: Interviews that don’t suck | Facilitating an Excellent Interview"
+        "before": "Graduate Students: Interviews that don’t suck | Facilitating an Excellent Interview",
+        "after": "Graduate Students: Facilitating an Excellent Interview"
       },
       {
         "itemId": "campus-2c7b3a732b54",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-02T14:40:00.000Z",
-        "after": "2026-10-02T13:30:00.000Z"
+        "before": "2026-10-02T13:30:00.000Z",
+        "after": "2026-10-02T14:40:00.000Z"
       },
       {
-        "itemId": "campus-42ffd16a1a63",
+        "itemId": "campus-ac117d6985f5",
+        "kind": "title",
+        "field": "Title",
+        "before": "Taste 360 2025-2026",
+        "after": "Taste 360 2025-2027"
+      },
+      {
+        "itemId": "campus-ac117d6985f5",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-07T21:00:00.000Z",
-        "after": "2026-10-08T05:00:00.000Z"
+        "before": "2026-10-01T05:00:00.000Z",
+        "after": "2026-10-05T13:00:00.000Z"
       },
       {
         "itemId": "campus-3948d8a214e8",
         "kind": "title",
         "field": "Title",
-        "before": "Euclidean Wormholes and Axion Cosmology",
-        "after": "HET Seminar"
+        "before": "HET Seminar",
+        "after": "Euclidean Wormholes and Axion Cosmology"
       },
       {
-        "itemId": "campus-77bdde789b0a",
+        "itemId": "campus-11b6c47a28bf",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-07T05:00:00.000Z",
+        "before": "2026-10-01T05:00:00.000Z",
         "after": "2026-10-08T05:00:00.000Z"
       },
       {
         "itemId": "campus-57d7fd7343e7",
         "kind": "title",
         "field": "Title",
-        "before": "HIST 232 Guided Group Study",
-        "after": "HIST 105 Guided Group Study"
+        "before": "HIST 105 Guided Group Study",
+        "after": "HIST 232 Guided Group Study"
       },
       {
         "itemId": "campus-b8207c8a6a16",
         "kind": "title",
         "field": "Title",
-        "before": "2026 Outstanding Engineering Awards",
-        "after": "Outstanding Engineering Awards"
+        "before": "Outstanding Engineering Awards",
+        "after": "2026 Outstanding Engineering Awards"
       },
       {
         "itemId": "campus-4ecf5c733eae",
-        "kind": "title",
-        "field": "Title",
-        "before": "CHEM 107 Course Support",
-        "after": "CHEM 258 Course Support"
-      },
-      {
-        "itemId": "campus-8063cf9cf7d9",
-        "kind": "location",
-        "field": "Location",
-        "before": "Galveston",
-        "after": "121A, Galveston"
-      },
-      {
-        "itemId": "campus-8063cf9cf7d9",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-02T01:30:00.000Z",
-        "after": "2026-10-02T01:00:00.000Z"
-      },
-      {
-        "itemId": "campus-8063ce9cf7d9",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-02T02:30:00.000Z",
-        "after": "2026-10-02T02:00:00.000Z"
-      },
-      {
-        "itemId": "campus-806dd79cf7e2",
         "kind": "title",
         "field": "Title",
         "before": "CHEM 258 Course Support",
         "after": "CHEM 107 Course Support"
       },
       {
-        "itemId": "campus-41b73c8b2a41",
+        "itemId": "campus-8063cf9cf7d9",
+        "kind": "location",
+        "field": "Location",
+        "before": "121A, Galveston",
+        "after": "Galveston"
+      },
+      {
+        "itemId": "campus-8063cf9cf7d9",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-21T05:00:00.000Z",
-        "after": "2026-10-20T13:00:00.000Z"
+        "before": "2026-10-02T01:00:00.000Z",
+        "after": "2026-10-02T01:30:00.000Z"
+      },
+      {
+        "itemId": "campus-806dd79cf7e2",
+        "kind": "title",
+        "field": "Title",
+        "before": "CHEM 107 Course Support",
+        "after": "CHEM 258 Course Support"
+      },
+      {
+        "itemId": "campus-8063ce9cf7d9",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-02T02:00:00.000Z",
+        "after": "2026-10-02T02:30:00.000Z"
+      },
+      {
+        "itemId": "campus-07a6baab162b",
+        "kind": "location",
+        "field": "Location",
+        "before": "Jack K. Williams Administration Building",
+        "after": "Rudder Auditorium"
+      },
+      {
+        "itemId": "campus-11afd07a28b9",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-01T05:00:00.000Z",
+        "after": "2026-10-15T05:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -223,26 +167,34 @@
   {
     "weekOf": "2026-09-28",
     "vertical": "research",
-    "scanned": 994,
-    "candidates": 115,
+    "scanned": 951,
+    "candidates": 94,
     "recommended": [
       "research-b4f4e6573361",
       "research-ab8299d3bc84",
       "research-1ea6d6fbbb6d",
-      "research-490314729427",
       "research-acada3789807",
-      "research-53eb036b5676"
+      "research-2868809f568d",
+      "research-b22b456a6419"
     ],
     "headlines": [
       "positive selection · codon-model analysis · comparative genomics",
       "M. tuberculosis · comparative genomics · phylogenetics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · phylogenetics · selection methods applied to Mtb",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
-    "changes": [],
-    "estimatedMinutes": 99
+    "changes": [
+      {
+        "itemId": "research-a91f6b38b7ef",
+        "kind": "title",
+        "field": "Title",
+        "before": "Variation in multiple classes of simple sequence repeats can alter drug susceptibility in Mycobacterium tuberculosis.",
+        "after": "Variation in multiple classes of simple sequence repeats can alter drug susceptibility in Mycobacterium tuberculosis"
+      }
+    ],
+    "estimatedMinutes": 103
   },
   {
     "weekOf": "2026-09-21",
