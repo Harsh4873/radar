@@ -2,122 +2,52 @@
   {
     "weekOf": "2026-09-28",
     "vertical": "campus",
-    "scanned": 5472,
-    "candidates": 739,
+    "scanned": 5470,
+    "candidates": 721,
     "recommended": [
       "campus-1f85318c1329",
       "campus-1f853c8c132a",
+      "campus-1f8f418c1332",
       "campus-20fc3a2fbc2b",
       "campus-287fd98c1856",
-      "campus-9be381a35020",
-      "campus-eb3aa28af94e"
+      "campus-9be381a35020"
     ],
     "headlines": [
       "computer science · data science · workshop / training",
       "computer science · data science · workshop / training",
+      "bioinformatics / genomics · biotech · workshop / training",
       "computer science · today · workshop / training",
       "computer science · employer: los alamos · this week",
-      "company recruiting · graduate opportunities · today",
-      "company recruiting · graduate opportunities · workshop / training"
+      "company recruiting · graduate opportunities · today"
     ],
     "changes": [
       {
-        "itemId": "campus-34b66f39f2e3",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-01T05:00:00.000Z",
-        "after": "2026-10-02T05:00:00.000Z"
+        "itemId": "campus-b33e54630367",
+        "kind": "location",
+        "field": "Location",
+        "before": "Rudder",
+        "after": null
       },
       {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-01T05:00:00.000Z",
-        "after": "2026-10-02T05:00:00.000Z"
+        "itemId": "campus-38cd098b2522",
+        "kind": "location",
+        "field": "Location",
+        "before": "556 John Kimbrough Blvd, College Station, TX 77843",
+        "after": "566 John Kimbrough Blvd"
       },
       {
-        "itemId": "campus-ce40ae77f7fb",
+        "itemId": "campus-38cd098b2522",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-01T05:00:00.000Z",
-        "after": "2026-10-02T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-1336d8c465ad",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-01T05:00:00.000Z",
-        "after": "2026-10-02T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7a4374781142",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-01T05:00:00.000Z",
-        "after": "2026-10-02T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-8d43833c1a67",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-01T05:00:00.000Z",
-        "after": "2026-10-02T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b5af17ad553f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-01T05:00:00.000Z",
-        "after": "2026-10-02T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-abbdb86a55f0",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-05T06:00:00.000Z",
-        "after": "2026-11-06T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-45fb48786564",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-01T05:00:00.000Z",
-        "after": "2026-10-02T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-42ffd16a1a63",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-08T05:00:00.000Z",
-        "after": "2026-10-07T21:00:00.000Z"
-      },
-      {
-        "itemId": "campus-77bdde789b0a",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-08T05:00:00.000Z",
-        "after": "2026-10-07T05:00:00.000Z"
+        "before": "2026-10-03T05:00:00.000Z",
+        "after": "2026-10-03T20:00:00.000Z"
       },
       {
         "itemId": "campus-11b6c47a28bf",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-08T05:00:00.000Z",
-        "after": "2026-10-07T13:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11afd07a28b9",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-15T05:00:00.000Z",
-        "after": "2026-10-14T13:00:00.000Z"
-      },
-      {
-        "itemId": "campus-273408a20a74",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-22T05:00:00.000Z",
-        "after": "2026-10-23T05:00:00.000Z"
+        "before": "2026-10-07T13:00:00.000Z",
+        "after": "2026-10-13T13:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -125,8 +55,8 @@
   {
     "weekOf": "2026-09-28",
     "vertical": "research",
-    "scanned": 962,
-    "candidates": 101,
+    "scanned": 1006,
+    "candidates": 112,
     "recommended": [
       "research-7a4f46a6293e",
       "research-b4f4e6573361",
@@ -145,11 +75,11 @@
     ],
     "changes": [
       {
-        "itemId": "research-a91f6b38b7ef",
+        "itemId": "research-d979b1268a2c",
         "kind": "title",
         "field": "Title",
-        "before": "Variation in multiple classes of simple sequence repeats can alter drug susceptibility in Mycobacterium tuberculosis",
-        "after": "Variation in multiple classes of simple sequence repeats can alter drug susceptibility in Mycobacterium tuberculosis."
+        "before": "Phylogeography and evolutionary dynamics of Nairobi sheep disease virus",
+        "after": "Phylogeography and evolutionary dynamics of Nairobi sheep disease virus."
       }
     ],
     "estimatedMinutes": 98
