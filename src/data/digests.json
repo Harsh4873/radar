@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-09-28",
     "vertical": "campus",
-    "scanned": 5626,
-    "candidates": 715,
+    "scanned": 5623,
+    "candidates": 699,
     "recommended": [
       "campus-d8f2bf8aeeae",
       "campus-1f85318c1329",
@@ -20,134 +20,14 @@
       "computer science · employer: los alamos · this week",
       "company recruiting · graduate opportunities · this week"
     ],
-    "changes": [
-      {
-        "itemId": "campus-34b66f39f2e3",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-02T05:00:00.000Z",
-        "after": "2026-10-03T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-02T05:00:00.000Z",
-        "after": "2026-10-03T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ce40ae77f7fb",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-02T05:00:00.000Z",
-        "after": "2026-10-03T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-1336d8c465ad",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-02T05:00:00.000Z",
-        "after": "2026-10-03T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7a4374781142",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-02T05:00:00.000Z",
-        "after": "2026-10-03T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-8d43833c1a67",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-02T05:00:00.000Z",
-        "after": "2026-10-03T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b5af17ad553f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-02T05:00:00.000Z",
-        "after": "2026-10-03T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-abbdb86a55f0",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-06T06:00:00.000Z",
-        "after": "2026-11-05T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-45fb48786564",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-02T05:00:00.000Z",
-        "after": "2026-10-03T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-abc1266a55f3",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-11T06:00:00.000Z",
-        "after": "2026-12-12T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-426600a21a33",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-09T13:00:00.000Z",
-        "after": "2026-10-10T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-eb0b128af926",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-09T05:00:00.000Z",
-        "after": "2026-10-10T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-bc44906a5f13",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-23T21:00:00.000Z",
-        "after": "2026-10-24T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-273408a20a74",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-23T05:00:00.000Z",
-        "after": "2026-10-22T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-1f7ac08c1320",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-23T22:30:00.000Z",
-        "after": "2026-10-24T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-bc44896a5f13",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-06T22:00:00.000Z",
-        "after": "2026-11-07T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-bc448b6a5f13",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-20T22:00:00.000Z",
-        "after": "2026-11-21T06:00:00.000Z"
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-09-28",
     "vertical": "research",
-    "scanned": 1014,
-    "candidates": 117,
+    "scanned": 1013,
+    "candidates": 108,
     "recommended": [
       "research-7a4f46a6293e",
       "research-b4f4e6573361",
