@@ -2,15 +2,15 @@
   {
     "weekOf": "2026-09-28",
     "vertical": "campus",
-    "scanned": 5623,
-    "candidates": 699,
+    "scanned": 5809,
+    "candidates": 783,
     "recommended": [
       "campus-d8f2bf8aeeae",
       "campus-1f85318c1329",
       "campus-1f853c8c132a",
       "campus-1f8f418c1332",
       "campus-287fd98c1856",
-      "campus-eb3aa28af94e"
+      "campus-0787bd2fade6"
     ],
     "headlines": [
       "computer science · company recruiting · free food: food",
@@ -18,30 +18,178 @@
       "computer science · data science · workshop / training",
       "bioinformatics / genomics · biotech · workshop / training",
       "computer science · employer: los alamos · this week",
-      "company recruiting · graduate opportunities · this week"
+      "company recruiting · graduate opportunities · tomorrow"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-34b66f39f2e3",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-03T05:00:00.000Z",
+        "after": "2026-10-04T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-03T05:00:00.000Z",
+        "after": "2026-10-04T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ce40ae77f7fb",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-03T05:00:00.000Z",
+        "after": "2026-10-04T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1336d8c465ad",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-03T05:00:00.000Z",
+        "after": "2026-10-04T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7a4374781142",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-03T05:00:00.000Z",
+        "after": "2026-10-04T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-8d43833c1a67",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-03T05:00:00.000Z",
+        "after": "2026-10-04T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b5af17ad553f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-03T05:00:00.000Z",
+        "after": "2026-10-04T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-2b8e91bd214c",
+        "kind": "location",
+        "field": "Location",
+        "before": "Memorial Student Center",
+        "after": null
+      },
+      {
+        "itemId": "campus-45fb48786564",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-03T05:00:00.000Z",
+        "after": "2026-10-04T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abc1266a55f3",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-12T06:00:00.000Z",
+        "after": "2026-12-11T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-57d590d2df75",
+        "kind": "title",
+        "field": "Title",
+        "before": "RHA General Assembly",
+        "after": "RHA General Assembly: Executive Session"
+      },
+      {
+        "itemId": "campus-eb0b128af926",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-10T05:00:00.000Z",
+        "after": "2026-10-09T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-426600a21a33",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-10T05:00:00.000Z",
+        "after": "2026-10-09T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-fe71a22fa8a2",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-10T15:00:00.000Z",
+        "after": "2026-10-11T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bc44906a5f13",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-24T05:00:00.000Z",
+        "after": "2026-10-23T21:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a614a579b891",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-03T12:00:00.000Z",
+        "after": "2026-10-04T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ef211e73085f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-03T13:00:00.000Z",
+        "after": "2026-10-04T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ef211f73085f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-03T13:00:00.000Z",
+        "after": "2026-10-04T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1f7ac08c1320",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-24T05:00:00.000Z",
+        "after": "2026-10-23T22:30:00.000Z"
+      },
+      {
+        "itemId": "campus-bc44896a5f13",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-07T06:00:00.000Z",
+        "after": "2026-11-06T22:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bc448b6a5f13",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-21T06:00:00.000Z",
+        "after": "2026-11-20T22:00:00.000Z"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-09-28",
     "vertical": "research",
     "scanned": 1013,
-    "candidates": 108,
+    "candidates": 106,
     "recommended": [
-      "research-7a4f46a6293e",
       "research-b4f4e6573361",
       "research-ab8299d3bc84",
       "research-3f1ea5c470af",
       "research-b8545d851f3e",
+      "research-acada3789807",
       "research-1ea6d6fbbb6d"
     ],
     "headlines": [
-      "M. tuberculosis · comparative genomics · phylogenetics",
       "positive selection · codon-model analysis · comparative genomics",
       "M. tuberculosis · comparative genomics · phylogenetics",
       "M. tuberculosis · comparative genomics · phylogenetics",
-      "M. tuberculosis · comparative genomics · very recent",
+      "M. tuberculosis · comparative genomics · antimicrobial resistance",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
     "changes": [],
