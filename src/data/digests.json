@@ -1,5 +1,53 @@
 [
   {
+    "weekOf": "2026-10-05",
+    "vertical": "campus",
+    "scanned": 5822,
+    "candidates": 770,
+    "recommended": [
+      "campus-16bd098c0e27",
+      "campus-16bd0a8c0e27",
+      "campus-16c71a8c0e30",
+      "campus-16bd068c0e27",
+      "campus-16bd088c0e27",
+      "campus-16b99e8c0e24"
+    ],
+    "headlines": [
+      "research opportunity · company recruiting · workshop / training",
+      "research opportunity · company recruiting · workshop / training",
+      "computer science · employer: los alamos · this week",
+      "research opportunity · graduate opportunities · workshop / training",
+      "research opportunity · graduate opportunities · workshop / training",
+      "research opportunity · graduate opportunities · workshop / training"
+    ],
+    "changes": [],
+    "estimatedMinutes": 0
+  },
+  {
+    "weekOf": "2026-10-05",
+    "vertical": "research",
+    "scanned": 976,
+    "candidates": 109,
+    "recommended": [
+      "research-49287428c1aa",
+      "research-a7e3be14aec9",
+      "research-b57bb86d2774",
+      "research-40492cd5e884",
+      "research-4f42328aba7a",
+      "research-91cd8d7cf8f2"
+    ],
+    "headlines": [
+      "M. tuberculosis · phylogenetics · selection methods applied to Mtb",
+      "M. tuberculosis · very recent · antimicrobial resistance",
+      "comparative genomics · MCMC / Bayesian inference · antimicrobial resistance",
+      "M. tuberculosis · very recent · revised preprint (v2)",
+      "positive selection · very recent · antimicrobial resistance",
+      "comparative genomics · diabetes / host metabolic · recent"
+    ],
+    "changes": [],
+    "estimatedMinutes": 113
+  },
+  {
     "weekOf": "2026-09-28",
     "vertical": "campus",
     "scanned": 5809,
