@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-05T02:04:34.277Z",
+  "fetchedAt": "2026-10-05T19:44:41.308Z",
   "totalFromHeader": 93,
   "studies": [
     {
@@ -2302,7 +2302,7 @@
           "externalId": "NCT05240885",
           "url": "https://clinicaltrials.gov/study/NCT05240885",
           "status": "recruiting",
-          "verifiedAt": "2025-09-01T00:00:00.000Z",
+          "verifiedAt": "2026-09-01T00:00:00.000Z",
           "protocolIds": [
             "NCT05240885",
             "2021-1413",
@@ -2323,7 +2323,7 @@
       "recruitmentStartDate": null,
       "lifecycleMonths": 12,
       "postedDate": "2025-04-09T02:38:25.000Z",
-      "modifiedDate": "2025-10-02T00:00:00.000Z",
+      "modifiedDate": "2026-10-05T00:00:00.000Z",
       "categoryIds": [
         42,
         44
@@ -2385,7 +2385,7 @@
       },
       "effectiveHourly": 12,
       "isExpired": false,
-      "staleness": "aging",
+      "staleness": "fresh",
       "tags": [
         "in-person",
         "clinical"
@@ -5965,20 +5965,6 @@
           "titleAliases": [
             "Prandial Metabolic Phenotype in Adults"
           ]
-        },
-        {
-          "source": "clinicaltrials-gov",
-          "externalId": "NCT05400733",
-          "url": "https://clinicaltrials.gov/study/NCT05400733",
-          "status": "recruiting",
-          "verifiedAt": "2025-09-01T00:00:00.000Z",
-          "protocolIds": [
-            "NCT05400733",
-            "83 - Pulse Feeding"
-          ],
-          "titleAliases": [
-            "Prandial Metabolic Phenotype in Adults"
-          ]
         }
       ],
       "piName": "PI: Dr. Marielle Engelen, PhD",
@@ -6005,9 +5991,7 @@
       "topicIds": [
         34
       ],
-      "locationLabels": [
-        "Human Clinical Research Facility — College Station, Texas, United States"
-      ],
+      "locationLabels": [],
       "compensation": {
         "guaranteedMin": null,
         "guaranteedMax": 620,
@@ -6056,15 +6040,13 @@
       },
       "effectiveHourly": 14.09,
       "isExpired": false,
-      "staleness": "aging",
+      "staleness": "stale",
       "tags": [
         "in-person",
         "interview",
         "clinical"
       ],
-      "duplicateIds": [
-        "ctgov:NCT05400733"
-      ],
+      "duplicateIds": [],
       "duplicateOf": null
     },
     {
@@ -9076,7 +9058,7 @@
           "externalId": "NCT05867433",
           "url": "https://clinicaltrials.gov/study/NCT05867433",
           "status": "recruiting",
-          "verifiedAt": "2025-09-01T00:00:00.000Z",
+          "verifiedAt": "2026-09-01T00:00:00.000Z",
           "protocolIds": [
             "NCT05867433",
             "IRB2022-1159D",
@@ -9097,7 +9079,7 @@
       "recruitmentStartDate": null,
       "lifecycleMonths": null,
       "postedDate": "2023-05-22T00:00:00.000Z",
-      "modifiedDate": "2025-09-12T00:00:00.000Z",
+      "modifiedDate": "2026-10-05T00:00:00.000Z",
       "categoryIds": [],
       "locationIds": [],
       "sessionTypeIds": [],
@@ -9153,7 +9135,7 @@
       },
       "effectiveHourly": null,
       "isExpired": false,
-      "staleness": "aging",
+      "staleness": "fresh",
       "tags": [
         "clinical",
         "in-person"
@@ -9272,7 +9254,7 @@
           "externalId": "NCT06330181",
           "url": "https://clinicaltrials.gov/study/NCT06330181",
           "status": "recruiting",
-          "verifiedAt": "2025-04-01T00:00:00.000Z",
+          "verifiedAt": "2026-09-01T00:00:00.000Z",
           "protocolIds": [
             "NCT06330181",
             "SC220178",
@@ -9293,7 +9275,7 @@
       "recruitmentStartDate": null,
       "lifecycleMonths": null,
       "postedDate": "2024-03-26T00:00:00.000Z",
-      "modifiedDate": "2025-12-17T00:00:00.000Z",
+      "modifiedDate": "2026-10-05T00:00:00.000Z",
       "categoryIds": [],
       "locationIds": [],
       "sessionTypeIds": [],
@@ -9346,7 +9328,7 @@
       },
       "effectiveHourly": null,
       "isExpired": false,
-      "staleness": "stale",
+      "staleness": "fresh",
       "tags": [
         "vr-ar",
         "clinical",
@@ -9956,7 +9938,7 @@
           "externalId": "NCT07254364",
           "url": "https://clinicaltrials.gov/study/NCT07254364",
           "status": "recruiting",
-          "verifiedAt": "2026-08-01T00:00:00.000Z",
+          "verifiedAt": "2026-09-01T00:00:00.000Z",
           "protocolIds": [
             "NCT07254364",
             "105-Sweat"
@@ -9976,7 +9958,7 @@
       "recruitmentStartDate": null,
       "lifecycleMonths": null,
       "postedDate": "2025-11-28T00:00:00.000Z",
-      "modifiedDate": "2026-08-28T00:00:00.000Z",
+      "modifiedDate": "2026-10-05T00:00:00.000Z",
       "categoryIds": [],
       "locationIds": [],
       "sessionTypeIds": [],
@@ -10452,7 +10434,7 @@
       "status": "ok",
       "itemCount": 84,
       "fetchSource": "network",
-      "durationMs": 3305,
+      "durationMs": 4316,
       "failedRequests": 0,
       "complete": true,
       "note": null,
@@ -10463,9 +10445,9 @@
       "label": "ClinicalTrials.gov",
       "vertical": "studies",
       "status": "ok",
-      "itemCount": 22,
+      "itemCount": 21,
       "fetchSource": "network",
-      "durationMs": 599,
+      "durationMs": 1036,
       "failedRequests": 0,
       "complete": true,
       "note": null,

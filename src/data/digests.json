@@ -2,50 +2,156 @@
   {
     "weekOf": "2026-10-05",
     "vertical": "campus",
-    "scanned": 5822,
-    "candidates": 770,
+    "scanned": 5732,
+    "candidates": 846,
     "recommended": [
+      "campus-0dbe6a8c08f7",
       "campus-16bd098c0e27",
-      "campus-16bd0a8c0e27",
       "campus-16c71a8c0e30",
-      "campus-16bd068c0e27",
-      "campus-16bd088c0e27",
-      "campus-16b99e8c0e24"
+      "campus-16bd0a8c0e27",
+      "campus-eb3aa28af94e",
+      "campus-16bd068c0e27"
     ],
     "headlines": [
+      "bioinformatics / genomics · biotech · workshop / training",
       "research opportunity · company recruiting · workshop / training",
+      "computer science · tomorrow · employer: los alamos",
       "research opportunity · company recruiting · workshop / training",
-      "computer science · employer: los alamos · this week",
-      "research opportunity · graduate opportunities · workshop / training",
-      "research opportunity · graduate opportunities · workshop / training",
+      "company recruiting · graduate opportunities · this week",
       "research opportunity · graduate opportunities · workshop / training"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-34b66f39f2e3",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-04T05:00:00.000Z",
+        "after": "2026-10-05T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-04T05:00:00.000Z",
+        "after": "2026-10-05T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ce40ae77f7fb",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-04T05:00:00.000Z",
+        "after": "2026-10-05T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1336d8c465ad",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-04T05:00:00.000Z",
+        "after": "2026-10-05T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7a4374781142",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-04T05:00:00.000Z",
+        "after": "2026-10-05T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-8d43833c1a67",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-04T05:00:00.000Z",
+        "after": "2026-10-05T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b5af17ad553f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-04T05:00:00.000Z",
+        "after": "2026-10-05T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abbdbc6a55f1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-01T05:00:00.000Z",
+        "after": "2026-11-02T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-11bdd57a28c5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-05T05:00:00.000Z",
+        "after": "2026-10-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-45fb48786564",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-04T05:00:00.000Z",
+        "after": "2026-10-05T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-6292125669b1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-04T05:00:00.000Z",
+        "after": "2026-10-05T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-fe71a22fa8a2",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-11T05:00:00.000Z",
+        "after": "2026-10-10T15:00:00.000Z"
+      },
+      {
+        "itemId": "campus-3948d9a214e8",
+        "kind": "title",
+        "field": "Title",
+        "before": "HET Seminar",
+        "after": "Low-energy Constraints on Strong Coupling"
+      },
+      {
+        "itemId": "campus-ac117d6985f5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-05T13:00:00.000Z",
+        "after": "2026-10-15T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-3c2bdd45bf1f",
+        "kind": "title",
+        "field": "Title",
+        "before": "HEPEC Seminar",
+        "after": "Neutrino Telescopes: Windows into New Physics and the Relic Universe"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-10-05",
     "vertical": "research",
-    "scanned": 976,
-    "candidates": 109,
+    "scanned": 1011,
+    "candidates": 113,
     "recommended": [
+      "research-a22c3f21f49e",
+      "research-737434e80d5b",
       "research-49287428c1aa",
-      "research-a7e3be14aec9",
       "research-b57bb86d2774",
-      "research-40492cd5e884",
-      "research-4f42328aba7a",
+      "research-a7e3be14aec9",
       "research-91cd8d7cf8f2"
     ],
     "headlines": [
+      "positive selection · codon-model analysis · phylogenetics",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · phylogenetics · selection methods applied to Mtb",
-      "M. tuberculosis · very recent · antimicrobial resistance",
       "comparative genomics · MCMC / Bayesian inference · antimicrobial resistance",
-      "M. tuberculosis · very recent · revised preprint (v2)",
-      "positive selection · very recent · antimicrobial resistance",
+      "M. tuberculosis · antimicrobial resistance · recent",
       "comparative genomics · diabetes / host metabolic · recent"
     ],
     "changes": [],
-    "estimatedMinutes": 113
+    "estimatedMinutes": 116
   },
   {
     "weekOf": "2026-09-28",
