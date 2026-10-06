@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-05T19:44:41.308Z",
+  "fetchedAt": "2026-10-06T03:06:03.315Z",
   "totalFromHeader": 93,
   "studies": [
     {
@@ -10434,7 +10434,7 @@
       "status": "ok",
       "itemCount": 84,
       "fetchSource": "network",
-      "durationMs": 4316,
+      "durationMs": 3905,
       "failedRequests": 0,
       "complete": true,
       "note": null,
@@ -10447,7 +10447,7 @@
       "status": "ok",
       "itemCount": 21,
       "fetchSource": "network",
-      "durationMs": 1036,
+      "durationMs": 580,
       "failedRequests": 0,
       "complete": true,
       "note": null,
