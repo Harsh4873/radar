@@ -37,6 +37,46 @@ beforeEach(() => {
 });
 
 describe('campus discovery', () => {
+  it('restores base scores and ranking when feedback cancels out', async () => {
+    document.querySelector('[data-feed]')!.outerHTML = `
+      <ul data-feed data-default-tab="all">
+        <li data-item-id="a" data-relevance="50" data-signals="organism"><span data-score>50</span><button data-action="more">More</button></li>
+        <li data-item-id="b" data-relevance="51"><span data-score>51</span></li>
+        <li data-item-id="c" data-relevance="40" data-signals="organism"><span data-score>40</span><button data-action="less">Less</button></li>
+      </ul>`;
+    await import('./feed.ts');
+    const score = document.querySelector<HTMLElement>('[data-item-id="a"] [data-score]')!;
+    click('[data-item-id="a"] [data-action="more"]');
+    expect(score.textContent).toBe('52');
+    expect(score.classList.contains('is-adjusted')).toBe(true);
+    expect(score.title).toContain('adjusted it to 52');
+    expect(visible()).toEqual(['a', 'b', 'c']);
+
+    click('[data-item-id="c"] [data-action="less"]');
+    expect(score.textContent).toBe('50');
+    expect(score.classList.contains('is-adjusted')).toBe(false);
+    expect(score.hasAttribute('title')).toBe(false);
+    expect(visible()).toEqual(['b', 'a']);
+  });
+
+  it('clears adjusted score presentation when synced preferences return to the base score', async () => {
+    const item = document.querySelector('[data-item-id="a"]')!;
+    item.setAttribute('data-relevance', '50');
+    item.setAttribute('data-signals', 'organism');
+    item.insertAdjacentHTML('beforeend', '<span data-score>50</span>');
+    localStorage.setItem('radar:v1', JSON.stringify({ ...emptyState(), signalBias: { organism: 2 } }));
+    await import('./feed.ts');
+    const { subscribeRadarState } = await import('./store.ts');
+    const repaint = vi.mocked(subscribeRadarState).mock.calls.at(-1)![0];
+    const score = item.querySelector<HTMLElement>('[data-score]')!;
+    expect(score.textContent).toBe('52');
+    const state = emptyState();
+    repaint(state, { schemaVersion: 1, state, updatedAtMs: 1, clientId: 'test' });
+    expect(score.textContent).toBe('50');
+    expect(score.classList.contains('is-adjusted')).toBe(false);
+    expect(score.hasAttribute('title')).toBe(false);
+  });
+
   it('combines interest, date, format and saved state without changing event order', async () => {
     localStorage.setItem('radar:v1', JSON.stringify({ ...emptyState(), saved: ['a', 'b'] }));
     await import('./feed.ts');

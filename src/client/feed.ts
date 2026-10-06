@@ -102,10 +102,14 @@ function paintCard(card: CardData, state: RadarState, lastVisit: string | null):
 
   const score = adjustedScore(card, state);
   const scoreEl = element.querySelector<HTMLElement>('[data-score]');
-  if (scoreEl !== null && score !== card.relevance) {
+  if (scoreEl !== null) {
     scoreEl.textContent = String(score);
-    scoreEl.classList.add('is-adjusted');
-    scoreEl.title = `Radar scored this ${card.relevance}; your feedback adjusted it to ${score}.`;
+    scoreEl.classList.toggle('is-adjusted', score !== card.relevance);
+    if (score !== card.relevance) {
+      scoreEl.title = `Radar scored this ${card.relevance}; your feedback adjusted it to ${score}.`;
+    } else {
+      scoreEl.removeAttribute('title');
+    }
   }
 }
 
@@ -156,7 +160,8 @@ function applyView(
   const parent = root.dataset['sort'] === 'chronological' ? null : visible[0]?.element.parentElement;
   if (parent !== null && parent !== undefined) {
     const sorted = [...visible].sort((a, b) => adjustedScore(b, state) - adjustedScore(a, state));
-    const changed = sorted.some((card, index) => card !== visible[index]);
+    const current = [...parent.children].filter((element) => element instanceof HTMLElement && !element.hidden);
+    const changed = sorted.some((card, index) => card.element !== current[index]);
     if (changed) for (const card of sorted) parent.append(card.element);
   }
 
