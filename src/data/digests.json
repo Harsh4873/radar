@@ -2,19 +2,19 @@
   {
     "weekOf": "2026-10-05",
     "vertical": "campus",
-    "scanned": 5444,
-    "candidates": 797,
+    "scanned": 5339,
+    "candidates": 805,
     "recommended": [
+      "campus-1f85318c1329",
       "campus-0dbe6a8c08f7",
-      "campus-16c71a8c0e30",
       "campus-16bd098c0e27",
-      "campus-16bd0a8c0e27",
-      "campus-16bd088c0e27",
+      "campus-02bf8938c901",
+      "campus-f9a5d038c3b9",
       "campus-eb3aa28af94e"
     ],
     "headlines": [
+      "computer science · data science · this week",
       "bioinformatics / genomics · biotech · workshop / training",
-      "computer science · today · employer: los alamos",
       "research opportunity · company recruiting · workshop / training",
       "research opportunity · company recruiting · workshop / training",
       "research opportunity · graduate opportunities · workshop / training",
@@ -22,95 +22,109 @@
     ],
     "changes": [
       {
-        "itemId": "campus-7a200acffd4a",
-        "kind": "title",
-        "field": "Title",
-        "before": "What's Cookin' Aggies?",
-        "after": "What's Cookin' Aggies? - Fruit Sushi"
+        "itemId": "campus-34b66f39f2e3",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-06T05:00:00.000Z",
+        "after": "2026-10-07T05:00:00.000Z"
       },
       {
-        "itemId": "campus-f7379b8ad195",
-        "kind": "title",
-        "field": "Title",
-        "before": "What's Cookin' Aggies?",
-        "after": "What's Cookin' Aggies? - Charcuterie"
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-06T05:00:00.000Z",
+        "after": "2026-10-07T05:00:00.000Z"
       },
       {
-        "itemId": "campus-c388176057f7",
-        "kind": "location",
-        "field": "Location",
-        "before": "All Faiths Chapel",
-        "after": "Memorial Student Center"
+        "itemId": "campus-ce40ae77f7fb",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-06T05:00:00.000Z",
+        "after": "2026-10-07T05:00:00.000Z"
       },
       {
-        "itemId": "campus-a303ba3892a7",
-        "kind": "location",
-        "field": "Location",
-        "before": "Rudder Theater",
-        "after": "Rudder Theatre"
+        "itemId": "campus-7794522fed35",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-17T06:00:00.000Z",
+        "after": "2026-11-16T06:00:00.000Z"
       },
       {
-        "itemId": "campus-c388146057f7",
-        "kind": "location",
-        "field": "Location",
-        "before": "All Faiths Chapel",
-        "after": "Memorial Student Center"
+        "itemId": "campus-1336d8c465ad",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-06T05:00:00.000Z",
+        "after": "2026-10-07T05:00:00.000Z"
       },
       {
-        "itemId": "campus-c388156057f7",
-        "kind": "location",
-        "field": "Location",
-        "before": "All Faiths Chapel",
-        "after": "Memorial Student Center"
+        "itemId": "campus-7a4374781142",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-06T05:00:00.000Z",
+        "after": "2026-10-07T05:00:00.000Z"
       },
       {
-        "itemId": "campus-2c8226732b5a",
-        "kind": "location",
-        "field": "Location",
-        "before": "Rudder Theater",
-        "after": "Rudder Theatre"
+        "itemId": "campus-8d43833c1a67",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-06T05:00:00.000Z",
+        "after": "2026-10-07T05:00:00.000Z"
       },
       {
-        "itemId": "campus-2c8228732b5a",
-        "kind": "location",
-        "field": "Location",
-        "before": "Rudder Theater",
-        "after": "Rudder Theatre"
+        "itemId": "campus-b5af17ad553f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-06T05:00:00.000Z",
+        "after": "2026-10-07T05:00:00.000Z"
       },
       {
-        "itemId": "campus-2c8229732b5a",
-        "kind": "location",
-        "field": "Location",
-        "before": "Rudder Theater",
-        "after": "Rudder Theatre"
+        "itemId": "campus-a31bb7b3fae6",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-15T06:00:00.000Z",
+        "after": "2026-12-14T06:00:00.000Z"
       },
       {
-        "itemId": "campus-2c6334732b3f",
-        "kind": "location",
-        "field": "Location",
-        "before": "Rudder Theater",
-        "after": "Rudder Theatre"
+        "itemId": "campus-6292125669b1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-06T05:00:00.000Z",
+        "after": "2026-10-07T05:00:00.000Z"
       },
       {
-        "itemId": "campus-c384926057f4",
-        "kind": "location",
-        "field": "Location",
-        "before": "All Faiths Chapel",
-        "after": "Memorial Student Center"
+        "itemId": "campus-27267fa20a68",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-13T11:00:00.000Z",
+        "after": "2026-10-14T05:00:00.000Z"
       },
       {
-        "itemId": "campus-c384916057f4",
-        "kind": "location",
-        "field": "Location",
-        "before": "All Faiths Chapel",
-        "after": "Memorial Student Center"
+        "itemId": "campus-fe641f2fa897",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-27T05:00:00.000Z",
+        "after": "2026-10-27T00:00:00.000Z"
       },
       {
-        "itemId": "campus-2b8b14bd2149",
-        "kind": "location",
-        "field": "Location",
-        "before": "All Faiths Chapel",
-        "after": "Memorial Student Center"
+        "itemId": "campus-1f7aba8c1320",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-06T21:30:00.000Z",
+        "after": "2026-10-07T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-41b73c8b2a41",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-20T13:00:00.000Z",
+        "after": "2026-10-21T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-e4c9569412ff",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-03T06:00:00.000Z",
+        "after": "2026-11-02T14:30:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -118,26 +132,26 @@
   {
     "weekOf": "2026-10-05",
     "vertical": "research",
-    "scanned": 1006,
-    "candidates": 106,
+    "scanned": 1014,
+    "candidates": 108,
     "recommended": [
       "research-940c4bb9bbd9",
+      "research-ba63db13c45a",
+      "research-bc72fd3916fc",
       "research-a22c3f21f49e",
       "research-3bb7d660d55a",
-      "research-737434e80d5b",
-      "research-34d89defec17",
-      "research-3c6e76863f67"
+      "research-737434e80d5b"
     ],
     "headlines": [
       "positive selection · PAML / codeml · HyPhy / selection tests",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "positive selection · codon-model analysis · phylogenetics",
       "positive selection · codon-model analysis · phylogenetics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "positive selection · comparative genomics · recent",
-      "M. tuberculosis · antimicrobial resistance · recent"
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
     "changes": [],
-    "estimatedMinutes": 102
+    "estimatedMinutes": 101
   },
   {
     "weekOf": "2026-09-28",
