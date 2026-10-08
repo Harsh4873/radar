@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-10-05",
     "vertical": "campus",
-    "scanned": 5339,
-    "candidates": 805,
+    "scanned": 5372,
+    "candidates": 786,
     "recommended": [
       "campus-1f85318c1329",
       "campus-0dbe6a8c08f7",
@@ -20,120 +20,14 @@
       "research opportunity · graduate opportunities · workshop / training",
       "company recruiting · graduate opportunities · this week"
     ],
-    "changes": [
-      {
-        "itemId": "campus-34b66f39f2e3",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-06T05:00:00.000Z",
-        "after": "2026-10-07T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-06T05:00:00.000Z",
-        "after": "2026-10-07T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ce40ae77f7fb",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-06T05:00:00.000Z",
-        "after": "2026-10-07T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7794522fed35",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-17T06:00:00.000Z",
-        "after": "2026-11-16T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-1336d8c465ad",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-06T05:00:00.000Z",
-        "after": "2026-10-07T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7a4374781142",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-06T05:00:00.000Z",
-        "after": "2026-10-07T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-8d43833c1a67",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-06T05:00:00.000Z",
-        "after": "2026-10-07T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b5af17ad553f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-06T05:00:00.000Z",
-        "after": "2026-10-07T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a31bb7b3fae6",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-15T06:00:00.000Z",
-        "after": "2026-12-14T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-6292125669b1",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-06T05:00:00.000Z",
-        "after": "2026-10-07T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-27267fa20a68",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-13T11:00:00.000Z",
-        "after": "2026-10-14T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-fe641f2fa897",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-27T05:00:00.000Z",
-        "after": "2026-10-27T00:00:00.000Z"
-      },
-      {
-        "itemId": "campus-1f7aba8c1320",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-06T21:30:00.000Z",
-        "after": "2026-10-07T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-41b73c8b2a41",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-20T13:00:00.000Z",
-        "after": "2026-10-21T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-e4c9569412ff",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-03T06:00:00.000Z",
-        "after": "2026-11-02T14:30:00.000Z"
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-10-05",
     "vertical": "research",
-    "scanned": 1014,
-    "candidates": 108,
+    "scanned": 283,
+    "candidates": 75,
     "recommended": [
       "research-940c4bb9bbd9",
       "research-ba63db13c45a",
