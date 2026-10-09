@@ -2,129 +2,31 @@
   {
     "weekOf": "2026-10-05",
     "vertical": "campus",
-    "scanned": 5077,
-    "candidates": 752,
+    "scanned": 5124,
+    "candidates": 734,
     "recommended": [
       "campus-1f85318c1329",
+      "campus-eb11ba8bf551",
       "campus-0dbe6a8c08f7",
       "campus-8646fd7b80db",
       "campus-16bd0a8c0e27",
-      "campus-16bd088c0e27",
-      "campus-eb3aa28af94e"
+      "campus-16bd088c0e27"
     ],
     "headlines": [
+      "computer science · data science · this week",
       "computer science · data science · this week",
       "bioinformatics / genomics · biotech · workshop / training",
       "research opportunity · company recruiting · workshop / training",
       "research opportunity · company recruiting · workshop / training",
-      "research opportunity · graduate opportunities · workshop / training",
-      "company recruiting · graduate opportunities · this week"
+      "research opportunity · graduate opportunities · workshop / training"
     ],
     "changes": [
       {
-        "itemId": "campus-34b66f39f2e3",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-07T05:00:00.000Z",
-        "after": "2026-10-08T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-07T05:00:00.000Z",
-        "after": "2026-10-08T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ce40ae77f7fb",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-07T05:00:00.000Z",
-        "after": "2026-10-08T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-1336d8c465ad",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-07T05:00:00.000Z",
-        "after": "2026-10-08T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7a4374781142",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-07T05:00:00.000Z",
-        "after": "2026-10-08T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-8d43833c1a67",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-07T05:00:00.000Z",
-        "after": "2026-10-08T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b5af17ad553f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-07T05:00:00.000Z",
-        "after": "2026-10-08T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-42ffd16a1a63",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-07T21:00:00.000Z",
-        "after": "2026-10-08T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-6292125669b1",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-07T05:00:00.000Z",
-        "after": "2026-10-08T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-27267fa20a68",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-14T05:00:00.000Z",
-        "after": "2026-10-13T11:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11afd07a28b9",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-14T13:00:00.000Z",
-        "after": "2026-10-15T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-bcc9c346079a",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-28T19:00:00.000Z",
-        "after": "2026-10-29T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-41b73c8b2a41",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-21T05:00:00.000Z",
-        "after": "2026-10-20T13:00:00.000Z"
-      },
-      {
-        "itemId": "campus-38cd088b2522",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-28T13:00:00.000Z",
-        "after": "2026-10-29T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-d608c84ea27f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-28T13:00:00.000Z",
-        "after": "2026-10-29T05:00:00.000Z"
+        "itemId": "campus-42cc0bc33a10",
+        "kind": "location",
+        "field": "Location",
+        "before": "Rudder",
+        "after": null
       }
     ],
     "estimatedMinutes": 0
@@ -132,14 +34,14 @@
   {
     "weekOf": "2026-10-05",
     "vertical": "research",
-    "scanned": 1014,
-    "candidates": 109,
+    "scanned": 1006,
+    "candidates": 113,
     "recommended": [
       "research-940c4bb9bbd9",
       "research-0ed7b4433973",
       "research-ba63db13c45a",
       "research-bc72fd3916fc",
-      "research-913d02766655",
+      "research-eb7213f9f3b9",
       "research-3bb7d660d55a"
     ],
     "headlines": [
@@ -150,16 +52,8 @@
       "M. tuberculosis · comparative genomics · antimicrobial resistance",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
-    "changes": [
-      {
-        "itemId": "research-356c48437e7d",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v1",
-        "after": "v2"
-      }
-    ],
-    "estimatedMinutes": 100
+    "changes": [],
+    "estimatedMinutes": 97
   },
   {
     "weekOf": "2026-09-28",
