@@ -2,31 +2,206 @@
   {
     "weekOf": "2026-10-05",
     "vertical": "campus",
-    "scanned": 5124,
-    "candidates": 734,
+    "scanned": 5171,
+    "candidates": 699,
     "recommended": [
       "campus-1f85318c1329",
       "campus-eb11ba8bf551",
+      "campus-1f853c8c132a",
       "campus-0dbe6a8c08f7",
-      "campus-8646fd7b80db",
-      "campus-16bd0a8c0e27",
-      "campus-16bd088c0e27"
+      "campus-16bd098c0e27",
+      "campus-16bd0a8c0e27"
     ],
     "headlines": [
       "computer science · data science · this week",
       "computer science · data science · this week",
+      "computer science · data science · this week",
       "bioinformatics / genomics · biotech · workshop / training",
       "research opportunity · company recruiting · workshop / training",
-      "research opportunity · company recruiting · workshop / training",
-      "research opportunity · graduate opportunities · workshop / training"
+      "research opportunity · company recruiting · workshop / training"
     ],
     "changes": [
       {
-        "itemId": "campus-42cc0bc33a10",
+        "itemId": "campus-34b66f39f2e3",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-08T05:00:00.000Z",
+        "after": "2026-10-09T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-08T05:00:00.000Z",
+        "after": "2026-10-09T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ce40ae77f7fb",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-08T05:00:00.000Z",
+        "after": "2026-10-09T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1336d8c465ad",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-08T05:00:00.000Z",
+        "after": "2026-10-09T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7a4374781142",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-08T05:00:00.000Z",
+        "after": "2026-10-09T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-8d43833c1a67",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-08T05:00:00.000Z",
+        "after": "2026-10-09T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b5af17ad553f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-08T05:00:00.000Z",
+        "after": "2026-10-09T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-11bdd57a28c5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-15T05:00:00.000Z",
+        "after": "2026-10-16T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abbdb86a55f0",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-05T06:00:00.000Z",
+        "after": "2026-11-06T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-6292125669b1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-08T05:00:00.000Z",
+        "after": "2026-10-09T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-c388176057f7",
+        "kind": "title",
+        "field": "Title",
+        "before": "Find Your Calm: Fall 2026 Online Meditation & Talk Series: Anger: How Do I Stop Reacting?",
+        "after": "Find Your Calm: Fall 2026 Meditation & Talk Series: Anger: How Do I Stop Reacting?"
+      },
+      {
+        "itemId": "campus-11afd07a28b9",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-15T05:00:00.000Z",
+        "after": "2026-10-14T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ac117d6985f5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-15T13:00:00.000Z",
+        "after": "2026-10-16T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-c388146057f7",
+        "kind": "title",
+        "field": "Title",
+        "before": "Find Your Calm: Fall 2026 Online Meditation & Talk Series: Difficult People: How Do I Deal With Someone I Can't Stand?",
+        "after": "Find Your Calm: Fall 2026 Meditation & Talk Series: Difficult People: How Do I Deal With Someone I Can't Stand?"
+      },
+      {
+        "itemId": "campus-c388156057f7",
+        "kind": "title",
+        "field": "Title",
+        "before": "Find Your Calm: Fall 2026 Online Meditation & Talk Series: Cause & Effect: Why Do My Choices Matter?",
+        "after": "Find Your Calm: Fall 2026 Meditation & Talk Series: Cause & Effect: Why Do My Choices Matter?"
+      },
+      {
+        "itemId": "campus-a614a879b891",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-08T13:00:00.000Z",
+        "after": "2026-10-09T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-20fc402fbc2b",
+        "kind": "title",
+        "field": "Title",
+        "before": "Curtis D. Robert Distinguished Speaker Series with Dr. Eric Knuth",
+        "after": "Curtis D. Robert Distinguished Speaker Series with Dr. Xiaoming Zhai"
+      },
+      {
+        "itemId": "campus-20fc402fbc2b",
         "kind": "location",
         "field": "Location",
-        "before": "Rudder",
-        "after": null
+        "before": "Rudder Tower",
+        "after": "Harrington Education Center Office Tower"
+      },
+      {
+        "itemId": "campus-20fc402fbc2b",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-13T18:30:00.000Z",
+        "after": "2026-10-23T18:30:00.000Z"
+      },
+      {
+        "itemId": "campus-bcc9c346079a",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-29T05:00:00.000Z",
+        "after": "2026-10-28T19:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a3483db3fb0c",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-15T05:00:00.000Z",
+        "after": "2026-10-16T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-273408a20a74",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-22T05:00:00.000Z",
+        "after": "2026-10-23T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-38cd088b2522",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-29T05:00:00.000Z",
+        "after": "2026-10-28T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-d608c84ea27f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-29T05:00:00.000Z",
+        "after": "2026-10-28T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-c384926057f4",
+        "kind": "title",
+        "field": "Title",
+        "before": "Find Your Calm: Fall 2026 Online Meditation & Talk Series: Why Do We Suffer?",
+        "after": "Find Your Calm: Fall 2026 Meditation & Talk Series: Why Do We Suffer?"
+      },
+      {
+        "itemId": "campus-c384916057f4",
+        "kind": "title",
+        "field": "Title",
+        "before": "Find Your Calm: Fall 2026 Online Meditation & Talk Series: Respect • Kindness • Harmony • Truthfulness",
+        "after": "Find Your Calm: Fall 2026 Meditation & Talk Series: Respect • Kindness • Harmony • Truthfulness"
       }
     ],
     "estimatedMinutes": 0
@@ -34,8 +209,8 @@
   {
     "weekOf": "2026-10-05",
     "vertical": "research",
-    "scanned": 1006,
-    "candidates": 113,
+    "scanned": 1028,
+    "candidates": 109,
     "recommended": [
       "research-940c4bb9bbd9",
       "research-0ed7b4433973",
