@@ -1,5 +1,62 @@
 [
   {
+    "weekOf": "2026-10-12",
+    "vertical": "campus",
+    "scanned": 5460,
+    "candidates": 728,
+    "recommended": [],
+    "headlines": [],
+    "changes": [
+      {
+        "itemId": "campus-2b8b14bd2149",
+        "kind": "title",
+        "field": "Title",
+        "before": "Find Your Calm: Fall 2026 In-Person Meditation: In-Person Meditation — Mini Meditation Retreat + Q&A",
+        "after": "Find Your Calm: Fall 2026 In-Person Meditation: Mini Meditation Retreat + Q&A"
+      },
+      {
+        "itemId": "campus-2b8b14bd2149",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-16T16:00:00.000Z",
+        "after": "2026-11-16T16:30:00.000Z"
+      }
+    ],
+    "estimatedMinutes": 0
+  },
+  {
+    "weekOf": "2026-10-12",
+    "vertical": "research",
+    "scanned": 1008,
+    "candidates": 99,
+    "recommended": [
+      "research-bd2e4e0f545b",
+      "research-559aecf75908",
+      "research-b57bb86d2774",
+      "research-a7e3be14aec9",
+      "research-33b38f5413f3",
+      "research-91cd8d7cf8f2"
+    ],
+    "headlines": [
+      "comparative genomics · phylogenetics · antimicrobial resistance",
+      "positive selection · comparative genomics · recent",
+      "comparative genomics · MCMC / Bayesian inference · antimicrobial resistance",
+      "M. tuberculosis · antimicrobial resistance · recent",
+      "comparative genomics · bioinformatics tooling · pathogen evolution",
+      "comparative genomics · diabetes / host metabolic · recent"
+    ],
+    "changes": [
+      {
+        "itemId": "research-0685ab685e6a",
+        "kind": "preprint-revised",
+        "field": "Preprint version",
+        "before": "v1",
+        "after": "v2"
+      }
+    ],
+    "estimatedMinutes": 114
+  },
+  {
     "weekOf": "2026-10-05",
     "vertical": "campus",
     "scanned": 5461,
