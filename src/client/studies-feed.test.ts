@@ -40,12 +40,42 @@ describe('study discovery', () => {
     expect(visible()).toEqual(['a']);
     expect(document.querySelector('[data-active-study-filters]')?.textContent).toContain('1 active');
     expect(document.querySelector('#unknown-note')?.textContent).toContain('1 study is hidden');
-    expect(document.querySelector<HTMLDetailsElement>('[data-study-filters]')?.open).toBe(false);
+    expect(document.querySelector<HTMLDetailsElement>('[data-study-filters]')?.open).toBe(true);
+    expect(new URL(window.location.href).searchParams.get('rate')).toBe('20');
+    const advanced = document.querySelector<HTMLDetailsElement>('[data-study-filters]')!;
+    advanced.open = false;
+    const query = document.getElementById('f-q') as HTMLInputElement;
+    query.value = 'sleep';
+    query.dispatchEvent(new Event('input'));
+    expect(advanced.open).toBe(false);
     document.querySelector<HTMLButtonElement>('#f-reset')!.click();
     expect(visible()).toEqual(['b', 'a', 'c']);
     expect(document.querySelector('[data-active-study-filters]')?.textContent).toBe('');
     expect((document.getElementById('f-format') as HTMLSelectElement).value).toBe('any');
     expect(document.activeElement).toBe(document.getElementById('f-q'));
+  });
+
+  it('keeps a shared eligibility filter after the screening profile enables the box', async () => {
+    const profile = await import('../studies/profile.ts');
+    profile.setProfile({ age: 25 });
+    history.replaceState({}, '', '/radar/studies/?eligible=1');
+    await import('./studies-feed.ts');
+    const box = document.getElementById('f-eligible') as HTMLInputElement;
+    expect(box.disabled).toBe(false);
+    expect(box.checked).toBe(true);
+    expect(new URL(window.location.href).searchParams.get('eligible')).toBe('1');
+    expect(document.querySelector<HTMLDetailsElement>('[data-study-filters]')?.open).toBe(true);
+  });
+
+  it('reproduces a shared pay filter instead of a stored minimum', async () => {
+    const state = await import('../studies/personal-state.ts');
+    state.updateStudiesFilters({ ...state.DEFAULT_STUDIES_FILTERS, minRate: '50', tags: [] });
+    history.replaceState({}, '', '/radar/studies/?rate=20&q=sleep');
+    await import('./studies-feed.ts');
+    expect((document.getElementById('f-rate') as HTMLSelectElement).value).toBe('20');
+    expect((document.getElementById('f-q') as HTMLInputElement).value).toBe('sleep');
+    expect(visible()).toEqual(['b', 'a']);
+    expect(document.querySelector<HTMLDetailsElement>('[data-study-filters]')?.open).toBe(true);
   });
 
   it('restores previous online bookmarks and retains that format when changing views', async () => {

@@ -12,9 +12,15 @@ import type { TabDef } from '@/lib/view.ts';
 interface Props {
   tabs: readonly TabDef[];
   active?: string;
+  /** What is already true of the server HTML when JavaScript is off. */
+  note?: string;
 }
 
-const { tabs, active = 'for-you' } = Astro.props;
+const {
+  tabs,
+  active = 'for-you',
+  note = 'Tabs, saving, and local re-ranking need JavaScript.',
+} = Astro.props;
 ---
 
 <div class="tabs" role="group" aria-label="Feed filters">
@@ -34,8 +40,5 @@ const { tabs, active = 'for-you' } = Astro.props;
 </div>
 
 <noscript>
-  <p class="note">
-    Tabs, saving, and local feedback-based re-ranking need JavaScript. Every item is listed below in
-    relevance order regardless.
-  </p>
+  <p class="note">{note}</p>
 </noscript>

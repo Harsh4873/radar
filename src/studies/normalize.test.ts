@@ -109,7 +109,17 @@ describe('normalizeStudy - HTML entities and markup', () => {
       expect(record.title, `title of ${record.id}`).not.toMatch(/<[^>]+>/);
       expect(record.summary, `summary of ${record.id}`).not.toMatch(entity);
       expect(record.summary, `summary of ${record.id}`).not.toMatch(/<[^>]+>/);
+      if (record.piName !== null) {
+        expect(record.piName, `piName of ${record.id}`).not.toMatch(entity);
+        expect(record.piName, `piName of ${record.id}`).not.toMatch(/<[^>]+>/);
+      }
     }
+  });
+
+  it('strips tags and entities from the principal investigator name', () => {
+    const source = structuredClone(raw(11901));
+    source.meta.aux_study_item_pi_name = 'PI: Edgar Rojas-Muñoz<br>PhD, Texas A&amp;M';
+    expect(normalizeStudy(source, { now: NOW }).piName).toBe('PI: Edgar Rojas-Muñoz PhD, Texas A&M');
   });
 
   it('collapses whitespace and caps the summary length', () => {

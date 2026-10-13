@@ -779,18 +779,15 @@ describe('KNOWN ISSUES (pinned, not endorsed)', () => {
   // which is what the note on those pins asked for. They are not deleted; they
   // now assert the honest arithmetic instead of the wrong number.
 
-  it('(F2 remainder): the RATE is reconciled but the DISPLAYED TOTAL is still one visit short', () => {
-    // Half of F2 is closed and half is not, and the half that is not is
-    // visible on the card: #12766 now shows an honest $60.00/hr next to a
-    // "$70" total, and #8874 an honest $15.00/hr next to "$30".
-    // `reconcileEffectiveHourly` already computes the right figure - 120 and
-    // 60 - but nothing writes it back, because `compensation` is gated to
-    // equal `parseCompensation(meta)` field-for-field (normalize.test.ts:793)
-    // and the total therefore belongs to parse-compensation.ts.
+  it('(F2 remainder): compensation still stores one visit, while guaranteedTotal is the whole study', () => {
+    // The card and detail page read `guaranteedTotal` at render time
+    // (`scaledStudyTotal`). `compensation` stays the parser output, because
+    // normalize.test.ts requires it to match `parseCompensation(meta)` field
+    // for field. #12766 still stores $70 where the whole study is $120, and
+    // #8874 stores $30 where it is $60.
     //
-    // Pinned so the inconsistency is a named, visible debt rather than an
-    // oddity a reader notices first. When the parser learns to close these
-    // studies out, this test goes red - move it into the F2 regression block.
+    // When the parser learns to close these studies out, this test goes red.
+    // Move it into the F2 regression block rather than weakening it.
     for (const [id, shownTotal, honestTotal] of [
       [12766, 70, 120],
       [8874, 30, 60],

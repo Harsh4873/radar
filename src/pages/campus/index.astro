@@ -69,6 +69,7 @@ const titleById = new Map(items.map((item) => [item.id, item.title]));
         tabs={CAMPUS_TABS.filter((tab) => ['all', 'clubs', 'sports', 'intramurals', 'companies', 'research-events', 'campus', 'bcs'].includes(tab.id))}
         campusFilters
         activeTab="all"
+        scriptNote="Tabs and saved state need JavaScript. Events below stay in chronological order."
       />
 
       <CampusAgenda items={items} now={now} defaultTab="all" forYouIds={forYouIds} />

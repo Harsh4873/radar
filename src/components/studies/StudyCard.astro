@@ -17,6 +17,7 @@
 import RateBadge from '@/components/studies/RateBadge.astro';
 import { decodeEntities, stripHtml } from '@/studies/html.ts';
 import { scrubEmails } from '@/studies/mailto.ts';
+import { scaledStudyTotal, usd } from '@/studies/money-display.ts';
 import {
   combinedStudyLocations,
   studySourceLabel,
@@ -41,13 +42,6 @@ const elig = study.eligibility;
 // ---------------------------------------------------------------------------
 // Formatting
 // ---------------------------------------------------------------------------
-
-function usd(n: number): string {
-  const r = Math.round(n * 100) / 100;
-  return Number.isInteger(r)
-    ? `$${r.toLocaleString('en-US')}`
-    : `$${r.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-}
 
 function hours(h: number): string {
   if (h < 1) return `${Math.round(h * 60)} min`;
@@ -75,6 +69,10 @@ function payLine(): { text: string; unknown: boolean } {
   const { guaranteedMin: lo, guaranteedMax: hi } = comp;
   const suffix = CURRENCY_SUFFIX[comp.currencyKind] ?? '';
   const tail = suffix === '' ? '' : ` ${suffix}`;
+
+  // Per-visit pay is scaled up before the hourly rate is divided. Show that
+  // whole-study total here. The stored compensation object stays one visit.
+  if (wholeStudyTotal !== null) return { text: `${usd(wholeStudyTotal)}${tail}`, unknown: false };
 
   if (typeof hi === 'number' && hi > 0) {
     if (lo === null) return { text: `up to ${usd(hi)}${tail}`, unknown: false };
@@ -142,6 +140,9 @@ const STALENESS_BADGE: Record<string, { text: string; title: string }> = {
 // Derived display values
 // ---------------------------------------------------------------------------
 
+const title = stripHtml(study.title);
+const summary = stripHtml(study.summary);
+const wholeStudyTotal = scaledStudyTotal(comp, dur);
 const pay = payLine();
 const time = timeLine();
 const badge = STALENESS_BADGE[study.staleness] ?? STALENESS_BADGE.expired!;
@@ -201,10 +202,10 @@ const isInPerson = study.tags.includes('in-person');
 // default marker so the placeholder text never becomes a search term.
 const searchText = scrubEmails(
   [
-    study.title,
-    study.summary,
-    study.piName ?? '',
-    study.contactName ?? '',
+    title,
+    summary,
+    stripHtml(study.piName),
+    stripHtml(study.contactName),
     study.irbNumber ?? '',
     place,
     sessions,
@@ -223,7 +224,7 @@ const searchText = scrubEmails(
   data-study
   data-id={study.id}
   data-rate={study.effectiveHourly === null ? '' : String(study.effectiveHourly)}
-  data-total={typeof comp.guaranteedMax === 'number' ? String(comp.guaranteedMax) : ''}
+  data-total={wholeStudyTotal !== null ? String(wholeStudyTotal) : typeof comp.guaranteedMax === 'number' ? String(comp.guaranteedMax) : ''}
   data-hours={typeof hoursForFilter === 'number' ? String(hoursForFilter) : ''}
   data-online={isOnline ? '1' : '0'}
   data-inperson={isInPerson ? '1' : '0'}
@@ -238,13 +239,13 @@ const searchText = scrubEmails(
         <span class:list={['badge', `badge-${study.staleness}`]} title={badge.title}>{badge.text}</span>
       </p>
       <h3 class="card-title">
-        <a href={detailHref}>{study.title}</a>
+        <a href={detailHref}>{title}</a>
       </h3>
     </div>
     <RateBadge rate={study.effectiveHourly} compensation={comp} />
   </div>
 
-  {study.summary !== '' && <p class="card-summary">{study.summary}</p>}
+  {summary !== '' && <p class="card-summary">{summary}</p>}
 
   <dl class="facts">
     <div>
@@ -330,8 +331,8 @@ const searchText = scrubEmails(
   {
     actions && (
       <div class="study-state-actions" aria-label="Personal study actions">
-        <button class="btn" type="button" data-study-action="save" aria-pressed="false" aria-label={`Save ${study.title}`}>Save</button>
-        <button class="btn" type="button" data-study-action="dismiss" aria-pressed="false" aria-label={`Dismiss ${study.title}`}>Dismiss</button>
+        <button class="btn" type="button" data-study-action="save" aria-pressed="false" aria-label={`Save ${title}`}>Save</button>
+        <button class="btn" type="button" data-study-action="dismiss" aria-pressed="false" aria-label={`Dismiss ${title}`}>Dismiss</button>
       </div>
     )
   }

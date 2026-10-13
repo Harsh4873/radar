@@ -91,18 +91,21 @@ const preprintChanges = research.diff.changes.filter(
       searchPlaceholder="Search a title, journal, author, or method"
       heading="Papers"
       headingId="papers-heading"
-      shown={items.length}
       total={items.length}
       noun="paper"
       tabs={RESEARCH_TABS}
       activeTab="for-you"
+      shown={top.length}
+      scriptNote="Tabs need JavaScript. Without it, this list is the Top cut. Every matching paper is still in the page."
     />
 
     <ul class="feed card-list" data-feed data-default-tab="for-you">
-      {items.map((item) => <ItemCard item={item} now={now} inForYou={forYouIds.has(item.id)} />)}
+      {items.map((item) => (
+        <ItemCard item={item} now={now} inForYou={forYouIds.has(item.id)} concealed={!forYouIds.has(item.id)} />
+      ))}
     </ul>
 
-    <p class="empty empty-search" data-empty-state hidden>
+    <p class="empty empty-search" data-empty-state hidden={top.length > 0 ? true : undefined}>
       Nothing in this view. Try another filter, or <a href={url(base, 'research/topics/')}>review the published scope</a>
       that decides what Radar looks for.
     </p>

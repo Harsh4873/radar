@@ -183,6 +183,7 @@ function applyProfile(profile: UserProfile | null): void {
 // -- filtering ------------------------------------------------------------
 
 let hiddenForUnknown = 0;
+let advancedFiltersWereActive = false;
 
 function matches(card: HTMLElement, words: string[], count: boolean): boolean {
   if (personalState.dismissed.includes(card.dataset.id ?? '') && !showDismissed) {
@@ -285,6 +286,12 @@ function apply(): void {
   ].filter(Boolean).length;
   const filterCount = document.querySelector<HTMLElement>('[data-active-study-filters]');
   if (filterCount !== null) filterCount.textContent = activeFilters > 0 ? `· ${activeFilters} active` : '';
+  const advanced = document.querySelector<HTMLDetailsElement>('[data-study-filters]');
+  // Open when a pay, time, or study-type filter turns on. Later updates
+  // (search, save, tab) must not pop the disclosure back open.
+  if (advanced !== null && activeFilters > 0 && !advancedFiltersWereActive) advanced.open = true;
+  advancedFiltersWereActive = activeFilters > 0;
+  writeFiltersToUrl();
 
 
   if (unknownNote !== null) {
@@ -318,6 +325,53 @@ function resort(): void {
   sortList($('list-expired'), mode);
 }
 
+function optionOr(select: HTMLSelectElement | null, value: string | null, fallback: string): string {
+  if (value === null || select === null) return fallback;
+  return [...select.options].some((option) => option.value === value) ? value : fallback;
+}
+
+/** Shared-link params. Absent means this URL is not trying to reproduce a filter set. */
+function filtersFromSearch(params: URLSearchParams): StudiesFilters | null {
+  const keys = ['q', 'rate', 'total', 'hours', 'sort', 'tags', 'eligible', 'dismissed', 'format'];
+  if (!keys.some((key) => params.has(key))) return null;
+  const sort = params.get('sort');
+  const format = params.get('format');
+  const tags = (params.get('tags') ?? '')
+    .split(',')
+    .map((tag) => tag.trim())
+    .filter((tag) => tag.length > 0 && tagBox?.querySelector(`[data-tag="${CSS.escape(tag)}"]`) != null);
+  return {
+    query: (params.get('q') ?? '').slice(0, 300),
+    minRate: optionOr(rateSel, params.get('rate'), '0'),
+    minTotal: optionOr(totalSel, params.get('total'), '0'),
+    maxHours: optionOr(hoursSel, params.get('hours'), ''),
+    mode: format === 'online' || format === 'inperson' ? format : 'any',
+    sort: sort === 'total' || sort === 'time' || sort === 'new' ? sort : 'rate',
+    tags,
+    eligibleOnly: params.get('eligible') === '1',
+    showDismissed: params.get('dismissed') === '1',
+  };
+}
+
+function writeFiltersToUrl(): void {
+  const filters = readFilters();
+  const nextUrl = new URL(window.location.href);
+  const set = (key: string, value: string | null): void => {
+    if (value === null || value === '') nextUrl.searchParams.delete(key);
+    else nextUrl.searchParams.set(key, value);
+  };
+  set('q', filters.query.trim());
+  set('rate', filters.minRate !== '0' ? filters.minRate : null);
+  set('total', filters.minTotal !== '0' ? filters.minTotal : null);
+  set('hours', filters.maxHours !== '' ? filters.maxHours : null);
+  set('sort', filters.sort !== 'rate' ? filters.sort : null);
+  set('tags', filters.tags.length > 0 ? [...filters.tags].sort().join(',') : null);
+  set('eligible', filters.eligibleOnly ? '1' : null);
+  set('dismissed', filters.showDismissed ? '1' : null);
+  set('format', filters.mode !== 'any' ? filters.mode : null);
+  if (nextUrl.search !== window.location.search) window.history.replaceState({}, '', nextUrl);
+}
+
 function readFilters(): StudiesFilters {
   return {
     query: qInput?.value ?? '',
@@ -338,6 +392,15 @@ function persistFilters(): void {
   personalState = updateStudiesFilters(readFilters());
 }
 
+function revealTab(button: HTMLElement): void {
+  const scroller = button.parentElement;
+  if (scroller === null || scroller.scrollWidth <= scroller.clientWidth) return;
+  const start = button.offsetLeft;
+  const end = start + button.offsetWidth;
+  if (start < scroller.scrollLeft) scroller.scrollLeft = start;
+  else if (end > scroller.scrollLeft + scroller.clientWidth) scroller.scrollLeft = end - scroller.clientWidth;
+}
+
 function setStudyTab(next: string): void {
   if (next === 'online' || next === 'inperson') {
     if (formatSel !== null) formatSel.value = next;
@@ -345,7 +408,9 @@ function setStudyTab(next: string): void {
   }
   studyTab = TAB_IDS.has(next) ? next : 'all';
   for (const button of document.querySelectorAll<HTMLElement>('[data-tab]')) {
-    button.setAttribute('aria-pressed', button.dataset['tab'] === studyTab ? 'true' : 'false');
+    const on = button.dataset['tab'] === studyTab;
+    button.setAttribute('aria-pressed', on ? 'true' : 'false');
+    if (on) revealTab(button);
   }
   const nextUrl = new URL(window.location.href);
   if (studyTab === 'all') nextUrl.searchParams.delete('tab');
@@ -371,6 +436,8 @@ function restoreFilters(filters: StudiesFilters): void {
 }
 
 function reset(): void {
+  const advanced = document.querySelector<HTMLDetailsElement>('[data-study-filters]');
+  if (advanced !== null) advanced.open = false;
   if (qInput !== null) qInput.value = '';
   if (formatSel !== null) formatSel.value = 'any';
   if (rateSel !== null) rateSel.value = '0';
@@ -469,7 +536,17 @@ function readProfile(): UserProfile | null {
   }
 }
 
-restoreFilters(personalState.filters);
+const linkedFilters = filtersFromSearch(new URL(window.location.href).searchParams);
+if (linkedFilters !== null) {
+  restoreFilters(linkedFilters);
+  const filters = readFilters();
+  // The eligibility box stays disabled until the profile is applied, so the
+  // DOM still reads "off" here. Keep the shared link's choice for that later step.
+  if (eligibleBox?.disabled) filters.eligibleOnly = linkedFilters.eligibleOnly;
+  personalState = updateStudiesFilters(filters);
+} else {
+  restoreFilters(personalState.filters);
+}
 const requestedTab = new URL(window.location.href).searchParams.get('tab');
 if (requestedTab !== null && TAB_IDS.has(requestedTab)) setStudyTab(requestedTab);
 else if (personalState.filters.mode === 'online' || personalState.filters.mode === 'inperson') {

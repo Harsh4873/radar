@@ -49,7 +49,9 @@ import type { APIRoute } from 'astro';
 import diffJson from '@/data/studies-diff.json';
 import snapshotJson from '@/data/studies.json';
 import { hydrateStudiesSnapshot } from '@/studies/hydrate.ts';
+import { stripHtml } from '@/studies/html.ts';
 import { scrubEmails } from '@/studies/mailto.ts';
+import { rateIsUpTo, scaledStudyTotal, studyTotalLabel } from '@/studies/money-display.ts';
 import { studySourceLabel, studySourceReferences } from '@/studies/source-display.ts';
 import type { ParsedCompensation, Snapshot, StudyRecord } from '@/studies/types.ts';
 
@@ -155,6 +157,10 @@ function usd(n: number): string {
     : `$${rounded.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
 
+function visibleTitle(study: StudyRecord): string {
+  return stripHtml(study.title);
+}
+
 /** "2 hours", "1-3 hours", or null when the listing never said. */
 function hoursLabel(study: StudyRecord): string | null {
   const lo = study.duration?.totalHoursMin ?? null;
@@ -189,8 +195,12 @@ function payHeadline(study: StudyRecord): string {
 
   // 1. A real, rankable rate. Add the total alongside it when there is one.
   if (typeof rate === 'number' && Number.isFinite(rate) && rate > 0) {
-    const perHour = `${usd(rate)}/hr`;
-    return hasGuaranteedPay ? `${perHour} - ${usd(guaranteed as number)} total` : perHour;
+    const upTo = comp !== undefined && rateIsUpTo(comp);
+    const perHour = `${upTo ? 'up to ' : ''}${usd(rate)}/hr`;
+    const scaled = comp === undefined ? null : scaledStudyTotal(comp, study.duration);
+    const total = scaled ?? (hasGuaranteedPay ? guaranteed : null);
+    if (total === null || comp === undefined) return perHour;
+    return `${perHour} - ${studyTotalLabel(comp, total, scaled !== null)} total`;
   }
 
   // 2. A known zero is information, not an absence of it.
@@ -254,7 +264,7 @@ function describe(study: StudyRecord, detailUrl: string, prefix?: string): strin
 
   return [
     prefix ? `<p><em>${prefix}</em></p>` : '',
-    study.summary ? `<p>${study.summary}</p>` : '',
+    study.summary ? `<p>${stripHtml(study.summary)}</p>` : '',
     row('Pay', payHeadline(study)),
     row('Drawing', raffle),
     row('Time', hoursLabel(study)),
@@ -318,7 +328,7 @@ export const GET: APIRoute = (context) => {
   const items: FeedItem[] = [...selected.values()].map((study) => {
     const detailUrl = abs(`studies/study/${study.slug}/`);
     return {
-      title: `${payHeadline(study)} - ${study.title}`,
+      title: `${payHeadline(study)} - ${visibleTitle(study)}`,
       link: detailUrl,
       guid: detailUrl,
       guidIsPermalink: true,
@@ -350,7 +360,7 @@ export const GET: APIRoute = (context) => {
       .join(' and ');
 
     items.push({
-      title: `Updated ${what}: ${payHeadline(study)} - ${study.title}`,
+      title: `Updated ${what}: ${payHeadline(study)} - ${visibleTitle(study)}`,
       link: detailUrl,
       guid: `${detailUrl}#updated-${fingerprint}`,
       guidIsPermalink: false,

@@ -53,6 +53,7 @@ const campusLinks = [
   { label: 'Careers', path: 'campus/companies/' },
   { label: 'Talks & research', path: 'campus/research/' },
 ];
+const showCampusNav = engine === 'campus';
 ---
 
 <!doctype html>
@@ -105,14 +106,16 @@ const campusLinks = [
           </nav>
         </div>
       </div>
-      <nav class="section-nav" aria-label="Explore campus">
-        <p class="rail-label">Campus</p>
-        {campusLinks.map((entry) => (
-          <a href={url(base, entry.path)} aria-current={Astro.url.pathname.replace(/\/?$/, '/') === url(base, entry.path) ? 'page' : undefined}>
-            {entry.label}
-          </a>
-        ))}
-      </nav>
+      {showCampusNav && (
+        <nav class="section-nav" aria-label="Explore campus">
+          <p class="rail-label">Campus</p>
+          {campusLinks.map((entry) => (
+            <a href={url(base, entry.path)} aria-current={Astro.url.pathname.replace(/\/?$/, '/') === url(base, entry.path) ? 'page' : undefined}>
+              {entry.label}
+            </a>
+          ))}
+        </nav>
+      )}
     </header>
 
     <div class="content-frame">

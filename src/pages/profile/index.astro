@@ -8,6 +8,8 @@ import { CAMPUS_INTERESTS } from '@/campus/profile.ts';
 import type { CampusCategory } from '@/types.ts';
 import { byCampusDate, url } from '@/lib/view.ts';
 import { isKnownRate } from '@/studies/effective-rate.ts';
+import { stripHtml } from '@/studies/html.ts';
+import { rateIsUpTo } from '@/studies/money-display.ts';
 
 const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
 const categoryOrder: CampusCategory[] = [
@@ -79,9 +81,10 @@ const paperIndex = research.items.map((item) => ({
 
 const studyIndex = studies.studies.map((study) => ({
   id: study.id,
-  title: study.title,
+  title: stripHtml(study.title),
   href: url(base, `studies/study/${study.slug}/`),
   rate: isKnownRate(study.effectiveHourly) ? study.effectiveHourly : null,
+  upTo: isKnownRate(study.effectiveHourly) && study.effectiveHourly > 0 && rateIsUpTo(study.compensation),
 }));
 
 const campusJson = JSON.stringify(campusIndex).replace(/</g, '\\u003c');

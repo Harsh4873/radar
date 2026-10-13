@@ -146,6 +146,7 @@ const description = `${live.length} current participant-study opportunities conn
         noun="study"
         tabs={STUDIES_TABS.filter((tab) => !['online', 'inperson'].includes(tab.id))}
         activeTab="all"
+        scriptNote="Tabs and saving need JavaScript. Studies below stay in hourly-rate order, with unrated studies in their own section."
       >
         <label class="field study-format"><span class="field-label">Where</span>
           <select class="control" id="f-format">
@@ -162,7 +163,8 @@ const description = `${live.length} current participant-study opportunities conn
       <section class="section" id="section-ranked" aria-labelledby="h-ranked">
         <h2 class="section-head" id="h-ranked">Ranked by hourly rate</h2>
         <p class="section-note">
-          Guaranteed pay divided by the time the listing says it takes. Studies that list no
+          Guaranteed pay divided by the time the listing says it takes. A badge that says “up to”
+          is a ceiling or a rising rate, not one firm hourly amount. Studies that list no
           compensation explicitly appear here as unpaid, at the bottom.
         </p>
         <ol class="card-list" id="list-ranked">

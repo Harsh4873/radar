@@ -21,6 +21,16 @@ interface StudyEntry {
   title: string;
   href: string;
   rate: number | null;
+  /** Ceiling or rising stated rate. Absent on older profile islands. */
+  upTo?: boolean;
+}
+
+function formatHourly(rate: number, upTo: boolean): string {
+  const rounded = Math.round(rate * 100) / 100;
+  const body = Number.isInteger(rounded)
+    ? `$${rounded.toLocaleString('en-US')}`
+    : `$${rounded.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  return upTo ? `up to ${body}/hr` : `${body}/hr guaranteed`;
 }
 
 function parseIsland<T>(id: string, fallback: T): T {
@@ -140,7 +150,7 @@ export function initRadarProfile(): void {
         id: entry.id,
         href: entry.href,
         title: entry.title,
-        meta: entry.rate === null ? 'Rate unknown' : `$${Math.round(entry.rate)}/hr guaranteed`,
+        meta: entry.rate === null ? 'Rate unknown' : formatHourly(entry.rate, entry.upTo === true),
       }));
     renderList('profile-studies-saved', 'profile-studies-saved-empty', found, state.saved.length, true);
     const output = document.querySelector<HTMLElement>('[data-profile-count="studies"]');

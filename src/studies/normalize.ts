@@ -108,6 +108,14 @@ function asNullableString(value: unknown): string | null {
   return s === '' ? null : s;
 }
 
+/** Investigator names arrive with the same `<br>` and entities as titles. */
+function plainName(value: unknown): string | null {
+  const raw = asNullableString(value);
+  if (raw === null) return null;
+  const cleaned = stripHtml(raw);
+  return cleaned === '' ? null : cleaned;
+}
+
 function asInt(value: unknown): number | null {
   if (typeof value === 'number') return Number.isFinite(value) ? Math.trunc(value) : null;
   if (typeof value !== 'string') return null;
@@ -447,15 +455,12 @@ export function normalizeStudy(raw: RawStudy, options: NormalizeOptions = {}): D
    * that checks whether the pay figure and the hours figure describe the same
    * amount of study before dividing them (see `__audit__.md`, F2).
    *
-   * It also returns `guaranteedTotal` - the whole-study pay the rate was
-   * actually computed on, which on #12766 is $120 where the compensation
+   * It also returns `guaranteedTotal`, the whole-study pay the rate was
+   * actually computed on. On #12766 that is $120 where the compensation
    * parser could only see one visit's $70. That total is deliberately NOT
-   * written back onto `compensation` here: `normalize.test.ts` asserts, as a
-   * hard gate, that a record's compensation equals `parseCompensation(meta)`
-   * field for field, so reconciling the displayed TOTAL belongs to whoever
-   * owns `parse-compensation.ts`. Until then the card shows an honest rate
-   * beside a floor that is one visit short, and `reconciled.guaranteedTotal`
-   * is here for that fix to consume.
+   * written back onto `compensation`: `normalize.test.ts` asserts that a
+   * record's compensation equals `parseCompensation(meta)` field for field.
+   * Cards and the detail page read `scaledStudyTotal` at render time instead.
    */
   const reconciled = reconcileEffectiveHourly(compensation, duration);
   const effectiveHourly = reconciled.rate;
@@ -490,7 +495,7 @@ export function normalizeStudy(raw: RawStudy, options: NormalizeOptions = {}): D
       protocolIds: irbNumber === null ? [] : [irbNumber],
       titleAliases: [title],
     }],
-    piName: asNullableString(meta.aux_study_item_pi_name),
+    piName: plainName(meta.aux_study_item_pi_name),
     contactName: asNullableString(meta.aux_study_item_contact_name),
     contactEmail: asNullableString(meta.aux_study_item_contact_email),
     contactPhone: asNullableString(meta.aux_study_item_contact_phone_number),

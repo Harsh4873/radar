@@ -14,8 +14,9 @@
  * server-rendered baseline is the all-unanswered verdict, which is the correct
  * thing to show someone with JavaScript off.
  */
-import { decodeEntities } from '@/studies/html.ts';
+import { decodeEntities, stripHtml } from '@/studies/html.ts';
 import { checkEligibility } from '@/studies/parse-eligibility.ts';
+import { rateIsUpTo, scaledStudyTotal } from '@/studies/money-display.ts';
 import { rateBucket, type RateBucket } from '@/studies/effective-rate.ts';
 import { EMPTY_PROFILE } from '@/studies/profile.ts';
 import { scrubEmails } from '@/studies/mailto.ts';
@@ -72,8 +73,19 @@ const day = (iso: string | null): string => {
   });
 };
 
-const hours = (n: number | null): string =>
-  n === null ? '' : `${Number.isInteger(n) ? n : n.toFixed(1)} ${n === 1 ? 'hour' : 'hours'}`;
+/** Same minute rule as the study card: sub-hour values are minutes, not raw floats. */
+function formatHours(n: number): { amount: string; unit: 'min' | 'hours' } {
+  if (n < 1) return { amount: String(Math.round(n * 60)), unit: 'min' };
+  const rounded = Math.round(n * 10) / 10;
+  const amount = Number.isInteger(rounded) ? String(rounded) : rounded.toFixed(1);
+  return { amount, unit: 'hours' };
+}
+
+function hoursPhrase(n: number): string {
+  const part = formatHours(n);
+  if (part.unit === 'min') return `${part.amount} min`;
+  return `${part.amount} ${part.amount === '1' ? 'hour' : 'hours'}`;
+}
 
 /** Taxonomy term ids -> display names. Names arrive HTML-encoded upstream. */
 const terms = (kind: string, ids: number[]): string[] => {
@@ -116,6 +128,8 @@ const BUCKET_STYLE: Record<RateBucket, string> = {
 
 /** Human summary of the guaranteed pay, kept separate from raffle value. */
 function payHeadline(): string {
+  const scaled = scaledStudyTotal(c, d);
+  if (scaled !== null) return `${usd(scaled)} for the whole study`;
   if (c.isHourlyRate && c.hourlyMin !== null) {
     return c.hourlyMax !== null && c.hourlyMax !== c.hourlyMin
       ? `${usd(c.hourlyMin)}-${usd(c.hourlyMax)} per hour`
@@ -125,6 +139,7 @@ function payHeadline(): string {
     const lo = c.guaranteedMin;
     const hi = c.guaranteedMax;
     if (lo !== null && hi !== null && lo !== hi) return `${usd(lo)}-${usd(hi)}`;
+    if (lo === null && hi !== null) return `up to ${usd(hi)}`;
     return usd(hi ?? lo);
   }
   if (c.raffleOnly && c.raffleMax !== null) return `Raffle entry only (prize up to ${usd(c.raffleMax)})`;
@@ -134,12 +149,17 @@ function payHeadline(): string {
 
 function durationHeadline(): string {
   if (d.totalHoursMin !== null && d.totalHoursMax !== null) {
-    return d.totalHoursMin === d.totalHoursMax
-      ? hours(d.totalHoursMin)
-      : `${d.totalHoursMin}-${hours(d.totalHoursMax)}`;
+    if (d.totalHoursMin === d.totalHoursMax) return hoursPhrase(d.totalHoursMin);
+    const lo = formatHours(d.totalHoursMin);
+    const hi = formatHours(d.totalHoursMax);
+    if (lo.unit === hi.unit) {
+      const unit = lo.unit === 'min' ? 'min' : 'hours';
+      return `${lo.amount}–${hi.amount} ${unit}`;
+    }
+    return `${hoursPhrase(d.totalHoursMin)}–${hoursPhrase(d.totalHoursMax)}`;
   }
-  if (d.totalHoursMax !== null) return `up to ${hours(d.totalHoursMax)}`;
-  if (d.totalHoursMin !== null) return `at least ${hours(d.totalHoursMin)}`;
+  if (d.totalHoursMax !== null) return `up to ${hoursPhrase(d.totalHoursMax)}`;
+  if (d.totalHoursMin !== null) return `at least ${hoursPhrase(d.totalHoursMin)}`;
   if (d.sessionCount !== null) return `${d.sessionCount} session${d.sessionCount === 1 ? '' : 's'}`;
   return 'Not stated';
 }
@@ -216,8 +236,13 @@ const VERDICT_LABEL: Record<string, string> = {
   unknown: 'Cannot tell from your details',
 };
 
-const pageTitle = `${study.title} — Research Studies`;
-const description = scrubEmails(study.summary).slice(0, 180);
+const title = stripHtml(study.title);
+const summary = scrubEmails(stripHtml(study.summary));
+const piName = scrubEmails(stripHtml(study.piName));
+const contactName = scrubEmails(stripHtml(study.contactName));
+const hourlyUpTo = study.effectiveHourly !== null && study.effectiveHourly > 0 && rateIsUpTo(c);
+const pageTitle = `${title} — Research Studies`;
+const description = summary.slice(0, 180);
 ---
 
 <Base
@@ -238,7 +263,7 @@ const description = scrubEmails(study.summary).slice(0, 180);
       </nav>
 
       <header>
-        <h1 class="text-2xl font-bold sm:text-3xl">{study.title}</h1>
+        <h1 class="text-2xl font-bold sm:text-3xl">{title}</h1>
         {
           study.tags.length > 0 && (
             <ul class="mt-3 flex flex-wrap gap-1.5">
@@ -252,7 +277,7 @@ const description = scrubEmails(study.summary).slice(0, 180);
         }
         {
           study.summary && (
-            <p class="mt-4 text-gray-700">{scrubEmails(study.summary)}</p>
+            <p class="mt-4 text-gray-700">{summary}</p>
           )
         }
       </header>
@@ -300,15 +325,17 @@ const description = scrubEmails(study.summary).slice(0, 180);
 
         <div class="mt-3 grid gap-3 sm:grid-cols-3">
           <div class={`rounded-lg border p-3 ${BUCKET_STYLE[bucket]}`}>
-            <p class="text-xs font-semibold tracking-wide uppercase">Guaranteed $/hour</p>
+            <p class="text-xs font-semibold tracking-wide uppercase">{hourlyUpTo ? 'Up to $/hour' : 'Guaranteed $/hour'}</p>
             <p class="mt-1 text-2xl font-bold">
-              {study.effectiveHourly === null ? 'Unknown' : `${usd(study.effectiveHourly)}/hr`}
+              {study.effectiveHourly === null ? 'Unknown' : `${hourlyUpTo ? 'up to ' : ''}${usd(study.effectiveHourly)}/hr`}
             </p>
             <p class="mt-1 text-xs">
               {
                 study.effectiveHourly === null
                   ? 'Pay or time commitment could not be read from the listing. Unknown is not the same as unpaid.'
-                  : 'Guaranteed money only, divided by stated participant time. Raffles are excluded.'
+                  : hourlyUpTo
+                    ? 'The listing states a ceiling or a rising rate. This is the top of that range, not one firm hourly amount. Raffles are excluded.'
+                    : 'Guaranteed money only, divided by stated participant time. Raffles are excluded.'
               }
             </p>
           </div>
@@ -523,7 +550,7 @@ const description = scrubEmails(study.summary).slice(0, 180);
           coordinator address, the draft below asks that and states anything from your details that
           the listing screens for. Registry-only studies link to their official page instead.
         </p>
-        <ContactButton study={study} phone={study.contactPhone} class="mt-3" />
+        <ContactButton study={{ ...study, title, contactName: contactName || null }} phone={study.contactPhone} class="mt-3" />
       </section>
 
       <!-- ---------------------------------------------------------------- -->
@@ -538,8 +565,8 @@ const description = scrubEmails(study.summary).slice(0, 180);
           ))}
           <div><dt class="inline font-semibold">IRB number:</dt><dd class="inline"> {study.irbNumber ?? 'not stated'}</dd></div>
           <div><dt class="inline font-semibold">IRB approval:</dt><dd class="inline"> {day(study.irbApprovalDate)}</dd></div>
-          <div><dt class="inline font-semibold">Principal investigator:</dt><dd class="inline"> {scrubEmails(study.piName) || 'not stated'}</dd></div>
-          <div><dt class="inline font-semibold">Coordinator:</dt><dd class="inline"> {scrubEmails(study.contactName) || 'not stated'}</dd></div>
+          <div><dt class="inline font-semibold">Principal investigator:</dt><dd class="inline"> {piName || 'not stated'}</dd></div>
+          <div><dt class="inline font-semibold">Coordinator:</dt><dd class="inline"> {contactName || 'not stated'}</dd></div>
           <div><dt class="inline font-semibold">Recruitment opened:</dt><dd class="inline"> {day(study.recruitmentStartDate)}</dd></div>
           <div><dt class="inline font-semibold">Recruitment ends:</dt><dd class="inline"> {day(study.expirationDate)}</dd></div>
           <div><dt class="inline font-semibold">Posted:</dt><dd class="inline"> {day(study.postedDate)}</dd></div>

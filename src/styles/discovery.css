@@ -165,6 +165,27 @@ a, button, summary, input, select { touch-action: manipulation; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+@media (max-width: 63.99rem) {
+  .discovery-controls {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    max-height: 50vh;
+    overflow: auto;
+    background: var(--bg);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .discovery-controls .tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+  .discovery-controls .tab {
+    flex: none;
+    white-space: nowrap;
+  }
+}
 @media print {
   .site-header, .discovery-controls, .filters, .sync-settings { display: none; }
   .content-frame { margin-left: 0; }

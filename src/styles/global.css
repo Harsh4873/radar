@@ -720,6 +720,25 @@ a {
   color: var(--accent-deep);
   background: var(--accent-soft);
 }
+/* Shown by feed.ts via .is-tracked and .is-new-since-visit. Hidden until then. */
+.badge.badge-tracked,
+.badge.badge-new-visit {
+  display: none;
+}
+.is-tracked .badge.badge-tracked {
+  display: inline-block;
+  color: var(--accent-deep);
+  background: var(--accent-soft);
+}
+.is-new-since-visit .badge.badge-new-visit {
+  display: inline-block;
+  max-width: 100%;
+  white-space: normal;
+  color: var(--new-fg);
+  background: var(--new-bg);
+  text-transform: none;
+  letter-spacing: 0;
+}
 
 /* Food evidence tiers. Three visibly different treatments, by design. */
 .food {

@@ -286,6 +286,10 @@ const QUESTIONS: Question[] = [
 
       if (field === 'age') {
         const raw = el.value.trim();
+        // A single digit is usually the start of a larger age ("2" of "25").
+        // Committing it would mark adult studies ineligible until the rest is typed.
+        const finished = raw === '' || raw.length >= 2;
+        if (event.type === 'input' && !finished) return;
         setProfile({ age: raw === '' ? null : Number(raw) });
         return;
       }

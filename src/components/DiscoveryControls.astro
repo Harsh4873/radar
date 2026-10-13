@@ -22,6 +22,8 @@ interface Props {
   activeTab?: string;
   dismissedLabel?: string;
   campusFilters?: boolean;
+  /** Noscript sentence for the tab strip. Each engine's server order is different. */
+  scriptNote?: string;
 }
 
 const {
@@ -38,6 +40,7 @@ const {
   activeTab = 'all',
   dismissedLabel = 'Show dismissed',
   campusFilters = false,
+  scriptNote,
 } = Astro.props;
 
 const plural = noun === 'study' ? 'studies' : `${noun}s`;
@@ -68,7 +71,7 @@ const plural = noun === 'study' ? 'studies' : `${noun}s`;
       <span data-count-for="visible">{shown}</span> of {total} shown
     </p>
   </div>
-  {tabs.length > 0 && <TabBar tabs={tabs} active={activeTab} />}
+  {tabs.length > 0 && <TabBar tabs={tabs} active={activeTab} note={scriptNote} />}
   {campusFilters && (
     <div class="campus-filter-grid">
       <label class="field"><span class="field-label">When</span>

@@ -20,6 +20,7 @@
  * dashed `.chance` treatment, always next to the words "not guaranteed".
  */
 import { rateBucket } from '@/studies/effective-rate.ts';
+import { rateIsUpTo, usd } from '@/studies/money-display.ts';
 import type { ParsedCompensation } from '@/studies/types.ts';
 
 interface Props {
@@ -29,14 +30,6 @@ interface Props {
 }
 
 const { rate, compensation: comp } = Astro.props;
-
-/** Whole dollars unless the cents actually carry information. */
-function usd(n: number): string {
-  const rounded = Math.round(n * 100) / 100;
-  return Number.isInteger(rounded)
-    ? `$${rounded.toLocaleString('en-US')}`
-    : `$${rounded.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-}
 
 const hasGuaranteedPay =
   typeof comp.guaranteedMax === 'number' && Number.isFinite(comp.guaranteedMax) && comp.guaranteedMax > 0;
@@ -52,11 +45,15 @@ type Variant = {
 function pick(): Variant {
   // 1. A real, rankable rate.
   if (typeof rate === 'number' && Number.isFinite(rate) && rate > 0) {
+    const upTo = rateIsUpTo(comp);
+    const amount = usd(rate);
     return {
       className: `rate-${rateBucket(rate)}`,
-      value: usd(rate),
+      value: upTo ? `up to ${amount}` : amount,
       unit: 'per hour',
-      label: `Effective pay ${usd(rate)} per hour of participant time.`,
+      label: upTo
+        ? `Up to ${amount} per hour. The listing states a ceiling or a rising rate, not one firm hourly amount.`
+        : `Effective pay ${amount} per hour of participant time.`,
     };
   }
 

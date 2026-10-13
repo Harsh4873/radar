@@ -78,6 +78,16 @@ function setPressed(button: HTMLElement, on: boolean): void {
   button.setAttribute('aria-pressed', on ? 'true' : 'false');
 }
 
+/** Bring a selected tab into the horizontal strip without scrolling the page. */
+function revealTab(button: HTMLElement): void {
+  const scroller = button.parentElement;
+  if (scroller === null || scroller.scrollWidth <= scroller.clientWidth) return;
+  const start = button.offsetLeft;
+  const end = start + button.offsetWidth;
+  if (start < scroller.scrollLeft) scroller.scrollLeft = start;
+  else if (end > scroller.scrollLeft + scroller.clientWidth) scroller.scrollLeft = end - scroller.clientWidth;
+}
+
 /** Reflect stored state onto one card's controls and badges. */
 function paintCard(card: CardData, state: RadarState, lastVisit: string | null): void {
   const { element, id } = card;
@@ -238,6 +248,7 @@ export function initFeed(): void {
       for (const other of document.querySelectorAll<HTMLElement>('[data-tab]')) {
         other.setAttribute('aria-pressed', other === button ? 'true' : 'false');
       }
+      revealTab(button);
       // Keep the tab in the URL so a view is linkable and survives reload.
       const url = new URL(window.location.href);
       url.searchParams.set('tab', tab);
@@ -266,6 +277,7 @@ export function initFeed(): void {
     if (target !== undefined) {
       tab = requested;
       for (const other of document.querySelectorAll<HTMLElement>('[data-tab]')) setPressed(other, other === target);
+      revealTab(target);
     } else {
       // Preserve bookmarked filters from the earlier single-row controls.
       const select = filterSelects.find((entry) => [...entry.options].some((option) => option.value === requested));
