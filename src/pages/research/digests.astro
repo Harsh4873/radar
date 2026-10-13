@@ -65,7 +65,7 @@ const weeks: WeekView[] = [...byWeek.entries()]
   description="Five papers worth reading this week, and what changed."
   engine="research"
   fetchedAt={fetchedAt}
-  current="digests"
+  current="research"
 >
   <section class="standfirst">
     <h1>Weekly digests</h1>
@@ -99,7 +99,7 @@ const weeks: WeekView[] = [...byWeek.entries()]
             {view.entries.length > 0 ? (
               <ul class="feed">
                 {view.entries.map((entry) => (
-                  <ItemCard item={entry.item} now={now} />
+                  <ItemCard item={entry.item} now={now} note={entry.headline} interactive={false} />
                 ))}
               </ul>
             ) : (
@@ -110,25 +110,24 @@ const weeks: WeekView[] = [...byWeek.entries()]
               </p>
             )}
 
-            {view.digest.changes.length > 0 && (
-              <div class="panel" style="margin-top:0.625rem;">
-                <h3 style="margin-top:0; font-size:0.9375rem;">Things that changed</h3>
+            <div class="panel" style="margin-top:0.625rem;">
+              <h3 style="margin-top:0; font-size:0.9375rem;">Things that changed</h3>
+              {view.digest.changes.length > 0 ? (
                 <ul>
                   {view.digest.changes.slice(0, 12).map((change) => (
                     <li>
-                      <strong>{change.field}:</strong> {change.before ?? '—'} → {change.after ?? '—'}
+                      <strong>{itemsById.get(change.itemId)?.title ?? change.itemId}:</strong>{' '}
+                      {change.field}: {change.before ?? 'none'} → {change.after ?? 'none'}
                     </li>
                   ))}
                 </ul>
-              </div>
-            )}
+              ) : (
+                <p class="note">Nothing in this digest changed against the previous snapshot.</p>
+              )}
+            </div>
           </>
         ))}
       </section>
     ))
   }
 </Base>
-
-<script>
-  import '@/client/feed.ts';
-</script>

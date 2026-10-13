@@ -246,16 +246,30 @@ a {
 
 .skip-link {
   position: absolute;
-  left: -9999px;
-  top: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
   z-index: 50;
   background: var(--surface);
   color: var(--text);
-  padding: 0.75rem 1rem;
-  border: 2px solid var(--focus);
 }
 .skip-link:focus {
-  left: 0;
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--focus);
 }
 
 .sr-only {
@@ -504,8 +518,7 @@ a {
   box-shadow: var(--shadow-hover);
 }
 .card.is-dismissed {
-  opacity: 0.55;
-  filter: grayscale(0.6);
+  border-style: dashed;
 }
 .card.is-saved {
   border-color: var(--sage-strong);
@@ -814,7 +827,7 @@ a {
   position: absolute;
   z-index: 8;
   right: 0;
-  bottom: calc(100% + 0.4rem);
+  top: calc(100% + 0.4rem);
   width: 10.5rem;
   display: grid;
   gap: 0.35rem;
@@ -1752,7 +1765,7 @@ a {
   }
   .campus-sidebar {
     position: sticky;
-    top: 5.25rem;
+    top: 1rem;
   }
   .profile-layout {
     grid-template-columns: 15.5rem minmax(0, 1fr);
@@ -1760,7 +1773,7 @@ a {
   }
   .profile-summary {
     position: sticky;
-    top: 5.25rem;
+    top: 1rem;
   }
   .site-footer .wrap {
     grid-template-columns: 12rem minmax(0, 1fr) auto;
@@ -1882,7 +1895,7 @@ a {
 }
 .profile-content > [id],
 .profile-section[id] {
-  scroll-margin-top: 5.5rem;
+  scroll-margin-top: 1rem;
 }
 .studies-hero-stats {
   display: grid;
@@ -1927,8 +1940,8 @@ a {
   }
   .studies-app .app-side {
     position: sticky;
-    top: 5.25rem;
-    max-height: calc(100vh - 6.5rem);
+    top: 1rem;
+    max-height: calc(100vh - 2rem);
     overflow-y: auto;
     overscroll-behavior: contain;
   }
@@ -1965,6 +1978,8 @@ a {
   font-family: inherit;
 }
 .studies-app .field-row-3 {
+  display: grid;
+  gap: 0.75rem;
   grid-template-columns: 1fr;
 }
 @media (min-width: 40rem) {
@@ -2341,6 +2356,18 @@ a {
   background-color: var(--studies);
   color: #fff;
 }
+@media (prefers-color-scheme: dark) {
+  /* --studies flips to a light green. White on that green fails contrast. */
+  .studies-app .bg-brand-700 {
+    background-color: #0a5c2e;
+    color: #fff;
+  }
+  .studies-app .bg-gray-50,
+  .studies-app .bg-gray-100 {
+    background-color: var(--surface-2);
+    color: var(--text);
+  }
+}
 .studies-about {
   max-width: 46rem;
   padding-top: 1rem;
@@ -2411,7 +2438,7 @@ a {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  min-height: 32px;
+  min-height: 44px;
   font-size: 0.875rem;
   cursor: pointer;
 }

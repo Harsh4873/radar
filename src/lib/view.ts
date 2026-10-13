@@ -6,7 +6,7 @@
  */
 
 import type { CampusCategory, Digest, RadarItem, RadarSnapshot, ResearchBand } from '@/types.ts';
-import { calendarDaysUntil } from '@/core/text.ts';
+import { calendarDaysUntil, civilDate } from '@/core/text.ts';
 import { byRelevance } from '@/core/rank.ts';
 import { isIntramuralListing } from '@/campus/classify.ts';
 
@@ -79,7 +79,8 @@ export function formatAgendaDate(iso: string | null): string {
 export function agendaDayContext(iso: string | null, now: string): string {
   const days = calendarDaysUntil(iso, now);
   if (days === null) return 'Open listing';
-  if (days < 0) return 'Earlier today';
+  if (days < -1) return 'Earlier';
+  if (days === -1) return 'Yesterday';
   if (days === 0) return 'Today';
   if (days === 1) return 'Tomorrow';
   if (days <= 7) return 'This week';
@@ -155,16 +156,84 @@ export function compareCampusAgenda(a: RadarItem, b: RadarItem, now: string): nu
   return byCampusDate(a, b);
 }
 
-/** A date range for a collapsed series: "Aug 23 – Aug 27". */
+/**
+ * A date range for a collapsed series: "Aug 23 – Aug 27".
+ *
+ * "Same day" is a College Station civil date. `Date.toDateString()` follows
+ * the machine zone, so a UTC build both collapses a 10pm–1am Central span
+ * and prints one Central day as two identical dates.
+ */
 export function formatRange(startIso: string | null, endIso: string | null): string {
   if (startIso === null) return 'Date TBD';
   if (endIso === null) return formatDateTime(startIso);
-  const start = new Date(startIso);
-  const end = new Date(endIso);
-  if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) return formatDateTime(startIso);
-  // Same calendar day: a range would read as a duplicate.
-  if (start.toDateString() === end.toDateString()) return formatDateTime(startIso);
+  const startDay = civilDate(startIso);
+  const endDay = civilDate(endIso);
+  if (startDay === null || endDay === null) return formatDateTime(startIso);
+  if (startDay === endDay) {
+    const startTime = formatTime(startIso);
+    const endTime = formatTime(endIso);
+    if (startTime === endTime) return formatDateTime(startIso);
+    return `${formatDateTime(startIso)} – ${endTime}`;
+  }
   return `${formatDate(startIso)} – ${formatDate(endIso)}`;
+}
+
+/**
+ * When line for a campus card or event page.
+ *
+ * All-day listings (including in-season intramurals pinned to midnight so the
+ * agenda can group them) must not show a clock or "hours ago". That instant
+ * is a bucket, not a start time.
+ */
+export function formatCampusWhen(
+  startsAt: string | null,
+  endsAt: string | null,
+  isAllDay: boolean,
+  now: string,
+  seriesCount = 1,
+): string {
+  if (startsAt === null) return 'Open listing';
+  // Series collapse used to run first. An all-day series then went through
+  // formatRange, which prints a clock whenever the civil dates match.
+  if (isAllDay) {
+    const startDay = civilDate(startsAt);
+    const endDay = endsAt === null ? null : civilDate(endsAt);
+    if (endDay !== null && startDay !== null && endDay !== startDay && endsAt !== null) {
+      // Ongoing seasons are pinned to midnight today so the agenda can group
+      // them. That pin is not a start time, so the line names the end only.
+      const days = calendarDaysUntil(startsAt, now);
+      if (days !== null && days <= 0) return `Through ${formatDate(endsAt)}`;
+      return `${formatDate(startsAt)} – ${formatDate(endsAt)}`;
+    }
+    return `${formatDate(startsAt)} · All day`;
+  }
+  if (seriesCount > 1) return formatRange(startsAt, endsAt);
+  const spansDays = endsAt !== null && civilDate(startsAt) !== civilDate(endsAt);
+  if (spansDays) return `${formatRange(startsAt, endsAt)} · ${relative(startsAt, now)}`;
+  if (endsAt !== null && formatTime(startsAt) !== formatTime(endsAt)) {
+    return `${formatDateTime(startsAt)} – ${formatTime(endsAt)} · ${relative(startsAt, now)}`;
+  }
+  return `${formatDateTime(startsAt)} · ${relative(startsAt, now)}`;
+}
+
+/** Google Calendar `dates` value. All-day holds use exclusive civil end dates. */
+export function googleCalendarDates(startsAt: string, endsAt: string | null, isAllDay: boolean): string | null {
+  const stamp = (date: Date): string => date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+  if (isAllDay) {
+    const startDay = civilDate(startsAt);
+    if (startDay === null) return null;
+    const endDay = endsAt === null ? startDay : civilDate(endsAt);
+    if (endDay === null) return null;
+    const exclusive = Date.parse(`${endDay}T00:00:00.000Z`);
+    if (Number.isNaN(exclusive)) return null;
+    const endExclusive = new Date(exclusive + 86_400_000).toISOString().slice(0, 10).replace(/-/g, '');
+    return `${startDay.replace(/-/g, '')}/${endExclusive}`;
+  }
+  const start = new Date(startsAt);
+  if (Number.isNaN(start.getTime())) return null;
+  const end = endsAt !== null ? new Date(endsAt) : new Date(start.getTime() + 3_600_000);
+  if (Number.isNaN(end.getTime())) return null;
+  return `${stamp(start)}/${stamp(end)}`;
 }
 
 /** "2 days ago", "in 3 hours". Relative to a caller-supplied now, for testability. */
@@ -230,7 +299,7 @@ export const CAMPUS_TABS: readonly TabDef[] = [
   { id: 'online', label: 'Online', hint: 'Events with an online option' },
   { id: 'deadlines', label: 'Deadlines', hint: 'Applications, registration, scholarships' },
   { id: 'bcs', label: 'Community', hint: 'Bryan/College Station, beyond campus' },
-  { id: 'interested', label: 'Interested', hint: 'Events you saved to your Radar profile' },
+  { id: 'interested', label: 'Interested', hint: 'Events you marked Interested on your Radar profile' },
   { id: 'going', label: 'Going', hint: 'Events you marked as attending' },
 ];
 

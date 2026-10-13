@@ -6,10 +6,14 @@ import {
   ENDED_AGENDA_SUFFIX,
   IN_PROGRESS_AGENDA_SUFFIX,
   STUDIES_TABS,
+  agendaDayContext,
   byCampusDate,
   campusAgendaGroup,
   campusDayKey,
   compareCampusAgenda,
+  formatCampusWhen,
+  formatRange,
+  googleCalendarDates,
   tabsFor,
 } from '@/lib/view.ts';
 import type { RadarItem } from '@/types.ts';
@@ -106,5 +110,59 @@ describe('campus agenda view', () => {
     expect(campusAgendaGroup(yesterdayTalk, now).inProgress).toBe(false);
     expect(campusAgendaGroup(yesterdayTalk, now).ended).toBe(false);
     expect(campusAgendaGroup(yesterdayTalk, now).key).toBe('2026-09-10');
+  });
+
+  it('labels yesterday with its own day, not earlier today', () => {
+    expect(agendaDayContext('2026-08-11T18:00:00-05:00', NOW)).toBe('Yesterday');
+    expect(agendaDayContext('2026-08-10T18:00:00-05:00', NOW)).toBe('Earlier');
+    expect(agendaDayContext('2026-08-12T18:00:00-05:00', NOW)).toBe('Today');
+  });
+
+  it('keeps College Station civil days even when the host zone is UTC', () => {
+    // 10pm–1am Central is two local dates. A UTC host shares one toDateString.
+    expect(formatRange('2026-10-13T03:00:00.000Z', '2026-10-13T06:00:00.000Z')).toBe('Oct 12, 2026 – Oct 13, 2026');
+    // 8am–11pm Central is one College Station day. A UTC host would print the date twice.
+    expect(formatRange('2026-10-12T13:00:00.000Z', '2026-10-13T04:00:00.000Z')).toBe('Mon, Oct 12, 8:00 AM – 11:00 PM');
+  });
+
+  it('shows all-day listings without a midnight clock', () => {
+    const now = '2026-10-12T16:00:00.000Z';
+    const single = formatCampusWhen('2026-10-12T05:00:00.000Z', null, true, now);
+    expect(single).toBe('Oct 12, 2026 · All day');
+    expect(single).not.toMatch(/AM|PM|ago/);
+
+    const season = formatCampusWhen('2026-10-12T05:00:00.000Z', '2026-11-01T04:59:59.000Z', true, now);
+    expect(season).toBe('Through Oct 31, 2026');
+    expect(season).not.toMatch(/AM|PM|ago/);
+
+    const upcoming = formatCampusWhen('2026-11-01T05:00:00.000Z', '2026-11-08T04:59:59.000Z', true, now);
+    expect(upcoming).toBe('Nov 1, 2026 – Nov 7, 2026');
+
+    const talk = formatCampusWhen('2026-10-12T18:00:00.000Z', '2026-10-12T21:00:00.000Z', false, now);
+    expect(talk).toContain('1:00 PM');
+    expect(talk).toContain('4:00 PM');
+
+    // Same civil day with a clock on both ends. Series count must not bring the clock back.
+    const sameDaySeries = formatCampusWhen(
+      '2026-10-12T05:00:00.000Z',
+      '2026-10-13T04:59:59.000Z',
+      true,
+      now,
+      2,
+    );
+    expect(sameDaySeries).toBe('Oct 12, 2026 · All day');
+    const ongoingSeries = formatCampusWhen(
+      '2026-10-12T05:00:00.000Z',
+      '2026-11-01T04:59:59.000Z',
+      true,
+      now,
+      3,
+    );
+    expect(ongoingSeries).toBe('Through Oct 31, 2026');
+  });
+
+  it('sends all-day events to calendar as all-day holds', () => {
+    expect(googleCalendarDates('2026-10-12T05:00:00.000Z', '2026-11-01T04:59:59.000Z', true)).toBe('20261012/20261101');
+    expect(googleCalendarDates('2026-10-12T18:00:00.000Z', '2026-10-12T21:00:00.000Z', false)).toBe('20261012T180000Z/20261012T210000Z');
   });
 });

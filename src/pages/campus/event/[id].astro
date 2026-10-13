@@ -11,7 +11,7 @@ import Base from '@/layouts/Base.astro';
 import { campus, fetchedAt, now } from '@/lib/data.ts';
 import { FOOD_LABELS } from '@/campus/freebies.ts';
 import { CATEGORY_LABELS } from '@/campus/classify.ts';
-import { formatDateTime, formatRange, relative, url } from '@/lib/view.ts';
+import { formatCampusWhen, googleCalendarDates, url } from '@/lib/view.ts';
 
 export const getStaticPaths = (() =>
   campus.items.map((item) => ({ params: { id: item.id }, props: { item } }))) satisfies GetStaticPaths;
@@ -34,10 +34,8 @@ const calendarParams = new URLSearchParams();
 calendarParams.set('action', 'TEMPLATE');
 calendarParams.set('text', item.title);
 if (facet?.startsAt != null) {
-  const start = new Date(facet.startsAt);
-  const end = facet.endsAt != null ? new Date(facet.endsAt) : new Date(start.getTime() + 3_600_000);
-  const stamp = (date: Date): string => date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-  calendarParams.set('dates', `${stamp(start)}/${stamp(end)}`);
+  const dates = googleCalendarDates(facet.startsAt, facet.endsAt, facet.isAllDay);
+  if (dates !== null) calendarParams.set('dates', dates);
 }
 if (facet?.location != null) calendarParams.set('location', facet.location);
 calendarParams.set('details', `${item.summary}\n\nvia Radar: ${item.url}`);
@@ -61,11 +59,9 @@ const calendarHref = `https://calendar.google.com/calendar/render?${calendarPara
 
     <p class="card-meta">
       {
-        facet?.seriesCount != null && facet.seriesCount > 1
-          ? `${formatRange(facet.startsAt, facet.endsAt)} · ${facet.seriesCount} sessions`
-          : facet?.startsAt == null
-            ? 'Open listing — no fixed date'
-            : `${formatDateTime(facet.startsAt)} · ${relative(facet.startsAt, now)}`
+        facet?.startsAt == null
+          ? 'Open listing, no fixed date'
+          : `${formatCampusWhen(facet.startsAt, facet.endsAt, facet.isAllDay, now, facet.seriesCount)}${facet.seriesCount > 1 ? ` · ${facet.seriesCount} sessions` : ''}`
       }
     </p>
 

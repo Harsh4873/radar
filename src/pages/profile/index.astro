@@ -64,6 +64,8 @@ const campusIndex = [...campus.items].sort(byCampusDate).map((item) => ({
     .toLocaleLowerCase(),
   href: url(base, `campus/event/${item.id}/`),
   sourceHref: item.url,
+  endsAt: item.campus?.endsAt ?? null,
+  isAllDay: item.campus?.isAllDay === true,
 }));
 
 const paperIndex = research.items.map((item) => ({
@@ -234,10 +236,10 @@ const studyJson = JSON.stringify(studyIndex).replace(/</g, '\\u003c');
             <p class="eyebrow">Shortlist</p>
             <h2 id="saved-heading">Events you’re interested in</h2>
           </div>
-          <p>Save possibilities now and decide later.</p>
+          <p>Mark Interested now and decide later.</p>
         </div>
         <ul class="profile-event-list" data-profile-event-list="interested"></ul>
-        <p class="empty" data-profile-empty="interested">Nothing saved yet. Use <strong>Interested</strong> on any event card.</p>
+        <p class="empty" data-profile-empty="interested">Nothing here yet. Use <strong>Interested</strong> on any event card.</p>
       </section>
 
       <div id="studies">
@@ -308,7 +310,7 @@ const studyJson = JSON.stringify(studyIndex).replace(/</g, '\\u003c');
         </div>
         <div class="actions" style="border-top:0; padding-top:0; margin-top:0;">
           <button class="action" type="button" id="export-profile">Export as JSON</button>
-          <button class="action" type="button" id="reset-profile">Clear saved items</button>
+          <button class="action" type="button" id="reset-profile">Clear campus and research record</button>
         </div>
       </section>
     </div>

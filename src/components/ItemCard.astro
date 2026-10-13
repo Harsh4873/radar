@@ -18,7 +18,7 @@ import { CAMPUS_INTERESTS } from '@/campus/profile.ts';
 import {
   formatDateTime,
   formatAgendaDate,
-  formatRange,
+  formatCampusWhen,
   campusDayKey,
   relative,
   signalsOf,
@@ -36,9 +36,13 @@ interface Props {
    * which knows the ranked order and the limit; see `tabsFor`.
    */
   inForYou?: boolean;
+  /** Frozen digest line. Empty on ordinary feeds. */
+  note?: string;
+  /** Digest pages list real links only. Save and Going need a live feed. */
+  interactive?: boolean;
 }
 
-const { item, now, detailed = false, inForYou } = Astro.props;
+const { item, now, detailed = false, inForYou, note = '', interactive = true } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
 
 const research = item.research;
@@ -56,11 +60,7 @@ const reasons = detailed ? item.reasons : item.reasons.slice(0, 4);
 
 const whenLabel =
   campus !== undefined
-    ? campus.seriesCount > 1
-      ? formatRange(campus.startsAt, campus.endsAt)
-      : campus.startsAt === null
-        ? 'Open listing'
-        : `${formatDateTime(campus.startsAt)} · ${relative(campus.startsAt, now)}`
+    ? formatCampusWhen(campus.startsAt, campus.endsAt, campus.isAllDay, now, campus.seriesCount)
     : research?.publishedDate == null
       ? 'Date unknown'
       : `${formatDateTime(research.publishedDate)} · ${relative(research.publishedDate, now)}`;
@@ -154,6 +154,8 @@ const authors = research === undefined || research.authors.length === 0
       <span>match</span>
     </div>
   </div>
+
+  {note.length > 0 && <p class="card-meta">That week: {note}</p>}
 
   {item.summary.length > 0 && <p class="card-summary">{item.summary}</p>}
 
@@ -252,22 +254,36 @@ const authors = research === undefined || research.authors.length === 0
         </a>
       )
     }
-    <button class="action" type="button" data-action="save" aria-pressed="false" aria-label={`Save ${item.title}`}>
-      Save
-    </button>
     {
-      campus !== undefined && (
+      interactive && (
+        <button
+          class="action"
+          type="button"
+          data-action="save"
+          aria-pressed="false"
+          aria-label={campus !== undefined ? `Interested in ${item.title}` : `Save ${item.title}`}
+        >
+          {campus !== undefined ? 'Interested' : 'Save'}
+        </button>
+      )
+    }
+    {
+      interactive && campus !== undefined && (
         <button class="action" type="button" data-action="attend" aria-pressed="false" aria-label={`Going to ${item.title}`}>Going</button>
       )
     }
     <a class="action action-quiet" href={detailHref} aria-label={`Details for ${item.title}`}>Details</a>
-    <details class="card-menu">
-      <summary class="action action-quiet" aria-label={`More actions for ${item.title}`}>More</summary>
-      <div class="card-menu-popover">
-        <button class="action" type="button" data-action="track" aria-pressed="false">Track changes</button>
-        <button class="action" type="button" data-action="more">More like this</button>
-        <button class="action" type="button" data-action="less">Not for me</button>
-      </div>
-    </details>
+    {
+      interactive && (
+        <details class="card-menu">
+          <summary class="action action-quiet" aria-label={`More actions for ${item.title}`}>More</summary>
+          <div class="card-menu-popover">
+            <button class="action" type="button" data-action="track" aria-pressed="false">Track changes</button>
+            <button class="action" type="button" data-action="more">More like this</button>
+            <button class="action" type="button" data-action="less">Not for me</button>
+          </div>
+        </details>
+      )
+    }
   </div>
 </li>

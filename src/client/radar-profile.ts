@@ -36,8 +36,9 @@ function parseIsland<T>(id: string, fallback: T): T {
 function renderList(
   listId: string,
   emptyId: string,
-  entries: Array<{ href: string; title: string; meta: string }>,
+  entries: Array<{ href: string; title: string; meta: string; id?: string }>,
   missing: number,
+  removable = false,
 ): void {
   const list = document.querySelector<HTMLElement>(`#${listId}`);
   const empty = document.querySelector<HTMLElement>(`#${emptyId}`);
@@ -56,6 +57,19 @@ function renderList(
       meta.textContent = entry.meta;
       copy.append(title, meta);
       li.append(copy);
+      if (removable && entry.id !== undefined) {
+        const actions = document.createElement('div');
+        actions.className = 'profile-event-actions';
+        const remove = document.createElement('button');
+        remove.type = 'button';
+        remove.className = 'action';
+        remove.dataset['studyAction'] = 'save';
+        remove.dataset['itemId'] = entry.id;
+        remove.setAttribute('aria-label', `Remove ${entry.title}`);
+        remove.textContent = 'Remove';
+        actions.append(remove);
+        li.append(actions);
+      }
       return li;
     }),
   );
@@ -123,11 +137,12 @@ export function initRadarProfile(): void {
       .map((id) => studiesById.get(id))
       .filter((entry): entry is StudyEntry => entry !== undefined)
       .map((entry) => ({
+        id: entry.id,
         href: entry.href,
         title: entry.title,
         meta: entry.rate === null ? 'Rate unknown' : `$${Math.round(entry.rate)}/hr guaranteed`,
       }));
-    renderList('profile-studies-saved', 'profile-studies-saved-empty', found, state.saved.length);
+    renderList('profile-studies-saved', 'profile-studies-saved-empty', found, state.saved.length, true);
     const output = document.querySelector<HTMLElement>('[data-profile-count="studies"]');
     if (output !== null) output.textContent = String(found.length);
   };
@@ -149,11 +164,16 @@ export function initRadarProfile(): void {
 
   document.querySelector('#export-profile')?.addEventListener('click', () => {
     const blob = new Blob([exportState(loadState())], { type: 'application/json' });
+    const href = URL.createObjectURL(blob);
     const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
+    link.href = href;
     link.download = 'radar-state.json';
+    document.body.append(link);
     link.click();
-    URL.revokeObjectURL(link.href);
+    window.setTimeout(() => {
+      link.remove();
+      URL.revokeObjectURL(href);
+    }, 1000);
   });
 
   document.querySelector('#reset-profile')?.addEventListener('click', () => {

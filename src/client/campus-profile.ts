@@ -8,6 +8,7 @@ import {
   togglePreferredCategory,
   toggleSaved,
 } from '@/client/store.ts';
+import { formatCampusWhen } from '@/lib/view.ts';
 
 interface CampusProfileEntry {
   id: string;
@@ -20,6 +21,8 @@ interface CampusProfileEntry {
   search: string;
   href: string;
   sourceHref: string;
+  endsAt?: string | null;
+  isAllDay?: boolean;
 }
 
 const CENTRAL = 'America/Chicago';
@@ -48,7 +51,10 @@ function eventRow(entry: CampusProfileEntry, kind: 'going' | 'interested'): HTML
   title.href = entry.href;
   title.textContent = entry.title;
   const meta = document.createElement('p');
-  meta.textContent = [dateLabel(entry.startsAt), entry.location, entry.organizer].filter(Boolean).join(' · ');
+  const when = entry.isAllDay === true
+    ? formatCampusWhen(entry.startsAt, entry.endsAt ?? null, true, new Date().toISOString())
+    : dateLabel(entry.startsAt);
+  meta.textContent = [when, entry.location, entry.organizer].filter(Boolean).join(' · ');
   copy.append(title, meta);
 
   const actions = document.createElement('div');

@@ -32,7 +32,26 @@ a, button, summary, input, select { touch-action: manipulation; }
   background: var(--accent-soft); color: var(--accent-deep); font-weight: 700;
   box-shadow: inset 3px 0 var(--accent-deep);
 }
-.section-nav { display: none; }
+.section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.75rem;
+  max-width: 100%;
+}
+.rail-label { display: none; }
+.section-nav a {
+  display: flex;
+  align-items: center;
+  flex: none;
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
+  color: var(--muted);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+}
+.section-nav a:hover { color: var(--text); background: var(--surface-2); }
 .content-frame { min-width: 0; }
 .page-main { padding: 2rem 0 3rem; }
 .wrap { width: 100%; max-width: 960px; padding-inline: 1.5rem; }
@@ -105,7 +124,7 @@ a, button, summary, input, select { touch-action: manipulation; }
 .vault-strip { margin: .5rem 0; }
 .site-footer { padding-block: 1.5rem; }
 .site-footer .wrap { display: block; }
-.footer-brand, .footer-copy p:not(.footer-engines) { display: none; }
+.footer-copy p { max-width: 42rem; }
 .footer-freshness { font-size: .875rem; }
 .footer-engines a { display: inline-flex; align-items: center; min-height: 44px; }
 @media (min-width: 64rem) {
@@ -118,8 +137,8 @@ a, button, summary, input, select { touch-action: manipulation; }
   .nav-tools { margin-top: .75rem; padding-top: .75rem; border-top: 1px solid var(--border); }
   .content-frame { margin-left: 232px; }
   .page-main { padding-top: 3rem; }
-  .section-nav { display: flex; flex-direction: column; margin-top: 2rem; }
-  .rail-label { margin: 0 .75rem .5rem; font-size: .8125rem; font-weight: 600; color: var(--muted); }
+  .section-nav { display: flex; flex-direction: column; margin-top: 2rem; overflow: visible; }
+  .rail-label { display: block; margin: 0 .75rem .5rem; font-size: .8125rem; font-weight: 600; color: var(--muted); }
   .section-nav a { display: flex; align-items: center; min-height: 44px; padding: .5rem .75rem; color: var(--muted); text-decoration: none; border-radius: 8px; font-size: .9375rem; }
   .section-nav a:hover { color: var(--text); background: var(--surface-2); }
   .discovery-paths { grid-template-columns: repeat(3, minmax(0, 1fr)); }

@@ -8,11 +8,18 @@ import {
   CAMPUS_TABS,
   byCampusDate,
   forYou,
+  url,
 } from '@/lib/view.ts';
+
+const base = import.meta.env.BASE_URL.replace(/\/*$/, '/');
 
 const items = [...campus.items].sort(byCampusDate);
 const top = forYou(items);
 const forYouIds = new Set(top.map((item) => item.id));
+const scheduleChanges = campus.diff.changes.filter((change) =>
+  change.kind === 'location' || change.kind === 'time' || change.kind === 'cancelled' || change.kind === 'uncancelled',
+);
+const titleById = new Map(items.map((item) => [item.id, item.title]));
 ---
 
 <Base
@@ -26,8 +33,27 @@ const forYouIds = new Set(top.map((item) => item.id));
   <header class="browse-heading">
     <p class="eyebrow">Texas A&amp;M · Campus</p>
     <h1>Find your next thing.</h1>
-    <p>Explore events by interest, then narrow by date. Save anything you want to come back to.</p>
+    <p>Explore events by interest, then narrow by date. Mark Interested on anything you want to come back to.</p>
   </header>
+
+  {
+    scheduleChanges.length > 0 && (
+      <section class="section">
+        <h2>What changed</h2>
+        <div class="panel">
+          <ul>
+            {scheduleChanges.slice(0, 12).map((change) => (
+              <li>
+                <a href={url(base, `campus/event/${change.itemId}/`)}>{titleById.get(change.itemId) ?? change.itemId}</a>
+                {': '}
+                <strong>{change.field}:</strong> {change.before ?? 'none'} → {change.after ?? 'none'}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )
+  }
 
   <div class="campus-layout campus-layout-feed">
     <section class="campus-discovery" id="events" aria-labelledby="agenda-heading">

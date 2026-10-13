@@ -49,6 +49,7 @@ const preprintChanges = research.diff.changes.filter(
       </p>
       <div class="hero-actions">
         <a class="action action-on-dark" href={url(base, 'profile/#research')}>Open your profile</a>
+        <a class="action action-on-dark" href={url(base, 'research/digests/')}>Weekly digests</a>
       </div>
     </div>
     <ul class="home-metrics" aria-label="Research summary">
@@ -70,7 +71,11 @@ const preprintChanges = research.diff.changes.filter(
           <ul>
             {preprintChanges.slice(0, 10).map((change) => (
               <li>
-                <strong>{change.field}:</strong> {change.before ?? '—'} → {change.after ?? '—'}
+                <a href={url(base, `research/paper/${change.itemId}/`)}>
+                  {items.find((item) => item.id === change.itemId)?.title ?? change.itemId}
+                </a>
+                {': '}
+                <strong>{change.field}:</strong> {change.before ?? 'none'} → {change.after ?? 'none'}
               </li>
             ))}
           </ul>
