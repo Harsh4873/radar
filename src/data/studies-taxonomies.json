@@ -2,7 +2,7 @@
   "category": {
     "37": {
       "id": 37,
-      "count": 53,
+      "count": 54,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=behavioral-sciences",
       "name": "Behavioral Sciences",
@@ -261,7 +261,7 @@
     },
     "42": {
       "id": 42,
-      "count": 10,
+      "count": 9,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=clinical-trials",
       "name": "Clinical Trials",
@@ -567,7 +567,7 @@
     },
     "48": {
       "id": 48,
-      "count": 2,
+      "count": 1,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=pre-k",
       "name": "Pre-K",
@@ -620,7 +620,7 @@
     },
     "49": {
       "id": 49,
-      "count": 4,
+      "count": 3,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=elementary",
       "name": "Elementary",
@@ -834,7 +834,7 @@
   "location": {
     "53": {
       "id": 53,
-      "count": 12,
+      "count": 13,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_location&term=bryan-college-station-off-campus",
       "name": "Bryan-College Station – off-campus",
@@ -881,7 +881,7 @@
     },
     "54": {
       "id": 54,
-      "count": 69,
+      "count": 70,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_location&term=bryan-college-station-on-campus",
       "name": "Bryan-College Station – on-campus",
@@ -1116,7 +1116,7 @@
     },
     "59": {
       "id": 59,
-      "count": 15,
+      "count": 17,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_location&term=online-only",
       "name": "Online Only",
@@ -1306,7 +1306,7 @@
   "sessionType": {
     "60": {
       "id": 60,
-      "count": 46,
+      "count": 43,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_session_type&term=multiple-visits",
       "name": "Multiple Visits",
@@ -1353,7 +1353,7 @@
     },
     "61": {
       "id": 61,
-      "count": 7,
+      "count": 9,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_session_type&term=online-interview",
       "name": "Online Interview",
@@ -1400,7 +1400,7 @@
     },
     "62": {
       "id": 62,
-      "count": 33,
+      "count": 34,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_session_type&term=online-survey",
       "name": "Online Survey",
@@ -1494,7 +1494,7 @@
     },
     "64": {
       "id": 64,
-      "count": 5,
+      "count": 7,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_session_type&term=remote",
       "name": "Remote",
@@ -1541,7 +1541,7 @@
     },
     "65": {
       "id": 65,
-      "count": 30,
+      "count": 32,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_session_type&term=single-visit",
       "name": "Single Visit",
@@ -1731,7 +1731,7 @@
     },
     "34": {
       "id": 34,
-      "count": 47,
+      "count": 46,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_topic&term=health",
       "name": "Health",
@@ -1825,7 +1825,7 @@
     },
     "36": {
       "id": 36,
-      "count": 39,
+      "count": 43,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_topic&term=other",
       "name": "Other",

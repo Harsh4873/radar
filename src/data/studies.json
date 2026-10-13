@@ -1,6 +1,6 @@
 {
-  "fetchedAt": "2026-10-12T20:20:19.694Z",
-  "totalFromHeader": 93,
+  "fetchedAt": "2026-10-13T03:37:48.822Z",
+  "totalFromHeader": 94,
   "studies": [
     {
       "id": "4591",
@@ -235,111 +235,6 @@
       "duplicateIds": [
         "ctgov:NCT05959434"
       ],
-      "duplicateOf": null
-    },
-    {
-      "id": "4607",
-      "slug": "learning-emotions-and-parenting-leap",
-      "title": "Learning, Emotions, and Parenting (LEAP)",
-      "summary": "This study aims to understand how families help children develop emotions about learning. Families with kindergarteners are eligible to participate.",
-      "url": "https://research.tamu.edu/study/learning-emotions-and-parenting-leap/",
-      "sources": [
-        {
-          "source": "aggie-research-volunteers",
-          "externalId": "4607",
-          "url": "https://research.tamu.edu/study/learning-emotions-and-parenting-leap/",
-          "status": "expired",
-          "verifiedAt": "2024-12-19T03:45:23.000Z",
-          "protocolIds": [
-            "IRB2023-0387D"
-          ],
-          "titleAliases": [
-            "Learning, Emotions, and Parenting (LEAP)"
-          ]
-        }
-      ],
-      "piName": "PI: Zhe Wang, Ph.D.",
-      "contactName": "BSID Lab",
-      "contactEmail": "bsidlab@tamu.edu",
-      "contactPhone": "(979) 458-9991",
-      "irbNumber": "IRB2023-0387D",
-      "irbApprovalDate": "2024-04-23T21:05:51.000Z",
-      "expirationDate": "2025-10-02T00:00:00.000Z",
-      "recruitmentStartDate": "2024-10-02T21:06:00.000Z",
-      "lifecycleMonths": 12,
-      "postedDate": "2024-12-19T03:07:05.000Z",
-      "modifiedDate": "2024-12-19T03:45:23.000Z",
-      "categoryIds": [
-        37,
-        47,
-        49,
-        48,
-        39
-      ],
-      "locationIds": [
-        53
-      ],
-      "sessionTypeIds": [
-        60
-      ],
-      "topicIds": [
-        31
-      ],
-      "locationLabels": [],
-      "compensation": {
-        "guaranteedMin": 420,
-        "guaranteedMax": 420,
-        "raffleMax": null,
-        "raffleOnly": false,
-        "isHourlyRate": false,
-        "hourlyMin": null,
-        "hourlyMax": null,
-        "currencyKind": "unknown",
-        "perVisit": null,
-        "visitCount": 6,
-        "completionBonus": null,
-        "hasNonCashPerk": false,
-        "sonaCreditOption": false,
-        "raw": "Each family will receive $420 for participation in all six visits",
-        "confidence": "medium",
-        "notes": [
-          "pay extracted from study description, not the compensation field"
-        ]
-      },
-      "duration": {
-        "totalHoursMin": null,
-        "totalHoursMax": null,
-        "sessionCount": null,
-        "spanWeeks": null,
-        "raw": "",
-        "confidence": "low"
-      },
-      "eligibility": {
-        "minAge": 0,
-        "maxAge": null,
-        "requiresRightHanded": false,
-        "requiresMriSafe": false,
-        "requiresFasting": false,
-        "excludesCardiovascular": false,
-        "excludesPregnancy": false,
-        "excludesSeizure": false,
-        "excludesNeurological": false,
-        "requiresSpecificCondition": null,
-        "requiresParentOrChild": true,
-        "sexRestriction": null,
-        "flags": [
-          "requires a parent and child participating together",
-          "enrols minors - parental consent required for under-18s"
-        ]
-      },
-      "effectiveHourly": null,
-      "isExpired": true,
-      "staleness": "expired",
-      "tags": [
-        "in-person",
-        "survey"
-      ],
-      "duplicateIds": [],
       "duplicateOf": null
     },
     {
@@ -1652,103 +1547,6 @@
       "tags": [
         "in-person",
         "mri"
-      ],
-      "duplicateIds": [],
-      "duplicateOf": null
-    },
-    {
-      "id": "5701",
-      "slug": "exoskeletons-for-commercial-dungeness-crab-fishing-to-reduce-musculoskeletal-injuries",
-      "title": "Exoskeletons for Commercial Dungeness Crab Fishing to Reduce Musculoskeletal Injuries",
-      "summary": "This study aims to investigate whether commercially available exoskeletons can reduce physical load during simulated crab harvesting tasks.",
-      "url": "https://research.tamu.edu/study/exoskeletons-for-commercial-dungeness-crab-fishing-to-reduce-musculoskeletal-injuries/",
-      "sources": [
-        {
-          "source": "aggie-research-volunteers",
-          "externalId": "5701",
-          "url": "https://research.tamu.edu/study/exoskeletons-for-commercial-dungeness-crab-fishing-to-reduce-musculoskeletal-injuries/",
-          "status": "unknown",
-          "verifiedAt": "2025-02-10T16:42:16.000Z",
-          "protocolIds": [
-            "STUDY2024-1359"
-          ],
-          "titleAliases": [
-            "Exoskeletons for Commercial Dungeness Crab Fishing to Reduce Musculoskeletal Injuries"
-          ]
-        }
-      ],
-      "piName": "PI: Jay Kim, PhD",
-      "contactName": "Seobin Choi, PhD",
-      "contactEmail": "seobin.choi@tamu.edu",
-      "contactPhone": null,
-      "irbNumber": "STUDY2024-1359",
-      "irbApprovalDate": "2024-11-06T10:40:25.000Z",
-      "expirationDate": null,
-      "recruitmentStartDate": null,
-      "lifecycleMonths": 6,
-      "postedDate": "2025-02-10T16:42:16.000Z",
-      "modifiedDate": "2025-02-10T16:42:16.000Z",
-      "categoryIds": [],
-      "locationIds": [
-        54
-      ],
-      "sessionTypeIds": [
-        65
-      ],
-      "topicIds": [
-        34,
-        35
-      ],
-      "locationLabels": [],
-      "compensation": {
-        "guaranteedMin": null,
-        "guaranteedMax": null,
-        "raffleMax": null,
-        "raffleOnly": false,
-        "isHourlyRate": true,
-        "hourlyMin": 25,
-        "hourlyMax": 25,
-        "currencyKind": "unknown",
-        "perVisit": null,
-        "visitCount": null,
-        "completionBonus": null,
-        "hasNonCashPerk": false,
-        "sonaCreditOption": false,
-        "raw": "$25 per hour",
-        "confidence": "high",
-        "notes": [
-          "hourly rate only; study total depends on session length"
-        ]
-      },
-      "duration": {
-        "totalHoursMin": 4,
-        "totalHoursMax": 4,
-        "sessionCount": 1,
-        "spanWeeks": null,
-        "raw": "One session, lasting approximately 4 hours",
-        "confidence": "high"
-      },
-      "eligibility": {
-        "minAge": 18,
-        "maxAge": 45,
-        "requiresRightHanded": false,
-        "requiresMriSafe": false,
-        "requiresFasting": false,
-        "excludesCardiovascular": false,
-        "excludesPregnancy": false,
-        "excludesSeizure": false,
-        "excludesNeurological": false,
-        "requiresSpecificCondition": null,
-        "requiresParentOrChild": false,
-        "sexRestriction": null,
-        "flags": []
-      },
-      "effectiveHourly": 25,
-      "isExpired": false,
-      "staleness": "stale",
-      "tags": [
-        "in-person",
-        "hci"
       ],
       "duplicateIds": [],
       "duplicateOf": null
@@ -3631,113 +3429,6 @@
         "in-person",
         "survey",
         "interview"
-      ],
-      "duplicateIds": [],
-      "duplicateOf": null
-    },
-    {
-      "id": "6995",
-      "slug": "validation-of-a-new-analog-for-neurovestibular-challenges-associated-with-spaceflight",
-      "title": "Validation of a new analog for neurovestibular challenges associated with spaceflight",
-      "summary": "This NASA funded study aims to test and validate a new spacecraft simulator that mimics the feelings that astronauts experience in space. Participants will control a virtual reality spacecraft and complete a docking task while in a motion simulator.",
-      "url": "https://research.tamu.edu/study/validation-of-a-new-analog-for-neurovestibular-challenges-associated-with-spaceflight/",
-      "sources": [
-        {
-          "source": "aggie-research-volunteers",
-          "externalId": "6995",
-          "url": "https://research.tamu.edu/study/validation-of-a-new-analog-for-neurovestibular-challenges-associated-with-spaceflight/",
-          "status": "unknown",
-          "verifiedAt": "2025-04-09T17:59:06.000Z",
-          "protocolIds": [
-            "STUDY2024-0755"
-          ],
-          "titleAliases": [
-            "Validation of a new analog for neurovestibular challenges associated with spaceflight"
-          ]
-        }
-      ],
-      "piName": "PI: Dr. Nancy Currie-Gregg, PhD",
-      "contactName": "John Hayes",
-      "contactEmail": "Johnhayes98@tamu.edu",
-      "contactPhone": null,
-      "irbNumber": "STUDY2024-0755",
-      "irbApprovalDate": "2025-03-19T12:51:29.000Z",
-      "expirationDate": null,
-      "recruitmentStartDate": null,
-      "lifecycleMonths": 6,
-      "postedDate": "2025-04-09T17:59:06.000Z",
-      "modifiedDate": "2025-04-09T17:59:06.000Z",
-      "categoryIds": [
-        37
-      ],
-      "locationIds": [
-        54
-      ],
-      "sessionTypeIds": [
-        60
-      ],
-      "topicIds": [
-        35
-      ],
-      "locationLabels": [],
-      "compensation": {
-        "guaranteedMin": 60,
-        "guaranteedMax": 60,
-        "raffleMax": null,
-        "raffleOnly": false,
-        "isHourlyRate": false,
-        "hourlyMin": null,
-        "hourlyMax": null,
-        "currencyKind": "giftcard",
-        "perVisit": 20,
-        "visitCount": 2,
-        "completionBonus": 20,
-        "hasNonCashPerk": false,
-        "sonaCreditOption": false,
-        "raw": "$20 per session and an additional $20 for completing both sessions (total $60) in Amazon gift cards",
-        "confidence": "high",
-        "notes": []
-      },
-      "duration": {
-        "totalHoursMin": 4,
-        "totalHoursMax": 4,
-        "sessionCount": 2,
-        "spanWeeks": 1,
-        "raw": "Two separate two-hour sessions conducted on separate days within one week",
-        "confidence": "high"
-      },
-      "eligibility": {
-        "minAge": 18,
-        "maxAge": 45,
-        "requiresRightHanded": false,
-        "requiresMriSafe": true,
-        "requiresFasting": false,
-        "excludesCardiovascular": true,
-        "excludesPregnancy": false,
-        "excludesSeizure": false,
-        "excludesNeurological": true,
-        "requiresSpecificCondition": null,
-        "requiresParentOrChild": false,
-        "sexRestriction": null,
-        "flags": [
-          "MRI / magnet safety screening",
-          "excludes cardiovascular conditions",
-          "excludes neurological conditions",
-          "pregnancy is mentioned but not clearly a criterion - confirm with the study team",
-          "seizure or epilepsy history is mentioned but not clearly a criterion - confirm with the study team",
-          "English fluency required",
-          "involves non-invasive brain stimulation",
-          "allergy screening applies"
-        ]
-      },
-      "effectiveHourly": 15,
-      "isExpired": false,
-      "staleness": "stale",
-      "tags": [
-        "in-person",
-        "vr-ar",
-        "clinical",
-        "hci"
       ],
       "duplicateIds": [],
       "duplicateOf": null
@@ -7900,111 +7591,6 @@
       "duplicateOf": null
     },
     {
-      "id": "12775",
-      "slug": "interactions-of-gallotannins-with-the-intestinal-microbiome",
-      "title": "Interactions of gallotannins with the intestinal microbiome",
-      "summary": "The objective of this study is to evaluate the impact of tannase-treatment of gallotannins via sumac tea on the intestinal microbiome, absorption of metabolites and cognitive function in a 6-week randomized, placebo controlled cross-over double-blinded…",
-      "url": "https://research.tamu.edu/study/interactions-of-gallotannins-with-the-intestinal-microbiome/",
-      "sources": [
-        {
-          "source": "aggie-research-volunteers",
-          "externalId": "12775",
-          "url": "https://research.tamu.edu/study/interactions-of-gallotannins-with-the-intestinal-microbiome/",
-          "status": "unknown",
-          "verifiedAt": "2026-06-04T16:27:41.000Z",
-          "protocolIds": [
-            "STUDY2024-1426"
-          ],
-          "titleAliases": [
-            "Interactions of gallotannins with the intestinal microbiome"
-          ]
-        }
-      ],
-      "piName": "PI: Susanne Talcott, Ph.D",
-      "contactName": "Elizabeth Culpepper",
-      "contactEmail": "sumacstudy@gmail.com",
-      "contactPhone": null,
-      "irbNumber": "STUDY2024-1426",
-      "irbApprovalDate": "2025-08-08T11:27:33.000Z",
-      "expirationDate": null,
-      "recruitmentStartDate": null,
-      "lifecycleMonths": 12,
-      "postedDate": "2026-06-04T16:27:41.000Z",
-      "modifiedDate": "2026-06-04T16:27:41.000Z",
-      "categoryIds": [
-        52,
-        42,
-        44,
-        39
-      ],
-      "locationIds": [
-        54
-      ],
-      "sessionTypeIds": [
-        60
-      ],
-      "topicIds": [
-        34
-      ],
-      "locationLabels": [],
-      "compensation": {
-        "guaranteedMin": 400,
-        "guaranteedMax": 400,
-        "raffleMax": null,
-        "raffleOnly": false,
-        "isHourlyRate": false,
-        "hourlyMin": null,
-        "hourlyMax": null,
-        "currencyKind": "unknown",
-        "perVisit": null,
-        "visitCount": null,
-        "completionBonus": null,
-        "hasNonCashPerk": false,
-        "sonaCreditOption": false,
-        "raw": "$400.00",
-        "confidence": "high",
-        "notes": []
-      },
-      "duration": {
-        "totalHoursMin": null,
-        "totalHoursMax": null,
-        "sessionCount": null,
-        "spanWeeks": 6,
-        "raw": "Approximately 6 weeks",
-        "confidence": "medium"
-      },
-      "eligibility": {
-        "minAge": 18,
-        "maxAge": 65,
-        "requiresRightHanded": false,
-        "requiresMriSafe": false,
-        "requiresFasting": false,
-        "excludesCardiovascular": true,
-        "excludesPregnancy": true,
-        "excludesSeizure": true,
-        "excludesNeurological": true,
-        "requiresSpecificCondition": null,
-        "requiresParentOrChild": false,
-        "sexRestriction": null,
-        "flags": [
-          "excludes cardiovascular conditions",
-          "excludes pregnancy / lactation",
-          "excludes seizure or epilepsy history",
-          "excludes neurological conditions",
-          "involves blood draws"
-        ]
-      },
-      "effectiveHourly": null,
-      "isExpired": false,
-      "staleness": "aging",
-      "tags": [
-        "in-person",
-        "clinical"
-      ],
-      "duplicateIds": [],
-      "duplicateOf": null
-    },
-    {
       "id": "12780",
       "slug": "understanding-the-practice-effect-on-motor-learning-using-a-web-based-platform",
       "title": "Understanding the practice effect on motor learning using a web-based platform",
@@ -8846,6 +8432,517 @@
         "focus-group",
         "survey",
         "interview"
+      ],
+      "duplicateIds": [],
+      "duplicateOf": null
+    },
+    {
+      "id": "14334",
+      "slug": "consumer-sensory-acceptance-testing-of-food-products",
+      "title": "Consumer Sensory Acceptance Testing of Food Products",
+      "summary": "Adults taste a series of food samples and rate how much they like them and their sensory qualities. Sessions are held in the Sensory Science Facility at the Kleberg Center. Each session takes under 60 minutes, and participants receive an electronic gift card…",
+      "url": "https://research.tamu.edu/study/consumer-sensory-acceptance-testing-of-food-products/",
+      "sources": [
+        {
+          "source": "aggie-research-volunteers",
+          "externalId": "14334",
+          "url": "https://research.tamu.edu/study/consumer-sensory-acceptance-testing-of-food-products/",
+          "status": "unknown",
+          "verifiedAt": "2026-10-12T23:51:15.000Z",
+          "protocolIds": [
+            "STUDY2026-0859"
+          ],
+          "titleAliases": [
+            "Consumer Sensory Acceptance Testing of Food Products"
+          ]
+        }
+      ],
+      "piName": "PI: Robert Pellegrino, PhD",
+      "contactName": "Robert Pellegrino",
+      "contactEmail": "sensory@ag.tamu.edu",
+      "contactPhone": null,
+      "irbNumber": "STUDY2026-0859",
+      "irbApprovalDate": "2026-08-17T18:46:17.000Z",
+      "expirationDate": null,
+      "recruitmentStartDate": null,
+      "lifecycleMonths": 12,
+      "postedDate": "2026-10-12T23:47:33.000Z",
+      "modifiedDate": "2026-10-12T23:51:15.000Z",
+      "categoryIds": [
+        37
+      ],
+      "locationIds": [
+        54
+      ],
+      "sessionTypeIds": [
+        65
+      ],
+      "topicIds": [
+        36
+      ],
+      "locationLabels": [],
+      "compensation": {
+        "guaranteedMin": null,
+        "guaranteedMax": null,
+        "raffleMax": null,
+        "raffleOnly": false,
+        "isHourlyRate": true,
+        "hourlyMin": 20,
+        "hourlyMax": 20,
+        "currencyKind": "giftcard",
+        "perVisit": null,
+        "visitCount": null,
+        "completionBonus": null,
+        "hasNonCashPerk": false,
+        "sonaCreditOption": false,
+        "raw": "Electronic gift card, $10 (about $20 per hour)",
+        "confidence": "low",
+        "notes": [
+          "hourly rate only; study total depends on session length",
+          "1 non-hourly amount(s) present but not summed into a total"
+        ]
+      },
+      "duration": {
+        "totalHoursMin": 0.5,
+        "totalHoursMax": 0.5,
+        "sessionCount": 1,
+        "spanWeeks": null,
+        "raw": "Under 30 minutes per session. Participants may be invited to one session.",
+        "confidence": "low"
+      },
+      "eligibility": {
+        "minAge": 18,
+        "maxAge": null,
+        "requiresRightHanded": false,
+        "requiresMriSafe": false,
+        "requiresFasting": false,
+        "excludesCardiovascular": false,
+        "excludesPregnancy": false,
+        "excludesSeizure": false,
+        "excludesNeurological": false,
+        "requiresSpecificCondition": null,
+        "requiresParentOrChild": false,
+        "sexRestriction": null,
+        "flags": [
+          "English fluency required",
+          "allergy screening applies"
+        ]
+      },
+      "effectiveHourly": 20,
+      "isExpired": false,
+      "staleness": "fresh",
+      "tags": [
+        "online",
+        "in-person"
+      ],
+      "duplicateIds": [],
+      "duplicateOf": null
+    },
+    {
+      "id": "14337",
+      "slug": "human-attractiveness",
+      "title": "Human attractiveness",
+      "summary": "We are conducting a research study examining attractiveness.",
+      "url": "https://research.tamu.edu/study/human-attractiveness/",
+      "sources": [
+        {
+          "source": "aggie-research-volunteers",
+          "externalId": "14337",
+          "url": "https://research.tamu.edu/study/human-attractiveness/",
+          "status": "unknown",
+          "verifiedAt": "2026-10-13T00:01:12.000Z",
+          "protocolIds": [
+            "STUDY2026-0816"
+          ],
+          "titleAliases": [
+            "Human attractiveness"
+          ]
+        }
+      ],
+      "piName": "PI: Jessica Yorzinski",
+      "contactName": "Jessica Yorzinski",
+      "contactEmail": "TamuResearchStudy04@gmail.com",
+      "contactPhone": null,
+      "irbNumber": "STUDY2026-0816",
+      "irbApprovalDate": "2026-08-05T19:00:26.000Z",
+      "expirationDate": null,
+      "recruitmentStartDate": null,
+      "lifecycleMonths": 12,
+      "postedDate": "2026-10-13T00:01:12.000Z",
+      "modifiedDate": "2026-10-13T00:01:12.000Z",
+      "categoryIds": [
+        37,
+        39
+      ],
+      "locationIds": [
+        54
+      ],
+      "sessionTypeIds": [
+        65
+      ],
+      "topicIds": [
+        36
+      ],
+      "locationLabels": [],
+      "compensation": {
+        "guaranteedMin": 15,
+        "guaranteedMax": 15,
+        "raffleMax": null,
+        "raffleOnly": false,
+        "isHourlyRate": false,
+        "hourlyMin": null,
+        "hourlyMax": null,
+        "currencyKind": "unknown",
+        "perVisit": null,
+        "visitCount": null,
+        "completionBonus": null,
+        "hasNonCashPerk": false,
+        "sonaCreditOption": false,
+        "raw": "$15",
+        "confidence": "high",
+        "notes": []
+      },
+      "duration": {
+        "totalHoursMin": 1,
+        "totalHoursMax": 1,
+        "sessionCount": null,
+        "spanWeeks": null,
+        "raw": "1 hour",
+        "confidence": "high"
+      },
+      "eligibility": {
+        "minAge": 18,
+        "maxAge": 25,
+        "requiresRightHanded": false,
+        "requiresMriSafe": false,
+        "requiresFasting": false,
+        "excludesCardiovascular": true,
+        "excludesPregnancy": false,
+        "excludesSeizure": true,
+        "excludesNeurological": false,
+        "requiresSpecificCondition": null,
+        "requiresParentOrChild": false,
+        "sexRestriction": null,
+        "flags": [
+          "implanted medical device screening required (no MRI mentioned)",
+          "excludes cardiovascular conditions",
+          "excludes seizure or epilepsy history"
+        ]
+      },
+      "effectiveHourly": 15,
+      "isExpired": false,
+      "staleness": "fresh",
+      "tags": [
+        "online",
+        "in-person"
+      ],
+      "duplicateIds": [],
+      "duplicateOf": null
+    },
+    {
+      "id": "14340",
+      "slug": "navigating-the-unknown-first-generation-students-collegeapplication-narratives-through-the-lens-of-community-culturalwealth",
+      "title": "Navigating the Unknown: First-Generation Students’ College<br>Application Narratives Through the Lens of Community Cultural<br>Wealth",
+      "summary": "The purpose of this study is to explore how first-generation college students construct and make meaning of their college application process to selective research universities.",
+      "url": "https://research.tamu.edu/study/navigating-the-unknown-first-generation-students-collegeapplication-narratives-through-the-lens-of-community-culturalwealth/",
+      "sources": [
+        {
+          "source": "aggie-research-volunteers",
+          "externalId": "14340",
+          "url": "https://research.tamu.edu/study/navigating-the-unknown-first-generation-students-collegeapplication-narratives-through-the-lens-of-community-culturalwealth/",
+          "status": "unknown",
+          "verifiedAt": "2026-10-13T00:09:22.000Z",
+          "protocolIds": [
+            "STUDY2026-1078"
+          ],
+          "titleAliases": [
+            "Navigating the Unknown: First-Generation Students’ College<br>Application Narratives Through the Lens of Community Cultural<br>Wealth"
+          ]
+        }
+      ],
+      "piName": "PI: Dr. Glenda Musoba, Ph.D.",
+      "contactName": "Ashley D. Sosa or Veronica Gabbard",
+      "contactEmail": "ADSosa@tamu.edu or jgabbard@tamu.edu",
+      "contactPhone": null,
+      "irbNumber": "STUDY2026-1078",
+      "irbApprovalDate": "2026-08-31T19:08:23.000Z",
+      "expirationDate": null,
+      "recruitmentStartDate": null,
+      "lifecycleMonths": 3,
+      "postedDate": "2026-10-13T00:09:22.000Z",
+      "modifiedDate": "2026-10-13T00:09:22.000Z",
+      "categoryIds": [
+        52,
+        47
+      ],
+      "locationIds": [
+        59
+      ],
+      "sessionTypeIds": [
+        61,
+        64,
+        65
+      ],
+      "topicIds": [
+        36
+      ],
+      "locationLabels": [],
+      "compensation": {
+        "guaranteedMin": 0,
+        "guaranteedMax": 0,
+        "raffleMax": 0,
+        "raffleOnly": false,
+        "isHourlyRate": false,
+        "hourlyMin": null,
+        "hourlyMax": null,
+        "currencyKind": "unknown",
+        "perVisit": null,
+        "visitCount": null,
+        "completionBonus": null,
+        "hasNonCashPerk": false,
+        "sonaCreditOption": false,
+        "raw": "None",
+        "confidence": "high",
+        "notes": [
+          "no compensation offered"
+        ]
+      },
+      "duration": {
+        "totalHoursMin": 1,
+        "totalHoursMax": 1,
+        "sessionCount": 1,
+        "spanWeeks": null,
+        "raw": "1 60-minute interview",
+        "confidence": "high"
+      },
+      "eligibility": {
+        "minAge": 18,
+        "maxAge": 26,
+        "requiresRightHanded": false,
+        "requiresMriSafe": false,
+        "requiresFasting": false,
+        "excludesCardiovascular": false,
+        "excludesPregnancy": false,
+        "excludesSeizure": false,
+        "excludesNeurological": false,
+        "requiresSpecificCondition": null,
+        "requiresParentOrChild": false,
+        "sexRestriction": null,
+        "flags": []
+      },
+      "effectiveHourly": 0,
+      "isExpired": false,
+      "staleness": "fresh",
+      "tags": [
+        "online",
+        "survey",
+        "interview"
+      ],
+      "duplicateIds": [],
+      "duplicateOf": null
+    },
+    {
+      "id": "14342",
+      "slug": "early-development-of-cues-caregiver-understanding-of-early-signals-establishing-ai-foundations-for-infant-cue-detection",
+      "title": "Early Development of CUES (Caregiver Understanding of Early Signals): Establishing AI Foundations for Infant Cue Detection",
+      "summary": "We are studying how infants communicate through behavioral cues. Parents of infants aged 0–12 months are invited to record short home videos of their infant over 1–2 weeks to help train an AI application that identifies infant cues for parents and caregivers.",
+      "url": "https://research.tamu.edu/study/early-development-of-cues-caregiver-understanding-of-early-signals-establishing-ai-foundations-for-infant-cue-detection/",
+      "sources": [
+        {
+          "source": "aggie-research-volunteers",
+          "externalId": "14342",
+          "url": "https://research.tamu.edu/study/early-development-of-cues-caregiver-understanding-of-early-signals-establishing-ai-foundations-for-infant-cue-detection/",
+          "status": "unknown",
+          "verifiedAt": "2026-10-13T00:26:40.000Z",
+          "protocolIds": [
+            "STUDY2026-0673"
+          ],
+          "titleAliases": [
+            "Early Development of CUES (Caregiver Understanding of Early Signals): Establishing AI Foundations for Infant Cue Detection"
+          ]
+        }
+      ],
+      "piName": "PI: Lyndsay MacKay, RN, MSN, PhD; Katie Hepfer, DNP, APRN, CPNP-PC; Jian Tao PhD",
+      "contactName": "Dr Lyndsay MacKay and Dr. Katie Hepfer",
+      "contactEmail": "lyndsay.mackay@tamu.edu; hepfer@tamu.edu",
+      "contactPhone": null,
+      "irbNumber": "STUDY2026-0673",
+      "irbApprovalDate": "2026-08-17T19:23:49.000Z",
+      "expirationDate": null,
+      "recruitmentStartDate": null,
+      "lifecycleMonths": 12,
+      "postedDate": "2026-10-13T00:26:40.000Z",
+      "modifiedDate": "2026-10-13T00:26:40.000Z",
+      "categoryIds": [
+        37,
+        44,
+        39
+      ],
+      "locationIds": [
+        53,
+        54
+      ],
+      "sessionTypeIds": [
+        64
+      ],
+      "topicIds": [
+        31,
+        34,
+        35
+      ],
+      "locationLabels": [],
+      "compensation": {
+        "guaranteedMin": 50,
+        "guaranteedMax": 50,
+        "raffleMax": null,
+        "raffleOnly": false,
+        "isHourlyRate": false,
+        "hourlyMin": null,
+        "hourlyMax": null,
+        "currencyKind": "giftcard",
+        "perVisit": null,
+        "visitCount": null,
+        "completionBonus": null,
+        "hasNonCashPerk": false,
+        "sonaCreditOption": false,
+        "raw": "$50 Amazon Gift Card upon study completion",
+        "confidence": "high",
+        "notes": []
+      },
+      "duration": {
+        "totalHoursMin": null,
+        "totalHoursMax": null,
+        "sessionCount": null,
+        "spanWeeks": 2,
+        "raw": "Over 2 weeks (several short daily video recordings over 2 weeks)",
+        "confidence": "medium"
+      },
+      "eligibility": {
+        "minAge": 0,
+        "maxAge": 1,
+        "requiresRightHanded": false,
+        "requiresMriSafe": false,
+        "requiresFasting": false,
+        "excludesCardiovascular": false,
+        "excludesPregnancy": false,
+        "excludesSeizure": false,
+        "excludesNeurological": false,
+        "requiresSpecificCondition": null,
+        "requiresParentOrChild": true,
+        "sexRestriction": null,
+        "flags": [
+          "enrols children only - a parent or guardian must consent"
+        ]
+      },
+      "effectiveHourly": null,
+      "isExpired": false,
+      "staleness": "fresh",
+      "tags": [
+        "online",
+        "in-person",
+        "hci"
+      ],
+      "duplicateIds": [],
+      "duplicateOf": null
+    },
+    {
+      "id": "14346",
+      "slug": "user-experiences-with-etextbook-platforms",
+      "title": "User Experiences with eTextbook Platforms",
+      "summary": "The purpose of this study is to gather data about the user experience of undergraduate students with eTextbook platforms. The study has two phases so that we can capture a larger data set about user experiences with eTextbooks in their college classes as…",
+      "url": "https://research.tamu.edu/study/user-experiences-with-etextbook-platforms/",
+      "sources": [
+        {
+          "source": "aggie-research-volunteers",
+          "externalId": "14346",
+          "url": "https://research.tamu.edu/study/user-experiences-with-etextbook-platforms/",
+          "status": "unknown",
+          "verifiedAt": "2026-10-13T00:56:17.000Z",
+          "protocolIds": [
+            "STUDY2026-0863"
+          ],
+          "titleAliases": [
+            "User Experiences with eTextbook Platforms"
+          ]
+        }
+      ],
+      "piName": "PI: Sarah Bankston, M.S.L.S, M.F.A.",
+      "contactName": "Sarah Bankston",
+      "contactEmail": "sbankston@tamu.edu",
+      "contactPhone": "979-458-0575",
+      "irbNumber": "STUDY2026-0863",
+      "irbApprovalDate": "2026-07-29T19:54:33.000Z",
+      "expirationDate": null,
+      "recruitmentStartDate": null,
+      "lifecycleMonths": 3,
+      "postedDate": "2026-10-13T00:56:17.000Z",
+      "modifiedDate": "2026-10-13T00:56:17.000Z",
+      "categoryIds": [],
+      "locationIds": [
+        53,
+        54,
+        59
+      ],
+      "sessionTypeIds": [
+        61,
+        62
+      ],
+      "topicIds": [
+        36,
+        35
+      ],
+      "locationLabels": [],
+      "compensation": {
+        "guaranteedMin": 25,
+        "guaranteedMax": 25,
+        "raffleMax": 25,
+        "raffleOnly": false,
+        "isHourlyRate": false,
+        "hourlyMin": null,
+        "hourlyMax": null,
+        "currencyKind": "giftcard",
+        "perVisit": null,
+        "visitCount": null,
+        "completionBonus": null,
+        "hasNonCashPerk": false,
+        "sonaCreditOption": false,
+        "raw": "Participants in the initial survey can be entered in a drawing to win one of five $25 Amazon gift cards.<br>Participants in the second phase (usability test and exit survey) will all receive a $25 Amazon gift card.",
+        "confidence": "high",
+        "notes": [
+          "raffle/drawing prize up to $25 is not guaranteed money"
+        ]
+      },
+      "duration": {
+        "totalHoursMin": 1.25,
+        "totalHoursMax": 1.25,
+        "sessionCount": null,
+        "spanWeeks": null,
+        "raw": "The initial survey will take about 15 minutes. <br>If selected for the second phase, the usability test and exit survey will take about one hour.",
+        "confidence": "medium"
+      },
+      "eligibility": {
+        "minAge": 18,
+        "maxAge": null,
+        "requiresRightHanded": false,
+        "requiresMriSafe": false,
+        "requiresFasting": false,
+        "excludesCardiovascular": false,
+        "excludesPregnancy": false,
+        "excludesSeizure": false,
+        "excludesNeurological": false,
+        "requiresSpecificCondition": null,
+        "requiresParentOrChild": false,
+        "sexRestriction": null,
+        "flags": []
+      },
+      "effectiveHourly": 20,
+      "isExpired": false,
+      "staleness": "fresh",
+      "tags": [
+        "online",
+        "survey",
+        "interview",
+        "hci"
       ],
       "duplicateIds": [],
       "duplicateOf": null
@@ -10432,9 +10529,9 @@
       "label": "Aggie Research Volunteers",
       "vertical": "studies",
       "status": "ok",
-      "itemCount": 84,
+      "itemCount": 85,
       "fetchSource": "network",
-      "durationMs": 5066,
+      "durationMs": 3918,
       "failedRequests": 0,
       "complete": true,
       "note": null,
@@ -10447,7 +10544,7 @@
       "status": "ok",
       "itemCount": 21,
       "fetchSource": "network",
-      "durationMs": 501,
+      "durationMs": 982,
       "failedRequests": 0,
       "complete": true,
       "note": null,

@@ -2,121 +2,58 @@
   {
     "weekOf": "2026-10-12",
     "vertical": "campus",
-    "scanned": 5344,
-    "candidates": 788,
+    "scanned": 5354,
+    "candidates": 779,
     "recommended": [
       "campus-777fd22fed24",
       "campus-9eb4f579b4c2",
-      "campus-bc2d0a6a5eff",
       "campus-abbdb76a55f0",
       "campus-0315098176fa",
-      "campus-eb29cb8bf566"
+      "campus-eb29cb8bf566",
+      "campus-77abe12fed49"
     ],
     "headlines": [
       "research opportunity · biotech · this week",
       "biotech · employer: citadel · this week",
-      "company recruiting · today · workshop / training",
       "biotech · football · later this term",
       "research opportunity · workshop / training · in the next 3 weeks",
-      "biotech · later this term"
+      "biotech · later this term",
+      "basketball · this week"
     ],
-    "changes": [
-      {
-        "itemId": "campus-34b66f39f2e3",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-11T05:00:00.000Z",
-        "after": "2026-10-12T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-11T05:00:00.000Z",
-        "after": "2026-10-12T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ce40ae77f7fb",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-11T05:00:00.000Z",
-        "after": "2026-10-12T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-1336d8c465ad",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-11T05:00:00.000Z",
-        "after": "2026-10-12T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-8d43833c1a67",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-11T05:00:00.000Z",
-        "after": "2026-10-12T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b5af17ad553f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-11T05:00:00.000Z",
-        "after": "2026-10-12T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-abbdbc6a55f1",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-01T05:00:00.000Z",
-        "after": "2026-11-02T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-6292125669b1",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-11T05:00:00.000Z",
-        "after": "2026-10-12T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-64ba1ca22d8d",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-11T22:00:00.000Z",
-        "after": "2026-10-12T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-d608cd4ea27f",
-        "kind": "title",
-        "field": "Title",
-        "before": "ASTR Seminar",
-        "after": "Exploring Solutions to the Dwarf Galaxy Diversity Problem"
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-10-12",
     "vertical": "research",
-    "scanned": 1011,
-    "candidates": 98,
+    "scanned": 1003,
+    "candidates": 101,
     "recommended": [
+      "research-eb7213f9f3b9",
+      "research-f74e8aa03d60",
       "research-7e20e86bf8fe",
       "research-bd2e4e0f545b",
-      "research-1e3825df2d01",
-      "research-559aecf75908",
-      "research-b57bb86d2774",
-      "research-a7e3be14aec9"
+      "research-2900306a5115",
+      "research-1e3825df2d01"
     ],
     "headlines": [
+      "M. tuberculosis · comparative genomics · antimicrobial resistance",
+      "M. tuberculosis · positive selection · recent",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "comparative genomics · phylogenetics · antimicrobial resistance",
-      "positive selection · codon-model analysis · just posted",
-      "positive selection · comparative genomics · recent",
-      "comparative genomics · MCMC / Bayesian inference · antimicrobial resistance",
-      "M. tuberculosis · antimicrobial resistance · recent"
+      "positive selection · codon-model analysis · very recent",
+      "positive selection · codon-model analysis · just posted"
     ],
-    "changes": [],
-    "estimatedMinutes": 117
+    "changes": [
+      {
+        "itemId": "research-ab8299d3bc84",
+        "kind": "title",
+        "field": "Title",
+        "before": "Kamino: fast proteome-wide variant calling for amino acid phylogenomics.",
+        "after": "kamino: fast proteome-wide variant calling for amino acid phylogenomics."
+      }
+    ],
+    "estimatedMinutes": 102
   },
   {
     "weekOf": "2026-10-05",
