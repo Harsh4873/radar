@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-13T03:37:48.822Z",
+  "fetchedAt": "2026-10-13T18:22:45.576Z",
   "totalFromHeader": 94,
   "studies": [
     {
@@ -143,7 +143,7 @@
           ]
         }
       ],
-      "piName": "PIs: Anka Vujanovic, PhD (Texas A&amp;M University) and Sudie Back, PhD (Medical University of South Carolina)",
+      "piName": "PIs: Anka Vujanovic, PhD (Texas A&M University) and Sudie Back, PhD (Medical University of South Carolina)",
       "contactName": "Kat Roberts (PATH Study Coordinator)",
       "contactEmail": "path@tamu.edu",
       "contactPhone": "(979) 458-9153 or (854) 253-9987",
@@ -4077,7 +4077,7 @@
           ]
         }
       ],
-      "piName": "PI: Edgar Rojas-Muñoz<br>PhD, Industrial Engineering, Purdue University",
+      "piName": "PI: Edgar Rojas-Muñoz PhD, Industrial Engineering, Purdue University",
       "contactName": "Graciela Camacho Fidalgo",
       "contactEmail": "gc.fidalgo@tamu.edu",
       "contactPhone": null,
@@ -6071,7 +6071,7 @@
           ]
         }
       ],
-      "piName": "PI: Mark E. Benden, PhD, CPE<br>Professor and Head, Environmental &amp; Occupational Health, Texas A&amp;M University",
+      "piName": "PI: Mark E. Benden, PhD, CPE Professor and Head, Environmental & Occupational Health, Texas A&M University",
       "contactName": "Pronob Kumar Biswas",
       "contactEmail": "pronob@tamu.edu",
       "contactPhone": "979-326-7597",
@@ -7105,7 +7105,7 @@
           ]
         }
       ],
-      "piName": "PI: Brian Anderson, PhD  Co-I – Steven Woltering, PhD",
+      "piName": "PI: Brian Anderson, PhD Co-I – Steven Woltering, PhD",
       "contactName": "Jacob Brooks",
       "contactEmail": "jtbrooks@tamu.edu",
       "contactPhone": null,
@@ -10531,7 +10531,7 @@
       "status": "ok",
       "itemCount": 85,
       "fetchSource": "network",
-      "durationMs": 3918,
+      "durationMs": 5068,
       "failedRequests": 0,
       "complete": true,
       "note": null,
@@ -10544,7 +10544,7 @@
       "status": "ok",
       "itemCount": 21,
       "fetchSource": "network",
-      "durationMs": 982,
+      "durationMs": 506,
       "failedRequests": 0,
       "complete": true,
       "note": null,
