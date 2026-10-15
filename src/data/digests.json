@@ -2,38 +2,122 @@
   {
     "weekOf": "2026-10-12",
     "vertical": "campus",
-    "scanned": 4982,
-    "candidates": 715,
+    "scanned": 4663,
+    "candidates": 669,
     "recommended": [
       "campus-777fd22fed24",
-      "campus-02bf8938c901",
-      "campus-f9a5d038c3b9",
-      "campus-2ba3dfab2aef",
-      "campus-9eb4f579b4c2",
-      "campus-64567c8c3a01"
+      "campus-8646fd7b80db",
+      "campus-16bd0a8c0e27",
+      "campus-02bf8f38c901",
+      "campus-16bd088c0e27",
+      "campus-16bd048c0e27"
     ],
     "headlines": [
-      "research opportunity · biotech · tomorrow",
+      "research opportunity · biotech · today",
+      "research opportunity · company recruiting · this week",
       "research opportunity · company recruiting · workshop / training",
+      "research opportunity · graduate opportunities · this week",
       "research opportunity · graduate opportunities · workshop / training",
-      "research opportunity · career development · this week",
-      "biotech · employer: citadel · this week",
-      "computer science · tomorrow · workshop / training"
+      "research opportunity · career development · this week"
     ],
     "changes": [
       {
-        "itemId": "campus-80a0822ff271",
-        "kind": "title",
-        "field": "Title",
-        "before": "Aerospace Engineering Speaker Series: Nikolaus Michailidis",
-        "after": "Aerospace Engineering Speaker Series: Nikolaos Michailidis"
-      },
-      {
-        "itemId": "campus-177d5f9cbc29",
+        "itemId": "campus-34b66f39f2e3",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-24T05:00:00.000Z",
-        "after": "2026-10-24T17:00:00.000Z"
+        "before": "2026-10-14T05:00:00.000Z",
+        "after": "2026-10-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-14T05:00:00.000Z",
+        "after": "2026-10-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ce40ae77f7fb",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-14T05:00:00.000Z",
+        "after": "2026-10-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1336d8c465ad",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-14T05:00:00.000Z",
+        "after": "2026-10-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-8d43833c1a67",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-14T05:00:00.000Z",
+        "after": "2026-10-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b5af17ad553f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-14T05:00:00.000Z",
+        "after": "2026-10-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-6292125669b1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-14T05:00:00.000Z",
+        "after": "2026-10-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7c02fa5f4a10",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-14T05:00:00.000Z",
+        "after": "2026-10-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-41b73c8b2a41",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-21T05:00:00.000Z",
+        "after": "2026-10-20T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-41ad2d8b2a38",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-14T20:00:00.000Z",
+        "after": "2026-10-15T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bcc9c346079a",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-28T19:00:00.000Z",
+        "after": "2026-10-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-38cd088b2522",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-28T13:00:00.000Z",
+        "after": "2026-10-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-d608c84ea27f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-28T13:00:00.000Z",
+        "after": "2026-10-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1f8f3f8c1332",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-04T14:00:00.000Z",
+        "after": "2026-11-05T06:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -41,26 +125,26 @@
   {
     "weekOf": "2026-10-12",
     "vertical": "research",
-    "scanned": 1006,
-    "candidates": 79,
+    "scanned": 1022,
+    "candidates": 82,
     "recommended": [
+      "research-dd0ec287da57",
       "research-311e63b40a76",
+      "research-c29b7103e34b",
       "research-2900306a5115",
       "research-7e20e86bf8fe",
-      "research-fa9cde042684",
-      "research-1e3825df2d01",
-      "research-9409b180e393"
+      "research-fa9cde042684"
     ],
     "headlines": [
+      "M. tuberculosis · positive selection · phylogenetics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "positive selection · codon-model analysis · very recent",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "positive selection · codon-model analysis · very recent",
-      "positive selection · codon-model analysis · just posted",
-      "positive selection · phylogenetics · pathogen evolution"
+      "positive selection · codon-model analysis · recent",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "positive selection · codon-model analysis · recent"
     ],
     "changes": [],
-    "estimatedMinutes": 99
+    "estimatedMinutes": 102
   },
   {
     "weekOf": "2026-10-05",
