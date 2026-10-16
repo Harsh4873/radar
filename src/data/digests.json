@@ -2,45 +2,150 @@
   {
     "weekOf": "2026-10-12",
     "vertical": "campus",
-    "scanned": 4708,
-    "candidates": 659,
+    "scanned": 4714,
+    "candidates": 626,
     "recommended": [
-      "campus-777fd22fed24",
-      "campus-8646fd7b80db",
+      "campus-16bd098c0e27",
       "campus-16bd0a8c0e27",
-      "campus-02bf8f38c901",
+      "campus-16bd068c0e27",
       "campus-16bd088c0e27",
-      "campus-16bd048c0e27"
+      "campus-02bf8e38c901",
+      "campus-9eb4f579b4c2"
     ],
     "headlines": [
-      "research opportunity · biotech · today",
       "research opportunity · company recruiting · this week",
       "research opportunity · company recruiting · workshop / training",
       "research opportunity · graduate opportunities · this week",
       "research opportunity · graduate opportunities · workshop / training",
-      "research opportunity · career development · this week"
+      "research opportunity · graduate opportunities · workshop / training",
+      "biotech · tomorrow · employer: citadel"
     ],
     "changes": [
       {
-        "itemId": "campus-33161dc73bd5",
-        "kind": "location",
-        "field": "Location",
-        "before": "Julia And Mark Ellis '79 Soccer Building",
-        "after": null
+        "itemId": "campus-34b66f39f2e3",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-15T05:00:00.000Z",
+        "after": "2026-10-16T05:00:00.000Z"
       },
       {
-        "itemId": "campus-42cc00c33a10",
-        "kind": "location",
-        "field": "Location",
-        "before": "Rudder",
-        "after": null
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-15T05:00:00.000Z",
+        "after": "2026-10-16T05:00:00.000Z"
       },
       {
-        "itemId": "campus-80a0832ff271",
+        "itemId": "campus-11bdd57a28c5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-15T05:00:00.000Z",
+        "after": "2026-10-16T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-8d43833c1a67",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-15T05:00:00.000Z",
+        "after": "2026-10-16T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b5af17ad553f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-15T05:00:00.000Z",
+        "after": "2026-10-16T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abbdb86a55f0",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-05T06:00:00.000Z",
+        "after": "2026-11-06T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-6292125669b1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-15T05:00:00.000Z",
+        "after": "2026-10-16T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7c02fa5f4a10",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-15T05:00:00.000Z",
+        "after": "2026-10-16T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ac117d6985f5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-15T13:00:00.000Z",
+        "after": "2026-10-16T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-3948daa214e8",
         "kind": "title",
         "field": "Title",
-        "before": "Aerospace Engineering Speaker Series: Torin Clark",
-        "after": "AESS: Development and assessment of human spaceflight technologies: Cognitive state estimation and motion sickness mitigation"
+        "before": "HET Seminar",
+        "after": "Giant Gravitons Three Ways"
+      },
+      {
+        "itemId": "campus-273408a20a74",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-22T05:00:00.000Z",
+        "after": "2026-10-23T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-52c7d5a22336",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-15T13:00:00.000Z",
+        "after": "2026-10-16T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a614a979b891",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-15T15:00:00.000Z",
+        "after": "2026-10-16T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-fe71a12fa8a2",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-15T13:00:00.000Z",
+        "after": "2026-10-16T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bcc9c346079a",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-29T05:00:00.000Z",
+        "after": "2026-10-28T19:00:00.000Z"
+      },
+      {
+        "itemId": "campus-38cd088b2522",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-29T05:00:00.000Z",
+        "after": "2026-10-28T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-d608c84ea27f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-29T05:00:00.000Z",
+        "after": "2026-10-28T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1f8f3f8c1332",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-05T06:00:00.000Z",
+        "after": "2026-11-04T14:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -48,34 +153,34 @@
   {
     "weekOf": "2026-10-12",
     "vertical": "research",
-    "scanned": 992,
-    "candidates": 85,
+    "scanned": 1006,
+    "candidates": 86,
     "recommended": [
+      "research-7fcaeba42006",
       "research-dd0ec287da57",
+      "research-eb1336f392ea",
       "research-b4f4e6573361",
-      "research-c29b7103e34b",
       "research-311e63b40a76",
-      "research-ab13b8ce4fb9",
-      "research-2900306a5115"
+      "research-c29b7103e34b"
     ],
     "headlines": [
+      "positive selection · codon-model analysis · comparative genomics",
       "M. tuberculosis · positive selection · phylogenetics",
+      "positive selection · codon-model analysis · phylogenetics",
       "positive selection · codon-model analysis · comparative genomics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "positive selection · comparative genomics · phylogenetics",
-      "positive selection · codon-model analysis · recent"
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
     "changes": [
       {
-        "itemId": "research-229c87d71fbe",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v1",
-        "after": "v2"
+        "itemId": "research-311e63b40a76",
+        "kind": "title",
+        "field": "Title",
+        "before": "Mixed Strain Infections and Microevolution of Mycobacterium tuberculosis: Genetic Diversity in a High-Burden Setting of Northeastern Brazil.",
+        "after": "Mixed strain infections and microevolution of Mycobacterium tuberculosis: Genetic diversity in a high-burden setting of Northeastern Brazil."
       }
     ],
-    "estimatedMinutes": 101
+    "estimatedMinutes": 106
   },
   {
     "weekOf": "2026-10-05",
