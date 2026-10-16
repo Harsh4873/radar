@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-10-12",
     "vertical": "campus",
-    "scanned": 4663,
-    "candidates": 669,
+    "scanned": 4708,
+    "candidates": 659,
     "recommended": [
       "campus-777fd22fed24",
       "campus-8646fd7b80db",
@@ -22,102 +22,25 @@
     ],
     "changes": [
       {
-        "itemId": "campus-34b66f39f2e3",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-14T05:00:00.000Z",
-        "after": "2026-10-15T05:00:00.000Z"
+        "itemId": "campus-33161dc73bd5",
+        "kind": "location",
+        "field": "Location",
+        "before": "Julia And Mark Ellis '79 Soccer Building",
+        "after": null
       },
       {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-14T05:00:00.000Z",
-        "after": "2026-10-15T05:00:00.000Z"
+        "itemId": "campus-42cc00c33a10",
+        "kind": "location",
+        "field": "Location",
+        "before": "Rudder",
+        "after": null
       },
       {
-        "itemId": "campus-ce40ae77f7fb",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-14T05:00:00.000Z",
-        "after": "2026-10-15T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-1336d8c465ad",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-14T05:00:00.000Z",
-        "after": "2026-10-15T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-8d43833c1a67",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-14T05:00:00.000Z",
-        "after": "2026-10-15T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b5af17ad553f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-14T05:00:00.000Z",
-        "after": "2026-10-15T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-6292125669b1",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-14T05:00:00.000Z",
-        "after": "2026-10-15T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7c02fa5f4a10",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-14T05:00:00.000Z",
-        "after": "2026-10-15T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-41b73c8b2a41",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-21T05:00:00.000Z",
-        "after": "2026-10-20T13:00:00.000Z"
-      },
-      {
-        "itemId": "campus-41ad2d8b2a38",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-14T20:00:00.000Z",
-        "after": "2026-10-15T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-bcc9c346079a",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-28T19:00:00.000Z",
-        "after": "2026-10-29T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-38cd088b2522",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-28T13:00:00.000Z",
-        "after": "2026-10-29T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-d608c84ea27f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-28T13:00:00.000Z",
-        "after": "2026-10-29T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-1f8f3f8c1332",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-04T14:00:00.000Z",
-        "after": "2026-11-05T06:00:00.000Z"
+        "itemId": "campus-80a0832ff271",
+        "kind": "title",
+        "field": "Title",
+        "before": "Aerospace Engineering Speaker Series: Torin Clark",
+        "after": "AESS: Development and assessment of human spaceflight technologies: Cognitive state estimation and motion sickness mitigation"
       }
     ],
     "estimatedMinutes": 0
@@ -125,26 +48,34 @@
   {
     "weekOf": "2026-10-12",
     "vertical": "research",
-    "scanned": 1022,
-    "candidates": 82,
+    "scanned": 992,
+    "candidates": 85,
     "recommended": [
       "research-dd0ec287da57",
-      "research-311e63b40a76",
+      "research-b4f4e6573361",
       "research-c29b7103e34b",
-      "research-2900306a5115",
-      "research-7e20e86bf8fe",
-      "research-fa9cde042684"
+      "research-311e63b40a76",
+      "research-ab13b8ce4fb9",
+      "research-2900306a5115"
     ],
     "headlines": [
       "M. tuberculosis · positive selection · phylogenetics",
+      "positive selection · codon-model analysis · comparative genomics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "positive selection · codon-model analysis · recent",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "positive selection · comparative genomics · phylogenetics",
       "positive selection · codon-model analysis · recent"
     ],
-    "changes": [],
-    "estimatedMinutes": 102
+    "changes": [
+      {
+        "itemId": "research-229c87d71fbe",
+        "kind": "preprint-revised",
+        "field": "Preprint version",
+        "before": "v1",
+        "after": "v2"
+      }
+    ],
+    "estimatedMinutes": 101
   },
   {
     "weekOf": "2026-10-05",
