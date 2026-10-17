@@ -2,31 +2,150 @@
   {
     "weekOf": "2026-10-12",
     "vertical": "campus",
-    "scanned": 4731,
-    "candidates": 601,
+    "scanned": 4803,
+    "candidates": 613,
     "recommended": [
+      "campus-d8f2bf8aeeae",
       "campus-16bd098c0e27",
       "campus-16bd0a8c0e27",
       "campus-16bd068c0e27",
       "campus-16bd088c0e27",
-      "campus-02bf8e38c901",
       "campus-9eb4f579b4c2"
     ],
     "headlines": [
+      "computer science · company recruiting · this week",
       "research opportunity · company recruiting · this week",
       "research opportunity · company recruiting · workshop / training",
       "research opportunity · graduate opportunities · this week",
       "research opportunity · graduate opportunities · workshop / training",
-      "research opportunity · graduate opportunities · workshop / training",
-      "biotech · tomorrow · employer: citadel"
+      "biotech · today · employer: citadel"
     ],
     "changes": [
       {
-        "itemId": "campus-f3651e554d2f",
-        "kind": "location",
-        "field": "Location",
-        "before": "All Faiths Chapel",
-        "after": null
+        "itemId": "campus-34b66f39f2e3",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-16T05:00:00.000Z",
+        "after": "2026-10-17T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-16T05:00:00.000Z",
+        "after": "2026-10-17T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-8d43833c1a67",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-16T05:00:00.000Z",
+        "after": "2026-10-17T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b5af17ad553f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-16T05:00:00.000Z",
+        "after": "2026-10-17T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abbdb86a55f0",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-06T06:00:00.000Z",
+        "after": "2026-11-05T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abc1266a55f3",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-11T06:00:00.000Z",
+        "after": "2026-12-12T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-6292125669b1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-16T05:00:00.000Z",
+        "after": "2026-10-17T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7c02fa5f4a10",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-16T05:00:00.000Z",
+        "after": "2026-10-17T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-032ba58618e8",
+        "kind": "title",
+        "field": "Title",
+        "before": "Writing Well with RHA (Wellness Week)",
+        "after": "RHA Wellness Week: Writing Well with RHA"
+      },
+      {
+        "itemId": "campus-bc44906a5f13",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-23T21:00:00.000Z",
+        "after": "2026-10-24T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-273408a20a74",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-23T05:00:00.000Z",
+        "after": "2026-10-22T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1f7ac08c1320",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-23T22:30:00.000Z",
+        "after": "2026-10-24T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bc44896a5f13",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-06T22:00:00.000Z",
+        "after": "2026-11-07T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-0762382fadc6",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-16T22:00:00.000Z",
+        "after": "2026-10-17T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-2879558c1851",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-16T13:00:00.000Z",
+        "after": "2026-10-17T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-38ca088b251f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-30T05:00:00.000Z",
+        "after": "2026-10-31T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-38ca038b251f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-06T06:00:00.000Z",
+        "after": "2026-11-07T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bc448b6a5f13",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-20T22:00:00.000Z",
+        "after": "2026-11-21T06:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -35,25 +154,25 @@
     "weekOf": "2026-10-12",
     "vertical": "research",
     "scanned": 997,
-    "candidates": 86,
+    "candidates": 83,
     "recommended": [
       "research-7fcaeba42006",
       "research-dd0ec287da57",
+      "research-fffba0cc2f7b",
       "research-b4f4e6573361",
       "research-eb1336f392ea",
-      "research-311e63b40a76",
-      "research-c29b7103e34b"
+      "research-f3fcff248448"
     ],
     "headlines": [
       "positive selection · codon-model analysis · comparative genomics",
       "M. tuberculosis · positive selection · phylogenetics",
+      "positive selection · codon-model analysis · HyPhy / selection tests",
       "positive selection · codon-model analysis · comparative genomics",
       "positive selection · codon-model analysis · phylogenetics",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
+      "positive selection · codon-model analysis · comparative genomics"
     ],
     "changes": [],
-    "estimatedMinutes": 106
+    "estimatedMinutes": 104
   },
   {
     "weekOf": "2026-10-05",
