@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-10-12",
     "vertical": "campus",
-    "scanned": 4803,
-    "candidates": 613,
+    "scanned": 4800,
+    "candidates": 593,
     "recommended": [
       "campus-d8f2bf8aeeae",
       "campus-16bd098c0e27",
@@ -20,141 +20,14 @@
       "research opportunity · graduate opportunities · workshop / training",
       "biotech · today · employer: citadel"
     ],
-    "changes": [
-      {
-        "itemId": "campus-34b66f39f2e3",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-16T05:00:00.000Z",
-        "after": "2026-10-17T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-16T05:00:00.000Z",
-        "after": "2026-10-17T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-8d43833c1a67",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-16T05:00:00.000Z",
-        "after": "2026-10-17T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b5af17ad553f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-16T05:00:00.000Z",
-        "after": "2026-10-17T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-abbdb86a55f0",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-06T06:00:00.000Z",
-        "after": "2026-11-05T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-abc1266a55f3",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-11T06:00:00.000Z",
-        "after": "2026-12-12T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-6292125669b1",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-16T05:00:00.000Z",
-        "after": "2026-10-17T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7c02fa5f4a10",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-16T05:00:00.000Z",
-        "after": "2026-10-17T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-032ba58618e8",
-        "kind": "title",
-        "field": "Title",
-        "before": "Writing Well with RHA (Wellness Week)",
-        "after": "RHA Wellness Week: Writing Well with RHA"
-      },
-      {
-        "itemId": "campus-bc44906a5f13",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-23T21:00:00.000Z",
-        "after": "2026-10-24T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-273408a20a74",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-23T05:00:00.000Z",
-        "after": "2026-10-22T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-1f7ac08c1320",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-23T22:30:00.000Z",
-        "after": "2026-10-24T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-bc44896a5f13",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-06T22:00:00.000Z",
-        "after": "2026-11-07T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-0762382fadc6",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-16T22:00:00.000Z",
-        "after": "2026-10-17T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-2879558c1851",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-16T13:00:00.000Z",
-        "after": "2026-10-17T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-38ca088b251f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-30T05:00:00.000Z",
-        "after": "2026-10-31T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-38ca038b251f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-06T06:00:00.000Z",
-        "after": "2026-11-07T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-bc448b6a5f13",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-20T22:00:00.000Z",
-        "after": "2026-11-21T06:00:00.000Z"
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-10-12",
     "vertical": "research",
-    "scanned": 997,
-    "candidates": 83,
+    "scanned": 995,
+    "candidates": 81,
     "recommended": [
       "research-7fcaeba42006",
       "research-dd0ec287da57",
