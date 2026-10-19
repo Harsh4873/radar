@@ -2,52 +2,136 @@
   {
     "weekOf": "2026-10-19",
     "vertical": "campus",
-    "scanned": 4949,
-    "candidates": 660,
+    "scanned": 4855,
+    "candidates": 725,
     "recommended": [
-      "campus-32a358791a9b",
-      "campus-9f3a90e53ec9",
-      "campus-a9fc6b9e295f"
+      "campus-77e663a33b5d",
+      "campus-bc2d0b6a5eff",
+      "campus-abbdb76a55f0",
+      "campus-0315098176fa",
+      "campus-7220f183241a",
+      "campus-644c888c39f9"
     ],
     "headlines": [
-      "tomorrow · student organization events",
-      "student organization events · this week",
-      "student organization events · in the next 3 weeks"
+      "computer science · tomorrow · workshop / training",
+      "company recruiting · today · workshop / training",
+      "biotech · football · later this term",
+      "research opportunity · workshop / training · in the next 3 weeks",
+      "today · student organization events · 2 sources confirm",
+      "graduate opportunities · other Aggie sports · in the next 3 weeks"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-34b66f39f2e3",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-18T05:00:00.000Z",
+        "after": "2026-10-19T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-18T05:00:00.000Z",
+        "after": "2026-10-19T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-8d43833c1a67",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-18T05:00:00.000Z",
+        "after": "2026-10-19T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b5af17ad553f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-18T05:00:00.000Z",
+        "after": "2026-10-19T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abbdbc6a55f1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-01T05:00:00.000Z",
+        "after": "2026-11-02T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-6292125669b1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-18T05:00:00.000Z",
+        "after": "2026-10-19T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7c02fa5f4a10",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-18T05:00:00.000Z",
+        "after": "2026-10-19T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-3948d3a214e8",
+        "kind": "title",
+        "field": "Title",
+        "before": "HET Seminar",
+        "after": "Ultralocal Measure is not Canonical"
+      },
+      {
+        "itemId": "campus-77abde2fed49",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-25T05:00:00.000Z",
+        "after": "2026-10-24T15:00:00.000Z"
+      },
+      {
+        "itemId": "campus-42ffd26a1a63",
+        "kind": "title",
+        "field": "Title",
+        "before": "ASTR Seminar",
+        "after": "One Staffer’s Perspectives on Space and Science Policy"
+      },
+      {
+        "itemId": "campus-a33a43b3fb00",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-08T06:00:00.000Z",
+        "after": "2026-11-09T06:00:00.000Z"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-10-19",
     "vertical": "research",
-    "scanned": 998,
-    "candidates": 85,
+    "scanned": 1014,
+    "candidates": 83,
     "recommended": [
+      "research-bb3e5b1018a7",
       "research-fa9974042681",
       "research-9409b180e393",
       "research-d08df5f1b90d",
       "research-8728e2658bbe",
-      "research-01ea64d61980",
-      "research-b60b5567188d"
+      "research-01ea64d61980"
     ],
     "headlines": [
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "positive selection · comparative genomics · recent",
       "positive selection · phylogenetics · pathogen evolution",
       "M. tuberculosis · antimicrobial resistance · recent",
       "M. tuberculosis · host-pathogen interaction · recent",
-      "M. tuberculosis · recent · revised preprint (v2)",
-      "comparative genomics · phylogenetics · recent"
+      "M. tuberculosis · recent · revised preprint (v2)"
     ],
     "changes": [
       {
-        "itemId": "research-229c87d71fbe",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v1",
-        "after": "v2"
+        "itemId": "research-311e63b40a76",
+        "kind": "title",
+        "field": "Title",
+        "before": "Mixed strain infections and microevolution of Mycobacterium tuberculosis: Genetic diversity in a high-burden setting of Northeastern Brazil.",
+        "after": "Mixed Strain Infections and Microevolution of Mycobacterium tuberculosis: Genetic Diversity in a High-Burden Setting of Northeastern Brazil."
       }
     ],
-    "estimatedMinutes": 92
+    "estimatedMinutes": 93
   },
   {
     "weekOf": "2026-10-12",
