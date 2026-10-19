@@ -1,5 +1,55 @@
 [
   {
+    "weekOf": "2026-10-19",
+    "vertical": "campus",
+    "scanned": 4949,
+    "candidates": 660,
+    "recommended": [
+      "campus-32a358791a9b",
+      "campus-9f3a90e53ec9",
+      "campus-a9fc6b9e295f"
+    ],
+    "headlines": [
+      "tomorrow · student organization events",
+      "student organization events · this week",
+      "student organization events · in the next 3 weeks"
+    ],
+    "changes": [],
+    "estimatedMinutes": 0
+  },
+  {
+    "weekOf": "2026-10-19",
+    "vertical": "research",
+    "scanned": 998,
+    "candidates": 85,
+    "recommended": [
+      "research-fa9974042681",
+      "research-9409b180e393",
+      "research-d08df5f1b90d",
+      "research-8728e2658bbe",
+      "research-01ea64d61980",
+      "research-b60b5567188d"
+    ],
+    "headlines": [
+      "positive selection · comparative genomics · recent",
+      "positive selection · phylogenetics · pathogen evolution",
+      "M. tuberculosis · antimicrobial resistance · recent",
+      "M. tuberculosis · host-pathogen interaction · recent",
+      "M. tuberculosis · recent · revised preprint (v2)",
+      "comparative genomics · phylogenetics · recent"
+    ],
+    "changes": [
+      {
+        "itemId": "research-229c87d71fbe",
+        "kind": "preprint-revised",
+        "field": "Preprint version",
+        "before": "v1",
+        "after": "v2"
+      }
+    ],
+    "estimatedMinutes": 92
+  },
+  {
     "weekOf": "2026-10-12",
     "vertical": "campus",
     "scanned": 4947,
