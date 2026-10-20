@@ -2,50 +2,171 @@
   {
     "weekOf": "2026-10-19",
     "vertical": "campus",
-    "scanned": 4876,
-    "candidates": 719,
+    "scanned": 4524,
+    "candidates": 707,
     "recommended": [
       "campus-77e663a33b5d",
       "campus-7212f883240e",
+      "campus-bc2d0b6a5eff",
       "campus-abbdb76a55f0",
       "campus-720c73832409",
-      "campus-0315098176fa",
-      "campus-720ff283240c"
+      "campus-0315098176fa"
     ],
     "headlines": [
-      "computer science · tomorrow · workshop / training",
-      "data science · this week · workshop / training",
+      "computer science · today · workshop / training",
+      "data science · tomorrow · workshop / training",
+      "company recruiting · today · workshop / training",
       "biotech · football · later this term",
       "data science · workshop / training · in the next 3 weeks",
-      "research opportunity · workshop / training · in the next 3 weeks",
-      "data science · workshop / training · in the next 3 weeks"
+      "research opportunity · workshop / training · in the next 3 weeks"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-34b66f39f2e3",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-19T05:00:00.000Z",
+        "after": "2026-10-20T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-19T05:00:00.000Z",
+        "after": "2026-10-20T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7794522fed35",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-16T06:00:00.000Z",
+        "after": "2026-11-17T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-8d43833c1a67",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-19T05:00:00.000Z",
+        "after": "2026-10-20T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b5af17ad553f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-19T05:00:00.000Z",
+        "after": "2026-10-20T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abbdbc6a55f1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-02T06:00:00.000Z",
+        "after": "2026-11-01T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a31bb7b3fae6",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-14T06:00:00.000Z",
+        "after": "2026-12-15T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-11bdd57a28c5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-02T06:00:00.000Z",
+        "after": "2026-11-03T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-6292125669b1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-19T05:00:00.000Z",
+        "after": "2026-10-20T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7c02fa5f4a10",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-19T05:00:00.000Z",
+        "after": "2026-10-20T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-fe641f2fa897",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-27T00:00:00.000Z",
+        "after": "2026-10-27T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-645d7a8c3a07",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-26T13:00:00.000Z",
+        "after": "2026-10-27T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-e4c9569412ff",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-02T14:30:00.000Z",
+        "after": "2026-11-03T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ac117d6985f5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-02T14:00:00.000Z",
+        "after": "2026-11-03T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a33a43b3fb00",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-09T06:00:00.000Z",
+        "after": "2026-11-08T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-77945b2fed35",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-09T06:00:00.000Z",
+        "after": "2026-11-10T06:00:00.000Z"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-10-19",
     "vertical": "research",
-    "scanned": 1012,
-    "candidates": 92,
+    "scanned": 1021,
+    "candidates": 95,
     "recommended": [
+      "research-469fb612c461",
+      "research-93710df32a3e",
       "research-bb3e5b1018a7",
+      "research-3ab99f96f2f9",
       "research-a9aeee537ff5",
-      "research-fa9974042681",
-      "research-48be8bb2b404",
-      "research-9409b180e393",
-      "research-88368ba4eeee"
+      "research-fa9974042681"
     ],
     "headlines": [
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "codon-model analysis · HyPhy / selection tests · phylogenetics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "positive selection · comparative genomics · recent",
-      "comparative genomics · phylogenetics · pathogen evolution",
       "positive selection · phylogenetics · pathogen evolution",
-      "M. tuberculosis · very recent · TB epidemiology"
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "positive selection · comparative genomics · recent"
     ],
-    "changes": [],
-    "estimatedMinutes": 89
+    "changes": [
+      {
+        "itemId": "research-311e63b40a76",
+        "kind": "title",
+        "field": "Title",
+        "before": "Mixed Strain Infections and Microevolution of Mycobacterium tuberculosis: Genetic Diversity in a High-Burden Setting of Northeastern Brazil.",
+        "after": "Mixed strain infections and microevolution of Mycobacterium tuberculosis: Genetic diversity in a high-burden setting of Northeastern Brazil."
+      }
+    ],
+    "estimatedMinutes": 92
   },
   {
     "weekOf": "2026-10-12",
