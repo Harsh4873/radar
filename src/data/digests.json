@@ -2,73 +2,171 @@
   {
     "weekOf": "2026-10-19",
     "vertical": "campus",
-    "scanned": 4425,
-    "candidates": 690,
+    "scanned": 5061,
+    "candidates": 696,
     "recommended": [
-      "campus-77e663a33b5d",
+      "campus-02bf8938c901",
+      "campus-f9a5d038c3b9",
       "campus-7212f883240e",
+      "campus-9bf809a35032",
       "campus-9bf80ba35032",
-      "campus-9bf806a35032",
-      "campus-abbdb76a55f0",
-      "campus-5c5f435a7987"
+      "campus-02bf8a38c901"
     ],
     "headlines": [
-      "computer science · today · workshop / training",
-      "data science · tomorrow · workshop / training",
-      "company recruiting · graduate opportunities · in the next 3 weeks",
-      "company recruiting · graduate opportunities · in the next 3 weeks",
-      "biotech · football · later this term",
-      "company recruiting · student organization events · this week"
+      "research opportunity · company recruiting · this week",
+      "research opportunity · graduate opportunities · this week",
+      "data science · today · workshop / training",
+      "company recruiting · graduate opportunities · this week",
+      "company recruiting · graduate opportunities · this week",
+      "research opportunity · this week · workshop / training"
     ],
     "changes": [
       {
-        "itemId": "campus-cffb1a8ae983",
+        "itemId": "campus-34b66f39f2e3",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-28T05:00:00.000Z",
-        "after": "2026-11-04T06:00:00.000Z"
+        "before": "2026-10-20T05:00:00.000Z",
+        "after": "2026-10-21T05:00:00.000Z"
       },
       {
-        "itemId": "campus-f427f38bfa95",
-        "kind": "title",
-        "field": "Title",
-        "before": "HEPEC Seminar",
-        "after": "Perturbative Dissipation in MWI"
-      },
-      {
-        "itemId": "campus-f427f38bfa95",
+        "itemId": "campus-b314811cb984",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-22T16:30:00.000Z",
-        "after": "2026-10-22T17:00:00.000Z"
+        "before": "2026-10-20T05:00:00.000Z",
+        "after": "2026-10-21T05:00:00.000Z"
       },
       {
-        "itemId": "campus-6437fd8c39e7",
-        "kind": "title",
-        "field": "Title",
-        "before": "Department of Geography Fall 2026 Colloquium Series Presents Dr. Phuong D. Dao",
-        "after": "Dr. Phuong D. Dao: “Next-Generation Vegetation Sensing: From Spectral Patterns to Ecological Insights”"
+        "itemId": "campus-7de44012b784",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-20T05:00:00.000Z",
+        "after": "2026-10-21T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-8d43833c1a67",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-20T05:00:00.000Z",
+        "after": "2026-10-21T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b5af17ad553f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-20T05:00:00.000Z",
+        "after": "2026-10-21T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a31bb7b3fae6",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-15T06:00:00.000Z",
+        "after": "2026-12-14T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a6ef63b5eb82",
+        "kind": "location",
+        "field": "Location",
+        "before": "Memorial Student Center",
+        "after": null
+      },
+      {
+        "itemId": "campus-11bdd57a28c5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-03T06:00:00.000Z",
+        "after": "2026-11-02T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-6292125669b1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-20T05:00:00.000Z",
+        "after": "2026-10-21T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7c02fa5f4a10",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-20T05:00:00.000Z",
+        "after": "2026-10-21T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-41b73c8b2a41",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-20T13:00:00.000Z",
+        "after": "2026-10-21T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-fe641f2fa897",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-27T05:00:00.000Z",
+        "after": "2026-10-27T00:00:00.000Z"
+      },
+      {
+        "itemId": "campus-645d7a8c3a07",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-27T05:00:00.000Z",
+        "after": "2026-10-26T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-e4c9569412ff",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-03T06:00:00.000Z",
+        "after": "2026-11-02T14:30:00.000Z"
+      },
+      {
+        "itemId": "campus-197a8a2fb83e",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-20T13:00:00.000Z",
+        "after": "2026-10-21T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-9fe01193ec13",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-20T23:00:00.000Z",
+        "after": "2026-10-21T05:00:00.000Z"
       },
       {
         "itemId": "campus-a300343892a4",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-20T05:00:00.000Z",
-        "after": "2026-10-20T13:30:00.000Z"
+        "before": "2026-10-20T13:30:00.000Z",
+        "after": "2026-10-21T05:00:00.000Z"
       },
       {
-        "itemId": "campus-208c8d9cc168",
+        "itemId": "campus-ac117d6985f5",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-28T19:00:00.000Z",
-        "after": "2026-10-30T19:00:00.000Z"
+        "before": "2026-11-03T06:00:00.000Z",
+        "after": "2026-11-02T14:00:00.000Z"
       },
       {
-        "itemId": "campus-bcc9c346079a",
+        "itemId": "campus-eb22c18bf560",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-28T19:00:00.000Z",
-        "after": "2026-10-30T19:00:00.000Z"
+        "before": "2026-10-24T15:00:00.000Z",
+        "after": "2026-11-07T16:00:00.000Z"
+      },
+      {
+        "itemId": "campus-77945b2fed35",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-10T06:00:00.000Z",
+        "after": "2026-11-09T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-3c0cb1ab33f8",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-10T14:30:00.000Z",
+        "after": "2026-11-11T06:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -76,26 +174,26 @@
   {
     "weekOf": "2026-10-19",
     "vertical": "research",
-    "scanned": 1015,
-    "candidates": 98,
+    "scanned": 1021,
+    "candidates": 97,
     "recommended": [
       "research-3da77d4cc620",
+      "research-4a93afecb59e",
+      "research-b411adb5992b",
       "research-469fb612c461",
       "research-93710df32a3e",
-      "research-bb3e5b1018a7",
-      "research-f3d556069bff",
-      "research-3ab99f96f2f9"
+      "research-bb3e5b1018a7"
     ],
     "headlines": [
       "positive selection · codon-model analysis · HyPhy / selection tests",
+      "M. tuberculosis · phylogenetics · selection methods applied to Mtb",
+      "positive selection · codon-model analysis · phylogenetics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "codon-model analysis · HyPhy / selection tests · phylogenetics",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "positive selection · comparative genomics · recent",
-      "positive selection · phylogenetics · pathogen evolution"
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
     "changes": [],
-    "estimatedMinutes": 102
+    "estimatedMinutes": 103
   },
   {
     "weekOf": "2026-10-12",
