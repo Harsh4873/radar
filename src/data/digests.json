@@ -2,31 +2,136 @@
   {
     "weekOf": "2026-10-19",
     "vertical": "campus",
-    "scanned": 4764,
-    "candidates": 612,
+    "scanned": 4760,
+    "candidates": 609,
     "recommended": [
       "campus-16bd0a8c0e27",
       "campus-16bd088c0e27",
+      "campus-02bf8e38c901",
       "campus-7b189d832945",
       "campus-7b189a832945",
-      "campus-9bf809a35032",
-      "campus-9bf80ca35032"
+      "campus-04a4b58c03af"
     ],
     "headlines": [
       "research opportunity · company recruiting · this week",
       "research opportunity · graduate opportunities · this week",
-      "computer science · tomorrow · workshop / training",
-      "computer science · tomorrow · workshop / training",
-      "company recruiting · graduate opportunities · this week",
-      "company recruiting · graduate opportunities · this week"
+      "research opportunity · graduate opportunities · this week",
+      "computer science · today · workshop / training",
+      "computer science · today · workshop / training",
+      "company recruiting · graduate opportunities · workshop / training"
     ],
     "changes": [
       {
-        "itemId": "campus-42c883c33a0c",
-        "kind": "location",
-        "field": "Location",
-        "before": "Rudder",
-        "after": null
+        "itemId": "campus-34b66f39f2e3",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-22T05:00:00.000Z",
+        "after": "2026-10-23T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-22T05:00:00.000Z",
+        "after": "2026-10-23T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7de44012b784",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-22T05:00:00.000Z",
+        "after": "2026-10-23T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abbdb86a55f0",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-05T06:00:00.000Z",
+        "after": "2026-11-06T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-4f84d7831082",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-05T16:00:00.000Z",
+        "after": "2026-11-06T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-6292125669b1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-22T05:00:00.000Z",
+        "after": "2026-10-23T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7c02fa5f4a10",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-22T05:00:00.000Z",
+        "after": "2026-10-23T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a470c01bfb5c",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-22T05:00:00.000Z",
+        "after": "2026-10-23T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-38cd088b2522",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-29T05:00:00.000Z",
+        "after": "2026-10-28T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-d608c84ea27f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-29T05:00:00.000Z",
+        "after": "2026-10-28T13:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ab49a34a0920",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-22T05:00:00.000Z",
+        "after": "2026-10-23T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-eb1f528bf55d",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-29T14:00:00.000Z",
+        "after": "2026-10-30T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1f8f3f8c1332",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-05T06:00:00.000Z",
+        "after": "2026-11-04T14:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7201f7832400",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-12T06:00:00.000Z",
+        "after": "2026-11-11T14:00:00.000Z"
+      },
+      {
+        "itemId": "campus-11b3477a28bc",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-12T14:00:00.000Z",
+        "after": "2026-11-13T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-f9a5d138c3b9",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-12T14:00:00.000Z",
+        "after": "2026-11-13T06:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -34,41 +139,26 @@
   {
     "weekOf": "2026-10-19",
     "vertical": "research",
-    "scanned": 990,
-    "candidates": 96,
+    "scanned": 1014,
+    "candidates": 103,
     "recommended": [
       "research-3da77d4cc620",
       "research-4a93afecb59e",
-      "research-b411adb5992b",
-      "research-ac940312ac18",
-      "research-469fb612c461",
-      "research-48c191b2b407"
+      "research-c2d25e60aea7",
+      "research-b93c16ca78bf",
+      "research-bd9af2829e44",
+      "research-0ed7b4433973"
     ],
     "headlines": [
       "positive selection · codon-model analysis · HyPhy / selection tests",
       "M. tuberculosis · phylogenetics · selection methods applied to Mtb",
+      "M. tuberculosis · phylogenetics · selection methods applied to Mtb",
       "positive selection · codon-model analysis · phylogenetics",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · comparative genomics · antimicrobial resistance"
+      "positive selection · codon-model analysis · phylogenetics",
+      "M. tuberculosis · positive selection · comparative genomics"
     ],
-    "changes": [
-      {
-        "itemId": "research-b5f6d067187c",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v1",
-        "after": "v2"
-      },
-      {
-        "itemId": "research-376afa0c142d",
-        "kind": "title",
-        "field": "Title",
-        "before": "Five-Year Glycemic Trends in a Remote Diabetes Monitoring Program (RDMP): Contributions of Program Engagement and Evolving Pharmacotherapy Adoption and Adherence",
-        "after": "Five-Year Glycemic Trends in a Remote Diabetes Management Program (RDMP): Contributions of Program Engagement and Evolving Pharmacotherapy Adoption and Adherence"
-      }
-    ],
-    "estimatedMinutes": 99
+    "changes": [],
+    "estimatedMinutes": 95
   },
   {
     "weekOf": "2026-10-12",
