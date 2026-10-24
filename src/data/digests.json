@@ -2,31 +2,192 @@
   {
     "weekOf": "2026-10-19",
     "vertical": "campus",
-    "scanned": 4765,
-    "candidates": 594,
+    "scanned": 4818,
+    "candidates": 586,
     "recommended": [
       "campus-16bd0a8c0e27",
       "campus-16bd088c0e27",
-      "campus-02bf8e38c901",
-      "campus-7b189d832945",
-      "campus-7b189a832945",
-      "campus-04a4b58c03af"
+      "campus-16b99e8c0e24",
+      "campus-7201fa832400",
+      "campus-04a4b58c03af",
+      "campus-20f8b32fbc28"
     ],
     "headlines": [
       "research opportunity · company recruiting · this week",
       "research opportunity · graduate opportunities · this week",
       "research opportunity · graduate opportunities · this week",
-      "computer science · today · workshop / training",
-      "computer science · today · workshop / training",
-      "company recruiting · graduate opportunities · workshop / training"
+      "research opportunity · graduate opportunities · workshop / training",
+      "company recruiting · graduate opportunities · workshop / training",
+      "biotech · company recruiting · in the next 3 weeks"
     ],
     "changes": [
       {
-        "itemId": "campus-f36529554d2f",
-        "kind": "location",
-        "field": "Location",
-        "before": "All Faiths Chapel",
-        "after": null
+        "itemId": "campus-34b66f39f2e3",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-23T05:00:00.000Z",
+        "after": "2026-10-24T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-23T05:00:00.000Z",
+        "after": "2026-10-24T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7de44012b784",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-23T05:00:00.000Z",
+        "after": "2026-10-24T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abbdb86a55f0",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-06T06:00:00.000Z",
+        "after": "2026-11-05T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-4f84d7831082",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-06T06:00:00.000Z",
+        "after": "2026-11-05T16:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bc44906a5f13",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-23T21:00:00.000Z",
+        "after": "2026-10-24T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abc1266a55f3",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-11T06:00:00.000Z",
+        "after": "2026-12-12T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-6292125669b1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-23T05:00:00.000Z",
+        "after": "2026-10-24T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7c02fa5f4a10",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-23T05:00:00.000Z",
+        "after": "2026-10-24T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a470c01bfb5c",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-23T05:00:00.000Z",
+        "after": "2026-10-24T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1f7ac08c1320",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-23T22:30:00.000Z",
+        "after": "2026-10-24T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-38ca088b251f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-30T05:00:00.000Z",
+        "after": "2026-10-31T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bc44896a5f13",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-06T22:00:00.000Z",
+        "after": "2026-11-07T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-98704b7b8b61",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-23T18:00:00.000Z",
+        "after": "2026-10-24T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a300343892a4",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-23T13:30:00.000Z",
+        "after": "2026-10-24T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ab49a34a0920",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-23T05:00:00.000Z",
+        "after": "2026-10-24T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-eb1bce8bf55a",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-23T22:00:00.000Z",
+        "after": "2026-10-24T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-eb1f528bf55d",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-30T05:00:00.000Z",
+        "after": "2026-10-29T14:00:00.000Z"
+      },
+      {
+        "itemId": "campus-38ca038b251f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-06T06:00:00.000Z",
+        "after": "2026-11-07T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7223f383241d",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-06T21:00:00.000Z",
+        "after": "2026-11-07T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-11b3477a28bc",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-13T06:00:00.000Z",
+        "after": "2026-11-12T14:00:00.000Z"
+      },
+      {
+        "itemId": "campus-f9a5d138c3b9",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-13T06:00:00.000Z",
+        "after": "2026-11-12T14:00:00.000Z"
+      },
+      {
+        "itemId": "campus-eb0b118af926",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-13T06:00:00.000Z",
+        "after": "2026-11-14T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bc448b6a5f13",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-20T22:00:00.000Z",
+        "after": "2026-11-21T06:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -34,62 +195,26 @@
   {
     "weekOf": "2026-10-19",
     "vertical": "research",
-    "scanned": 1003,
-    "candidates": 95,
+    "scanned": 1005,
+    "candidates": 93,
     "recommended": [
       "research-3da77d4cc620",
+      "research-6ca9e7f58ff8",
       "research-4a93afecb59e",
       "research-b93c16ca78bf",
       "research-bd9af2829e44",
-      "research-c2d25e60aea7",
-      "research-0ed7b4433973"
+      "research-c2d25e60aea7"
     ],
     "headlines": [
+      "positive selection · codon-model analysis · HyPhy / selection tests",
       "positive selection · codon-model analysis · HyPhy / selection tests",
       "M. tuberculosis · phylogenetics · selection methods applied to Mtb",
       "positive selection · codon-model analysis · phylogenetics",
       "positive selection · codon-model analysis · phylogenetics",
-      "M. tuberculosis · phylogenetics · selection methods applied to Mtb",
-      "M. tuberculosis · positive selection · comparative genomics"
+      "M. tuberculosis · phylogenetics · selection methods applied to Mtb"
     ],
-    "changes": [
-      {
-        "itemId": "research-c2d25e60aea7",
-        "kind": "title",
-        "field": "Title",
-        "before": "UShER-TB: scalable, comprehensive, accessible phylogenomic analysis of Mycobacterium tuberculosis",
-        "after": "UShER-TB: scalable, comprehensive, accessible phylogenomic analysis of Mycobacterium tuberculosis."
-      },
-      {
-        "itemId": "research-4739b7e0fc9c",
-        "kind": "title",
-        "field": "Title",
-        "before": "Antivirulence Benzothiophenes Inhibit Intracellular Mycobacterium tuberculosis by Targeting the Sensor Histidine Kinase MprB",
-        "after": "Antivirulence Benzothiophenes Inhibit Intracellular Mycobacterium tuberculosis by Targeting the Sensor Histidine Kinase MprB."
-      },
-      {
-        "itemId": "research-376afa0c142d",
-        "kind": "title",
-        "field": "Title",
-        "before": "Five-Year Glycemic Trends in a Remote Diabetes Management Program (RDMP): Contributions of Program Engagement and Evolving Pharmacotherapy Adoption and Adherence",
-        "after": "Five-Year Glycemic Trends in a Remote Diabetes Monitoring Program (RDMP): Contributions of Program Engagement and Evolving Pharmacotherapy Adoption and Adherence"
-      },
-      {
-        "itemId": "research-376afa0c142d",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v1",
-        "after": "v2"
-      },
-      {
-        "itemId": "research-916dcfe3596b",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v2",
-        "after": "v3"
-      }
-    ],
-    "estimatedMinutes": 95
+    "changes": [],
+    "estimatedMinutes": 98
   },
   {
     "weekOf": "2026-10-12",
