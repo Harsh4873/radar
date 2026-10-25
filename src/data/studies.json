@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-25T01:16:40.147Z",
+  "fetchedAt": "2026-10-25T14:58:18.181Z",
   "totalFromHeader": 94,
   "studies": [
     {
@@ -3727,7 +3727,7 @@
       },
       "effectiveHourly": 25,
       "isExpired": false,
-      "staleness": "aging",
+      "staleness": "stale",
       "tags": [
         "in-person",
         "vr-ar",
@@ -10531,7 +10531,7 @@
       "status": "ok",
       "itemCount": 85,
       "fetchSource": "network",
-      "durationMs": 1725,
+      "durationMs": 2612,
       "failedRequests": 0,
       "complete": true,
       "note": null,
@@ -10544,7 +10544,7 @@
       "status": "ok",
       "itemCount": 21,
       "fetchSource": "network",
-      "durationMs": 875,
+      "durationMs": 624,
       "failedRequests": 0,
       "complete": true,
       "note": null,
