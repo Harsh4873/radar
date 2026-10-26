@@ -2,40 +2,128 @@
   {
     "weekOf": "2026-10-26",
     "vertical": "campus",
-    "scanned": 4910,
-    "candidates": 616,
+    "scanned": 5058,
+    "candidates": 662,
     "recommended": [
-      "campus-587fe68315b0"
+      "campus-6199a5831af7",
+      "campus-5897e98315c4",
+      "campus-5897ed8315c4",
+      "campus-abbdb76a55f0",
+      "campus-0315098176fa",
+      "campus-7b228c83294d"
     ],
     "headlines": [
-      "tomorrow"
+      "computer science · data science · this week",
+      "company recruiting · this week · other Aggie sports",
+      "company recruiting · this week · other Aggie sports",
+      "biotech · football · in the next 3 weeks",
+      "research opportunity · this week · workshop / training",
+      "company recruiting · today · workshop / training"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-34b66f39f2e3",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-25T05:00:00.000Z",
+        "after": "2026-10-26T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-25T05:00:00.000Z",
+        "after": "2026-10-26T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abbdbc6a55f1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-01T05:00:00.000Z",
+        "after": "2026-11-02T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7de44012b784",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-25T05:00:00.000Z",
+        "after": "2026-10-26T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-8ce8ea83337f",
+        "kind": "title",
+        "field": "Title",
+        "before": "Global Law Field Course Information Session",
+        "after": "GLOBAL LAW FIELD COURSE Information Session"
+      },
+      {
+        "itemId": "campus-6292125669b1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-25T05:00:00.000Z",
+        "after": "2026-10-26T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7c02fa5f4a10",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-25T05:00:00.000Z",
+        "after": "2026-10-26T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a470c01bfb5c",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-25T05:00:00.000Z",
+        "after": "2026-10-26T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ab49a34a0920",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-25T05:00:00.000Z",
+        "after": "2026-10-26T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7b188f832945",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-08T06:00:00.000Z",
+        "after": "2026-11-07T15:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a33a43b3fb00",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-08T06:00:00.000Z",
+        "after": "2026-11-09T06:00:00.000Z"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-10-26",
     "vertical": "research",
-    "scanned": 1016,
-    "candidates": 109,
+    "scanned": 1034,
+    "candidates": 110,
     "recommended": [
       "research-f3d556069bff",
       "research-d08df5f1b90d",
+      "research-01f36d173d4d",
       "research-862ed53d0984",
       "research-c15f14e9711c",
-      "research-4e2d5e1f7108",
-      "research-faa77404268d"
+      "research-71a158282171"
     ],
     "headlines": [
       "positive selection · comparative genomics · recent",
+      "M. tuberculosis · antimicrobial resistance · revised preprint (v2)",
       "M. tuberculosis · antimicrobial resistance · recent",
       "M. tuberculosis · antimicrobial resistance · recent",
       "bioinformatics tooling · pathogen evolution · recent",
-      "comparative genomics · recent · genome evolution",
-      "M. tuberculosis · recent · open access"
+      "M. tuberculosis · very recent · open access"
     ],
     "changes": [],
-    "estimatedMinutes": 90
+    "estimatedMinutes": 96
   },
   {
     "weekOf": "2026-10-19",
