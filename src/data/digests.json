@@ -1,5 +1,43 @@
 [
   {
+    "weekOf": "2026-10-26",
+    "vertical": "campus",
+    "scanned": 4910,
+    "candidates": 616,
+    "recommended": [
+      "campus-587fe68315b0"
+    ],
+    "headlines": [
+      "tomorrow"
+    ],
+    "changes": [],
+    "estimatedMinutes": 0
+  },
+  {
+    "weekOf": "2026-10-26",
+    "vertical": "research",
+    "scanned": 1016,
+    "candidates": 109,
+    "recommended": [
+      "research-f3d556069bff",
+      "research-d08df5f1b90d",
+      "research-862ed53d0984",
+      "research-c15f14e9711c",
+      "research-4e2d5e1f7108",
+      "research-faa77404268d"
+    ],
+    "headlines": [
+      "positive selection · comparative genomics · recent",
+      "M. tuberculosis · antimicrobial resistance · recent",
+      "M. tuberculosis · antimicrobial resistance · recent",
+      "bioinformatics tooling · pathogen evolution · recent",
+      "comparative genomics · recent · genome evolution",
+      "M. tuberculosis · recent · open access"
+    ],
+    "changes": [],
+    "estimatedMinutes": 90
+  },
+  {
     "weekOf": "2026-10-19",
     "vertical": "campus",
     "scanned": 4906,
