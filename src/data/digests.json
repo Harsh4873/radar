@@ -2,101 +2,38 @@
   {
     "weekOf": "2026-10-26",
     "vertical": "campus",
-    "scanned": 5058,
-    "candidates": 662,
+    "scanned": 5100,
+    "candidates": 660,
     "recommended": [
       "campus-6199a5831af7",
+      "campus-9bf805a35032",
+      "campus-9bf488a3502f",
       "campus-5897e98315c4",
       "campus-5897ed8315c4",
-      "campus-abbdb76a55f0",
-      "campus-0315098176fa",
-      "campus-7b228c83294d"
+      "campus-abbdb76a55f0"
     ],
     "headlines": [
       "computer science · data science · this week",
+      "company recruiting · graduate opportunities · this week",
+      "company recruiting · graduate opportunities · this week",
       "company recruiting · this week · other Aggie sports",
       "company recruiting · this week · other Aggie sports",
-      "biotech · football · in the next 3 weeks",
-      "research opportunity · this week · workshop / training",
-      "company recruiting · today · workshop / training"
+      "biotech · football · in the next 3 weeks"
     ],
     "changes": [
       {
-        "itemId": "campus-34b66f39f2e3",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-25T05:00:00.000Z",
-        "after": "2026-10-26T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-25T05:00:00.000Z",
-        "after": "2026-10-26T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-abbdbc6a55f1",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-01T05:00:00.000Z",
-        "after": "2026-11-02T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7de44012b784",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-25T05:00:00.000Z",
-        "after": "2026-10-26T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-8ce8ea83337f",
+        "itemId": "campus-7201fa832400",
         "kind": "title",
         "field": "Title",
-        "before": "Global Law Field Course Information Session",
-        "after": "GLOBAL LAW FIELD COURSE Information Session"
+        "before": "TREC Seminar - Alfredo Erazo-Oliveras, PhD & Hasara Abeygunaratne",
+        "after": "TREC Seminar: Alfredo Erazo-Oliveras, PhD & Hasara Abeygunaratne"
       },
       {
-        "itemId": "campus-6292125669b1",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-25T05:00:00.000Z",
-        "after": "2026-10-26T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7c02fa5f4a10",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-25T05:00:00.000Z",
-        "after": "2026-10-26T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a470c01bfb5c",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-25T05:00:00.000Z",
-        "after": "2026-10-26T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ab49a34a0920",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-25T05:00:00.000Z",
-        "after": "2026-10-26T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7b188f832945",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-08T06:00:00.000Z",
-        "after": "2026-11-07T15:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a33a43b3fb00",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-08T06:00:00.000Z",
-        "after": "2026-11-09T06:00:00.000Z"
+        "itemId": "campus-773fba9cf289",
+        "kind": "title",
+        "field": "Title",
+        "before": "Education Research Center (ERC) PEP Talk with Dr. Pat Rubio-Goldsmith",
+        "after": "Education Research Center (ERC) PEP Talk with Dr. Pat Rubio Goldsmith"
       }
     ],
     "estimatedMinutes": 0
@@ -104,26 +41,41 @@
   {
     "weekOf": "2026-10-26",
     "vertical": "research",
-    "scanned": 1034,
-    "candidates": 110,
+    "scanned": 1029,
+    "candidates": 112,
     "recommended": [
-      "research-f3d556069bff",
-      "research-d08df5f1b90d",
-      "research-01f36d173d4d",
-      "research-862ed53d0984",
-      "research-c15f14e9711c",
-      "research-71a158282171"
+      "research-ac940312ac18",
+      "research-48c191b2b407",
+      "research-c36f0608ecdf",
+      "research-adacb5464960",
+      "research-dc962619e245",
+      "research-7a6d12282676"
     ],
     "headlines": [
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "M. tuberculosis · comparative genomics · antimicrobial resistance",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "comparative genomics · diabetes / host metabolic · host-pathogen interaction",
       "positive selection · comparative genomics · recent",
-      "M. tuberculosis · antimicrobial resistance · revised preprint (v2)",
-      "M. tuberculosis · antimicrobial resistance · recent",
-      "M. tuberculosis · antimicrobial resistance · recent",
-      "bioinformatics tooling · pathogen evolution · recent",
-      "M. tuberculosis · very recent · open access"
+      "M. tuberculosis · very recent · antimicrobial resistance"
     ],
-    "changes": [],
-    "estimatedMinutes": 96
+    "changes": [
+      {
+        "itemId": "research-b60b5567188d",
+        "kind": "preprint-revised",
+        "field": "Preprint version",
+        "before": "v1",
+        "after": "v2"
+      },
+      {
+        "itemId": "research-b5f6d067187c",
+        "kind": "preprint-revised",
+        "field": "Preprint version",
+        "before": "v1",
+        "after": "v2"
+      }
+    ],
+    "estimatedMinutes": 97
   },
   {
     "weekOf": "2026-10-19",
