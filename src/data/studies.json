@@ -1,6 +1,6 @@
 {
-  "fetchedAt": "2026-10-27T02:08:45.723Z",
-  "totalFromHeader": 94,
+  "fetchedAt": "2026-10-27T16:43:39.687Z",
+  "totalFromHeader": 95,
   "studies": [
     {
       "id": "4591",
@@ -3943,117 +3943,6 @@
         "survey"
       ],
       "duplicateIds": [],
-      "duplicateOf": null
-    },
-    {
-      "id": "8333",
-      "slug": "using-mediated-reality-to-address-knee-pain-and-enhance-exerciseengagement",
-      "title": "Using Mediated Reality to Address Knee Pain and Enhance Exercise Engagement",
-      "summary": "This pilot study aims to explore the mechanisms behind the effects of mediated reality on pain perception scores in those with knee pain. Additionally, the study seeks to test the feasibility, acceptability, safety, and preliminary outcomes of a mediated…",
-      "url": "https://research.tamu.edu/study/using-mediated-reality-to-address-knee-pain-and-enhance-exerciseengagement/",
-      "sources": [
-        {
-          "source": "aggie-research-volunteers",
-          "externalId": "8333",
-          "url": "https://research.tamu.edu/study/using-mediated-reality-to-address-knee-pain-and-enhance-exerciseengagement/",
-          "status": "unknown",
-          "verifiedAt": "2025-06-10T18:55:32.000Z",
-          "protocolIds": [
-            "STUDY2024-0630"
-          ],
-          "titleAliases": [
-            "Using Mediated Reality to Address Knee Pain and Enhance Exercise Engagement"
-          ]
-        }
-      ],
-      "piName": "PI: Zina Trost, PhD",
-      "contactName": "Ami Lisenbee; Phylicia Taylor",
-      "contactEmail": "coordinator@futures-lab.org",
-      "contactPhone": "713-487-5715",
-      "irbNumber": "STUDY2024-0630",
-      "irbApprovalDate": "2024-10-03T21:53:21.000Z",
-      "expirationDate": null,
-      "recruitmentStartDate": null,
-      "lifecycleMonths": 6,
-      "postedDate": "2025-06-10T02:55:03.000Z",
-      "modifiedDate": "2025-06-10T18:55:32.000Z",
-      "categoryIds": [
-        37,
-        43,
-        42,
-        44
-      ],
-      "locationIds": [
-        53,
-        54
-      ],
-      "sessionTypeIds": [
-        60
-      ],
-      "topicIds": [
-        33,
-        34,
-        36,
-        35
-      ],
-      "locationLabels": [],
-      "compensation": {
-        "guaranteedMin": null,
-        "guaranteedMax": 150,
-        "raffleMax": null,
-        "raffleOnly": false,
-        "isHourlyRate": false,
-        "hourlyMin": null,
-        "hourlyMax": null,
-        "currencyKind": "unknown",
-        "perVisit": null,
-        "visitCount": null,
-        "completionBonus": null,
-        "hasNonCashPerk": false,
-        "sonaCreditOption": false,
-        "raw": "Up to $150",
-        "confidence": "high",
-        "notes": [
-          "amount is phrased as a ceiling (\"up to\"); guaranteed floor unknown"
-        ]
-      },
-      "duration": {
-        "totalHoursMin": null,
-        "totalHoursMax": null,
-        "sessionCount": null,
-        "spanWeeks": 4.35,
-        "raw": "One Month",
-        "confidence": "medium"
-      },
-      "eligibility": {
-        "minAge": 18,
-        "maxAge": null,
-        "requiresRightHanded": false,
-        "requiresMriSafe": false,
-        "requiresFasting": false,
-        "excludesCardiovascular": false,
-        "excludesPregnancy": false,
-        "excludesSeizure": false,
-        "excludesNeurological": false,
-        "requiresSpecificCondition": "chronic knee pain or knee osteoarthritis",
-        "requiresParentOrChild": false,
-        "sexRestriction": null,
-        "flags": [
-          "condition-gated: chronic knee pain or knee osteoarthritis"
-        ]
-      },
-      "effectiveHourly": null,
-      "isExpired": false,
-      "staleness": "stale",
-      "tags": [
-        "in-person",
-        "survey",
-        "clinical",
-        "hci"
-      ],
-      "duplicateIds": [
-        "7003"
-      ],
       "duplicateOf": null
     },
     {
@@ -8640,108 +8529,6 @@
       "duplicateOf": null
     },
     {
-      "id": "14340",
-      "slug": "navigating-the-unknown-first-generation-students-collegeapplication-narratives-through-the-lens-of-community-culturalwealth",
-      "title": "Navigating the Unknown: First-Generation Students’ College<br>Application Narratives Through the Lens of Community Cultural<br>Wealth",
-      "summary": "The purpose of this study is to explore how first-generation college students construct and make meaning of their college application process to selective research universities.",
-      "url": "https://research.tamu.edu/study/navigating-the-unknown-first-generation-students-collegeapplication-narratives-through-the-lens-of-community-culturalwealth/",
-      "sources": [
-        {
-          "source": "aggie-research-volunteers",
-          "externalId": "14340",
-          "url": "https://research.tamu.edu/study/navigating-the-unknown-first-generation-students-collegeapplication-narratives-through-the-lens-of-community-culturalwealth/",
-          "status": "unknown",
-          "verifiedAt": "2026-10-13T00:09:22.000Z",
-          "protocolIds": [
-            "STUDY2026-1078"
-          ],
-          "titleAliases": [
-            "Navigating the Unknown: First-Generation Students’ College<br>Application Narratives Through the Lens of Community Cultural<br>Wealth"
-          ]
-        }
-      ],
-      "piName": "PI: Dr. Glenda Musoba, Ph.D.",
-      "contactName": "Ashley D. Sosa or Veronica Gabbard",
-      "contactEmail": "ADSosa@tamu.edu or jgabbard@tamu.edu",
-      "contactPhone": null,
-      "irbNumber": "STUDY2026-1078",
-      "irbApprovalDate": "2026-08-31T19:08:23.000Z",
-      "expirationDate": null,
-      "recruitmentStartDate": null,
-      "lifecycleMonths": 3,
-      "postedDate": "2026-10-13T00:09:22.000Z",
-      "modifiedDate": "2026-10-13T00:09:22.000Z",
-      "categoryIds": [
-        52,
-        47
-      ],
-      "locationIds": [
-        59
-      ],
-      "sessionTypeIds": [
-        61,
-        64,
-        65
-      ],
-      "topicIds": [
-        36
-      ],
-      "locationLabels": [],
-      "compensation": {
-        "guaranteedMin": 0,
-        "guaranteedMax": 0,
-        "raffleMax": 0,
-        "raffleOnly": false,
-        "isHourlyRate": false,
-        "hourlyMin": null,
-        "hourlyMax": null,
-        "currencyKind": "unknown",
-        "perVisit": null,
-        "visitCount": null,
-        "completionBonus": null,
-        "hasNonCashPerk": false,
-        "sonaCreditOption": false,
-        "raw": "None",
-        "confidence": "high",
-        "notes": [
-          "no compensation offered"
-        ]
-      },
-      "duration": {
-        "totalHoursMin": 1,
-        "totalHoursMax": 1,
-        "sessionCount": 1,
-        "spanWeeks": null,
-        "raw": "1 60-minute interview",
-        "confidence": "high"
-      },
-      "eligibility": {
-        "minAge": 18,
-        "maxAge": 26,
-        "requiresRightHanded": false,
-        "requiresMriSafe": false,
-        "requiresFasting": false,
-        "excludesCardiovascular": false,
-        "excludesPregnancy": false,
-        "excludesSeizure": false,
-        "excludesNeurological": false,
-        "requiresSpecificCondition": null,
-        "requiresParentOrChild": false,
-        "sexRestriction": null,
-        "flags": []
-      },
-      "effectiveHourly": 0,
-      "isExpired": false,
-      "staleness": "fresh",
-      "tags": [
-        "online",
-        "survey",
-        "interview"
-      ],
-      "duplicateIds": [],
-      "duplicateOf": null
-    },
-    {
       "id": "14342",
       "slug": "early-development-of-cues-caregiver-understanding-of-early-signals-establishing-ai-foundations-for-infant-cue-detection",
       "title": "Early Development of CUES (Caregiver Understanding of Early Signals): Establishing AI Foundations for Infant Cue Detection",
@@ -8943,6 +8730,207 @@
         "survey",
         "interview",
         "hci"
+      ],
+      "duplicateIds": [],
+      "duplicateOf": null
+    },
+    {
+      "id": "14472",
+      "slug": "navigating-the-unknown-first-generation-students-college-application-narratives-through-the-lens-of-community-cultural-wealth",
+      "title": "Navigating the Unknown: First-Generation Students’ College Application Narratives Through the Lens of Community Cultural Wealth",
+      "summary": "The purpose of this study is to explore how first-generation college students construct and make meaning of their college application process to selective research universities.",
+      "url": "https://research.tamu.edu/study/navigating-the-unknown-first-generation-students-college-application-narratives-through-the-lens-of-community-cultural-wealth/",
+      "sources": [
+        {
+          "source": "aggie-research-volunteers",
+          "externalId": "14472",
+          "url": "https://research.tamu.edu/study/navigating-the-unknown-first-generation-students-college-application-narratives-through-the-lens-of-community-cultural-wealth/",
+          "status": "unknown",
+          "verifiedAt": "2026-10-27T14:19:35.000Z",
+          "protocolIds": [
+            "STUDY2026-1078"
+          ],
+          "titleAliases": [
+            "Navigating the Unknown: First-Generation Students’ College Application Narratives Through the Lens of Community Cultural Wealth"
+          ]
+        }
+      ],
+      "piName": "PI: Dr. Glenda Musoba, Ph.D.",
+      "contactName": "Ashley D. Sosa or Veronica Gabbard",
+      "contactEmail": "ADSosa@tamu.edu or jgabbard@tamu.edu",
+      "contactPhone": null,
+      "irbNumber": "STUDY2026-1078",
+      "irbApprovalDate": "2026-08-31T08:48:51.000Z",
+      "expirationDate": null,
+      "recruitmentStartDate": null,
+      "lifecycleMonths": 3,
+      "postedDate": "2026-10-27T13:49:43.000Z",
+      "modifiedDate": "2026-10-27T14:19:35.000Z",
+      "categoryIds": [
+        52,
+        47
+      ],
+      "locationIds": [
+        59
+      ],
+      "sessionTypeIds": [
+        61,
+        64,
+        65
+      ],
+      "topicIds": [
+        36
+      ],
+      "locationLabels": [],
+      "compensation": {
+        "guaranteedMin": 25,
+        "guaranteedMax": 25,
+        "raffleMax": null,
+        "raffleOnly": false,
+        "isHourlyRate": false,
+        "hourlyMin": null,
+        "hourlyMax": null,
+        "currencyKind": "giftcard",
+        "perVisit": null,
+        "visitCount": null,
+        "completionBonus": null,
+        "hasNonCashPerk": false,
+        "sonaCreditOption": false,
+        "raw": "$25 gift card",
+        "confidence": "high",
+        "notes": []
+      },
+      "duration": {
+        "totalHoursMin": 1,
+        "totalHoursMax": 1,
+        "sessionCount": 1,
+        "spanWeeks": null,
+        "raw": "1 60-minute interview",
+        "confidence": "high"
+      },
+      "eligibility": {
+        "minAge": 18,
+        "maxAge": 26,
+        "requiresRightHanded": false,
+        "requiresMriSafe": false,
+        "requiresFasting": false,
+        "excludesCardiovascular": false,
+        "excludesPregnancy": false,
+        "excludesSeizure": false,
+        "excludesNeurological": false,
+        "requiresSpecificCondition": null,
+        "requiresParentOrChild": false,
+        "sexRestriction": null,
+        "flags": []
+      },
+      "effectiveHourly": 25,
+      "isExpired": false,
+      "staleness": "fresh",
+      "tags": [
+        "online",
+        "survey",
+        "interview"
+      ],
+      "duplicateIds": [
+        "14340"
+      ],
+      "duplicateOf": null
+    },
+    {
+      "id": "14474",
+      "slug": "promoting-greater-health-equity-through-the-use-of-a-comprehensive-bilingual-training-program-for-individuals-with-developmental-disabilities-and-their-caregivers-and-parents-2",
+      "title": "Promoting greater health equity through the use of a comprehensive bilingual training program for individuals with developmental disabilities and their caregivers and parents.",
+      "summary": "Overview Public health and special education faculty at Texas A&M University have developed bilingual (English and Spanish) online trainings related to healthcare and advocacy issues for adults with developmental disabilities (DD) and their families at no…",
+      "url": "https://research.tamu.edu/study/promoting-greater-health-equity-through-the-use-of-a-comprehensive-bilingual-training-program-for-individuals-with-developmental-disabilities-and-their-caregivers-and-parents-2/",
+      "sources": [
+        {
+          "source": "aggie-research-volunteers",
+          "externalId": "14474",
+          "url": "https://research.tamu.edu/study/promoting-greater-health-equity-through-the-use-of-a-comprehensive-bilingual-training-program-for-individuals-with-developmental-disabilities-and-their-caregivers-and-parents-2/",
+          "status": "unknown",
+          "verifiedAt": "2026-10-27T14:00:38.000Z",
+          "protocolIds": [
+            "IRB2023-0066D"
+          ],
+          "titleAliases": [
+            "Promoting greater health equity through the use of a comprehensive bilingual training program for individuals with developmental disabilities and their caregivers and parents."
+          ]
+        }
+      ],
+      "piName": "PI: Dr. Lei-Shih Chen, PhD, PT, MCHES",
+      "contactName": "Dr. Lei-Shih Chen",
+      "contactEmail": "lacechen@tamu.edu",
+      "contactPhone": "979-436-9762",
+      "irbNumber": "IRB2023-0066D",
+      "irbApprovalDate": "2023-03-28T08:56:11.000Z",
+      "expirationDate": null,
+      "recruitmentStartDate": null,
+      "lifecycleMonths": 3,
+      "postedDate": "2026-10-27T14:00:38.000Z",
+      "modifiedDate": "2026-10-27T14:00:38.000Z",
+      "categoryIds": [
+        37
+      ],
+      "locationIds": [
+        59
+      ],
+      "sessionTypeIds": [
+        62,
+        63
+      ],
+      "topicIds": [
+        34
+      ],
+      "locationLabels": [],
+      "compensation": {
+        "guaranteedMin": null,
+        "guaranteedMax": null,
+        "raffleMax": null,
+        "raffleOnly": false,
+        "isHourlyRate": false,
+        "hourlyMin": null,
+        "hourlyMax": null,
+        "currencyKind": "unknown",
+        "perVisit": null,
+        "visitCount": null,
+        "completionBonus": null,
+        "hasNonCashPerk": false,
+        "sonaCreditOption": false,
+        "raw": "",
+        "confidence": "low",
+        "notes": [
+          "no compensation stated in the listing"
+        ]
+      },
+      "duration": {
+        "totalHoursMin": null,
+        "totalHoursMax": null,
+        "sessionCount": null,
+        "spanWeeks": 52.18,
+        "raw": "1 year",
+        "confidence": "medium"
+      },
+      "eligibility": {
+        "minAge": 18,
+        "maxAge": null,
+        "requiresRightHanded": false,
+        "requiresMriSafe": false,
+        "requiresFasting": false,
+        "excludesCardiovascular": false,
+        "excludesPregnancy": false,
+        "excludesSeizure": false,
+        "excludesNeurological": false,
+        "requiresSpecificCondition": null,
+        "requiresParentOrChild": false,
+        "sexRestriction": null,
+        "flags": []
+      },
+      "effectiveHourly": null,
+      "isExpired": false,
+      "staleness": "stale",
+      "tags": [
+        "online",
+        "survey"
       ],
       "duplicateIds": [],
       "duplicateOf": null
@@ -10423,10 +10411,23 @@
     {
       "id": "ctgov:NCT07780188",
       "slug": "clinicaltrials-gov-nct07780188",
-      "title": "Effect of Increasing Lean Beef Intake as Part of a Healthy Meal Plan on Glycemic Control in Adolescents With Polycystic Ovary Syndrome (PCOS)/Polyendocrine Metabolic Ovarian Syndrome (PMOS)",
-      "summary": "This pilot randomized controlled study will plan to enroll 36 adolescent females with Polycystic Ovary Syndrome (PCOS)/Polyendocrine Metabolic Ovarian Syndrome (PMOS) to evaluate the effectiveness and feasibility of a tailored dietary intervention which will…",
-      "url": "https://clinicaltrials.gov/study/NCT07780188",
+      "title": "Effect of Increasing Lean Beef Intake as part of a Healthy Meal Plan on Glycemic Control in Adolescents with PCOS: A Pilot RCT (Beef+)",
+      "summary": "Beef+ is a randomized controlled trial to evaluate the effectiveness and feasibility of a dietary intervention that emphasizes incorporation of unprocessed lean beef as part of a healthy meal plan in adolescents living with PCOS/PMOS to improve glycemic…",
+      "url": "https://research.tamu.edu/study/effect-of-increasing-lean-beef-intake-as-part-of-a-healthy-meal-plan-on-glycemic-control-in-adolescents-with-pcos-a-pilot-rct-beef/",
       "sources": [
+        {
+          "source": "aggie-research-volunteers",
+          "externalId": "14476",
+          "url": "https://research.tamu.edu/study/effect-of-increasing-lean-beef-intake-as-part-of-a-healthy-meal-plan-on-glycemic-control-in-adolescents-with-pcos-a-pilot-rct-beef/",
+          "status": "unknown",
+          "verifiedAt": "2026-10-27T14:10:16.000Z",
+          "protocolIds": [
+            "STUDY2026-0483"
+          ],
+          "titleAliases": [
+            "Effect of Increasing Lean Beef Intake as part of a Healthy Meal Plan on Glycemic Control in Adolescents with PCOS: A Pilot RCT (Beef+)"
+          ]
+        },
         {
           "source": "clinicaltrials-gov",
           "externalId": "NCT07780188",
@@ -10445,27 +10446,39 @@
           ]
         }
       ],
-      "piName": null,
-      "contactName": null,
-      "contactEmail": null,
-      "contactPhone": null,
-      "irbNumber": null,
-      "irbApprovalDate": null,
+      "piName": "PI: Heidi Vanden Brink, PhD, MSc, ARDMS",
+      "contactName": "Heidi Vanden Brink; Erlinda Pena",
+      "contactEmail": "Heidi.vandenbrink@ag.tamu.edu; erlinda.pena@ag.tamu.edu",
+      "contactPhone": "979-321-7073; 979-321-7022",
+      "irbNumber": "STUDY2026-0483",
+      "irbApprovalDate": "2026-05-20T09:04:34.000Z",
       "expirationDate": null,
       "recruitmentStartDate": null,
-      "lifecycleMonths": null,
-      "postedDate": "2026-08-21T00:00:00.000Z",
-      "modifiedDate": "2026-08-21T00:00:00.000Z",
-      "categoryIds": [],
-      "locationIds": [],
-      "sessionTypeIds": [],
-      "topicIds": [],
+      "lifecycleMonths": 12,
+      "postedDate": "2026-10-27T14:10:16.000Z",
+      "modifiedDate": "2026-10-27T14:10:16.000Z",
+      "categoryIds": [
+        38,
+        44,
+        46
+      ],
+      "locationIds": [
+        54
+      ],
+      "sessionTypeIds": [
+        60,
+        62
+      ],
+      "topicIds": [
+        31,
+        34
+      ],
       "locationLabels": [
         "Texas A&M AgriLife — College Station, Texas, United States"
       ],
       "compensation": {
         "guaranteedMin": null,
-        "guaranteedMax": null,
+        "guaranteedMax": 335,
         "raffleMax": null,
         "raffleOnly": false,
         "isHourlyRate": false,
@@ -10477,19 +10490,21 @@
         "completionBonus": null,
         "hasNonCashPerk": false,
         "sonaCreditOption": false,
-        "raw": "",
+        "raw": "Main Study: Participants will receive up to approximately $335 over the 12-week study period, and the parent/legal guardian will receive up to approximately $120 over the 12-week study period for the main intervention. Compensation will be provided upon completion of scheduled study visits and assessments. Households randomized to the intervention group will receive a $100 monthly supplement for 3 months (total $300), paid to the parent/legal guardian, to support food purchases and the implementation of the dietary intervention. Participants randomized to the delayed intervention/control group will receive an equivalent total financial supplement of $300 upon completion of the final study visit, in recognition that they did not receiving the monthly supplement during the intervention phase.<br><br>Economic Evaluation (optional): Parents/guardians who participate in the economic evaluation component will be provided $25 after they turn in grocery receipts and upon completion of the relevant surveys at the beginning and end of the intervention, for a total of up to $50.",
         "confidence": "low",
         "notes": [
-          "no compensation stated in the listing"
+          "amount is phrased as a ceiling (\"up to\"); guaranteed floor unknown",
+          "stated total taken from a long prose description; other amounts were ignored",
+          "long free-text description; parsed values may miss clauses"
         ]
       },
       "duration": {
-        "totalHoursMin": null,
-        "totalHoursMax": null,
+        "totalHoursMin": 0.25,
+        "totalHoursMax": 3,
         "sessionCount": null,
-        "spanWeeks": null,
-        "raw": "",
-        "confidence": "low"
+        "spanWeeks": 14,
+        "raw": "The study will last approximately 14 weeks from enrollment/screening to completion of the dietary intervention. Study visits range from 15 to 180 minutes, totaling approximately 8.5 hours across the duration of the study. Outside of study visits, participants and their parent/guardian will meet with the study RDN every 1-2 weeks.",
+        "confidence": "high"
       },
       "eligibility": {
         "minAge": 11,
@@ -10498,28 +10513,30 @@
         "requiresMriSafe": false,
         "requiresFasting": false,
         "excludesCardiovascular": false,
-        "excludesPregnancy": true,
+        "excludesPregnancy": false,
         "excludesSeizure": false,
         "excludesNeurological": false,
         "requiresSpecificCondition": null,
         "requiresParentOrChild": true,
-        "sexRestriction": "female",
+        "sexRestriction": null,
         "flags": [
-          "excludes pregnancy / lactation",
-          "enrols children only - a parent or guardian must consent",
-          "study lists female-specific criteria - confirm with the study team",
-          "English fluency required",
-          "allergy screening applies"
+          "enrols children only - a parent or guardian must consent"
         ]
       },
-      "effectiveHourly": null,
+      "effectiveHourly": 111.67,
       "isExpired": false,
       "staleness": "fresh",
       "tags": [
-        "clinical",
-        "in-person"
+        "online",
+        "in-person",
+        "survey",
+        "interview",
+        "clinical"
       ],
-      "duplicateIds": [],
+      "duplicateIds": [
+        "ctgov:NCT07780188",
+        "14476"
+      ],
       "duplicateOf": null
     }
   ],
@@ -10529,9 +10546,9 @@
       "label": "Aggie Research Volunteers",
       "vertical": "studies",
       "status": "ok",
-      "itemCount": 85,
+      "itemCount": 86,
       "fetchSource": "network",
-      "durationMs": 1569,
+      "durationMs": 1637,
       "failedRequests": 0,
       "complete": true,
       "note": null,
@@ -10544,7 +10561,7 @@
       "status": "ok",
       "itemCount": 21,
       "fetchSource": "network",
-      "durationMs": 678,
+      "durationMs": 558,
       "failedRequests": 0,
       "complete": true,
       "note": null,
