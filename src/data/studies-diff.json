@@ -1,22 +1,7 @@
 {
-  "generatedAt": "2026-10-27T16:43:39.687Z",
-  "previousFetchedAt": "2026-10-27T02:08:45.723Z",
-  "added": [
-    "14472",
-    "14474"
-  ],
-  "removed": [
-    "8333",
-    "14340"
-  ],
-  "changed": [
-    {
-      "id": "ctgov:NCT07780188",
-      "fields": [
-        "compensation.raw",
-        "duration.raw",
-        "irbApprovalDate"
-      ]
-    }
-  ]
+  "generatedAt": "2026-10-28T02:22:50.041Z",
+  "previousFetchedAt": "2026-10-27T16:43:39.687Z",
+  "added": [],
+  "removed": [],
+  "changed": []
 }
