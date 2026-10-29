@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-28T17:12:36.272Z",
+  "fetchedAt": "2026-10-29T02:29:40.721Z",
   "totalFromHeader": 95,
   "studies": [
     {
@@ -6435,7 +6435,7 @@
       },
       "effectiveHourly": 1.67,
       "isExpired": false,
-      "staleness": "fresh",
+      "staleness": "aging",
       "tags": [
         "in-person",
         "focus-group",
@@ -10548,7 +10548,7 @@
       "status": "ok",
       "itemCount": 86,
       "fetchSource": "network",
-      "durationMs": 1095,
+      "durationMs": 1847,
       "failedRequests": 0,
       "complete": true,
       "note": null,
@@ -10561,7 +10561,7 @@
       "status": "ok",
       "itemCount": 21,
       "fetchSource": "network",
-      "durationMs": 834,
+      "durationMs": 726,
       "failedRequests": 0,
       "complete": true,
       "note": null,
