@@ -2,38 +2,129 @@
   {
     "weekOf": "2026-10-26",
     "vertical": "campus",
-    "scanned": 4792,
-    "candidates": 623,
+    "scanned": 4501,
+    "candidates": 591,
     "recommended": [
-      "campus-6199a5831af7",
       "campus-6ac7c0832050",
-      "campus-6ab34583203f",
-      "campus-0784502fade3",
+      "campus-6ac7c1832050",
+      "campus-5897e98315c4",
+      "campus-5897ed8315c4",
       "campus-9bf805a35032",
-      "campus-9bf488a3502f"
+      "campus-0784502fade3"
     ],
     "headlines": [
-      "computer science · data science · today",
       "biotech · company recruiting · graduate opportunities",
-      "computer science · today · workshop / training",
-      "company recruiting · graduate opportunities · this week",
-      "company recruiting · graduate opportunities · this week",
+      "biotech · company recruiting · graduate opportunities",
+      "company recruiting · today · other Aggie sports",
+      "company recruiting · today · other Aggie sports",
+      "company recruiting · graduate opportunities · tomorrow",
       "company recruiting · graduate opportunities · this week"
     ],
     "changes": [
       {
-        "itemId": "campus-6d6cb48c3f45",
-        "kind": "title",
-        "field": "Title",
-        "before": "South Central Texas Landowners Program - Oct. 30",
-        "after": "CANCELLED: South Central Texas Landowners Program - Oct. 30"
-      },
-      {
-        "itemId": "campus-7223f383241d",
+        "itemId": "campus-34b66f39f2e3",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-11-06T21:00:00.000Z",
-        "after": "2026-11-06T20:00:00.000Z"
+        "before": "2026-10-28T05:00:00.000Z",
+        "after": "2026-10-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-28T05:00:00.000Z",
+        "after": "2026-10-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7de44012b784",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-28T05:00:00.000Z",
+        "after": "2026-10-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-6292125669b1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-28T05:00:00.000Z",
+        "after": "2026-10-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a470c01bfb5c",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-28T05:00:00.000Z",
+        "after": "2026-10-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-6ac0c483204a",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-04T06:00:00.000Z",
+        "after": "2026-11-03T23:00:00.000Z"
+      },
+      {
+        "itemId": "campus-38cd088b2522",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-28T13:00:00.000Z",
+        "after": "2026-10-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-d608c84ea27f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-28T13:00:00.000Z",
+        "after": "2026-10-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-3948d4a214e8",
+        "kind": "title",
+        "field": "Title",
+        "before": "HET Seminar",
+        "after": "Thinking Effectively About the Dark"
+      },
+      {
+        "itemId": "campus-77a8d62fed47",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-28T23:00:00.000Z",
+        "after": "2026-10-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ab49a34a0920",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-28T05:00:00.000Z",
+        "after": "2026-10-29T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-3c0cb1ab33f8",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-11T06:00:00.000Z",
+        "after": "2026-11-10T14:30:00.000Z"
+      },
+      {
+        "itemId": "campus-7201f7832400",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-11T14:00:00.000Z",
+        "after": "2026-11-12T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-04af418c03b9",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-18T13:30:00.000Z",
+        "after": "2026-11-19T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-64640e8c3a0d",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-18T14:30:00.000Z",
+        "after": "2026-11-19T06:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -41,26 +132,26 @@
   {
     "weekOf": "2026-10-26",
     "vertical": "research",
-    "scanned": 1005,
-    "candidates": 105,
+    "scanned": 984,
+    "candidates": 94,
     "recommended": [
       "research-14dffb36843d",
       "research-51fa78a1eb38",
       "research-d7a0269758b5",
       "research-ee2e4ecc2543",
-      "research-ac940312ac18",
-      "research-48c191b2b407"
+      "research-48c191b2b407",
+      "research-d78f249758a6"
     ],
     "headlines": [
       "positive selection · codon-model analysis · phylogenetics",
       "codon-model analysis · comparative genomics · phylogenetics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "positive selection · comparative genomics · phylogenetics",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · comparative genomics · antimicrobial resistance"
+      "M. tuberculosis · comparative genomics · antimicrobial resistance",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
     "changes": [],
-    "estimatedMinutes": 95
+    "estimatedMinutes": 96
   },
   {
     "weekOf": "2026-10-19",
