@@ -2,115 +2,38 @@
   {
     "weekOf": "2026-10-26",
     "vertical": "campus",
-    "scanned": 4405,
-    "candidates": 493,
+    "scanned": 4418,
+    "candidates": 477,
     "recommended": [
       "campus-6ac7c0832050",
       "campus-6ac7c1832050",
       "campus-04a4b58c03af",
       "campus-9bf805a35032",
-      "campus-5897e98315c4",
-      "campus-5897ed8315c4"
+      "campus-2ba3e9ab2aef",
+      "campus-20f8b32fbc28"
     ],
     "headlines": [
       "biotech · company recruiting · graduate opportunities",
       "biotech · company recruiting · graduate opportunities",
       "company recruiting · graduate opportunities · this week",
       "company recruiting · graduate opportunities · today",
-      "company recruiting · today · other Aggie sports",
-      "company recruiting · today · other Aggie sports"
+      "research opportunity · this week · workshop / training",
+      "biotech · company recruiting · in the next 3 weeks"
     ],
     "changes": [
       {
-        "itemId": "campus-34b66f39f2e3",
+        "itemId": "campus-b8352b834c05",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-10-29T05:00:00.000Z",
-        "after": "2026-10-30T05:00:00.000Z"
+        "before": "2026-11-09T16:20:00.000Z",
+        "after": "2026-11-09T14:00:00.000Z"
       },
       {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-29T05:00:00.000Z",
-        "after": "2026-10-30T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-abbdb86a55f0",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-05T06:00:00.000Z",
-        "after": "2026-11-06T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7de44012b784",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-29T05:00:00.000Z",
-        "after": "2026-10-30T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-4f84d7831082",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-05T16:00:00.000Z",
-        "after": "2026-11-06T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a470c01bfb5c",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-29T05:00:00.000Z",
-        "after": "2026-10-30T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-eb1f528bf55d",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-29T14:00:00.000Z",
-        "after": "2026-10-30T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ab49a34a0920",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-29T05:00:00.000Z",
-        "after": "2026-10-30T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7201f7832400",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-12T06:00:00.000Z",
-        "after": "2026-11-11T14:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11b3477a28bc",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-12T14:00:00.000Z",
-        "after": "2026-11-13T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-f9a5d138c3b9",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-12T14:00:00.000Z",
-        "after": "2026-11-13T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-04af418c03b9",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-19T06:00:00.000Z",
-        "after": "2026-11-18T13:30:00.000Z"
-      },
-      {
-        "itemId": "campus-64640e8c3a0d",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-19T06:00:00.000Z",
-        "after": "2026-11-18T14:30:00.000Z"
+        "itemId": "campus-0a11b138ccc5",
+        "kind": "title",
+        "field": "Title",
+        "before": "Men’s Rugby vs. Texas State",
+        "after": "Men’s Rugby vs. Texas State-NCR Lonestar Conference Championship -Military Appreciation Night"
       }
     ],
     "estimatedMinutes": 0
@@ -118,26 +41,26 @@
   {
     "weekOf": "2026-10-26",
     "vertical": "research",
-    "scanned": 1027,
-    "candidates": 127,
+    "scanned": 1006,
+    "candidates": 126,
     "recommended": [
+      "research-3f20bb60e928",
       "research-14dffb36843d",
       "research-ccc6003e2211",
-      "research-d7a0269758b5",
       "research-eb1336f392ea",
-      "research-d78f249758a6",
-      "research-c36f0608ecdf"
+      "research-d7a0269758b5",
+      "research-ee2e4ecc2543"
     ],
     "headlines": [
+      "M. tuberculosis · diabetes / host metabolic · selection methods applied to Mtb",
       "positive selection · codon-model analysis · phylogenetics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "positive selection · codon-model analysis · phylogenetics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
+      "positive selection · comparative genomics · phylogenetics"
     ],
     "changes": [],
-    "estimatedMinutes": 89
+    "estimatedMinutes": 92
   },
   {
     "weekOf": "2026-10-19",

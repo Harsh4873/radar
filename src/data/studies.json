@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-30T17:03:15.783Z",
+  "fetchedAt": "2026-10-31T02:29:38.034Z",
   "totalFromHeader": 95,
   "studies": [
     {
@@ -6540,7 +6540,7 @@
       },
       "effectiveHourly": 4,
       "isExpired": false,
-      "staleness": "fresh",
+      "staleness": "aging",
       "tags": [
         "online",
         "survey",
@@ -10548,7 +10548,7 @@
       "status": "ok",
       "itemCount": 86,
       "fetchSource": "network",
-      "durationMs": 1507,
+      "durationMs": 1391,
       "failedRequests": 0,
       "complete": true,
       "note": null,
@@ -10561,7 +10561,7 @@
       "status": "ok",
       "itemCount": 21,
       "fetchSource": "network",
-      "durationMs": 800,
+      "durationMs": 688,
       "failedRequests": 0,
       "complete": true,
       "note": null,
