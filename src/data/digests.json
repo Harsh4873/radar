@@ -2,39 +2,159 @@
   {
     "weekOf": "2026-10-26",
     "vertical": "campus",
-    "scanned": 4431,
-    "candidates": 448,
+    "scanned": 4554,
+    "candidates": 531,
     "recommended": [
       "campus-b849aa834c16",
+      "campus-6ac7c0832050",
       "campus-6ac7c1832050",
       "campus-7201fa832400",
       "campus-04a4b58c03af",
-      "campus-0315098176fa",
-      "campus-16b99b8c0e24"
+      "campus-0784502fade3"
     ],
     "headlines": [
       "research opportunity · biotech · this week",
       "biotech · company recruiting · graduate opportunities",
+      "biotech · company recruiting · graduate opportunities",
       "research opportunity · graduate opportunities · workshop / training",
       "company recruiting · graduate opportunities · this week",
-      "research opportunity · today · workshop / training",
-      "research opportunity · this week · workshop / training"
+      "company recruiting · graduate opportunities · tomorrow"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-34b66f39f2e3",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-31T05:00:00.000Z",
+        "after": "2026-11-01T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-31T05:00:00.000Z",
+        "after": "2026-11-01T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-6ac7c6832050",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-07T06:00:00.000Z",
+        "after": "2026-11-07T00:30:00.000Z"
+      },
+      {
+        "itemId": "campus-7de44012b784",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-31T05:00:00.000Z",
+        "after": "2026-11-01T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abc1266a55f3",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-12T06:00:00.000Z",
+        "after": "2026-12-11T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a470c01bfb5c",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-31T05:00:00.000Z",
+        "after": "2026-11-01T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bc44896a5f13",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-07T06:00:00.000Z",
+        "after": "2026-11-06T22:00:00.000Z"
+      },
+      {
+        "itemId": "campus-6aba49832045",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-14T06:00:00.000Z",
+        "after": "2026-11-13T23:00:00.000Z"
+      },
+      {
+        "itemId": "campus-38ca038b251f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-07T06:00:00.000Z",
+        "after": "2026-11-06T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7223f383241d",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-07T06:00:00.000Z",
+        "after": "2026-11-06T20:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7b188f832945",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-07T15:00:00.000Z",
+        "after": "2026-11-08T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-bc448b6a5f13",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-21T06:00:00.000Z",
+        "after": "2026-11-20T22:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ab49a34a0920",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-31T05:00:00.000Z",
+        "after": "2026-11-01T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-f42ee38bfa9c",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-10-31T14:00:00.000Z",
+        "after": "2026-11-01T05:00:00.000Z"
+      },
+      {
+        "itemId": "campus-17876d9cbc32",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-07T15:00:00.000Z",
+        "after": "2026-11-08T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-eb0b118af926",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-14T06:00:00.000Z",
+        "after": "2026-11-13T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-945e8092e253",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-21T06:00:00.000Z",
+        "after": "2026-11-20T06:00:00.000Z"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-10-26",
     "vertical": "research",
-    "scanned": 1014,
-    "candidates": 117,
+    "scanned": 1022,
+    "candidates": 116,
     "recommended": [
       "research-14dffb36843d",
       "research-ccc6003e2211",
       "research-eb1336f392ea",
+      "research-4356fe8819a8",
       "research-d78f249758a6",
-      "research-d7a0269758b5",
-      "research-c36f0608ecdf"
+      "research-d7a0269758b5"
     ],
     "headlines": [
       "positive selection · codon-model analysis · phylogenetics",
@@ -44,16 +164,8 @@
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
-    "changes": [
-      {
-        "itemId": "research-916dcfe3596b",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v2",
-        "after": "v3"
-      }
-    ],
-    "estimatedMinutes": 89
+    "changes": [],
+    "estimatedMinutes": 86
   },
   {
     "weekOf": "2026-10-19",
