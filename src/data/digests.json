@@ -3,191 +3,57 @@
     "weekOf": "2026-10-26",
     "vertical": "campus",
     "scanned": 4431,
-    "candidates": 465,
+    "candidates": 448,
     "recommended": [
       "campus-b849aa834c16",
       "campus-6ac7c1832050",
       "campus-7201fa832400",
       "campus-04a4b58c03af",
-      "campus-5897e98315c4",
-      "campus-5897ed8315c4"
+      "campus-0315098176fa",
+      "campus-16b99b8c0e24"
     ],
     "headlines": [
       "research opportunity · biotech · this week",
       "biotech · company recruiting · graduate opportunities",
       "research opportunity · graduate opportunities · workshop / training",
       "company recruiting · graduate opportunities · this week",
-      "company recruiting · today · other Aggie sports",
-      "company recruiting · today · other Aggie sports"
+      "research opportunity · today · workshop / training",
+      "research opportunity · this week · workshop / training"
     ],
-    "changes": [
-      {
-        "itemId": "campus-34b66f39f2e3",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-30T05:00:00.000Z",
-        "after": "2026-10-31T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-30T05:00:00.000Z",
-        "after": "2026-10-31T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-abbdb86a55f0",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-06T06:00:00.000Z",
-        "after": "2026-11-05T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-6ac7c6832050",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-07T00:30:00.000Z",
-        "after": "2026-11-07T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7de44012b784",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-30T05:00:00.000Z",
-        "after": "2026-10-31T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-4f84d7831082",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-06T06:00:00.000Z",
-        "after": "2026-11-05T16:00:00.000Z"
-      },
-      {
-        "itemId": "campus-abc1266a55f3",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-11T06:00:00.000Z",
-        "after": "2026-12-12T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a470c01bfb5c",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-30T05:00:00.000Z",
-        "after": "2026-10-31T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-bc44896a5f13",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-06T22:00:00.000Z",
-        "after": "2026-11-07T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-6aba49832045",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-13T23:00:00.000Z",
-        "after": "2026-11-14T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-38ca038b251f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-06T06:00:00.000Z",
-        "after": "2026-11-07T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7223f383241d",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-06T20:00:00.000Z",
-        "after": "2026-11-07T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-bc448b6a5f13",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-20T22:00:00.000Z",
-        "after": "2026-11-21T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-04a8368c03b2",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-31T00:00:00.000Z",
-        "after": "2026-10-31T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ab49a34a0920",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-10-30T05:00:00.000Z",
-        "after": "2026-10-31T05:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11b3477a28bc",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-13T06:00:00.000Z",
-        "after": "2026-11-12T14:00:00.000Z"
-      },
-      {
-        "itemId": "campus-f9a5d138c3b9",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-13T06:00:00.000Z",
-        "after": "2026-11-12T14:00:00.000Z"
-      },
-      {
-        "itemId": "campus-eb0b118af926",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-13T06:00:00.000Z",
-        "after": "2026-11-14T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-945e8092e253",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-20T06:00:00.000Z",
-        "after": "2026-11-21T06:00:00.000Z"
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-10-26",
     "vertical": "research",
-    "scanned": 1005,
-    "candidates": 123,
+    "scanned": 1014,
+    "candidates": 117,
     "recommended": [
-      "research-3f20bb60e928",
       "research-14dffb36843d",
       "research-ccc6003e2211",
-      "research-ee2e4ecc2543",
       "research-eb1336f392ea",
-      "research-d78f249758a6"
+      "research-d78f249758a6",
+      "research-d7a0269758b5",
+      "research-c36f0608ecdf"
     ],
     "headlines": [
-      "M. tuberculosis · diabetes / host metabolic · selection methods applied to Mtb",
       "positive selection · codon-model analysis · phylogenetics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "positive selection · comparative genomics · phylogenetics",
       "positive selection · codon-model analysis · phylogenetics",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
     "changes": [
       {
-        "itemId": "research-d7a0269758b5",
-        "kind": "title",
-        "field": "Title",
-        "before": "Evaluation of First-Line Anti-Tuberculosis Treatment Based on Radiological Findings in Pulmonary Tuberculosis Patients with Diabetes Mellitus at Persahabatan Hospital",
-        "after": "Evaluation of First-Line Anti-Tuberculosis Treatment Based on Radiological Findings in Patients with Pulmonary Tuberculosis and Diabetes Mellitus at Persahabatan Hospital"
+        "itemId": "research-916dcfe3596b",
+        "kind": "preprint-revised",
+        "field": "Preprint version",
+        "before": "v2",
+        "after": "v3"
       }
     ],
-    "estimatedMinutes": 92
+    "estimatedMinutes": 89
   },
   {
     "weekOf": "2026-10-19",
