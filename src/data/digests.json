@@ -1,5 +1,46 @@
 [
   {
+    "weekOf": "2026-11-02",
+    "vertical": "campus",
+    "scanned": 4554,
+    "candidates": 512,
+    "recommended": [],
+    "headlines": [],
+    "changes": [
+      {
+        "itemId": "campus-4f81d0831080",
+        "kind": "title",
+        "field": "Title",
+        "before": "Sbisa Star Party",
+        "after": "CANCELED Star Party"
+      },
+      {
+        "itemId": "campus-5ea90245d29d",
+        "kind": "location",
+        "field": "Location",
+        "before": "LEB: 8th Floor Multi-Purpose Room 804",
+        "after": "LEB: Classroom 412"
+      }
+    ],
+    "estimatedMinutes": 0
+  },
+  {
+    "weekOf": "2026-11-02",
+    "vertical": "research",
+    "scanned": 1030,
+    "candidates": 113,
+    "recommended": [
+      "research-b08d54b56d38",
+      "research-e78f4ff6844b"
+    ],
+    "headlines": [
+      "positive selection · codon-model analysis · phylogenetics",
+      "phylogenetics · pathogen evolution · recent"
+    ],
+    "changes": [],
+    "estimatedMinutes": 32
+  },
+  {
     "weekOf": "2026-10-26",
     "vertical": "campus",
     "scanned": 4554,
