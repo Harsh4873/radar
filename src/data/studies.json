@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-02T02:35:23.862Z",
+  "fetchedAt": "2026-11-02T20:49:45.866Z",
   "totalFromHeader": 95,
   "studies": [
     {
@@ -4445,7 +4445,7 @@
       },
       "effectiveHourly": 17.14,
       "isExpired": false,
-      "staleness": "aging",
+      "staleness": "stale",
       "tags": [
         "in-person",
         "mri",
@@ -10545,13 +10545,13 @@
       "id": "aggie-research-volunteers",
       "label": "Aggie Research Volunteers",
       "vertical": "studies",
-      "status": "degraded",
+      "status": "ok",
       "itemCount": 86,
-      "fetchSource": "cache",
-      "durationMs": 2626,
-      "failedRequests": 1,
-      "complete": false,
-      "note": "source=fixture",
+      "fetchSource": "network",
+      "durationMs": 1109,
+      "failedRequests": 0,
+      "complete": true,
+      "note": null,
       "docsUrl": "https://research.tamu.edu/resources/aggie-research-volunteers/"
     },
     {
@@ -10561,7 +10561,7 @@
       "status": "ok",
       "itemCount": 21,
       "fetchSource": "network",
-      "durationMs": 545,
+      "durationMs": 543,
       "failedRequests": 0,
       "complete": true,
       "note": null,
