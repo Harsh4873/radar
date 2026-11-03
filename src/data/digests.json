@@ -2,94 +2,38 @@
   {
     "weekOf": "2026-11-02",
     "vertical": "campus",
-    "scanned": 4440,
-    "candidates": 567,
+    "scanned": 4441,
+    "candidates": 554,
     "recommended": [
-      "campus-5897e98315c4",
-      "campus-5897ed8315c4",
       "campus-b85aaf834c25",
       "campus-abbdb76a55f0",
-      "campus-7b228c83294d",
-      "campus-7b260a832950"
+      "campus-6ab6ce832042",
+      "campus-b85dac834c27",
+      "campus-5ece8845d2bd",
+      "campus-95bb5b2f357d"
     ],
     "headlines": [
-      "company recruiting · today · other Aggie sports",
-      "company recruiting · today · other Aggie sports",
       "computer science · this week · workshop / training",
       "biotech · football · in the next 3 weeks",
-      "company recruiting · today · workshop / training",
-      "company recruiting · today · workshop / training"
+      "data science · in the next 3 weeks",
+      "company recruiting · in the next 3 weeks",
+      "football · in the next 3 weeks",
+      "football · in the next 3 weeks"
     ],
     "changes": [
       {
-        "itemId": "campus-34b66f39f2e3",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-01T05:00:00.000Z",
-        "after": "2026-11-02T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-01T05:00:00.000Z",
-        "after": "2026-11-02T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7de44012b784",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-01T05:00:00.000Z",
-        "after": "2026-11-02T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-fce3fbabb797",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-01T05:00:00.000Z",
-        "after": "2026-11-02T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a470c01bfb5c",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-01T05:00:00.000Z",
-        "after": "2026-11-02T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7b188f832945",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-08T06:00:00.000Z",
-        "after": "2026-11-07T15:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a33a43b3fb00",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-08T06:00:00.000Z",
-        "after": "2026-11-09T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ab49a34a0920",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-01T05:00:00.000Z",
-        "after": "2026-11-02T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-17876d9cbc32",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-08T06:00:00.000Z",
-        "after": "2026-11-07T15:00:00.000Z"
-      },
-      {
-        "itemId": "campus-cffb248ae983",
+        "itemId": "campus-7761b99cf2a6",
         "kind": "title",
         "field": "Title",
-        "before": "ASTR Seminar",
-        "after": "Searching in the CMB for Evidence of Inflation with Simons Observatory"
+        "before": "HEPEC Seminar",
+        "after": "Top Quark and EFT at the LHC: From Standard Model Stress Tests to Physics Reach"
+      },
+      {
+        "itemId": "campus-8f71a37b8630",
+        "kind": "title",
+        "field": "Title",
+        "before": "November Internal Communications Office Hours",
+        "after": "[Canceled] November Internal Communications Office Hours"
       }
     ],
     "estimatedMinutes": 0
@@ -97,16 +41,34 @@
   {
     "weekOf": "2026-11-02",
     "vertical": "research",
-    "scanned": 1042,
-    "candidates": 110,
+    "scanned": 1015,
+    "candidates": 119,
     "recommended": [
-      "research-b08d54b56d38"
+      "research-eadcab011f2b",
+      "research-b08d54b56d38",
+      "research-424c429db768",
+      "research-30e8949328c3",
+      "research-102b2c742427",
+      "research-a14ed09bf52d"
     ],
     "headlines": [
-      "positive selection · codon-model analysis · phylogenetics"
+      "M. tuberculosis · comparative genomics · antimicrobial resistance",
+      "positive selection · codon-model analysis · phylogenetics",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "positive selection · comparative genomics · pathogen evolution",
+      "M. tuberculosis · antimicrobial resistance · host-pathogen interaction",
+      "comparative genomics · phylogenetics · pathogen evolution"
     ],
-    "changes": [],
-    "estimatedMinutes": 16
+    "changes": [
+      {
+        "itemId": "research-3a20cc932e25",
+        "kind": "preprint-revised",
+        "field": "Preprint version",
+        "before": "v1",
+        "after": "v2"
+      }
+    ],
+    "estimatedMinutes": 99
   },
   {
     "weekOf": "2026-10-26",
