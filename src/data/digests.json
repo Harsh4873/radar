@@ -2,50 +2,163 @@
   {
     "weekOf": "2026-11-02",
     "vertical": "campus",
-    "scanned": 4182,
-    "candidates": 508,
+    "scanned": 4142,
+    "candidates": 526,
     "recommended": [
+      "campus-5897e88315c4",
+      "campus-5897f48315c4",
       "campus-b85aaf834c25",
-      "campus-abbdb76a55f0",
-      "campus-a34b44b3fb0e",
-      "campus-c14ee883514c",
-      "campus-b51087a35e28",
-      "campus-4f961882146b"
+      "campus-0787bb2fade6",
+      "campus-9bf48da3502f",
+      "campus-abbdb76a55f0"
     ],
     "headlines": [
-      "computer science · this week · workshop / training",
-      "biotech · football · in the next 3 weeks",
-      "research opportunity · workshop / training · in the next 3 weeks",
-      "company recruiting · workshop / training · in the next 3 weeks",
-      "graduate opportunities · today",
-      "company recruiting · workshop / training · later this term"
+      "company recruiting · today · other Aggie sports",
+      "company recruiting · today · other Aggie sports",
+      "computer science · tomorrow · workshop / training",
+      "company recruiting · graduate opportunities · this week",
+      "company recruiting · graduate opportunities · this week",
+      "biotech · football · in the next 3 weeks"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-7794522fed35",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-17T06:00:00.000Z",
+        "after": "2026-11-16T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-3da24ac2f9e1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-03T06:00:00.000Z",
+        "after": "2026-11-04T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-03T06:00:00.000Z",
+        "after": "2026-11-04T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7de44012b784",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-03T06:00:00.000Z",
+        "after": "2026-11-04T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-fce3fbabb797",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-03T06:00:00.000Z",
+        "after": "2026-11-04T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a31bb7b3fae6",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-15T06:00:00.000Z",
+        "after": "2026-12-14T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a470c01bfb5c",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-03T06:00:00.000Z",
+        "after": "2026-11-04T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-77945b2fed35",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-10T06:00:00.000Z",
+        "after": "2026-11-09T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-3c0cb1ab33f8",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-10T14:30:00.000Z",
+        "after": "2026-11-11T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-6ac0c483204a",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-03T23:00:00.000Z",
+        "after": "2026-11-04T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ab49a34a0920",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-03T06:00:00.000Z",
+        "after": "2026-11-04T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7761b99cf2a6",
+        "kind": "title",
+        "field": "Title",
+        "before": "Top Quark and EFT at the LHC: From Standard Model Stress Tests to Physics Reach",
+        "after": "What Can Top Reveal About New Physics? A CMS View Through the EFT Lens"
+      },
+      {
+        "itemId": "campus-6a9bc283202b",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-17T06:00:00.000Z",
+        "after": "2026-11-16T19:00:00.000Z"
+      },
+      {
+        "itemId": "campus-38cd088b2522",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-17T14:00:00.000Z",
+        "after": "2026-11-18T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-d608c84ea27f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-17T14:00:00.000Z",
+        "after": "2026-11-18T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-20f8b92fbc28",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-24T06:00:00.000Z",
+        "after": "2026-11-23T06:00:00.000Z"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-11-02",
     "vertical": "research",
-    "scanned": 1014,
-    "candidates": 104,
+    "scanned": 1026,
+    "candidates": 108,
     "recommended": [
+      "research-51149d275de2",
       "research-424c429db768",
       "research-eadcab011f2b",
-      "research-b08d54b56d38",
-      "research-2427436fbdaf",
-      "research-8f2400faa911",
-      "research-cca43f679d20"
+      "research-bef1e3e9e594",
+      "research-a915aee8198e",
+      "research-04fd8ad9135e"
     ],
     "headlines": [
+      "positive selection · codon-model analysis · comparative genomics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · comparative genomics · antimicrobial resistance",
-      "positive selection · codon-model analysis · phylogenetics",
-      "positive selection · codon-model analysis · very recent",
-      "positive selection · codon-model analysis · very recent",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "positive selection · comparative genomics · antimicrobial resistance"
     ],
     "changes": [],
-    "estimatedMinutes": 89
+    "estimatedMinutes": 99
   },
   {
     "weekOf": "2026-10-26",
