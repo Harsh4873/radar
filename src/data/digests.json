@@ -2,136 +2,31 @@
   {
     "weekOf": "2026-11-02",
     "vertical": "campus",
-    "scanned": 4142,
-    "candidates": 526,
+    "scanned": 4167,
+    "candidates": 508,
     "recommended": [
-      "campus-5897e88315c4",
-      "campus-5897f48315c4",
       "campus-b85aaf834c25",
       "campus-0787bb2fade6",
       "campus-9bf48da3502f",
-      "campus-abbdb76a55f0"
+      "campus-abbdb76a55f0",
+      "campus-6b9c1a93ce63",
+      "campus-720ff283240c"
     ],
     "headlines": [
-      "company recruiting · today · other Aggie sports",
-      "company recruiting · today · other Aggie sports",
       "computer science · tomorrow · workshop / training",
       "company recruiting · graduate opportunities · this week",
       "company recruiting · graduate opportunities · this week",
-      "biotech · football · in the next 3 weeks"
+      "biotech · football · in the next 3 weeks",
+      "company recruiting · career development · this week",
+      "data science · this week · workshop / training"
     ],
     "changes": [
       {
-        "itemId": "campus-7794522fed35",
+        "itemId": "campus-c16d60835166",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-11-17T06:00:00.000Z",
-        "after": "2026-11-16T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-3da24ac2f9e1",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-03T06:00:00.000Z",
-        "after": "2026-11-04T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-03T06:00:00.000Z",
-        "after": "2026-11-04T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7de44012b784",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-03T06:00:00.000Z",
-        "after": "2026-11-04T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-fce3fbabb797",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-03T06:00:00.000Z",
-        "after": "2026-11-04T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a31bb7b3fae6",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-15T06:00:00.000Z",
-        "after": "2026-12-14T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a470c01bfb5c",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-03T06:00:00.000Z",
-        "after": "2026-11-04T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-77945b2fed35",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-10T06:00:00.000Z",
-        "after": "2026-11-09T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-3c0cb1ab33f8",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-10T14:30:00.000Z",
+        "before": "2026-11-04T06:00:00.000Z",
         "after": "2026-11-11T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-6ac0c483204a",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-03T23:00:00.000Z",
-        "after": "2026-11-04T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ab49a34a0920",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-03T06:00:00.000Z",
-        "after": "2026-11-04T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7761b99cf2a6",
-        "kind": "title",
-        "field": "Title",
-        "before": "Top Quark and EFT at the LHC: From Standard Model Stress Tests to Physics Reach",
-        "after": "What Can Top Reveal About New Physics? A CMS View Through the EFT Lens"
-      },
-      {
-        "itemId": "campus-6a9bc283202b",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-17T06:00:00.000Z",
-        "after": "2026-11-16T19:00:00.000Z"
-      },
-      {
-        "itemId": "campus-38cd088b2522",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-17T14:00:00.000Z",
-        "after": "2026-11-18T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-d608c84ea27f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-17T14:00:00.000Z",
-        "after": "2026-11-18T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-20f8b92fbc28",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-24T06:00:00.000Z",
-        "after": "2026-11-23T06:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -139,8 +34,8 @@
   {
     "weekOf": "2026-11-02",
     "vertical": "research",
-    "scanned": 1026,
-    "candidates": 108,
+    "scanned": 996,
+    "candidates": 109,
     "recommended": [
       "research-51149d275de2",
       "research-424c429db768",
