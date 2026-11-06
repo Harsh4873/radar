@@ -2,7 +2,7 @@
   "category": {
     "37": {
       "id": 37,
-      "count": 54,
+      "count": 55,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=behavioral-sciences",
       "name": "Behavioral Sciences",
@@ -102,7 +102,7 @@
     },
     "39": {
       "id": 39,
-      "count": 68,
+      "count": 69,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=psychology-cognitive",
       "name": "Psychology / Cognitive",
@@ -261,7 +261,7 @@
     },
     "42": {
       "id": 42,
-      "count": 8,
+      "count": 9,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=clinical-trials",
       "name": "Clinical Trials",
@@ -308,7 +308,7 @@
     },
     "43": {
       "id": 43,
-      "count": 10,
+      "count": 11,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=brain-sciences",
       "name": "Brain Sciences",
@@ -361,7 +361,7 @@
     },
     "44": {
       "id": 44,
-      "count": 11,
+      "count": 12,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=health",
       "name": "Health",
@@ -414,7 +414,7 @@
     },
     "45": {
       "id": 45,
-      "count": 0,
+      "count": 1,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_category&term=medicine",
       "name": "Medicine",
@@ -1022,7 +1022,7 @@
     },
     "57": {
       "id": 57,
-      "count": 5,
+      "count": 6,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_location&term=houston",
       "name": "Houston",
@@ -1306,7 +1306,7 @@
   "sessionType": {
     "60": {
       "id": 60,
-      "count": 42,
+      "count": 43,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_session_type&term=multiple-visits",
       "name": "Multiple Visits",
@@ -1825,7 +1825,7 @@
     },
     "36": {
       "id": 36,
-      "count": 42,
+      "count": 43,
       "description": "",
       "link": "https://research.tamu.edu/?taxonomy=aux_study_topic&term=other",
       "name": "Other",

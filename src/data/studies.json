@@ -1,6 +1,6 @@
 {
-  "fetchedAt": "2026-11-06T03:28:30.859Z",
-  "totalFromHeader": 95,
+  "fetchedAt": "2026-11-06T18:06:51.976Z",
+  "totalFromHeader": 96,
   "studies": [
     {
       "id": "4591",
@@ -8936,6 +8936,114 @@
       "duplicateOf": null
     },
     {
+      "id": "14637",
+      "slug": "gamma-oscillations-as-a-prognostic-marker-of-trd",
+      "title": "GAMMA OSCILLATIONS AS A PROGNOSTIC MARKER OF TRD",
+      "summary": "This study examines brain activity associated with depression and response to ketamine using electroencephalography (EEG). Adults with major depressive disorder (MDD) will complete clinical assessments and EEG recordings before and after a single intravenous…",
+      "url": "https://research.tamu.edu/study/gamma-oscillations-as-a-prognostic-marker-of-trd/",
+      "sources": [
+        {
+          "source": "aggie-research-volunteers",
+          "externalId": "14637",
+          "url": "https://research.tamu.edu/study/gamma-oscillations-as-a-prognostic-marker-of-trd/",
+          "status": "unknown",
+          "verifiedAt": "2026-11-06T16:44:49.000Z",
+          "protocolIds": [
+            "STUDY2026-0051"
+          ],
+          "titleAliases": [
+            "GAMMA OSCILLATIONS AS A PROGNOSTIC MARKER OF TRD"
+          ]
+        }
+      ],
+      "piName": "PI: Sanjay Mathew, MD",
+      "contactName": "Ioana Murgulet",
+      "contactEmail": "imurgulet@tamu.edu",
+      "contactPhone": null,
+      "irbNumber": "STUDY2026-0051",
+      "irbApprovalDate": "2026-06-03T10:37:14.000Z",
+      "expirationDate": null,
+      "recruitmentStartDate": null,
+      "lifecycleMonths": 6,
+      "postedDate": "2026-11-06T16:43:12.000Z",
+      "modifiedDate": "2026-11-06T16:44:49.000Z",
+      "categoryIds": [
+        37,
+        43,
+        42,
+        44,
+        45,
+        39
+      ],
+      "locationIds": [
+        57
+      ],
+      "sessionTypeIds": [
+        60
+      ],
+      "topicIds": [
+        36
+      ],
+      "locationLabels": [],
+      "compensation": {
+        "guaranteedMin": 180,
+        "guaranteedMax": 180,
+        "raffleMax": null,
+        "raffleOnly": false,
+        "isHourlyRate": false,
+        "hourlyMin": null,
+        "hourlyMax": null,
+        "currencyKind": "unknown",
+        "perVisit": null,
+        "visitCount": null,
+        "completionBonus": null,
+        "hasNonCashPerk": false,
+        "sonaCreditOption": false,
+        "raw": "$180",
+        "confidence": "high",
+        "notes": []
+      },
+      "duration": {
+        "totalHoursMin": 9,
+        "totalHoursMax": 9,
+        "sessionCount": 3,
+        "spanWeeks": null,
+        "raw": "Visit 1: 3 hours<br>Visit 2: 5 hours<br>Visit 3: 1 hour",
+        "confidence": "medium"
+      },
+      "eligibility": {
+        "minAge": 21,
+        "maxAge": 55,
+        "requiresRightHanded": false,
+        "requiresMriSafe": false,
+        "requiresFasting": false,
+        "excludesCardiovascular": false,
+        "excludesPregnancy": true,
+        "excludesSeizure": false,
+        "excludesNeurological": true,
+        "requiresSpecificCondition": null,
+        "requiresParentOrChild": false,
+        "sexRestriction": null,
+        "flags": [
+          "excludes pregnancy / lactation",
+          "excludes neurological conditions",
+          "involves blood draws",
+          "allergy screening applies"
+        ]
+      },
+      "effectiveHourly": 20,
+      "isExpired": false,
+      "staleness": "fresh",
+      "tags": [
+        "in-person",
+        "eeg",
+        "survey",
+        "clinical"
+      ],
+      "duplicateIds": [],
+      "duplicateOf": null
+    },
+    {
       "id": "ctgov:NCT03646214",
       "slug": "clinicaltrials-gov-nct03646214",
       "title": "Oral Appliance Therapy for Improving Sleep Quality During Pregnancy: A Controlled Clinical Trial",
@@ -10546,9 +10654,9 @@
       "label": "Aggie Research Volunteers",
       "vertical": "studies",
       "status": "ok",
-      "itemCount": 86,
+      "itemCount": 87,
       "fetchSource": "network",
-      "durationMs": 1324,
+      "durationMs": 1840,
       "failedRequests": 0,
       "complete": true,
       "note": null,
@@ -10561,7 +10669,7 @@
       "status": "ok",
       "itemCount": 21,
       "fetchSource": "network",
-      "durationMs": 539,
+      "durationMs": 803,
       "failedRequests": 0,
       "complete": true,
       "note": null,
