@@ -1,5 +1,39 @@
 [
   {
+    "weekOf": "2026-11-09",
+    "vertical": "campus",
+    "scanned": 3981,
+    "candidates": 437,
+    "recommended": [],
+    "headlines": [],
+    "changes": [],
+    "estimatedMinutes": 0
+  },
+  {
+    "weekOf": "2026-11-09",
+    "vertical": "research",
+    "scanned": 951,
+    "candidates": 78,
+    "recommended": [
+      "research-6b29bb762ea9",
+      "research-2450fba79a15",
+      "research-91a9ec0cffef",
+      "research-d02f65abfb99",
+      "research-b21d0dacda5d",
+      "research-8f39ea9beab8"
+    ],
+    "headlines": [
+      "positive selection · comparative genomics · phylogenetics",
+      "positive selection · pathogen evolution · recent",
+      "M. tuberculosis · antimicrobial resistance · recent",
+      "M. tuberculosis · antimicrobial resistance · recent",
+      "positive selection · recent · genome evolution",
+      "positive selection · recent · revised preprint (v2)"
+    ],
+    "changes": [],
+    "estimatedMinutes": 101
+  },
+  {
     "weekOf": "2026-11-02",
     "vertical": "campus",
     "scanned": 3981,
