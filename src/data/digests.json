@@ -2,36 +2,114 @@
   {
     "weekOf": "2026-11-09",
     "vertical": "campus",
-    "scanned": 3981,
-    "candidates": 437,
-    "recommended": [],
-    "headlines": [],
-    "changes": [],
+    "scanned": 3898,
+    "candidates": 496,
+    "recommended": [
+      "campus-5897e98315c4",
+      "campus-5897ed8315c4",
+      "campus-abbdb76a55f0",
+      "campus-7b228c83294d",
+      "campus-7b260b832950",
+      "campus-7b260e832950"
+    ],
+    "headlines": [
+      "company recruiting · today · other Aggie sports",
+      "company recruiting · today · other Aggie sports",
+      "biotech · football · this week",
+      "company recruiting · today · workshop / training",
+      "company recruiting · today · workshop / training",
+      "company recruiting · today · workshop / training"
+    ],
+    "changes": [
+      {
+        "itemId": "campus-3da24ac2f9e1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-08T06:00:00.000Z",
+        "after": "2026-11-09T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-08T06:00:00.000Z",
+        "after": "2026-11-09T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-fce3fbabb797",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-08T06:00:00.000Z",
+        "after": "2026-11-09T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b85dac834c27",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-12T18:00:00.000Z",
+        "after": "2026-11-11T18:00:00.000Z"
+      },
+      {
+        "itemId": "campus-16b60e8c0e21",
+        "kind": "title",
+        "field": "Title",
+        "before": "PILF Bake Sale",
+        "after": "The Great PILF Bakeoff"
+      },
+      {
+        "itemId": "campus-16b60e8c0e21",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-12T18:00:00.000Z",
+        "after": "2026-11-12T17:30:00.000Z"
+      },
+      {
+        "itemId": "campus-a470c01bfb5c",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-08T06:00:00.000Z",
+        "after": "2026-11-09T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-394c60a214ec",
+        "kind": "title",
+        "field": "Title",
+        "before": "HET Seminar",
+        "after": "A Landscape of Candidate de Sitter Vacua in String Theory"
+      },
+      {
+        "itemId": "campus-ab49a34a0920",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-08T06:00:00.000Z",
+        "after": "2026-11-09T06:00:00.000Z"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-11-09",
     "vertical": "research",
-    "scanned": 951,
-    "candidates": 78,
+    "scanned": 1024,
+    "candidates": 100,
     "recommended": [
+      "research-449dde2e2154",
+      "research-09115d99bd22",
       "research-6b29bb762ea9",
-      "research-2450fba79a15",
-      "research-91a9ec0cffef",
-      "research-d02f65abfb99",
-      "research-b21d0dacda5d",
-      "research-8f39ea9beab8"
+      "research-9a33f1c89de3",
+      "research-66d447e3606d",
+      "research-7dee68093459"
     ],
     "headlines": [
+      "positive selection · PAML / codeml · phylogenetics",
+      "positive selection · PAML / codeml · phylogenetics",
       "positive selection · comparative genomics · phylogenetics",
-      "positive selection · pathogen evolution · recent",
-      "M. tuberculosis · antimicrobial resistance · recent",
-      "M. tuberculosis · antimicrobial resistance · recent",
-      "positive selection · recent · genome evolution",
-      "positive selection · recent · revised preprint (v2)"
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "positive selection · comparative genomics · bioinformatics tooling",
+      "positive selection · comparative genomics · recent"
     ],
     "changes": [],
-    "estimatedMinutes": 101
+    "estimatedMinutes": 104
   },
   {
     "weekOf": "2026-11-02",
