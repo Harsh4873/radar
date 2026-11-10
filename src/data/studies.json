@@ -1,6 +1,6 @@
 {
-  "fetchedAt": "2026-11-09T21:29:09.660Z",
-  "totalFromHeader": 96,
+  "fetchedAt": "2026-11-10T04:40:16.515Z",
+  "totalFromHeader": 97,
   "studies": [
     {
       "id": "4591",
@@ -8947,7 +8947,7 @@
           "externalId": "14637",
           "url": "https://research.tamu.edu/study/gamma-oscillations-as-a-prognostic-marker-of-trd/",
           "status": "unknown",
-          "verifiedAt": "2026-11-06T16:44:49.000Z",
+          "verifiedAt": "2026-11-10T02:36:13.000Z",
           "protocolIds": [
             "STUDY2026-0051"
           ],
@@ -8966,7 +8966,7 @@
       "recruitmentStartDate": null,
       "lifecycleMonths": 6,
       "postedDate": "2026-11-06T16:43:12.000Z",
-      "modifiedDate": "2026-11-06T16:44:49.000Z",
+      "modifiedDate": "2026-11-10T02:36:13.000Z",
       "categoryIds": [
         37,
         43,
@@ -9037,6 +9037,114 @@
       "tags": [
         "in-person",
         "eeg",
+        "survey",
+        "clinical"
+      ],
+      "duplicateIds": [],
+      "duplicateOf": null
+    },
+    {
+      "id": "14664",
+      "slug": "trajectory-of-ovarian-morphology-during-the-adolescent-reproductive-transition-omg-2-0",
+      "title": "Trajectory Of Ovarian Morphology During The Adolescent Reproductive Transition (OMG 2.0)",
+      "summary": "The purpose of this study is to understand how ovaries change during puberty and define normal ovarian development in adolescents and young adults. We are conducting a longitudinal cohort study (Aim 1) in adolescents who recently got their first period and a…",
+      "url": "https://research.tamu.edu/study/trajectory-of-ovarian-morphology-during-the-adolescent-reproductive-transition-omg-2-0/",
+      "sources": [
+        {
+          "source": "aggie-research-volunteers",
+          "externalId": "14664",
+          "url": "https://research.tamu.edu/study/trajectory-of-ovarian-morphology-during-the-adolescent-reproductive-transition-omg-2-0/",
+          "status": "unknown",
+          "verifiedAt": "2026-11-10T03:00:41.000Z",
+          "protocolIds": [
+            "STUDY2026-0258"
+          ],
+          "titleAliases": [
+            "Trajectory Of Ovarian Morphology During The Adolescent Reproductive Transition (OMG 2.0)"
+          ]
+        }
+      ],
+      "piName": "PI: Heidi Vanden Brink, PhD, MSc, RDMS",
+      "contactName": "Heidi Vanden Brink, Erlinda Pena",
+      "contactEmail": "Omg2@ag.tamu.edu",
+      "contactPhone": "979-321-7022",
+      "irbNumber": "STUDY2026-0258",
+      "irbApprovalDate": "2026-04-03T20:56:34.000Z",
+      "expirationDate": null,
+      "recruitmentStartDate": null,
+      "lifecycleMonths": 12,
+      "postedDate": "2026-11-10T03:00:41.000Z",
+      "modifiedDate": "2026-11-10T03:00:41.000Z",
+      "categoryIds": [
+        39
+      ],
+      "locationIds": [
+        53,
+        54
+      ],
+      "sessionTypeIds": [
+        60,
+        65
+      ],
+      "topicIds": [
+        31,
+        34
+      ],
+      "locationLabels": [],
+      "compensation": {
+        "guaranteedMin": null,
+        "guaranteedMax": 555,
+        "raffleMax": null,
+        "raffleOnly": false,
+        "isHourlyRate": false,
+        "hourlyMin": null,
+        "hourlyMax": null,
+        "currencyKind": "unknown",
+        "perVisit": null,
+        "visitCount": null,
+        "completionBonus": null,
+        "hasNonCashPerk": false,
+        "sonaCreditOption": false,
+        "raw": "Aim 1: Up to $555 (including all study visits AND optional procedures)<br>Aim 2: Up to $40",
+        "confidence": "high",
+        "notes": [
+          "amount is phrased as a ceiling (\"up to\"); guaranteed floor unknown"
+        ]
+      },
+      "duration": {
+        "totalHoursMin": 7,
+        "totalHoursMax": 7,
+        "sessionCount": null,
+        "spanWeeks": 130.45,
+        "raw": "Aim 1: If your child chooses to participate, they will be asked to attend an in-person enrollment visit (1hr) followed by a study visit (1hr) every 6 months for 2.5 years (total ~7hrs). Your child may choose to complete optional procedures at home around the time of the study visit (2 weeks before and/or after). Over the 2.5 year study, your child will also be provided a diary to keep track of your periods and a medication log to document any medications you take. <br> <br>Aim 2: If you or your child chooses to participate, they will be asked to attend an in-person study visit, which lasts approximately 2 hours.",
+        "confidence": "high"
+      },
+      "eligibility": {
+        "minAge": 9,
+        "maxAge": 24,
+        "requiresRightHanded": false,
+        "requiresMriSafe": false,
+        "requiresFasting": true,
+        "excludesCardiovascular": false,
+        "excludesPregnancy": false,
+        "excludesSeizure": false,
+        "excludesNeurological": false,
+        "requiresSpecificCondition": null,
+        "requiresParentOrChild": true,
+        "sexRestriction": null,
+        "flags": [
+          "fasting required before a visit",
+          "requires a parent and child participating together",
+          "enrols minors - parental consent required for under-18s",
+          "study lists female-specific criteria - confirm with the study team",
+          "involves blood draws"
+        ]
+      },
+      "effectiveHourly": 79.29,
+      "isExpired": false,
+      "staleness": "fresh",
+      "tags": [
+        "in-person",
         "survey",
         "clinical"
       ],
@@ -10654,9 +10762,9 @@
       "label": "Aggie Research Volunteers",
       "vertical": "studies",
       "status": "ok",
-      "itemCount": 87,
+      "itemCount": 88,
       "fetchSource": "network",
-      "durationMs": 907,
+      "durationMs": 1444,
       "failedRequests": 0,
       "complete": true,
       "note": null,
@@ -10669,7 +10777,7 @@
       "status": "ok",
       "itemCount": 21,
       "fetchSource": "network",
-      "durationMs": 730,
+      "durationMs": 861,
       "failedRequests": 0,
       "complete": true,
       "note": null,
