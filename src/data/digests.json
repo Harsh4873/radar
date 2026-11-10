@@ -2,50 +2,170 @@
   {
     "weekOf": "2026-11-09",
     "vertical": "campus",
-    "scanned": 3929,
-    "candidates": 487,
+    "scanned": 3559,
+    "candidates": 452,
     "recommended": [
+      "campus-5897e98315c4",
+      "campus-5897ed8315c4",
       "campus-abbdb76a55f0",
-      "campus-e5b7d33dfd8b",
-      "campus-de51953df9b6",
-      "campus-de519b3df9b6",
-      "campus-de51983df9b6",
-      "campus-e5b4d33dfd89"
+      "campus-a34b44b3fb0e",
+      "campus-7b228c83294d",
+      "campus-7b260b832950"
     ],
     "headlines": [
+      "company recruiting · today · other Aggie sports",
+      "company recruiting · today · other Aggie sports",
       "biotech · football · this week",
-      "research opportunity · workshop / training · in the next 3 weeks",
-      "company recruiting · this week · workshop / training",
-      "company recruiting · workshop / training · in the next 3 weeks",
-      "company recruiting · workshop / training · in the next 3 weeks",
-      "company recruiting · workshop / training · in the next 3 weeks"
+      "research opportunity · this week · workshop / training",
+      "company recruiting · today · workshop / training",
+      "company recruiting · today · workshop / training"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-7794522fed35",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-16T06:00:00.000Z",
+        "after": "2026-11-17T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-3da24ac2f9e1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-09T06:00:00.000Z",
+        "after": "2026-11-10T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-09T06:00:00.000Z",
+        "after": "2026-11-10T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-22804bab25a0",
+        "kind": "location",
+        "field": "Location",
+        "before": "Rudder Forum or Zoom",
+        "after": "Rudder Forum & Exhibit Hall"
+      },
+      {
+        "itemId": "campus-11bdd57a28c5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-16T06:00:00.000Z",
+        "after": "2026-11-10T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-fce3fbabb797",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-09T06:00:00.000Z",
+        "after": "2026-11-10T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b85dac834c27",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-11T18:00:00.000Z",
+        "after": "2026-11-12T18:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a31bb7b3fae6",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-14T06:00:00.000Z",
+        "after": "2026-12-15T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-16b60e8c0e21",
+        "kind": "title",
+        "field": "Title",
+        "before": "The Great PILF Bakeoff",
+        "after": "PILF Bake Sale"
+      },
+      {
+        "itemId": "campus-16b60e8c0e21",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-12T17:30:00.000Z",
+        "after": "2026-11-12T18:00:00.000Z"
+      },
+      {
+        "itemId": "campus-5ece8845d2bd",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-14T17:00:00.000Z",
+        "after": "2026-11-14T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a470c01bfb5c",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-09T06:00:00.000Z",
+        "after": "2026-11-10T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ac117d6985f5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-16T14:00:00.000Z",
+        "after": "2026-11-10T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7761b99cf2a6",
+        "kind": "title",
+        "field": "Title",
+        "before": "What Can Top Reveal About New Physics? A CMS View Through the EFT Lens",
+        "after": "Top Quark and EFT at the LHC: From Standard Model Stress Tests to Physics Reach"
+      },
+      {
+        "itemId": "campus-6a9bc283202b",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-16T20:45:00.000Z",
+        "after": "2026-11-17T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ab49a34a0920",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-09T06:00:00.000Z",
+        "after": "2026-11-10T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-20f8b92fbc28",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-23T06:00:00.000Z",
+        "after": "2026-11-24T06:00:00.000Z"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-11-09",
     "vertical": "research",
-    "scanned": 980,
-    "candidates": 116,
+    "scanned": 986,
+    "candidates": 122,
     "recommended": [
       "research-449dde2e2154",
+      "research-8a70b4b14ad6",
       "research-09115d99bd22",
-      "research-9a33f1c89de3",
-      "research-66d447e3606d",
-      "research-f59cbc8fcde9",
-      "research-7dee68093459"
+      "research-6c845df58fd8",
+      "research-198e41ffd50f",
+      "research-68f662b5fe89"
     ],
     "headlines": [
       "positive selection · PAML / codeml · phylogenetics",
       "positive selection · PAML / codeml · phylogenetics",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "positive selection · comparative genomics · bioinformatics tooling",
-      "positive selection · comparative genomics · recent",
-      "positive selection · comparative genomics · recent"
+      "positive selection · PAML / codeml · phylogenetics",
+      "positive selection · codon-model analysis · phylogenetics",
+      "positive selection · codon-model analysis · MCMC / Bayesian inference",
+      "positive selection · codon-model analysis · MCMC / Bayesian inference"
     ],
     "changes": [],
-    "estimatedMinutes": 103
+    "estimatedMinutes": 107
   },
   {
     "weekOf": "2026-11-02",
