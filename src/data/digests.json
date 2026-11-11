@@ -2,38 +2,185 @@
   {
     "weekOf": "2026-11-09",
     "vertical": "campus",
-    "scanned": 3537,
-    "candidates": 446,
+    "scanned": 3576,
+    "candidates": 461,
     "recommended": [
+      "campus-5897f38315c4",
       "campus-abbdb76a55f0",
-      "campus-a34b44b3fb0e",
-      "campus-e5aa453dfd80",
-      "campus-de3d2e3df9a5",
-      "campus-de3d2d3df9a5",
-      "campus-e5b4d33dfd89"
+      "campus-9bf102a3502c",
+      "campus-16b99c8c0e24",
+      "campus-7b228d83294d",
+      "campus-7b260b832950"
     ],
     "headlines": [
+      "company recruiting · today · other Aggie sports",
       "biotech · football · this week",
+      "company recruiting · graduate opportunities · this week",
       "research opportunity · this week · workshop / training",
-      "research opportunity · workshop / training · in the next 3 weeks",
-      "company recruiting · workshop / training · in the next 3 weeks",
-      "company recruiting · workshop / training · in the next 3 weeks",
-      "company recruiting · workshop / training · in the next 3 weeks"
+      "company recruiting · today · workshop / training",
+      "company recruiting · today · workshop / training"
     ],
     "changes": [
       {
-        "itemId": "campus-de3d303df9a5",
-        "kind": "location",
-        "field": "Location",
-        "before": "Blocker Building",
-        "after": "Blocker 104 and SCC 4"
-      },
-      {
-        "itemId": "campus-de3d303df9a5",
+        "itemId": "campus-7794522fed35",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-11-16T15:00:00.000Z",
-        "after": "2026-11-16T14:30:00.000Z"
+        "before": "2026-11-17T06:00:00.000Z",
+        "after": "2026-11-16T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-3da24ac2f9e1",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-10T06:00:00.000Z",
+        "after": "2026-11-11T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-10T06:00:00.000Z",
+        "after": "2026-11-11T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-22804bab25a0",
+        "kind": "location",
+        "field": "Location",
+        "before": "Rudder Forum & Exhibit Hall",
+        "after": "Rudder Forum or Zoom"
+      },
+      {
+        "itemId": "campus-b85dac834c27",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-12T18:00:00.000Z",
+        "after": "2026-11-11T18:00:00.000Z"
+      },
+      {
+        "itemId": "campus-fce3fbabb797",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-10T06:00:00.000Z",
+        "after": "2026-11-11T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-16b60e8c0e21",
+        "kind": "title",
+        "field": "Title",
+        "before": "PILF Bake Sale",
+        "after": "The Great PILF Bakeoff"
+      },
+      {
+        "itemId": "campus-16b60e8c0e21",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-12T18:00:00.000Z",
+        "after": "2026-11-12T17:30:00.000Z"
+      },
+      {
+        "itemId": "campus-a31bb7b3fae6",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-15T06:00:00.000Z",
+        "after": "2026-12-14T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-5ece8845d2bd",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-14T06:00:00.000Z",
+        "after": "2026-11-14T17:00:00.000Z"
+      },
+      {
+        "itemId": "campus-0667658dbd19",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-10T06:00:00.000Z",
+        "after": "2026-11-11T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a470c01bfb5c",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-10T06:00:00.000Z",
+        "after": "2026-11-11T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-3c0cb1ab33f8",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-10T14:30:00.000Z",
+        "after": "2026-11-11T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7761b99cf2a6",
+        "kind": "title",
+        "field": "Title",
+        "before": "Top Quark and EFT at the LHC: From Standard Model Stress Tests to Physics Reach",
+        "after": "What Can Top Reveal About New Physics? A CMS View Through the EFT Lens"
+      },
+      {
+        "itemId": "campus-6a9bc283202b",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-17T06:00:00.000Z",
+        "after": "2026-11-16T20:45:00.000Z"
+      },
+      {
+        "itemId": "campus-38cd088b2522",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-17T14:00:00.000Z",
+        "after": "2026-11-18T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-d608c84ea27f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-17T14:00:00.000Z",
+        "after": "2026-11-18T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ab49a34a0920",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-10T06:00:00.000Z",
+        "after": "2026-11-11T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-6aba4f832045",
+        "kind": "location",
+        "field": "Location",
+        "before": "Annex 405, Library Annex",
+        "after": "Annex 405D, Library Annex"
+      },
+      {
+        "itemId": "campus-5897ee8315c4",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-17T17:30:00.000Z",
+        "after": "2026-11-18T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7b298f832953",
+        "kind": "location",
+        "field": "Location",
+        "before": "2758 Main St., Industry, TX 78944",
+        "after": "15994 Fordtran Blvd, Industry, TX 78944"
+      },
+      {
+        "itemId": "campus-20f8b92fbc28",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-24T06:00:00.000Z",
+        "after": "2026-11-23T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-11b3477a28bc",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-12T14:00:00.000Z",
+        "after": "2026-12-02T14:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -41,34 +188,26 @@
   {
     "weekOf": "2026-11-09",
     "vertical": "research",
-    "scanned": 1005,
-    "candidates": 119,
+    "scanned": 1020,
+    "candidates": 123,
     "recommended": [
-      "research-449dde2e2154",
-      "research-8a70b4b14ad6",
-      "research-09115d99bd22",
+      "research-f6a8b5882b62",
       "research-6c845df58fd8",
-      "research-6b29bb762ea9",
-      "research-198e41ffd50f"
+      "research-8a70b4b14ad6",
+      "research-449dde2e2154",
+      "research-09115d99bd22",
+      "research-6b29bb762ea9"
     ],
     "headlines": [
-      "positive selection · PAML / codeml · phylogenetics",
-      "positive selection · PAML / codeml · phylogenetics",
-      "positive selection · PAML / codeml · phylogenetics",
+      "positive selection · PAML / codeml · comparative genomics",
       "positive selection · codon-model analysis · phylogenetics",
-      "positive selection · comparative genomics · phylogenetics",
-      "positive selection · codon-model analysis · MCMC / Bayesian inference"
+      "positive selection · PAML / codeml · phylogenetics",
+      "positive selection · PAML / codeml · phylogenetics",
+      "positive selection · PAML / codeml · phylogenetics",
+      "positive selection · comparative genomics · phylogenetics"
     ],
-    "changes": [
-      {
-        "itemId": "research-4446837872a1",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v1",
-        "after": "v2"
-      }
-    ],
-    "estimatedMinutes": 105
+    "changes": [],
+    "estimatedMinutes": 104
   },
   {
     "weekOf": "2026-11-02",
