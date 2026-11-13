@@ -2,166 +2,46 @@
   {
     "weekOf": "2026-11-09",
     "vertical": "campus",
-    "scanned": 4154,
-    "candidates": 435,
+    "scanned": 4175,
+    "candidates": 419,
     "recommended": [
       "campus-6ac7c1832050",
-      "campus-cc1e533def28",
-      "campus-5897e98315c4",
       "campus-abbdb76a55f0",
       "campus-9bf102a3502c",
-      "campus-16b99c8c0e24"
+      "campus-16b99c8c0e24",
+      "campus-9bf101a3502c",
+      "campus-cc215c3def2a"
     ],
     "headlines": [
       "biotech · company recruiting · graduate opportunities",
-      "company recruiting · today · intramural sports",
-      "company recruiting · today · other Aggie sports",
       "biotech · football · this week",
+      "company recruiting · graduate opportunities · this week",
+      "research opportunity · this week · workshop / training",
       "company recruiting · graduate opportunities · this week",
       "research opportunity · this week · workshop / training"
     ],
-    "changes": [
-      {
-        "itemId": "campus-3da24ac2f9e1",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-11T06:00:00.000Z",
-        "after": "2026-11-12T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-11T06:00:00.000Z",
-        "after": "2026-11-12T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-fce3fbabb797",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-11T06:00:00.000Z",
-        "after": "2026-11-12T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-0667658dbd19",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-11T06:00:00.000Z",
-        "after": "2026-11-12T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a470c01bfb5c",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-11T06:00:00.000Z",
-        "after": "2026-11-12T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7201f7832400",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-11T14:00:00.000Z",
-        "after": "2026-11-12T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-c147d8835146",
-        "kind": "title",
-        "field": "Title",
-        "before": "2027 AGLS on Tour — Lubbock",
-        "after": "2027 AGLS on Tour — Amarillo"
-      },
-      {
-        "itemId": "campus-c147d8835146",
-        "kind": "location",
-        "field": "Location",
-        "before": "1121 Canyon Lake Drive, lubbock",
-        "after": "550 S. Buchanan St., Amarillo, TX 79101"
-      },
-      {
-        "itemId": "campus-c147d8835146",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2027-01-23T18:00:00.000Z",
-        "after": "2027-01-20T00:30:00.000Z"
-      },
-      {
-        "itemId": "campus-38cd088b2522",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-18T06:00:00.000Z",
-        "after": "2026-11-17T14:00:00.000Z"
-      },
-      {
-        "itemId": "campus-d608c84ea27f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-18T06:00:00.000Z",
-        "after": "2026-11-17T14:00:00.000Z"
-      },
-      {
-        "itemId": "campus-04af418c03b9",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-18T13:30:00.000Z",
-        "after": "2026-11-19T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-64640e8c3a0d",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-18T14:30:00.000Z",
-        "after": "2026-11-19T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-7b298f832953",
-        "kind": "location",
-        "field": "Location",
-        "before": "2758 Main St., Industry, TX 78944",
-        "after": "15994 Fordtran Blvd, Industry, TX 78944"
-      },
-      {
-        "itemId": "campus-41ad2d8b2a38",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-11T21:00:00.000Z",
-        "after": "2026-11-12T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ab49a34a0920",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-11T06:00:00.000Z",
-        "after": "2026-11-12T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-5897ee8315c4",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-18T06:00:00.000Z",
-        "after": "2026-11-17T17:30:00.000Z"
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-11-09",
     "vertical": "research",
-    "scanned": 1013,
-    "candidates": 116,
+    "scanned": 1001,
+    "candidates": 123,
     "recommended": [
+      "research-8f1bb5337c94",
       "research-6c845df58fd8",
       "research-f6a8b5882b62",
       "research-449dde2e2154",
       "research-21ebe74f7652",
-      "research-8a70b4b14ad6",
-      "research-09115d99bd22"
+      "research-8a70b4b14ad6"
     ],
     "headlines": [
+      "M. tuberculosis · comparative genomics · phylogenetics",
       "positive selection · codon-model analysis · phylogenetics",
       "positive selection · PAML / codeml · comparative genomics",
       "positive selection · PAML / codeml · phylogenetics",
       "positive selection · codon-model analysis · phylogenetics",
-      "positive selection · PAML / codeml · phylogenetics",
       "positive selection · PAML / codeml · phylogenetics"
     ],
     "changes": [],
