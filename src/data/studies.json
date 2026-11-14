@@ -1,6 +1,6 @@
 {
-  "fetchedAt": "2026-11-13T18:35:26.808Z",
-  "totalFromHeader": 97,
+  "fetchedAt": "2026-11-14T03:22:45.566Z",
+  "totalFromHeader": 95,
   "studies": [
     {
       "id": "4591",
@@ -3429,105 +3429,6 @@
         "in-person",
         "survey",
         "interview"
-      ],
-      "duplicateIds": [],
-      "duplicateOf": null
-    },
-    {
-      "id": "6997",
-      "slug": "the-criklt-study-the-complexitys-role-in-knowledge-learning-and-transfer",
-      "title": "The CRIKLT Study: The Complexity’s Role in Knowledge Learning and Transfer",
-      "summary": "This study investigates how complexity impacts artificial concept learning and its relationship with emotions, learning strategies, and personality. Participants will complete a computer-based classification task with feedback and surveys, receiving $15 for…",
-      "url": "https://research.tamu.edu/study/the-criklt-study-the-complexitys-role-in-knowledge-learning-and-transfer/",
-      "sources": [
-        {
-          "source": "aggie-research-volunteers",
-          "externalId": "6997",
-          "url": "https://research.tamu.edu/study/the-criklt-study-the-complexitys-role-in-knowledge-learning-and-transfer/",
-          "status": "unknown",
-          "verifiedAt": "2025-04-09T18:05:24.000Z",
-          "protocolIds": [
-            "STUDY2025-0129"
-          ],
-          "titleAliases": [
-            "The CRIKLT Study: The Complexity’s Role in Knowledge Learning and Transfer"
-          ]
-        }
-      ],
-      "piName": "PI: Steven Woltering, PhD",
-      "contactName": "Minchao Wang",
-      "contactEmail": "minchao@tamu.edu",
-      "contactPhone": null,
-      "irbNumber": "STUDY2025-0129",
-      "irbApprovalDate": "2025-04-07T13:01:59.000Z",
-      "expirationDate": null,
-      "recruitmentStartDate": null,
-      "lifecycleMonths": 6,
-      "postedDate": "2025-04-09T18:04:55.000Z",
-      "modifiedDate": "2025-04-09T18:05:24.000Z",
-      "categoryIds": [
-        37,
-        39
-      ],
-      "locationIds": [
-        54
-      ],
-      "sessionTypeIds": [
-        65
-      ],
-      "topicIds": [
-        36
-      ],
-      "locationLabels": [],
-      "compensation": {
-        "guaranteedMin": 15,
-        "guaranteedMax": 15,
-        "raffleMax": null,
-        "raffleOnly": false,
-        "isHourlyRate": false,
-        "hourlyMin": null,
-        "hourlyMax": null,
-        "currencyKind": "unknown",
-        "perVisit": null,
-        "visitCount": null,
-        "completionBonus": null,
-        "hasNonCashPerk": false,
-        "sonaCreditOption": false,
-        "raw": "$15",
-        "confidence": "high",
-        "notes": []
-      },
-      "duration": {
-        "totalHoursMin": null,
-        "totalHoursMax": null,
-        "sessionCount": null,
-        "spanWeeks": null,
-        "raw": "",
-        "confidence": "low"
-      },
-      "eligibility": {
-        "minAge": 18,
-        "maxAge": null,
-        "requiresRightHanded": false,
-        "requiresMriSafe": false,
-        "requiresFasting": false,
-        "excludesCardiovascular": false,
-        "excludesPregnancy": false,
-        "excludesSeizure": false,
-        "excludesNeurological": false,
-        "requiresSpecificCondition": null,
-        "requiresParentOrChild": false,
-        "sexRestriction": null,
-        "flags": [
-          "normal colour vision required"
-        ]
-      },
-      "effectiveHourly": null,
-      "isExpired": false,
-      "staleness": "stale",
-      "tags": [
-        "in-person",
-        "survey"
       ],
       "duplicateIds": [],
       "duplicateOf": null
@@ -6971,111 +6872,6 @@
       "duplicateIds": [
         "11324"
       ],
-      "duplicateOf": null
-    },
-    {
-      "id": "11899",
-      "slug": "psychometric-properties-of-a-brief-value-driven-attention-task",
-      "title": "Psychometric Properties of a Brief Value Driven Attention Task",
-      "summary": "The current study investigates the psychometric properties of a brief attention assessment using eye-tracking technology.",
-      "url": "https://research.tamu.edu/study/psychometric-properties-of-a-brief-value-driven-attention-task/",
-      "sources": [
-        {
-          "source": "aggie-research-volunteers",
-          "externalId": "11899",
-          "url": "https://research.tamu.edu/study/psychometric-properties-of-a-brief-value-driven-attention-task/",
-          "status": "unknown",
-          "verifiedAt": "2026-06-04T16:35:05.000Z",
-          "protocolIds": [
-            "STUDY2026-0068"
-          ],
-          "titleAliases": [
-            "Psychometric Properties of a Brief Value Driven Attention Task"
-          ]
-        }
-      ],
-      "piName": "PI: Brian Anderson, PhD Co-I – Steven Woltering, PhD",
-      "contactName": "Jacob Brooks",
-      "contactEmail": "jtbrooks@tamu.edu",
-      "contactPhone": null,
-      "irbNumber": "STUDY2026-0068",
-      "irbApprovalDate": "2026-01-23T19:47:24.000Z",
-      "expirationDate": null,
-      "recruitmentStartDate": null,
-      "lifecycleMonths": 6,
-      "postedDate": "2026-04-08T00:48:38.000Z",
-      "modifiedDate": "2026-06-04T16:35:05.000Z",
-      "categoryIds": [
-        37,
-        39
-      ],
-      "locationIds": [
-        54
-      ],
-      "sessionTypeIds": [
-        60
-      ],
-      "topicIds": [
-        36
-      ],
-      "locationLabels": [],
-      "compensation": {
-        "guaranteedMin": null,
-        "guaranteedMax": 10,
-        "raffleMax": null,
-        "raffleOnly": false,
-        "isHourlyRate": false,
-        "hourlyMin": null,
-        "hourlyMax": null,
-        "currencyKind": "giftcard",
-        "perVisit": 5,
-        "visitCount": 2,
-        "completionBonus": null,
-        "hasNonCashPerk": false,
-        "sonaCreditOption": false,
-        "raw": "Up to $20: Participants are compensated $5 per lab visit in the form of a gift card. Each participant will have an opportunity to earn an additional $5 during each lab visit for task-related reward.",
-        "confidence": "medium",
-        "notes": [
-          "the advertised $20 assumes 2 visit(s) paying $5 guaranteed plus $5 that must be earned; guaranteed pay is $10 and the remaining $10 is contingent on task performance",
-          "amount is phrased as a ceiling (\"up to\"); guaranteed floor unknown"
-        ]
-      },
-      "duration": {
-        "totalHoursMin": 0.9167,
-        "totalHoursMax": 0.9167,
-        "sessionCount": 2,
-        "spanWeeks": null,
-        "raw": "55 minutes across two lab visits (35 minutes for visit 1; 20 minutes for visit 2).",
-        "confidence": "high"
-      },
-      "eligibility": {
-        "minAge": 18,
-        "maxAge": 35,
-        "requiresRightHanded": false,
-        "requiresMriSafe": false,
-        "requiresFasting": false,
-        "excludesCardiovascular": false,
-        "excludesPregnancy": false,
-        "excludesSeizure": false,
-        "excludesNeurological": false,
-        "requiresSpecificCondition": null,
-        "requiresParentOrChild": false,
-        "sexRestriction": null,
-        "flags": [
-          "English fluency required",
-          "normal or corrected-to-normal vision required",
-          "normal colour vision required",
-          "allergy screening applies"
-        ]
-      },
-      "effectiveHourly": 10.91,
-      "isExpired": false,
-      "staleness": "aging",
-      "tags": [
-        "in-person",
-        "survey"
-      ],
-      "duplicateIds": [],
       "duplicateOf": null
     },
     {
@@ -10762,9 +10558,9 @@
       "label": "Aggie Research Volunteers",
       "vertical": "studies",
       "status": "ok",
-      "itemCount": 88,
+      "itemCount": 86,
       "fetchSource": "network",
-      "durationMs": 1303,
+      "durationMs": 1592,
       "failedRequests": 0,
       "complete": true,
       "note": null,
@@ -10777,7 +10573,7 @@
       "status": "ok",
       "itemCount": 21,
       "fetchSource": "network",
-      "durationMs": 603,
+      "durationMs": 497,
       "failedRequests": 0,
       "complete": true,
       "note": null,

@@ -1,7 +1,10 @@
 {
-  "generatedAt": "2026-11-13T18:35:26.808Z",
-  "previousFetchedAt": "2026-11-13T03:27:20.179Z",
+  "generatedAt": "2026-11-14T03:22:45.566Z",
+  "previousFetchedAt": "2026-11-13T18:35:26.808Z",
   "added": [],
-  "removed": [],
+  "removed": [
+    "6997",
+    "11899"
+  ],
   "changed": []
 }
