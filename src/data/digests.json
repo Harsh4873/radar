@@ -2,51 +2,149 @@
   {
     "weekOf": "2026-11-16",
     "vertical": "campus",
-    "scanned": 4092,
-    "candidates": 381,
-    "recommended": [],
-    "headlines": [],
-    "changes": [],
+    "scanned": 4019,
+    "candidates": 426,
+    "recommended": [
+      "campus-cc1e533def28",
+      "campus-5897e98315c4",
+      "campus-7b228c83294d",
+      "campus-7b260c832950",
+      "campus-c16d67835166",
+      "campus-cc13c63def1e"
+    ],
+    "headlines": [
+      "company recruiting · today · intramural sports",
+      "company recruiting · today · other Aggie sports",
+      "company recruiting · today · workshop / training",
+      "company recruiting · today · workshop / training",
+      "company recruiting · today · workshop / training",
+      "company recruiting · today"
+    ],
+    "changes": [
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-15T06:00:00.000Z",
+        "after": "2026-11-16T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-6ab6ce832042",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-17T22:00:00.000Z",
+        "after": "2026-11-18T22:00:00.000Z"
+      },
+      {
+        "itemId": "campus-4b58e4cb3437",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-15T06:00:00.000Z",
+        "after": "2026-11-16T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-e5b7d73dfd8b",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-22T06:00:00.000Z",
+        "after": "2026-11-21T19:00:00.000Z"
+      },
+      {
+        "itemId": "campus-0667658dbd19",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-15T06:00:00.000Z",
+        "after": "2026-11-16T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a470c01bfb5c",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-15T06:00:00.000Z",
+        "after": "2026-11-16T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7b1b9b832947",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-16T22:00:00.000Z",
+        "after": "2026-11-17T22:00:00.000Z"
+      },
+      {
+        "itemId": "campus-6d66268c3f40",
+        "kind": "title",
+        "field": "Title",
+        "before": "MSEN 681 SEMINAR SERIES: Complex Coacervate Microemulsions",
+        "after": "MSEN 681 SEMINAR SERIES: Sparse Ions, Profound Effects: From Creep Resistance to Ultraductility in Polymers"
+      },
+      {
+        "itemId": "campus-5ece8645d2bd",
+        "kind": "title",
+        "field": "Title",
+        "before": "Seminar Speaker Series: Katie Smye",
+        "after": "Seminar Speaker Series: Nicolas DeSalvio"
+      },
+      {
+        "itemId": "campus-cc46d23def4a",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-22T06:00:00.000Z",
+        "after": "2026-11-21T15:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ab49a74a0920",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-15T06:00:00.000Z",
+        "after": "2026-11-16T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-de47273df9ad",
+        "kind": "title",
+        "field": "Title",
+        "before": "Aggie Bonfire Lunch",
+        "after": "12th Law Man: Law & Leadership Panel"
+      },
+      {
+        "itemId": "campus-cc1e583def28",
+        "kind": "title",
+        "field": "Title",
+        "before": "International Language Lounge",
+        "after": "CANCELED: International Language Lounge"
+      },
+      {
+        "itemId": "campus-cc1e583def28",
+        "kind": "cancelled",
+        "field": "Status",
+        "before": "scheduled",
+        "after": "cancelled"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-11-16",
     "vertical": "research",
-    "scanned": 955,
-    "candidates": 123,
+    "scanned": 981,
+    "candidates": 126,
     "recommended": [
       "research-776d07626187",
       "research-0d3edadaba82",
+      "research-c2a3985b56fa",
       "research-6e00ca49dac1",
       "research-a2a9227811dd",
-      "research-aa676e624203",
-      "research-a2a6117811da"
+      "research-980a23a23852"
     ],
     "headlines": [
       "positive selection · host-pathogen interaction · recent",
       "comparative genomics · very recent · antimicrobial resistance",
+      "codon-model analysis · comparative genomics · very recent",
       "comparative genomics · antimicrobial resistance · pathogen evolution",
       "positive selection · antimicrobial resistance · recent",
-      "M. tuberculosis · very recent · revised preprint (v2)",
-      "M. tuberculosis · antimicrobial resistance · recent"
+      "HyPhy / selection tests · phylogenetics · very recent"
     ],
-    "changes": [
-      {
-        "itemId": "research-7c1f9fc184a6",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v1",
-        "after": "v2"
-      },
-      {
-        "itemId": "research-0ef9c5066d6c",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v2",
-        "after": "v3"
-      }
-    ],
-    "estimatedMinutes": 124
+    "changes": [],
+    "estimatedMinutes": 127
   },
   {
     "weekOf": "2026-11-09",
