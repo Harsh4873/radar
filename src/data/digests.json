@@ -1,5 +1,54 @@
 [
   {
+    "weekOf": "2026-11-16",
+    "vertical": "campus",
+    "scanned": 4092,
+    "candidates": 381,
+    "recommended": [],
+    "headlines": [],
+    "changes": [],
+    "estimatedMinutes": 0
+  },
+  {
+    "weekOf": "2026-11-16",
+    "vertical": "research",
+    "scanned": 955,
+    "candidates": 123,
+    "recommended": [
+      "research-776d07626187",
+      "research-0d3edadaba82",
+      "research-6e00ca49dac1",
+      "research-a2a9227811dd",
+      "research-aa676e624203",
+      "research-a2a6117811da"
+    ],
+    "headlines": [
+      "positive selection · host-pathogen interaction · recent",
+      "comparative genomics · very recent · antimicrobial resistance",
+      "comparative genomics · antimicrobial resistance · pathogen evolution",
+      "positive selection · antimicrobial resistance · recent",
+      "M. tuberculosis · very recent · revised preprint (v2)",
+      "M. tuberculosis · antimicrobial resistance · recent"
+    ],
+    "changes": [
+      {
+        "itemId": "research-7c1f9fc184a6",
+        "kind": "preprint-revised",
+        "field": "Preprint version",
+        "before": "v1",
+        "after": "v2"
+      },
+      {
+        "itemId": "research-0ef9c5066d6c",
+        "kind": "preprint-revised",
+        "field": "Preprint version",
+        "before": "v2",
+        "after": "v3"
+      }
+    ],
+    "estimatedMinutes": 124
+  },
+  {
     "weekOf": "2026-11-09",
     "vertical": "campus",
     "scanned": 4092,
