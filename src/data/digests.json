@@ -2,38 +2,136 @@
   {
     "weekOf": "2026-11-16",
     "vertical": "campus",
-    "scanned": 4033,
-    "candidates": 411,
+    "scanned": 3234,
+    "candidates": 288,
     "recommended": [
-      "campus-d54f7d3df483",
-      "campus-c147e3835146",
-      "campus-d54f803df483",
-      "campus-b85ab5834c25",
-      "campus-b8352d834c05",
-      "campus-d552ff3df486"
+      "campus-5897e78315c4",
+      "campus-5897f48315c4",
+      "campus-22804bab25a0",
+      "campus-e5aa453dfd80",
+      "campus-7b260c832950",
+      "campus-c16d67835166"
     ],
     "headlines": [
-      "company recruiting · in the next 3 weeks · social",
-      "biotech · later this term",
-      "football · this week",
-      "this week · workshop / training · social",
-      "this week · free food: meal, breakfast",
-      "workshop / training · food provided · in the next 3 weeks"
+      "company recruiting · this week · other Aggie sports",
+      "company recruiting · this week · other Aggie sports",
+      "research opportunity · this week · workshop / training",
+      "research opportunity · this week · workshop / training",
+      "company recruiting · today · workshop / training",
+      "company recruiting · today · workshop / training"
     ],
     "changes": [
       {
-        "itemId": "campus-de4aa83df9b0",
-        "kind": "title",
-        "field": "Title",
-        "before": "International Education Week | International Language Lounge",
-        "after": "CANCELED | International Language Lounge"
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-16T06:00:00.000Z",
+        "after": "2026-11-17T06:00:00.000Z"
       },
       {
-        "itemId": "campus-de4aa83df9b0",
-        "kind": "cancelled",
-        "field": "Status",
-        "before": "scheduled",
-        "after": "cancelled"
+        "itemId": "campus-11bdd57a28c5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-30T06:00:00.000Z",
+        "after": "2026-11-17T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-4b58e4cb3437",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-16T06:00:00.000Z",
+        "after": "2026-11-17T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a31bb7b3fae6",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-14T06:00:00.000Z",
+        "after": "2026-12-15T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-0667658dbd19",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-16T06:00:00.000Z",
+        "after": "2026-11-17T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a470c01bfb5c",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-16T06:00:00.000Z",
+        "after": "2026-11-17T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-11b3477a28bc",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-02T14:00:00.000Z",
+        "after": "2026-11-17T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-38cd088b2522",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-17T14:00:00.000Z",
+        "after": "2026-11-17T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ac117d6985f5",
+        "kind": "title",
+        "field": "Title",
+        "before": "Taste 360 2025-2027",
+        "after": "Taste 360 2025-2026"
+      },
+      {
+        "itemId": "campus-ac117d6985f5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-30T14:00:00.000Z",
+        "after": "2026-11-17T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-d608c84ea27f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-17T14:00:00.000Z",
+        "after": "2026-11-17T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-394c5ba214ec",
+        "kind": "title",
+        "field": "Title",
+        "before": "How to Find an Exomoon",
+        "after": "ASTR Seminar"
+      },
+      {
+        "itemId": "campus-2c77b7732b51",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-20T15:40:00.000Z",
+        "after": "2026-11-20T14:30:00.000Z"
+      },
+      {
+        "itemId": "campus-5ece8645d2bd",
+        "kind": "title",
+        "field": "Title",
+        "before": "Seminar Speaker Series: Nicolas DeSalvio",
+        "after": "Seminar Speaker Series: Katie Smye"
+      },
+      {
+        "itemId": "campus-20f8b92fbc28",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-23T06:00:00.000Z",
+        "after": "2026-11-24T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ab49a74a0920",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-16T06:00:00.000Z",
+        "after": "2026-11-17T06:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -41,26 +139,26 @@
   {
     "weekOf": "2026-11-16",
     "vertical": "research",
-    "scanned": 958,
-    "candidates": 111,
+    "scanned": 979,
+    "candidates": 116,
     "recommended": [
+      "research-4adc9e95b82e",
       "research-46ba8662f63e",
+      "research-d11f9c88a8b3",
       "research-9c0b080f119d",
       "research-ab719fd3bc76",
-      "research-fc8bd7935de8",
-      "research-0d3edadaba82",
-      "research-c2a3985b56fa"
+      "research-71e6250b0bb2"
     ],
     "headlines": [
       "positive selection · codon-model analysis · PAML / codeml",
+      "positive selection · codon-model analysis · PAML / codeml",
+      "positive selection · codon-model analysis · comparative genomics",
       "M. tuberculosis · comparative genomics · very recent",
       "positive selection · codon-model analysis · very recent",
-      "comparative genomics · phylogenetics · pathogen evolution",
-      "comparative genomics · very recent · antimicrobial resistance",
-      "codon-model analysis · comparative genomics · very recent"
+      "codon-model analysis · phylogenetics · pathogen evolution"
     ],
     "changes": [],
-    "estimatedMinutes": 102
+    "estimatedMinutes": 98
   },
   {
     "weekOf": "2026-11-09",
