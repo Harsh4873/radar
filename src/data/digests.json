@@ -2,136 +2,108 @@
   {
     "weekOf": "2026-11-16",
     "vertical": "campus",
-    "scanned": 3234,
-    "candidates": 288,
+    "scanned": 3392,
+    "candidates": 337,
     "recommended": [
-      "campus-5897e78315c4",
-      "campus-5897f48315c4",
-      "campus-22804bab25a0",
-      "campus-e5aa453dfd80",
-      "campus-7b260c832950",
-      "campus-c16d67835166"
+      "campus-6ac7c1832050",
+      "campus-9bf101a3502c",
+      "campus-1c418638d751",
+      "campus-9bf100a3502c",
+      "campus-7212fa83240e",
+      "campus-9bf0ffa3502c"
     ],
     "headlines": [
-      "company recruiting · this week · other Aggie sports",
-      "company recruiting · this week · other Aggie sports",
-      "research opportunity · this week · workshop / training",
-      "research opportunity · this week · workshop / training",
-      "company recruiting · today · workshop / training",
-      "company recruiting · today · workshop / training"
+      "biotech · company recruiting · graduate opportunities",
+      "company recruiting · graduate opportunities · today",
+      "computer science · tomorrow · workshop / training",
+      "company recruiting · graduate opportunities · tomorrow",
+      "data science · today · workshop / training",
+      "company recruiting · graduate opportunities · this week"
     ],
     "changes": [
       {
-        "itemId": "campus-b314811cb984",
+        "itemId": "campus-cc1e533def28",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-11-16T06:00:00.000Z",
-        "after": "2026-11-17T06:00:00.000Z"
+        "before": "2026-12-01T06:00:00.000Z",
+        "after": "2026-11-24T06:00:00.000Z"
       },
       {
-        "itemId": "campus-11bdd57a28c5",
+        "itemId": "campus-cc13c63def1e",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-11-30T06:00:00.000Z",
-        "after": "2026-11-17T06:00:00.000Z"
+        "before": "2026-12-01T06:00:00.000Z",
+        "after": "2026-11-24T06:00:00.000Z"
       },
       {
-        "itemId": "campus-4b58e4cb3437",
+        "itemId": "campus-cc1e4a3def28",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-11-16T06:00:00.000Z",
-        "after": "2026-11-17T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a31bb7b3fae6",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-14T06:00:00.000Z",
-        "after": "2026-12-15T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-0667658dbd19",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-16T06:00:00.000Z",
-        "after": "2026-11-17T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a470c01bfb5c",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-16T06:00:00.000Z",
-        "after": "2026-11-17T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11b3477a28bc",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-02T14:00:00.000Z",
-        "after": "2026-11-17T06:00:00.000Z"
+        "before": "2026-12-01T06:00:00.000Z",
+        "after": "2026-11-24T06:00:00.000Z"
       },
       {
         "itemId": "campus-38cd088b2522",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-11-17T14:00:00.000Z",
-        "after": "2026-11-17T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ac117d6985f5",
-        "kind": "title",
-        "field": "Title",
-        "before": "Taste 360 2025-2027",
-        "after": "Taste 360 2025-2026"
-      },
-      {
-        "itemId": "campus-ac117d6985f5",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-30T14:00:00.000Z",
-        "after": "2026-11-17T06:00:00.000Z"
+        "before": "2026-11-17T06:00:00.000Z",
+        "after": "2026-11-17T14:00:00.000Z"
       },
       {
         "itemId": "campus-d608c84ea27f",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-11-17T14:00:00.000Z",
-        "after": "2026-11-17T06:00:00.000Z"
+        "before": "2026-11-17T06:00:00.000Z",
+        "after": "2026-11-17T14:00:00.000Z"
       },
       {
         "itemId": "campus-394c5ba214ec",
         "kind": "title",
         "field": "Title",
-        "before": "How to Find an Exomoon",
-        "after": "ASTR Seminar"
+        "before": "ASTR Seminar",
+        "after": "How to Find an Exomoon"
       },
       {
         "itemId": "campus-2c77b7732b51",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-11-20T15:40:00.000Z",
-        "after": "2026-11-20T14:30:00.000Z"
+        "before": "2026-11-20T14:30:00.000Z",
+        "after": "2026-11-20T15:40:00.000Z"
       },
       {
-        "itemId": "campus-5ece8645d2bd",
+        "itemId": "campus-72145692cf01",
         "kind": "title",
         "field": "Title",
-        "before": "Seminar Speaker Series: Nicolas DeSalvio",
-        "after": "Seminar Speaker Series: Katie Smye"
+        "before": "University Writing Center CRLA Class",
+        "after": "University Writing Center CRLA III Class"
       },
       {
-        "itemId": "campus-20f8b92fbc28",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-23T06:00:00.000Z",
-        "after": "2026-11-24T06:00:00.000Z"
+        "itemId": "campus-39424ba214e3",
+        "kind": "title",
+        "field": "Title",
+        "before": "SPMT 289 Library Visit (Netherland)",
+        "after": "KINE/SPMT 289 Library Visit (Netherland)"
       },
       {
-        "itemId": "campus-ab49a74a0920",
+        "itemId": "campus-39424ba214e3",
+        "kind": "location",
+        "field": "Location",
+        "before": "Annex 405A, Library Annex",
+        "after": "Annex 405D, Library Annex"
+      },
+      {
+        "itemId": "campus-3c2f6045bf23",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-11-16T06:00:00.000Z",
-        "after": "2026-11-17T06:00:00.000Z"
+        "before": "2026-11-18T17:00:00.000Z",
+        "after": "2026-11-18T19:00:00.000Z"
+      },
+      {
+        "itemId": "campus-87db826a4144",
+        "kind": "title",
+        "field": "Title",
+        "before": "HIST 105 Guided Group Study",
+        "after": "HIST 232 Guided Group Study"
       }
     ],
     "estimatedMinutes": 0
@@ -139,25 +111,33 @@
   {
     "weekOf": "2026-11-16",
     "vertical": "research",
-    "scanned": 979,
-    "candidates": 116,
+    "scanned": 970,
+    "candidates": 112,
     "recommended": [
       "research-4adc9e95b82e",
-      "research-46ba8662f63e",
       "research-d11f9c88a8b3",
       "research-9c0b080f119d",
       "research-ab719fd3bc76",
+      "research-5dc4d476e331",
       "research-71e6250b0bb2"
     ],
     "headlines": [
       "positive selection · codon-model analysis · PAML / codeml",
-      "positive selection · codon-model analysis · PAML / codeml",
       "positive selection · codon-model analysis · comparative genomics",
       "M. tuberculosis · comparative genomics · very recent",
       "positive selection · codon-model analysis · very recent",
+      "comparative genomics · phylogenetics · pathogen evolution",
       "codon-model analysis · phylogenetics · pathogen evolution"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "research-a2a6117811da",
+        "kind": "preprint-revised",
+        "field": "Preprint version",
+        "before": "v1",
+        "after": "v2"
+      }
+    ],
     "estimatedMinutes": 98
   },
   {
