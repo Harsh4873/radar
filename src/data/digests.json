@@ -2,108 +2,101 @@
   {
     "weekOf": "2026-11-16",
     "vertical": "campus",
-    "scanned": 3392,
-    "candidates": 337,
+    "scanned": 3615,
+    "candidates": 345,
     "recommended": [
-      "campus-6ac7c1832050",
-      "campus-9bf101a3502c",
       "campus-1c418638d751",
       "campus-9bf100a3502c",
-      "campus-7212fa83240e",
-      "campus-9bf0ffa3502c"
+      "campus-5894668315c1",
+      "campus-5897e88315c4",
+      "campus-9bf0ffa3502c",
+      "campus-7201f4832400"
     ],
     "headlines": [
-      "biotech · company recruiting · graduate opportunities",
+      "computer science · today · workshop / training",
       "company recruiting · graduate opportunities · today",
-      "computer science · tomorrow · workshop / training",
+      "company recruiting · today · other Aggie sports",
+      "company recruiting · today · other Aggie sports",
       "company recruiting · graduate opportunities · tomorrow",
-      "data science · today · workshop / training",
-      "company recruiting · graduate opportunities · this week"
+      "data science · today · workshop / training"
     ],
     "changes": [
       {
-        "itemId": "campus-cc1e533def28",
+        "itemId": "campus-b314811cb984",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-12-01T06:00:00.000Z",
-        "after": "2026-11-24T06:00:00.000Z"
+        "before": "2026-11-17T06:00:00.000Z",
+        "after": "2026-11-18T06:00:00.000Z"
       },
       {
-        "itemId": "campus-cc13c63def1e",
+        "itemId": "campus-4b58e4cb3437",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-12-01T06:00:00.000Z",
-        "after": "2026-11-24T06:00:00.000Z"
+        "before": "2026-11-17T06:00:00.000Z",
+        "after": "2026-11-18T06:00:00.000Z"
       },
       {
-        "itemId": "campus-cc1e4a3def28",
+        "itemId": "campus-a31bb7b3fae6",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-12-01T06:00:00.000Z",
-        "after": "2026-11-24T06:00:00.000Z"
+        "before": "2026-12-15T06:00:00.000Z",
+        "after": "2026-12-14T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a470c01bfb5c",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-17T06:00:00.000Z",
+        "after": "2026-11-18T06:00:00.000Z"
       },
       {
         "itemId": "campus-38cd088b2522",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-11-17T06:00:00.000Z",
-        "after": "2026-11-17T14:00:00.000Z"
+        "before": "2026-11-17T14:00:00.000Z",
+        "after": "2026-11-18T06:00:00.000Z"
       },
       {
         "itemId": "campus-d608c84ea27f",
         "kind": "time",
         "field": "Start time",
+        "before": "2026-11-17T14:00:00.000Z",
+        "after": "2026-11-18T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-5897ee8315c4",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-17T17:30:00.000Z",
+        "after": "2026-11-18T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-20f8b92fbc28",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-24T06:00:00.000Z",
+        "after": "2026-11-23T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-197a8a2fb83e",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-17T14:00:00.000Z",
+        "after": "2026-11-18T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-41ad2d8b2a38",
+        "kind": "time",
+        "field": "Start time",
         "before": "2026-11-17T06:00:00.000Z",
-        "after": "2026-11-17T14:00:00.000Z"
+        "after": "2026-11-18T06:00:00.000Z"
       },
       {
-        "itemId": "campus-394c5ba214ec",
-        "kind": "title",
-        "field": "Title",
-        "before": "ASTR Seminar",
-        "after": "How to Find an Exomoon"
-      },
-      {
-        "itemId": "campus-2c77b7732b51",
+        "itemId": "campus-ab49a74a0920",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-11-20T14:30:00.000Z",
-        "after": "2026-11-20T15:40:00.000Z"
-      },
-      {
-        "itemId": "campus-72145692cf01",
-        "kind": "title",
-        "field": "Title",
-        "before": "University Writing Center CRLA Class",
-        "after": "University Writing Center CRLA III Class"
-      },
-      {
-        "itemId": "campus-39424ba214e3",
-        "kind": "title",
-        "field": "Title",
-        "before": "SPMT 289 Library Visit (Netherland)",
-        "after": "KINE/SPMT 289 Library Visit (Netherland)"
-      },
-      {
-        "itemId": "campus-39424ba214e3",
-        "kind": "location",
-        "field": "Location",
-        "before": "Annex 405A, Library Annex",
-        "after": "Annex 405D, Library Annex"
-      },
-      {
-        "itemId": "campus-3c2f6045bf23",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-18T17:00:00.000Z",
-        "after": "2026-11-18T19:00:00.000Z"
-      },
-      {
-        "itemId": "campus-87db826a4144",
-        "kind": "title",
-        "field": "Title",
-        "before": "HIST 105 Guided Group Study",
-        "after": "HIST 232 Guided Group Study"
+        "before": "2026-11-17T06:00:00.000Z",
+        "after": "2026-11-18T06:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -111,7 +104,7 @@
   {
     "weekOf": "2026-11-16",
     "vertical": "research",
-    "scanned": 970,
+    "scanned": 972,
     "candidates": 112,
     "recommended": [
       "research-4adc9e95b82e",
@@ -131,11 +124,11 @@
     ],
     "changes": [
       {
-        "itemId": "research-a2a6117811da",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v1",
-        "after": "v2"
+        "itemId": "research-f6a8b5882b62",
+        "kind": "title",
+        "field": "Title",
+        "before": "Mosquito Tree of Life: Jurassic–Cenozoic Culicidae Phylogenomics (194.8 to 0.0 Ma), Single Origin of Hematophagy, Salivary D7 & Apyrase Recruitment, and Secondary Loss in Toxorhynchites",
+        "after": "Mosquito Tree of Life: Triassic–Cenozoic Culicidae Phylogenomics (242.0 to 0.0 Ma; Crown Culicidae 145.0 Ma), Single Origin of Hematophagy, Salivary D7 & Apyrase Recruitment, and Secondary Loss in Toxorhynchites"
       }
     ],
     "estimatedMinutes": 98
