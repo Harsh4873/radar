@@ -2,136 +2,50 @@
   {
     "weekOf": "2026-11-16",
     "vertical": "campus",
-    "scanned": 3615,
-    "candidates": 345,
+    "scanned": 3563,
+    "candidates": 313,
     "recommended": [
       "campus-1c418638d751",
       "campus-9bf100a3502c",
-      "campus-5894668315c1",
-      "campus-5897e88315c4",
       "campus-9bf0ffa3502c",
-      "campus-7201f4832400"
+      "campus-3c45de3e2e8d",
+      "campus-7201f4832400",
+      "campus-22804bab25a0"
     ],
     "headlines": [
       "computer science · today · workshop / training",
       "company recruiting · graduate opportunities · today",
-      "company recruiting · today · other Aggie sports",
-      "company recruiting · today · other Aggie sports",
       "company recruiting · graduate opportunities · tomorrow",
-      "data science · today · workshop / training"
+      "computer science · tomorrow · workshop / training",
+      "data science · today · workshop / training",
+      "research opportunity · tomorrow · workshop / training"
     ],
-    "changes": [
-      {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-17T06:00:00.000Z",
-        "after": "2026-11-18T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-4b58e4cb3437",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-17T06:00:00.000Z",
-        "after": "2026-11-18T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a31bb7b3fae6",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-15T06:00:00.000Z",
-        "after": "2026-12-14T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a470c01bfb5c",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-17T06:00:00.000Z",
-        "after": "2026-11-18T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-38cd088b2522",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-17T14:00:00.000Z",
-        "after": "2026-11-18T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-d608c84ea27f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-17T14:00:00.000Z",
-        "after": "2026-11-18T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-5897ee8315c4",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-17T17:30:00.000Z",
-        "after": "2026-11-18T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-20f8b92fbc28",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-24T06:00:00.000Z",
-        "after": "2026-11-23T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-197a8a2fb83e",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-17T14:00:00.000Z",
-        "after": "2026-11-18T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-41ad2d8b2a38",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-17T06:00:00.000Z",
-        "after": "2026-11-18T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ab49a74a0920",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-17T06:00:00.000Z",
-        "after": "2026-11-18T06:00:00.000Z"
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-11-16",
     "vertical": "research",
-    "scanned": 972,
-    "candidates": 112,
+    "scanned": 964,
+    "candidates": 125,
     "recommended": [
       "research-4adc9e95b82e",
       "research-d11f9c88a8b3",
+      "research-f8fdc49ea9bc",
       "research-9c0b080f119d",
       "research-ab719fd3bc76",
-      "research-5dc4d476e331",
-      "research-71e6250b0bb2"
+      "research-77339338062a"
     ],
     "headlines": [
       "positive selection · codon-model analysis · PAML / codeml",
       "positive selection · codon-model analysis · comparative genomics",
+      "positive selection · genomegaMap · comparative genomics",
       "M. tuberculosis · comparative genomics · very recent",
       "positive selection · codon-model analysis · very recent",
-      "comparative genomics · phylogenetics · pathogen evolution",
-      "codon-model analysis · phylogenetics · pathogen evolution"
+      "M. tuberculosis · antimicrobial resistance · pathogen evolution"
     ],
-    "changes": [
-      {
-        "itemId": "research-f6a8b5882b62",
-        "kind": "title",
-        "field": "Title",
-        "before": "Mosquito Tree of Life: Jurassic–Cenozoic Culicidae Phylogenomics (194.8 to 0.0 Ma), Single Origin of Hematophagy, Salivary D7 & Apyrase Recruitment, and Secondary Loss in Toxorhynchites",
-        "after": "Mosquito Tree of Life: Triassic–Cenozoic Culicidae Phylogenomics (242.0 to 0.0 Ma; Crown Culicidae 145.0 Ma), Single Origin of Hematophagy, Salivary D7 & Apyrase Recruitment, and Secondary Loss in Toxorhynchites"
-      }
-    ],
-    "estimatedMinutes": 98
+    "changes": [],
+    "estimatedMinutes": 94
   },
   {
     "weekOf": "2026-11-09",
