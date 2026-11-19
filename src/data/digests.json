@@ -2,46 +2,152 @@
   {
     "weekOf": "2026-11-16",
     "vertical": "campus",
-    "scanned": 3563,
-    "candidates": 313,
+    "scanned": 3856,
+    "candidates": 324,
     "recommended": [
-      "campus-1c418638d751",
-      "campus-9bf100a3502c",
+      "campus-3c3b733e2e84",
+      "campus-cc1e573def28",
       "campus-9bf0ffa3502c",
       "campus-3c45de3e2e8d",
-      "campus-7201f4832400",
-      "campus-22804bab25a0"
+      "campus-5897f48315c4",
+      "campus-cc215c3def2a"
     ],
     "headlines": [
-      "computer science · today · workshop / training",
+      "research opportunity · company recruiting · today",
+      "company recruiting · today · intramural sports",
       "company recruiting · graduate opportunities · today",
-      "company recruiting · graduate opportunities · tomorrow",
-      "computer science · tomorrow · workshop / training",
-      "data science · today · workshop / training",
-      "research opportunity · tomorrow · workshop / training"
+      "computer science · today · workshop / training",
+      "company recruiting · today · other Aggie sports",
+      "research opportunity · today · workshop / training"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-cc1e573def28",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-09T06:00:00.000Z",
+        "after": "2026-11-19T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-18T06:00:00.000Z",
+        "after": "2026-11-19T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-cc13c23def1e",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-09T06:00:00.000Z",
+        "after": "2026-11-19T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-cc13c83def1e",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-09T06:00:00.000Z",
+        "after": "2026-11-19T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a470c01bfb5c",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-18T06:00:00.000Z",
+        "after": "2026-11-19T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-04af418c03b9",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-18T13:30:00.000Z",
+        "after": "2026-11-19T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-7b298f832953",
+        "kind": "location",
+        "field": "Location",
+        "before": "2758 Main St., Industry, TX 78944",
+        "after": "15994 Fordtran Blvd, Industry, TX 78944"
+      },
+      {
+        "itemId": "campus-c147d8835146",
+        "kind": "title",
+        "field": "Title",
+        "before": "2027 AGLS on Tour — Lubbock",
+        "after": "2027 AGLS on Tour — Amarillo"
+      },
+      {
+        "itemId": "campus-c147d8835146",
+        "kind": "location",
+        "field": "Location",
+        "before": "1121 Canyon Lake Drive, lubbock",
+        "after": "550 S. Buchanan St., Amarillo, TX 79101"
+      },
+      {
+        "itemId": "campus-c147d8835146",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2027-01-23T18:00:00.000Z",
+        "after": "2027-01-20T00:30:00.000Z"
+      },
+      {
+        "itemId": "campus-5ece8645d2bd",
+        "kind": "title",
+        "field": "Title",
+        "before": "Seminar Speaker Series: Katie Smye",
+        "after": "Seminar Speaker Series: Nicolas DeSalvio"
+      },
+      {
+        "itemId": "campus-394c5fa214ec",
+        "kind": "title",
+        "field": "Title",
+        "before": "HET Seminar",
+        "after": "Stability of Kerr and Kerr–Newman Black Holes"
+      },
+      {
+        "itemId": "campus-ab49a74a0920",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-18T06:00:00.000Z",
+        "after": "2026-11-19T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-f271528afcfb",
+        "kind": "title",
+        "field": "Title",
+        "before": "HEPEC Seminar",
+        "after": "Cutting Rule on Cosmological Correlators and Its Applications"
+      },
+      {
+        "itemId": "campus-6ac44983204d",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-09T14:00:00.000Z",
+        "after": "2026-12-10T06:00:00.000Z"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-11-16",
     "vertical": "research",
-    "scanned": 964,
-    "candidates": 125,
+    "scanned": 975,
+    "candidates": 126,
     "recommended": [
       "research-4adc9e95b82e",
-      "research-d11f9c88a8b3",
       "research-f8fdc49ea9bc",
+      "research-d11f9c88a8b3",
       "research-9c0b080f119d",
       "research-ab719fd3bc76",
       "research-77339338062a"
     ],
     "headlines": [
       "positive selection · codon-model analysis · PAML / codeml",
-      "positive selection · codon-model analysis · comparative genomics",
       "positive selection · genomegaMap · comparative genomics",
-      "M. tuberculosis · comparative genomics · very recent",
-      "positive selection · codon-model analysis · very recent",
+      "positive selection · codon-model analysis · comparative genomics",
+      "M. tuberculosis · comparative genomics · antimicrobial resistance",
+      "positive selection · codon-model analysis · pathogen evolution",
       "M. tuberculosis · antimicrobial resistance · pathogen evolution"
     ],
     "changes": [],
