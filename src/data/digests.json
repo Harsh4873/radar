@@ -2,32 +2,103 @@
   {
     "weekOf": "2026-11-16",
     "vertical": "campus",
-    "scanned": 3880,
-    "candidates": 308,
+    "scanned": 3795,
+    "candidates": 262,
     "recommended": [
-      "campus-3c3b733e2e84",
-      "campus-9bf0ffa3502c",
-      "campus-3c45de3e2e8d",
-      "campus-cc215c3def2a",
-      "campus-cc43533def47",
-      "campus-9bf0fea3502c"
+      "campus-cc1e533def28",
+      "campus-9bf0fea3502c",
+      "campus-5897f48315c4",
+      "campus-77945d2fed35",
+      "campus-7212f783240e",
+      "campus-9bf0fda3502c"
     ],
     "headlines": [
-      "research opportunity · company recruiting · today",
+      "company recruiting · today · intramural sports",
       "company recruiting · graduate opportunities · today",
-      "computer science · today · workshop / training",
-      "research opportunity · today · workshop / training",
-      "research opportunity · today · workshop / training",
-      "company recruiting · graduate opportunities · tomorrow"
+      "company recruiting · today · other Aggie sports",
+      "research opportunity · employer: target · workshop / training",
+      "data science · today · workshop / training",
+      "company recruiting · graduate opportunities · this week"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-19T06:00:00.000Z",
+        "after": "2026-11-20T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a470c01bfb5c",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-19T06:00:00.000Z",
+        "after": "2026-11-20T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-e5b7d13dfd8b",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-19T14:00:00.000Z",
+        "after": "2026-11-20T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-1f92b28c1335",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-20T01:00:00.000Z",
+        "after": "2026-11-20T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a33a45b3fb00",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-26T06:00:00.000Z",
+        "after": "2026-11-27T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ab49a74a0920",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-19T06:00:00.000Z",
+        "after": "2026-11-20T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-9461fd92e256",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-03T06:00:00.000Z",
+        "after": "2026-12-04T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-6ac44983204d",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-10T06:00:00.000Z",
+        "after": "2026-12-09T14:00:00.000Z"
+      },
+      {
+        "itemId": "campus-9461fe92e256",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-10T06:00:00.000Z",
+        "after": "2026-12-11T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a33737b3fafd",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-10T06:00:00.000Z",
+        "after": "2026-12-11T06:00:00.000Z"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-11-16",
     "vertical": "research",
-    "scanned": 938,
-    "candidates": 117,
+    "scanned": 1014,
+    "candidates": 133,
     "recommended": [
       "research-4adc9e95b82e",
       "research-46ba8662f63e",
