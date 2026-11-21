@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-20T19:09:33.685Z",
+  "fetchedAt": "2026-11-21T04:01:37.411Z",
   "totalFromHeader": 95,
   "studies": [
     {
@@ -6863,7 +6863,7 @@
       },
       "effectiveHourly": 20,
       "isExpired": false,
-      "staleness": "fresh",
+      "staleness": "aging",
       "tags": [
         "in-person",
         "mri",
@@ -10560,7 +10560,7 @@
       "status": "ok",
       "itemCount": 86,
       "fetchSource": "network",
-      "durationMs": 2369,
+      "durationMs": 1580,
       "failedRequests": 0,
       "complete": true,
       "note": null,
@@ -10573,7 +10573,7 @@
       "status": "ok",
       "itemCount": 21,
       "fetchSource": "network",
-      "durationMs": 627,
+      "durationMs": 457,
       "failedRequests": 0,
       "complete": true,
       "note": null,

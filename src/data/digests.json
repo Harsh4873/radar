@@ -2,94 +2,31 @@
   {
     "weekOf": "2026-11-16",
     "vertical": "campus",
-    "scanned": 3795,
-    "candidates": 262,
+    "scanned": 3799,
+    "candidates": 239,
     "recommended": [
-      "campus-cc1e533def28",
       "campus-9bf0fea3502c",
-      "campus-5897f48315c4",
       "campus-77945d2fed35",
       "campus-7212f783240e",
-      "campus-9bf0fda3502c"
+      "campus-9bf0fda3502c",
+      "campus-9bf0fca3502b",
+      "campus-9bf0fba3502b"
     ],
     "headlines": [
-      "company recruiting · today · intramural sports",
       "company recruiting · graduate opportunities · today",
-      "company recruiting · today · other Aggie sports",
       "research opportunity · employer: target · workshop / training",
       "data science · today · workshop / training",
+      "company recruiting · graduate opportunities · this week",
+      "company recruiting · graduate opportunities · this week",
       "company recruiting · graduate opportunities · this week"
     ],
     "changes": [
       {
-        "itemId": "campus-b314811cb984",
+        "itemId": "campus-16b9998c0e24",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-11-19T06:00:00.000Z",
-        "after": "2026-11-20T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a470c01bfb5c",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-19T06:00:00.000Z",
-        "after": "2026-11-20T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-e5b7d13dfd8b",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-19T14:00:00.000Z",
-        "after": "2026-11-20T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-1f92b28c1335",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-20T01:00:00.000Z",
-        "after": "2026-11-20T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a33a45b3fb00",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-26T06:00:00.000Z",
-        "after": "2026-11-27T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ab49a74a0920",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-19T06:00:00.000Z",
-        "after": "2026-11-20T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-9461fd92e256",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-03T06:00:00.000Z",
-        "after": "2026-12-04T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-6ac44983204d",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-10T06:00:00.000Z",
-        "after": "2026-12-09T14:00:00.000Z"
-      },
-      {
-        "itemId": "campus-9461fe92e256",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-10T06:00:00.000Z",
-        "after": "2026-12-11T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a33737b3fafd",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-10T06:00:00.000Z",
-        "after": "2026-12-11T06:00:00.000Z"
+        "before": "2026-11-20T21:00:00.000Z",
+        "after": "2026-11-20T22:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -97,26 +34,26 @@
   {
     "weekOf": "2026-11-16",
     "vertical": "research",
-    "scanned": 1014,
+    "scanned": 994,
     "candidates": 133,
     "recommended": [
       "research-4adc9e95b82e",
-      "research-46ba8662f63e",
       "research-f8fdc49ea9bc",
       "research-d11f9c88a8b3",
       "research-9c0b080f119d",
-      "research-ab719fd3bc76"
+      "research-ab719fd3bc76",
+      "research-ecb2dd1c7744"
     ],
     "headlines": [
-      "positive selection · codon-model analysis · PAML / codeml",
       "positive selection · codon-model analysis · PAML / codeml",
       "positive selection · genomegaMap · comparative genomics",
       "positive selection · codon-model analysis · comparative genomics",
       "M. tuberculosis · comparative genomics · antimicrobial resistance",
-      "positive selection · codon-model analysis · pathogen evolution"
+      "positive selection · codon-model analysis · pathogen evolution",
+      "M. tuberculosis · comparative genomics · very recent"
     ],
     "changes": [],
-    "estimatedMinutes": 97
+    "estimatedMinutes": 95
   },
   {
     "weekOf": "2026-11-09",
