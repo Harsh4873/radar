@@ -2,32 +2,82 @@
   {
     "weekOf": "2026-11-16",
     "vertical": "campus",
-    "scanned": 3743,
-    "candidates": 209,
+    "scanned": 3750,
+    "candidates": 255,
     "recommended": [
       "campus-3c3b6d3e2e84",
+      "campus-cc1e533def28",
+      "campus-5897f48315c4",
       "campus-77945d2fed35",
       "campus-9bf0fda3502c",
-      "campus-9bf0fca3502b",
-      "campus-9bf0fba3502b",
-      "campus-9bf10aa3502c"
+      "campus-eb2cce8bf568"
     ],
     "headlines": [
       "biotech · graduate opportunities · workshop / training",
+      "company recruiting · today · intramural sports",
+      "company recruiting · today · other Aggie sports",
       "research opportunity · employer: target · workshop / training",
-      "company recruiting · graduate opportunities · this week",
-      "company recruiting · graduate opportunities · this week",
-      "company recruiting · graduate opportunities · this week",
-      "company recruiting · graduate opportunities · this week"
+      "company recruiting · graduate opportunities · tomorrow",
+      "biotech · company recruiting · workshop / training"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-21T06:00:00.000Z",
+        "after": "2026-11-22T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-e5b7d73dfd8b",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-21T19:00:00.000Z",
+        "after": "2026-11-22T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-abc1266a55f3",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-12T06:00:00.000Z",
+        "after": "2026-12-11T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a470c01bfb5c",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-21T06:00:00.000Z",
+        "after": "2026-11-22T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-cc46d23def4a",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-21T15:00:00.000Z",
+        "after": "2026-11-22T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ab49a74a0920",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-21T06:00:00.000Z",
+        "after": "2026-11-22T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-e5b7d23dfd8b",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-21T14:30:00.000Z",
+        "after": "2026-11-22T06:00:00.000Z"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-11-16",
     "vertical": "research",
-    "scanned": 994,
-    "candidates": 131,
+    "scanned": 995,
+    "candidates": 129,
     "recommended": [
       "research-4adc9e95b82e",
       "research-f8fdc49ea9bc",
@@ -44,15 +94,7 @@
       "M. tuberculosis · phylogenetics · selection methods applied to Mtb",
       "positive selection · codon-model analysis · pathogen evolution"
     ],
-    "changes": [
-      {
-        "itemId": "research-21df9e81a4cd",
-        "kind": "title",
-        "field": "Title",
-        "before": "Clofarabine enforces dual host-pathogen translational arrest and disarms enteric bacterial virulence",
-        "after": "Repurposing clofarabine against enteric pathogens via metabolic starvation"
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 93
   },
   {
