@@ -1,5 +1,47 @@
 [
   {
+    "weekOf": "2026-11-23",
+    "vertical": "campus",
+    "scanned": 3750,
+    "candidates": 234,
+    "recommended": [],
+    "headlines": [],
+    "changes": [],
+    "estimatedMinutes": 0
+  },
+  {
+    "weekOf": "2026-11-23",
+    "vertical": "research",
+    "scanned": 971,
+    "candidates": 125,
+    "recommended": [
+      "research-b60b5567188d",
+      "research-ecc6db1c7755",
+      "research-67a696176a70",
+      "research-ec59e610934d",
+      "research-aa676e624203",
+      "research-7c1f9fc184a6"
+    ],
+    "headlines": [
+      "comparative genomics · phylogenetics · recent",
+      "M. tuberculosis · recent · TB epidemiology",
+      "M. tuberculosis · recent · computational biology",
+      "M. tuberculosis · recent · revised preprint (v2)",
+      "M. tuberculosis · recent · revised preprint (v2)",
+      "M. tuberculosis · recent · revised preprint (v2)"
+    ],
+    "changes": [
+      {
+        "itemId": "research-7c4831c184c8",
+        "kind": "preprint-revised",
+        "field": "Preprint version",
+        "before": "v1",
+        "after": "v2"
+      }
+    ],
+    "estimatedMinutes": 103
+  },
+  {
     "weekOf": "2026-11-16",
     "vertical": "campus",
     "scanned": 3750,
