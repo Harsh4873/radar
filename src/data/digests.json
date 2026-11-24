@@ -2,136 +2,38 @@
   {
     "weekOf": "2026-11-23",
     "vertical": "campus",
-    "scanned": 2198,
-    "candidates": 227,
+    "scanned": 2226,
+    "candidates": 232,
     "recommended": [
       "campus-a3817246f5a1",
+      "campus-a36ce246f58f",
       "campus-a398ec46f5b4",
       "campus-7b229083294d",
       "campus-b51776a35e2e",
-      "campus-34d8343e2ab1",
-      "campus-e4c9569412ff"
+      "campus-34d8343e2ab1"
     ],
     "headlines": [
       "computer science · data science · this week",
+      "research opportunity · biotech · workshop / training",
       "company recruiting · workshop / training · in the next 3 weeks",
       "company recruiting · workshop / training · in the next 3 weeks",
       "graduate opportunities · today",
-      "graduate opportunities · in the next 3 weeks · social",
-      "today · workshop / training · social"
+      "graduate opportunities · in the next 3 weeks · social"
     ],
     "changes": [
       {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-23T06:00:00.000Z",
-        "after": "2026-11-24T06:00:00.000Z"
+        "itemId": "campus-eb2cce8bf568",
+        "kind": "location",
+        "field": "Location",
+        "before": "National Center for Therapeutics Manufacturing (NCTM)",
+        "after": "Zachry Engineering Education Complex"
       },
       {
-        "itemId": "campus-a31bb7b3fae6",
+        "itemId": "campus-eb2cce8bf568",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-12-14T06:00:00.000Z",
-        "after": "2026-12-15T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11bdd57a28c5",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-30T06:00:00.000Z",
-        "after": "2026-12-01T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-e4c9569412ff",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-23T06:00:00.000Z",
-        "after": "2026-11-24T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a470c01bfb5c",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-23T06:00:00.000Z",
-        "after": "2026-11-24T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-20f8b92fbc28",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-23T06:00:00.000Z",
-        "after": "2026-11-24T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-945e8092e253",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-23T06:00:00.000Z",
-        "after": "2026-11-24T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-f793183e07cf",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-23T06:00:00.000Z",
-        "after": "2026-11-24T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ac117d6985f5",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-30T14:00:00.000Z",
-        "after": "2026-12-01T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-0762382fadc6",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-23T06:00:00.000Z",
-        "after": "2026-11-24T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-197a8a2fb83e",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-23T06:00:00.000Z",
-        "after": "2026-11-24T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-273774a20a77",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-23T06:00:00.000Z",
-        "after": "2026-11-24T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-2c77ba732b51",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-23T06:00:00.000Z",
-        "after": "2026-11-24T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-3c3b6e3e2e84",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-23T06:00:00.000Z",
-        "after": "2026-11-24T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ab49a74a0920",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-23T06:00:00.000Z",
-        "after": "2026-11-24T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-fe609d2fa894",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-23T06:00:00.000Z",
-        "after": "2026-11-24T06:00:00.000Z"
+        "before": "2027-02-05T15:00:00.000Z",
+        "after": "2027-02-10T15:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -139,48 +41,34 @@
   {
     "weekOf": "2026-11-23",
     "vertical": "research",
-    "scanned": 983,
-    "candidates": 118,
+    "scanned": 1016,
+    "candidates": 122,
     "recommended": [
       "research-ecb2dd1c7744",
       "research-2a0daf3002fd",
       "research-913c7143d98d",
+      "research-942a8f375ff1",
       "research-0d3edadaba82",
-      "research-c4c15af24e12",
-      "research-b918c5704e3d"
+      "research-c4c15af24e12"
     ],
     "headlines": [
       "M. tuberculosis · comparative genomics · antimicrobial resistance",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · host-pathogen interaction · recent",
+      "codon-model analysis · comparative genomics · recent",
       "comparative genomics · antimicrobial resistance · pathogen evolution",
-      "comparative genomics · phylogenetics · pathogen evolution",
-      "codon-model analysis · phylogenetics · recent"
+      "comparative genomics · phylogenetics · pathogen evolution"
     ],
     "changes": [
       {
-        "itemId": "research-7cf2a126f2cd",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v1",
-        "after": "v2"
-      },
-      {
-        "itemId": "research-21df9e81a4cd",
+        "itemId": "research-308d7225c32d",
         "kind": "title",
         "field": "Title",
-        "before": "Repurposing clofarabine against enteric pathogens via metabolic starvation",
-        "after": "Clofarabine enforces dual host-pathogen translational arrest and disarms enteric bacterial virulence"
-      },
-      {
-        "itemId": "research-21df9e81a4cd",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v2",
-        "after": "v3"
+        "before": "Global Phylogenomics of Plant-Parasitic and Agricultural Pest Nematodes (Phylum Nematoda): Native Rust Quartet Coalescent Species-Tree Inference, HGT Cellulase and Stylet Effector Selection, Cytochrome P450 Modeling, and Multi-Locus Demographic Skylines",
+        "after": "Global Phylogenomics of Plant-Parasitic and Agricultural Pest Nematodes: Native Rust Quartet Coalescent Species-Tree Inference, HGT Cellulase and Stylet Effector Selection, Cytochrome P450 Modeling, and Multi-Locus Skylines"
       }
     ],
-    "estimatedMinutes": 96
+    "estimatedMinutes": 97
   },
   {
     "weekOf": "2026-11-16",
