@@ -2,31 +2,108 @@
   {
     "weekOf": "2026-11-23",
     "vertical": "campus",
-    "scanned": 2217,
-    "candidates": 221,
+    "scanned": 2155,
+    "candidates": 232,
     "recommended": [
-      "campus-a3817246f5a1",
       "campus-a36ce246f58f",
-      "campus-a398ec46f5b4",
-      "campus-7b229083294d",
-      "campus-b51776a35e2e",
-      "campus-34d8343e2ab1"
+      "campus-5897e78315c4",
+      "campus-5897f48315c4",
+      "campus-9bed7ca35028",
+      "campus-0784512fade3",
+      "campus-0787be2fade6"
     ],
     "headlines": [
-      "computer science · data science · this week",
       "research opportunity · biotech · workshop / training",
-      "company recruiting · workshop / training · in the next 3 weeks",
-      "company recruiting · workshop / training · in the next 3 weeks",
-      "graduate opportunities · today",
-      "graduate opportunities · in the next 3 weeks · social"
+      "company recruiting · today · other Aggie sports",
+      "company recruiting · today · other Aggie sports",
+      "company recruiting · graduate opportunities · this week",
+      "company recruiting · graduate opportunities · in the next 3 weeks",
+      "company recruiting · graduate opportunities · in the next 3 weeks"
     ],
     "changes": [
       {
-        "itemId": "campus-a303b83892a7",
+        "itemId": "campus-eb2cce8bf568",
+        "kind": "location",
+        "field": "Location",
+        "before": "Zachry Engineering Education Complex",
+        "after": "National Center for Therapeutics Manufacturing (NCTM)"
+      },
+      {
+        "itemId": "campus-eb2cce8bf568",
         "kind": "time",
         "field": "Start time",
-        "before": "2026-12-16T14:00:00.000Z",
-        "after": "2026-12-10T14:00:00.000Z"
+        "before": "2027-02-10T15:00:00.000Z",
+        "after": "2027-02-05T15:00:00.000Z"
+      },
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-24T06:00:00.000Z",
+        "after": "2026-11-25T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-cc1e4b3def28",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-01T20:00:00.000Z",
+        "after": "2026-12-02T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-11bdd57a28c5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-01T06:00:00.000Z",
+        "after": "2026-11-25T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a31bb7b3fae6",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-15T06:00:00.000Z",
+        "after": "2026-12-14T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a470c01bfb5c",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-24T06:00:00.000Z",
+        "after": "2026-11-25T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-11b3477a28bc",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-02T14:00:00.000Z",
+        "after": "2026-11-25T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ac117d6985f5",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-01T06:00:00.000Z",
+        "after": "2026-11-25T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-d608c84ea27f",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-15T06:00:00.000Z",
+        "after": "2026-11-25T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-cc1e593def28",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-01T14:30:00.000Z",
+        "after": "2026-12-02T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-709444a33798",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-15T15:00:00.000Z",
+        "after": "2026-12-16T06:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -34,34 +111,26 @@
   {
     "weekOf": "2026-11-23",
     "vertical": "research",
-    "scanned": 978,
-    "candidates": 124,
+    "scanned": 1023,
+    "candidates": 133,
     "recommended": [
       "research-46ba8662f63e",
       "research-f1aeb896abf0",
+      "research-1bc63fabbfe7",
       "research-391040c7925d",
       "research-ecb2dd1c7744",
-      "research-77339338062a",
-      "research-2a0daf3002fd"
+      "research-152d118f5f15"
     ],
     "headlines": [
       "positive selection · codon-model analysis · PAML / codeml",
       "M. tuberculosis · positive selection · phylogenetics",
+      "positive selection · codon-model analysis · comparative genomics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
       "M. tuberculosis · comparative genomics · antimicrobial resistance",
-      "M. tuberculosis · antimicrobial resistance · pathogen evolution",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
-    "changes": [
-      {
-        "itemId": "research-21df9e81a4cd",
-        "kind": "title",
-        "field": "Title",
-        "before": "Clofarabine enforces dual host-pathogen translational arrest and disarms enteric bacterial virulence",
-        "after": "Repurposing clofarabine against enteric pathogens via metabolic starvation"
-      }
-    ],
-    "estimatedMinutes": 98
+    "changes": [],
+    "estimatedMinutes": 102
   },
   {
     "weekOf": "2026-11-16",
