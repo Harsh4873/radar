@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-11-23",
     "vertical": "campus",
-    "scanned": 2226,
-    "candidates": 232,
+    "scanned": 2217,
+    "candidates": 221,
     "recommended": [
       "campus-a3817246f5a1",
       "campus-a36ce246f58f",
@@ -22,18 +22,11 @@
     ],
     "changes": [
       {
-        "itemId": "campus-eb2cce8bf568",
-        "kind": "location",
-        "field": "Location",
-        "before": "National Center for Therapeutics Manufacturing (NCTM)",
-        "after": "Zachry Engineering Education Complex"
-      },
-      {
-        "itemId": "campus-eb2cce8bf568",
+        "itemId": "campus-a303b83892a7",
         "kind": "time",
         "field": "Start time",
-        "before": "2027-02-05T15:00:00.000Z",
-        "after": "2027-02-10T15:00:00.000Z"
+        "before": "2026-12-16T14:00:00.000Z",
+        "after": "2026-12-10T14:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -41,34 +34,34 @@
   {
     "weekOf": "2026-11-23",
     "vertical": "research",
-    "scanned": 1016,
-    "candidates": 122,
+    "scanned": 978,
+    "candidates": 124,
     "recommended": [
+      "research-46ba8662f63e",
+      "research-f1aeb896abf0",
+      "research-391040c7925d",
       "research-ecb2dd1c7744",
-      "research-2a0daf3002fd",
-      "research-913c7143d98d",
-      "research-942a8f375ff1",
-      "research-0d3edadaba82",
-      "research-c4c15af24e12"
+      "research-77339338062a",
+      "research-2a0daf3002fd"
     ],
     "headlines": [
-      "M. tuberculosis · comparative genomics · antimicrobial resistance",
+      "positive selection · codon-model analysis · PAML / codeml",
+      "M. tuberculosis · positive selection · phylogenetics",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · host-pathogen interaction · recent",
-      "codon-model analysis · comparative genomics · recent",
-      "comparative genomics · antimicrobial resistance · pathogen evolution",
-      "comparative genomics · phylogenetics · pathogen evolution"
+      "M. tuberculosis · comparative genomics · antimicrobial resistance",
+      "M. tuberculosis · antimicrobial resistance · pathogen evolution",
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
     "changes": [
       {
-        "itemId": "research-308d7225c32d",
+        "itemId": "research-21df9e81a4cd",
         "kind": "title",
         "field": "Title",
-        "before": "Global Phylogenomics of Plant-Parasitic and Agricultural Pest Nematodes (Phylum Nematoda): Native Rust Quartet Coalescent Species-Tree Inference, HGT Cellulase and Stylet Effector Selection, Cytochrome P450 Modeling, and Multi-Locus Demographic Skylines",
-        "after": "Global Phylogenomics of Plant-Parasitic and Agricultural Pest Nematodes: Native Rust Quartet Coalescent Species-Tree Inference, HGT Cellulase and Stylet Effector Selection, Cytochrome P450 Modeling, and Multi-Locus Skylines"
+        "before": "Clofarabine enforces dual host-pathogen translational arrest and disarms enteric bacterial virulence",
+        "after": "Repurposing clofarabine against enteric pathogens via metabolic starvation"
       }
     ],
-    "estimatedMinutes": 97
+    "estimatedMinutes": 98
   },
   {
     "weekOf": "2026-11-16",
