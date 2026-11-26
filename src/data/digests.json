@@ -2,38 +2,101 @@
   {
     "weekOf": "2026-11-23",
     "vertical": "campus",
-    "scanned": 2210,
-    "candidates": 219,
+    "scanned": 2169,
+    "candidates": 215,
     "recommended": [
-      "campus-a36ce246f58f",
+      "campus-a3817246f5a1",
       "campus-9bed7ca35028",
+      "campus-9bed7da35028",
       "campus-0784512fade3",
       "campus-0787be2fade6",
-      "campus-2c6339732b3f",
-      "campus-9bed79a35028"
+      "campus-2c6339732b3f"
     ],
     "headlines": [
-      "research opportunity · biotech · workshop / training",
+      "computer science · data science · this week",
+      "company recruiting · graduate opportunities · this week",
       "company recruiting · graduate opportunities · this week",
       "company recruiting · graduate opportunities · in the next 3 weeks",
       "company recruiting · graduate opportunities · in the next 3 weeks",
-      "biotech · this week · workshop / training",
-      "company recruiting · graduate opportunities · in the next 3 weeks"
+      "biotech · this week · workshop / training"
     ],
     "changes": [
       {
-        "itemId": "campus-eb2cce8bf568",
-        "kind": "location",
-        "field": "Location",
-        "before": "National Center for Therapeutics Manufacturing (NCTM)",
-        "after": "Zachry Engineering Education Complex"
-      },
-      {
-        "itemId": "campus-eb2cce8bf568",
+        "itemId": "campus-b314811cb984",
         "kind": "time",
         "field": "Start time",
-        "before": "2027-02-05T15:00:00.000Z",
-        "after": "2027-02-10T15:00:00.000Z"
+        "before": "2026-11-25T06:00:00.000Z",
+        "after": "2026-11-26T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-cc1e4b3def28",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-02T06:00:00.000Z",
+        "after": "2026-12-01T20:00:00.000Z"
+      },
+      {
+        "itemId": "campus-ee687e3e027a",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-16T06:00:00.000Z",
+        "after": "2026-12-15T14:00:00.000Z"
+      },
+      {
+        "itemId": "campus-c147d8835146",
+        "kind": "title",
+        "field": "Title",
+        "before": "2027 AGLS on Tour — Lubbock",
+        "after": "2027 AGLS on Tour — Amarillo"
+      },
+      {
+        "itemId": "campus-c147d8835146",
+        "kind": "location",
+        "field": "Location",
+        "before": "1121 Canyon Lake Drive, lubbock",
+        "after": "550 S. Buchanan St., Amarillo, TX 79101"
+      },
+      {
+        "itemId": "campus-c147d8835146",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2027-01-23T18:00:00.000Z",
+        "after": "2027-01-20T00:30:00.000Z"
+      },
+      {
+        "itemId": "campus-a470c01bfb5c",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-25T06:00:00.000Z",
+        "after": "2026-11-26T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-f793183e07cf",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-02T06:00:00.000Z",
+        "after": "2026-11-26T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-cc1e593def28",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-02T06:00:00.000Z",
+        "after": "2026-12-01T14:30:00.000Z"
+      },
+      {
+        "itemId": "campus-6ac44983204d",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-09T14:00:00.000Z",
+        "after": "2026-12-10T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-709444a33798",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-16T06:00:00.000Z",
+        "after": "2026-12-15T15:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -41,34 +104,41 @@
   {
     "weekOf": "2026-11-23",
     "vertical": "research",
-    "scanned": 990,
-    "candidates": 113,
+    "scanned": 1007,
+    "candidates": 119,
     "recommended": [
+      "research-dc9edd6f7f1e",
+      "research-dc7cdb6f7f01",
       "research-cbee9063bf55",
       "research-1bc63fabbfe7",
       "research-f8fdc19ea9bc",
-      "research-152d118f5f15",
-      "research-2a0daf3002fd",
-      "research-770cfbd7ef00"
+      "research-152d118f5f15"
     ],
     "headlines": [
+      "M. tuberculosis · comparative genomics · phylogenetics",
+      "M. tuberculosis · comparative genomics · phylogenetics",
       "M. tuberculosis · phylogenetics · selection methods applied to Mtb",
       "positive selection · codon-model analysis · comparative genomics",
       "positive selection · comparative genomics · pathogen evolution",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · selection methods applied to Mtb · very recent"
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
     "changes": [
       {
-        "itemId": "research-a2a6117811da",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v1",
-        "after": "v2"
+        "itemId": "research-d11f9c88a8b3",
+        "kind": "title",
+        "field": "Title",
+        "before": "Structural Organization and Repeat Landscape of the Mitochondrial Genome of Polygonatum zanlanscianense, with a Comparison to Congeneric Species",
+        "after": "Structural Organization and Repeat Landscape of the Mitochondrial Genome of Polygonatum zanlanscianense, with a Comparison to Congeneric Species."
+      },
+      {
+        "itemId": "research-71e6250b0bb2",
+        "kind": "title",
+        "field": "Title",
+        "before": "Full-Length Transcript Evidence Validates and Refines Lineage-Specific Chemosensory and Detoxification Gene Models in the Pygmy Grasshopper Hyboella guangxiensis",
+        "after": "Full-Length Transcript Evidence Validates and Refines Lineage-Specific Chemosensory and Detoxification Gene Models in the Pygmy Grasshopper Hyboella guangxiensis."
       }
     ],
-    "estimatedMinutes": 100
+    "estimatedMinutes": 96
   },
   {
     "weekOf": "2026-11-16",
