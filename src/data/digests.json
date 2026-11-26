@@ -2,22 +2,22 @@
   {
     "weekOf": "2026-11-23",
     "vertical": "campus",
-    "scanned": 2155,
-    "candidates": 232,
+    "scanned": 2210,
+    "candidates": 219,
     "recommended": [
       "campus-a36ce246f58f",
-      "campus-5897e78315c4",
-      "campus-5897f48315c4",
       "campus-9bed7ca35028",
       "campus-0784512fade3",
-      "campus-0787be2fade6"
+      "campus-0787be2fade6",
+      "campus-2c6339732b3f",
+      "campus-9bed79a35028"
     ],
     "headlines": [
       "research opportunity · biotech · workshop / training",
-      "company recruiting · today · other Aggie sports",
-      "company recruiting · today · other Aggie sports",
       "company recruiting · graduate opportunities · this week",
       "company recruiting · graduate opportunities · in the next 3 weeks",
+      "company recruiting · graduate opportunities · in the next 3 weeks",
+      "biotech · this week · workshop / training",
       "company recruiting · graduate opportunities · in the next 3 weeks"
     ],
     "changes": [
@@ -25,85 +25,15 @@
         "itemId": "campus-eb2cce8bf568",
         "kind": "location",
         "field": "Location",
-        "before": "Zachry Engineering Education Complex",
-        "after": "National Center for Therapeutics Manufacturing (NCTM)"
+        "before": "National Center for Therapeutics Manufacturing (NCTM)",
+        "after": "Zachry Engineering Education Complex"
       },
       {
         "itemId": "campus-eb2cce8bf568",
         "kind": "time",
         "field": "Start time",
-        "before": "2027-02-10T15:00:00.000Z",
-        "after": "2027-02-05T15:00:00.000Z"
-      },
-      {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-24T06:00:00.000Z",
-        "after": "2026-11-25T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-cc1e4b3def28",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-01T20:00:00.000Z",
-        "after": "2026-12-02T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11bdd57a28c5",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-01T06:00:00.000Z",
-        "after": "2026-11-25T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a31bb7b3fae6",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-15T06:00:00.000Z",
-        "after": "2026-12-14T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a470c01bfb5c",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-24T06:00:00.000Z",
-        "after": "2026-11-25T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-11b3477a28bc",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-02T14:00:00.000Z",
-        "after": "2026-11-25T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ac117d6985f5",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-01T06:00:00.000Z",
-        "after": "2026-11-25T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-d608c84ea27f",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-15T06:00:00.000Z",
-        "after": "2026-11-25T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-cc1e593def28",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-01T14:30:00.000Z",
-        "after": "2026-12-02T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-709444a33798",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-15T15:00:00.000Z",
-        "after": "2026-12-16T06:00:00.000Z"
+        "before": "2027-02-05T15:00:00.000Z",
+        "after": "2027-02-10T15:00:00.000Z"
       }
     ],
     "estimatedMinutes": 0
@@ -111,26 +41,34 @@
   {
     "weekOf": "2026-11-23",
     "vertical": "research",
-    "scanned": 1023,
-    "candidates": 133,
+    "scanned": 990,
+    "candidates": 113,
     "recommended": [
-      "research-46ba8662f63e",
-      "research-f1aeb896abf0",
+      "research-cbee9063bf55",
       "research-1bc63fabbfe7",
-      "research-391040c7925d",
-      "research-ecb2dd1c7744",
-      "research-152d118f5f15"
+      "research-f8fdc19ea9bc",
+      "research-152d118f5f15",
+      "research-2a0daf3002fd",
+      "research-770cfbd7ef00"
     ],
     "headlines": [
-      "positive selection · codon-model analysis · PAML / codeml",
-      "M. tuberculosis · positive selection · phylogenetics",
+      "M. tuberculosis · phylogenetics · selection methods applied to Mtb",
       "positive selection · codon-model analysis · comparative genomics",
+      "positive selection · comparative genomics · pathogen evolution",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
-      "M. tuberculosis · comparative genomics · antimicrobial resistance",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
+      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle",
+      "M. tuberculosis · selection methods applied to Mtb · very recent"
     ],
-    "changes": [],
-    "estimatedMinutes": 102
+    "changes": [
+      {
+        "itemId": "research-a2a6117811da",
+        "kind": "preprint-revised",
+        "field": "Preprint version",
+        "before": "v1",
+        "after": "v2"
+      }
+    ],
+    "estimatedMinutes": 100
   },
   {
     "weekOf": "2026-11-16",
