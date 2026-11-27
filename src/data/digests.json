@@ -3,7 +3,7 @@
     "weekOf": "2026-11-23",
     "vertical": "campus",
     "scanned": 2169,
-    "candidates": 215,
+    "candidates": 200,
     "recommended": [
       "campus-a3817246f5a1",
       "campus-9bed7ca35028",
@@ -20,92 +20,14 @@
       "company recruiting · graduate opportunities · in the next 3 weeks",
       "biotech · this week · workshop / training"
     ],
-    "changes": [
-      {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-25T06:00:00.000Z",
-        "after": "2026-11-26T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-cc1e4b3def28",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-02T06:00:00.000Z",
-        "after": "2026-12-01T20:00:00.000Z"
-      },
-      {
-        "itemId": "campus-ee687e3e027a",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-16T06:00:00.000Z",
-        "after": "2026-12-15T14:00:00.000Z"
-      },
-      {
-        "itemId": "campus-c147d8835146",
-        "kind": "title",
-        "field": "Title",
-        "before": "2027 AGLS on Tour — Lubbock",
-        "after": "2027 AGLS on Tour — Amarillo"
-      },
-      {
-        "itemId": "campus-c147d8835146",
-        "kind": "location",
-        "field": "Location",
-        "before": "1121 Canyon Lake Drive, lubbock",
-        "after": "550 S. Buchanan St., Amarillo, TX 79101"
-      },
-      {
-        "itemId": "campus-c147d8835146",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2027-01-23T18:00:00.000Z",
-        "after": "2027-01-20T00:30:00.000Z"
-      },
-      {
-        "itemId": "campus-a470c01bfb5c",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-25T06:00:00.000Z",
-        "after": "2026-11-26T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-f793183e07cf",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-02T06:00:00.000Z",
-        "after": "2026-11-26T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-cc1e593def28",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-02T06:00:00.000Z",
-        "after": "2026-12-01T14:30:00.000Z"
-      },
-      {
-        "itemId": "campus-6ac44983204d",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-09T14:00:00.000Z",
-        "after": "2026-12-10T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-709444a33798",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-16T06:00:00.000Z",
-        "after": "2026-12-15T15:00:00.000Z"
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-11-23",
     "vertical": "research",
-    "scanned": 1007,
-    "candidates": 119,
+    "scanned": 971,
+    "candidates": 108,
     "recommended": [
       "research-dc9edd6f7f1e",
       "research-dc7cdb6f7f01",
@@ -124,18 +46,18 @@
     ],
     "changes": [
       {
-        "itemId": "research-d11f9c88a8b3",
+        "itemId": "research-980a23a23852",
         "kind": "title",
         "field": "Title",
-        "before": "Structural Organization and Repeat Landscape of the Mitochondrial Genome of Polygonatum zanlanscianense, with a Comparison to Congeneric Species",
-        "after": "Structural Organization and Repeat Landscape of the Mitochondrial Genome of Polygonatum zanlanscianense, with a Comparison to Congeneric Species."
+        "before": "All Together Now: Joint Codon Alignment, Ohmic Networks, and Error-Controlled Selection Inference in HyPhy 3",
+        "after": "All Together Now: Joint Codon Alignment, Ohmic Networks, and Error-Controlled Selection Inference in HyPhy 3."
       },
       {
-        "itemId": "research-71e6250b0bb2",
-        "kind": "title",
-        "field": "Title",
-        "before": "Full-Length Transcript Evidence Validates and Refines Lineage-Specific Chemosensory and Detoxification Gene Models in the Pygmy Grasshopper Hyboella guangxiensis",
-        "after": "Full-Length Transcript Evidence Validates and Refines Lineage-Specific Chemosensory and Detoxification Gene Models in the Pygmy Grasshopper Hyboella guangxiensis."
+        "itemId": "research-b6f0f30aa41c",
+        "kind": "preprint-revised",
+        "field": "Preprint version",
+        "before": "v1",
+        "after": "v2"
       }
     ],
     "estimatedMinutes": 96
