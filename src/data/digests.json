@@ -2,46 +2,103 @@
   {
     "weekOf": "2026-11-23",
     "vertical": "campus",
-    "scanned": 2169,
-    "candidates": 200,
+    "scanned": 2166,
+    "candidates": 202,
     "recommended": [
       "campus-a3817246f5a1",
+      "campus-a36ce246f58f",
+      "campus-eb2cce8bf568",
       "campus-9bed7ca35028",
       "campus-9bed7da35028",
-      "campus-0784512fade3",
-      "campus-0787be2fade6",
-      "campus-2c6339732b3f"
+      "campus-9bed7ea35028"
     ],
     "headlines": [
       "computer science · data science · this week",
+      "research opportunity · biotech · workshop / training",
+      "biotech · company recruiting · workshop / training",
       "company recruiting · graduate opportunities · this week",
       "company recruiting · graduate opportunities · this week",
-      "company recruiting · graduate opportunities · in the next 3 weeks",
-      "company recruiting · graduate opportunities · in the next 3 weeks",
-      "biotech · this week · workshop / training"
+      "company recruiting · graduate opportunities · this week"
     ],
-    "changes": [],
+    "changes": [
+      {
+        "itemId": "campus-b314811cb984",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-26T06:00:00.000Z",
+        "after": "2026-11-27T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a470c01bfb5c",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-11-26T06:00:00.000Z",
+        "after": "2026-11-27T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-9461fd92e256",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-03T06:00:00.000Z",
+        "after": "2026-12-04T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-6ac44983204d",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-10T06:00:00.000Z",
+        "after": "2026-12-09T14:00:00.000Z"
+      },
+      {
+        "itemId": "campus-9461fe92e256",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-10T06:00:00.000Z",
+        "after": "2026-12-11T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-a33737b3fafd",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-10T06:00:00.000Z",
+        "after": "2026-12-11T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-94620392e256",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-17T06:00:00.000Z",
+        "after": "2026-12-18T06:00:00.000Z"
+      },
+      {
+        "itemId": "campus-fe5d112fa891",
+        "kind": "time",
+        "field": "Start time",
+        "before": "2026-12-17T15:00:00.000Z",
+        "after": "2026-12-18T06:00:00.000Z"
+      }
+    ],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-11-23",
     "vertical": "research",
-    "scanned": 971,
-    "candidates": 108,
+    "scanned": 1022,
+    "candidates": 123,
     "recommended": [
       "research-dc9edd6f7f1e",
       "research-dc7cdb6f7f01",
+      "research-adf6f474ba2d",
       "research-cbee9063bf55",
       "research-1bc63fabbfe7",
-      "research-f8fdc19ea9bc",
-      "research-152d118f5f15"
+      "research-fb754bd29ebf"
     ],
     "headlines": [
       "M. tuberculosis · comparative genomics · phylogenetics",
       "M. tuberculosis · comparative genomics · phylogenetics",
       "M. tuberculosis · phylogenetics · selection methods applied to Mtb",
+      "M. tuberculosis · phylogenetics · selection methods applied to Mtb",
       "positive selection · codon-model analysis · comparative genomics",
-      "positive selection · comparative genomics · pathogen evolution",
       "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
     ],
     "changes": [
@@ -49,18 +106,11 @@
         "itemId": "research-980a23a23852",
         "kind": "title",
         "field": "Title",
-        "before": "All Together Now: Joint Codon Alignment, Ohmic Networks, and Error-Controlled Selection Inference in HyPhy 3",
-        "after": "All Together Now: Joint Codon Alignment, Ohmic Networks, and Error-Controlled Selection Inference in HyPhy 3."
-      },
-      {
-        "itemId": "research-b6f0f30aa41c",
-        "kind": "preprint-revised",
-        "field": "Preprint version",
-        "before": "v1",
-        "after": "v2"
+        "before": "All Together Now: Joint Codon Alignment, Ohmic Networks, and Error-Controlled Selection Inference in HyPhy 3.",
+        "after": "All Together Now: Joint Codon Alignment, Ohmic Networks, and Error-Controlled Selection Inference in HyPhy 3"
       }
     ],
-    "estimatedMinutes": 96
+    "estimatedMinutes": 95
   },
   {
     "weekOf": "2026-11-16",
