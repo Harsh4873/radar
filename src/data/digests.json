@@ -2,8 +2,8 @@
   {
     "weekOf": "2026-11-23",
     "vertical": "campus",
-    "scanned": 2166,
-    "candidates": 202,
+    "scanned": 2165,
+    "candidates": 188,
     "recommended": [
       "campus-a3817246f5a1",
       "campus-a36ce246f58f",
@@ -20,97 +20,32 @@
       "company recruiting · graduate opportunities · this week",
       "company recruiting · graduate opportunities · this week"
     ],
-    "changes": [
-      {
-        "itemId": "campus-b314811cb984",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-26T06:00:00.000Z",
-        "after": "2026-11-27T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a470c01bfb5c",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-11-26T06:00:00.000Z",
-        "after": "2026-11-27T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-9461fd92e256",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-03T06:00:00.000Z",
-        "after": "2026-12-04T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-6ac44983204d",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-10T06:00:00.000Z",
-        "after": "2026-12-09T14:00:00.000Z"
-      },
-      {
-        "itemId": "campus-9461fe92e256",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-10T06:00:00.000Z",
-        "after": "2026-12-11T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-a33737b3fafd",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-10T06:00:00.000Z",
-        "after": "2026-12-11T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-94620392e256",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-17T06:00:00.000Z",
-        "after": "2026-12-18T06:00:00.000Z"
-      },
-      {
-        "itemId": "campus-fe5d112fa891",
-        "kind": "time",
-        "field": "Start time",
-        "before": "2026-12-17T15:00:00.000Z",
-        "after": "2026-12-18T06:00:00.000Z"
-      }
-    ],
+    "changes": [],
     "estimatedMinutes": 0
   },
   {
     "weekOf": "2026-11-23",
     "vertical": "research",
-    "scanned": 1022,
-    "candidates": 123,
+    "scanned": 994,
+    "candidates": 115,
     "recommended": [
+      "research-2ecb803b0594",
       "research-dc9edd6f7f1e",
       "research-dc7cdb6f7f01",
       "research-adf6f474ba2d",
-      "research-cbee9063bf55",
       "research-1bc63fabbfe7",
-      "research-fb754bd29ebf"
+      "research-ecb2dd1c7744"
     ],
     "headlines": [
       "M. tuberculosis · comparative genomics · phylogenetics",
       "M. tuberculosis · comparative genomics · phylogenetics",
-      "M. tuberculosis · phylogenetics · selection methods applied to Mtb",
+      "M. tuberculosis · comparative genomics · phylogenetics",
       "M. tuberculosis · phylogenetics · selection methods applied to Mtb",
       "positive selection · codon-model analysis · comparative genomics",
-      "M. tuberculosis · diabetes / host metabolic · TB + host metabolic angle"
+      "M. tuberculosis · comparative genomics · antimicrobial resistance"
     ],
-    "changes": [
-      {
-        "itemId": "research-980a23a23852",
-        "kind": "title",
-        "field": "Title",
-        "before": "All Together Now: Joint Codon Alignment, Ohmic Networks, and Error-Controlled Selection Inference in HyPhy 3.",
-        "after": "All Together Now: Joint Codon Alignment, Ohmic Networks, and Error-Controlled Selection Inference in HyPhy 3"
-      }
-    ],
-    "estimatedMinutes": 95
+    "changes": [],
+    "estimatedMinutes": 98
   },
   {
     "weekOf": "2026-11-16",
